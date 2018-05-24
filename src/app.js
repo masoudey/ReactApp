@@ -18,11 +18,13 @@ class App extends Component {
         return (
             <div>
                 <Router>
-                    <Header  title={this.state.title}/>
-                    <main>
+                   <div>
+                   <Header  title={this.state.title}/>
+                    <main style={{marginTop: '4rem'}}>
                         <Routes /> 
                     </main>
                     <Footer />
+                   </div>
                 </Router>
             </div>
         )

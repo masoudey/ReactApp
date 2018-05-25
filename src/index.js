@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDom from "react-dom";
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import 'mdbootstrap/css/mdb.min.css'
 import './index.css'

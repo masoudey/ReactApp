@@ -16,17 +16,17 @@ class App extends Component {
     render() {
         
         return (
-            <div>
-                <Router>
-                   <div>
-                   <Header  title={this.state.title}/>
-                    <main style={{marginTop: '4rem'}}>
-                        <Routes /> 
-                    </main>
-                    <Footer />
-                   </div>
-                </Router>
-            </div>
+            
+            <Router>
+                <div>
+                <Header  title={this.state.title}/>
+                <main style={{marginTop: '4rem'}}>
+                    <Routes /> 
+                </main>
+                <Footer />
+                </div>
+            </Router>
+            
         )
     }
 }

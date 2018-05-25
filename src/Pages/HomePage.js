@@ -8,6 +8,38 @@ class HomePage extends Component {
         return (
             <div>
                 this is home page
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+
+                
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+                <div>hi there</div>
+
             </div>
         )
     }

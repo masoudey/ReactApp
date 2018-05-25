@@ -5,9 +5,11 @@ class WorksPage extends Component {
     
     
     render() {
+        
         return (
             <div>
-                this is Works page
+                this is {this.props.match.path} page
+                
             </div>
         )
     }

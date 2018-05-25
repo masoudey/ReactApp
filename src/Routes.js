@@ -12,6 +12,7 @@ class Routes extends Component {
             <Switch>
                 <Route exact path='/' component={HomePage} />
                 <Route path='/works' component={WorksPage} />
+                <Route path='/about' component={WorksPage} />
                 <Route render= {() => <h1>Not Found!</h1>} />
             </Switch>
         )

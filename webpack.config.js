@@ -47,9 +47,7 @@ const clientConfig = {
     devServer: {
         port: 3000,
         contentBase: './public',
-        historyApiFallback: {
-            index: 'public/index.html'
-        },
+        historyApiFallback: true,
         inline: true
     }
 

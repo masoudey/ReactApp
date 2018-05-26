@@ -20,7 +20,7 @@ class App extends Component {
             <Router>
                 <div>
                 <Header  title={this.state.title}/>
-                <main style={{marginTop: '4rem'}}>
+                <main >
                     <Routes /> 
                 </main>
                 <Footer />

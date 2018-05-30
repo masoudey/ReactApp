@@ -2,6 +2,7 @@
 .slider-block{
     position: relative;
     height: 650px;
+   max-width: 1020px;
 }
 .swiper-container {
     margin:0 auto;
@@ -57,13 +58,7 @@
     float: left;
 }
 
-/* IE10 Windows Phone 8 Fixes */
-.swiper-wp8-horizontal {
-    -ms-touch-action: pan-y;
-}
-.swiper-wp8-vertical {
-    -ms-touch-action: pan-x;
-}
+
 
 .slider {
     position: fixed;
@@ -374,7 +369,8 @@
     100% {
         transform: scale(0.9);
     }
-}@-webkit-keyframes -webkit-flipp-pulse {
+}
+@-webkit-keyframes -webkit-flipp-pulse {
      0% {
          -webkit-transform: scale(0.9);
      }
@@ -387,7 +383,8 @@
      100% {
          -webkit-transform: scale(0.9);
      }
- }@-moz-keyframes -moz-flipp-pulse {
+ }
+ @-moz-keyframes -moz-flipp-pulse {
       0% {
           -moz-transform: scale(0.9);
       }
@@ -458,6 +455,7 @@
     display: block;
     position: absolute;
     border-radius: 50%;
+    transform: scale(1);
     -webkit-transform: scale(1);
     filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
     opacity: 0;

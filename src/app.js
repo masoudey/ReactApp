@@ -9,19 +9,22 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            title: 'react'
+            title: 'react',
+            user: {name: 'Masoud'}
         }
     }
 
+    changeUserState(user) {
+        this.setState({user})
+    }
+
     render() {
-        
         return (
-            
             <Router>
                 <div>
-                <Header  title={this.state.title}/>
-                <main >
-                    <Routes /> 
+                <Header changeUserState={this.changeUserState.bind(this)} user= {this.state.user}  title={this.state.title}/>
+                <main style={{marginTop: '6rem'}}>
+                    <Routes user= {this.state.user} /> 
                 </main>
                 <Footer />
                 </div>

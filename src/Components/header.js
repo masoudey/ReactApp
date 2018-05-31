@@ -82,7 +82,7 @@ class Header extends Component {
                                 <DropdownMenu>
                                     {!user && <Link to="/login">LogIn</Link>}
                                     {user && <Link to="/addpost">Add Post</Link>}
-                                    {user && <DropdownItem onClick={this.logout.bind(this)} href="#">Logout</DropdownItem>}
+                                    {user && <DropdownItem onClick={this.logout.bind(this)} href="">Logout</DropdownItem>}
                                 </DropdownMenu>
                                 </Dropdown>
                         </NavbarNav>

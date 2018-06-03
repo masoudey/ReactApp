@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, NavItem, Button, Dropdown, DropdownMenu, DropdownItem, DropdownToggle } from "mdbreact";
-import { BrowserRouter as Router, NavLink, Link } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink, Link, withRouter } from 'react-router-dom';
 
 
 class Header extends Component {
@@ -9,7 +9,6 @@ class Header extends Component {
         this.state = {
             collapsed: true,
             exposed: false,
-            activePage: '',
             dropdownOpen: false,
         }
 
@@ -31,14 +30,7 @@ class Header extends Component {
         const exposed = !this.state.exposed;
         this.setState({exposed: exposed})
     }
-    setActivePage(match, location)  {
-        if (!match) {
-            return false
-        }
-        // console.log(match,location,this);
-        this.state.activePage=  location.pathname;
-        
-    }
+    
     logout() {
         this.props.changeUserState(undefined);
     }
@@ -51,6 +43,7 @@ class Header extends Component {
         const user = this.props.user;
         
         return (
+            
             <header>
                 <Navbar color="" dark expand="md" fixed="top" scrolling>
                     <NavbarBrand href="/">
@@ -67,7 +60,7 @@ class Header extends Component {
                                 <NavLink activeClassName="active" class="nav-link" to="/works">Works</NavLink>
                                 <NavLink 
                                     activeClassName="active" 
-                                    isActive={this.setActivePage.bind(this)} 
+                                    // isActive={this.setActivePage.bind(this)} 
                                     class="nav-link" 
                                     to="/posts">
                                     Posts

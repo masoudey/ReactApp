@@ -3,6 +3,7 @@ import Swiper from "react-id-swiper";
 import '../swiper.css';
 import './home.css';
 
+
 class HomePage extends Component {
 
     

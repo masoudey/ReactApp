@@ -1,15 +1,40 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Loadable from "react-loadable";
+
 import PrivateRoute from "./Components/PrivateRoute";
 import PublicRoute from "./Components/PublicRoute"
 
-import HomePage from "./Pages/HomePage";
-import WorksPage from "./Pages/WorksPage";
+// import HomePage from "./Pages/HomePage";
+// import WorksPage from "./Pages/WorksPage";
 import PostsPage from "./Pages/PostsPage";
 import SingleWork from "./Pages/SingleWork";
-import Login from "./Pages/Login";
+// import Login from "./Pages/Login";
 import AddPost from "./Pages/AddPost";
 
+const Loading = () => <section id="loader-wrapper">
+<div id="loader"></div>
+<div class="loader-section section-left"></div>
+<div class="loader-section section-right"></div>
+</section>
+
+const Home = Loadable({
+    loader: () => import("./Pages/HomePage"),
+    loading: Loading,
+    delay: 90000,
+  });
+
+  const Works = Loadable({
+    loader: () => import("./Pages/WorksPage"),
+    loading: Loading,
+    delay: 90000,
+  });
+
+  const Login = Loadable({
+    loader: () => import("./Pages/Login"),
+    loading: Loading,
+    delay: 90000,
+  });
 
 class Routes extends Component {
     render() {
@@ -21,8 +46,8 @@ class Routes extends Component {
                     component={Login}
                     user={user}
                 />
-                <Route exact path='/' component={HomePage} />
-                <Route exact path='/works' component={WorksPage} />
+                <Route exact path='/' component={Home} />
+                <Route exact path='/works' component={Works} />
                 <Route exact path='/posts' component={PostsPage} />
                 <PrivateRoute 
                     path="/addpost"
@@ -30,7 +55,7 @@ class Routes extends Component {
                     user={user}
                 />
                 <Route path='/works/:workid' component={SingleWork} />
-                <Route path='/about' component={WorksPage} />
+                <Route path='/about' component={Works} />
                 <Route render= {() => <h1>Not Found!</h1>} />
             </Switch>
         )

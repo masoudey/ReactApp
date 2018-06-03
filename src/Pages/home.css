@@ -1,4 +1,6 @@
-
+.home {
+    background-color: rgb(33, 139, 172);
+}
 .slider-block{
     position: relative;
     height: 650px;

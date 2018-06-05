@@ -5,13 +5,19 @@ import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 import ActivePage from "./Components/ActivePage";
 import Routes from "./Routes";
 
+const PathName = withRouter(({location, match}) => {
+    
+    return (
+        location.pathname.substring(1)
+    )
+});
 
 class App extends Component {
     constructor(props){
         super(props);
         this.state = {
             title: 'react',
-            activePage: '',
+            activePage: PathName,
             user: {name: 'Masoud'}
         }
     }

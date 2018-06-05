@@ -15,7 +15,7 @@ class WorksPage extends Component {
                     
                 `}</style>
 
-                <div >
+                <div class="work-block">
                     this is {this.props.match.path} page
                 </div>
             </div>

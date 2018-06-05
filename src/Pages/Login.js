@@ -21,7 +21,7 @@ class Login extends Component {
 
                             </div>
                             <div class="inputrow">
-                                <i class="fa fa-key fa-fw"></i>
+                                <i class="fa icon-key fa-fw"></i>
                                 <input type="password" name="password" id="password" data-typetoggle="#show" 	placeholder="Password" required />
                             </div>
 
@@ -31,7 +31,7 @@ class Login extends Component {
 
                             </div>
                             <div class="button-center">
-                                <button class="btn-light" type="submit" id="submit" >Login</button>
+                                <button class="btn-log" type="submit" id="submit" >Login</button>
                             </div>
                         </fieldset>
                     </form>

@@ -5,7 +5,7 @@ class ActivePage extends Component {
     render() {
         const pathName = this.props.location.pathname;
         const activeClass = pathName.substring(1);
-        console.log(this.props.location);
+        // console.log(this.props.location);
         return (
             <div class={`app-wrapper ${activeClass}`}>
                 {this.props.children}

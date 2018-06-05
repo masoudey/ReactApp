@@ -164,7 +164,7 @@ input:focus {
     margin-top: 10px;
 
 }
-.btn-light {
+.btn-log {
     display: block;
     position: relative;
     z-index: 1;
@@ -182,12 +182,12 @@ input:focus {
     -o-transition: all 0.4s ease-out;
     transition: all 0.4s ease-out;
 }
-.btn-light:hover {
+.btn-log:hover {
     color: #3a4459;
     border-radius: 2px;
     background-color: transparent;
 }
-.btn-light:after {
+.btn-log:after {
     content: "";
     position: absolute;
     z-index: -1;
@@ -208,7 +208,7 @@ input:focus {
     -o-transition: all 0.4s ease-out;
     transition: all 0.4s ease-out;
 }
-.btn-light:hover:after{
+.btn-log:hover:after{
     height: 1000%;
 }
 /*button {*/

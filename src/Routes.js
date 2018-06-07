@@ -7,7 +7,7 @@ import PublicRoute from "./Components/PublicRoute"
 
 // import HomePage from "./Pages/HomePage";
 // import WorksPage from "./Pages/WorksPage";
-import PostsPage from "./Pages/PostsPage";
+import BlogPage from "./Pages/BlogPage";
 import SingleWork from "./Pages/SingleWork";
 // import Login from "./Pages/Login";
 import AddPost from "./Pages/AddPost";
@@ -48,7 +48,7 @@ class Routes extends Component {
                 />
                 <Route exact path='/' component={Home} />
                 <Route exact path='/works' component={Works} />
-                <Route exact path='/posts' component={PostsPage} />
+                <Route exact path='/blog' component={BlogPage} />
                 <PrivateRoute 
                     path="/addpost"
                     component={AddPost}

@@ -62,8 +62,8 @@ class Header extends Component {
                                     activeClassName="active" 
                                     // isActive={this.setActivePage.bind(this)} 
                                     class="nav-link" 
-                                    to="/posts">
-                                    Posts
+                                    to="/blog">
+                                    Blog
                                 </NavLink>
                                 
                                 <NavLink activeClassName="active" class="nav-link" to="/about">About</NavLink>

@@ -9,9 +9,15 @@ app.use(express.static('./public'))
 	.use('/api', api)
     .get('*', function (req, res){
     	if (!req.user) {
-    		res.redirect('/login');
+			
+			console.log("user doesnt exist");
+			
+			res.redirect('/login');
     	} else {
-        	res.sendfile('public/main.html');
+			console.log("user exist server");
+			// res.send({sess: req.user});
+			
+			res.sendfile('./public/index.html');
     	}
     })
     .listen(3000);

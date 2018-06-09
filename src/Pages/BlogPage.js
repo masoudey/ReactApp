@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import "./posts.css"
-class PostsPage extends Component {
+import "./blog.css"
+class BlogPage extends Component {
 
     
     
@@ -26,4 +26,4 @@ class PostsPage extends Component {
     }
 }
 
-export default PostsPage;
+export default BlogPage;

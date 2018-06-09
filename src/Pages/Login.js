@@ -2,9 +2,38 @@ import React, { Component } from "react";
 import "./login.css";
 
 class Login extends Component {
+    constructor(props) {
+        super(props);
 
+        // reset login status
+        this.props.dispatch(userActions.logout());
+
+        this.state = {
+            username: '',
+            password: '',
+            submitted: false
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
     
+    handleChange(e) {
+        const { name, value } = e.target;
+        this.setState({ [name]: value });
+    }
     
+    handleSubmit(e) {
+        e.preventDefault();
+
+        this.setState({ submitted: true });
+        const { username, password } = this.state;
+        const { dispatch } = this.props;
+        if (username && password) {
+            dispatch(userActions.login(username, password));
+        }
+    }
+
     render() {
         
         return (
@@ -12,7 +41,7 @@ class Login extends Component {
                 <div class="login-wrapper">
                     <div class="logo ir"></div>
                     <span class="title">Login</span>
-                    <form method="POST" action="/login">
+                    <form name="form" onSubmit={this.handleSubmit}>
                         <fieldset>
                         
                             <div class="inputrow">

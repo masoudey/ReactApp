@@ -4,6 +4,7 @@ import Footer from "./Components/footer";
 import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 import ActivePage from "./Components/ActivePage";
 import Routes from "./Routes";
+import axios from "axios";
 
 const PathName = withRouter(({location, match}) => {
     
@@ -18,8 +19,15 @@ class App extends Component {
         this.state = {
             title: 'react',
             activePage: PathName,
-            user: {name: 'Masoud'}
+            user: null
         }
+    }
+
+    componentDidMount() {
+        axios.get("/auth")
+            .then((response) => {
+                console.log(response);
+            })
     }
 
     handleUserChange(user) {

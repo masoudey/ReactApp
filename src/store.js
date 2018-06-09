@@ -6,6 +6,6 @@ import reducers from "./reducers";
 
 const middleware = applyMiddleware(thunk, logger);
 
-const store = createStore(reducer,middleware);
+const store = createStore(reducers,middleware);
 
 export default store;

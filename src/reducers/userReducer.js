@@ -1,6 +1,8 @@
+import { userConstants } from "../actions/constances"
+
 const initialState = {
-    fetching: false,
-    fetched: false,
+    loggingIn: false,
+    loggedIn: false,
     user: {
         id: null,
         username: null,
@@ -12,19 +14,19 @@ const initialState = {
 
 export default reducer = (state=initialState, action) => {
     switch(action.type) {
-        case "FETCH_USER_START": {
-            state = {...state, fetching:true};
+        case userConstants.LOGIN_REQUEST: {
+            state = {...state, loggingIn:true};
             break;
         }
-        case "FETCH_USER_ERROR": {
-            state = {...state, fetching:false, error: action.payload};
+        case userConstants.LOGIN_FAILURE: {
+            state = {...state, loggingIn:false, error: action.payload};
             break;
         }
-        case "FETCH_USER_SUCCESS": {
+        case userConstants.LOGIN_SUCCESS: {
             state = {
                 ...state, 
-                fetching:false, 
-                fetched: true, 
+                loggingIn:false, 
+                loggedIn: true, 
                 user: action.payload
             };
             break;

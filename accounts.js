@@ -50,7 +50,8 @@ var authenticate = expressJwt({
 	  }
 	  return null;
 	}
-  });
+	});
+	
   var getOne = function (req, res) {
 	var user = req.user.toObject();
   

@@ -1,44 +1,70 @@
+import { userConstants } from "./constances";
+import { authHeader } from "./authHeader";
 import axios from "axios";
 
-export const FETCH_USER_SUCCESS = "FETCH_USER_SUCCESS";
-export const ADD_USER = "ADD_USER";
-export const SET_USER_OPTIONS = "SET_USER_OPTIONS";
-export const FETCH_USER_ERROR = "FETCH_USER_ERROR";
 
-export const fetchUser = (user) => {
+export const loginRequest = (user) => {
     return {
-        type: FETCH_USER_SUCCESS,
+        type: userConstants.LOGIN_REQUEST,
         payload: user,
     }
 }
 
-export const addUser = (user) => {
+export const loginSuccess = (user) => {
     return {
-        type : ADD_USER,
+        type: userConstants.LOGIN_SUCCESS,
+        payload: user,
+    }
+}
+export const loginFailure = (err) => {
+    return {
+        type: userConstants.LOGIN_FAILURE,
+        payload: err,
+    }
+}
+
+export const registerRequest = (user) => {
+    return {
+        type : userConstants.REGISTER_REQUEST,
+        payload: user,
+    }
+}
+export const registerFailure = (err) => {
+    return {
+        type : userConstants.REGISTER_FAILURE,
+        payload: err,
+    }
+}
+export const registerSuccess = (user) => {
+    return {
+        type : userConstants.REGISTER_SUCCESS,
         payload: user,
     }
 }
 
 export const setUserOptions = (options) => {
     return {
-        type: SET_USER_OPTIONS,
+        type: userConstants.SET_USER_OPTIONS,
         payload: options,
     }    
 }
 
-export const fetchUserError = (err) => {
-    return {
-        type: FETCH_USER_ERROR,
-        payload: err,
-    }
-}
 
-export const postLoginUser = (user) => (dispatch) => {
+
+export const login = (username, password) => (dispatch) => {
+    const reqOptions = {
+        headers: authHeader,
+        auth: {
+            username,
+            password,
+        }
+    }
+    dispatch(loginRequest(user))
     axios.post("/login",user)
         .then((Response) => {
-            dispatch(fetchUser(Response.data))
+            dispatch(loginSuccess(Response.data))
         })
         .catch((err) => {
-            dispatch(fetchUserError(err))
+            dispatch(loginFailure(err))
         })
 }

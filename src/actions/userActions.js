@@ -53,18 +53,26 @@ export const setUserOptions = (options) => {
 
 export const login = (username, password) => (dispatch) => {
     const reqOptions = {
-        headers: authHeader,
-        auth: {
+        headers: { 'Content-Type': 'application/json' },
+        data: {
             username,
             password,
         }
     }
-    dispatch(loginRequest(user))
-    axios.post("/login",user)
-        .then((Response) => {
-            dispatch(loginSuccess(Response.data))
+    dispatch(loginRequest({username}))
+    axios.post("/login",reqOptions)
+        .then((response) => {
+            localStorage.setItem('headers', response.headers)
+            localStorage.setItem('user', response.data)
+            dispatch(loginSuccess(response.data))
         })
         .catch((err) => {
             dispatch(loginFailure(err))
         })
+}
+
+export const logout = () =>  {
+    localStorage.removeItem('user')
+    localStorage.removeItem('headers')
+    return {type: userConstants.LOGOUT}
 }

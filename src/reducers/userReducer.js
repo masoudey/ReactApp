@@ -31,6 +31,10 @@ export default reducer = (state=initialState, action) => {
             };
             break;
         }
+        case userConstants.LOGOUT: {
+            state = {}
+            break;
+        }
         case "ADD_USER": {
             state = {...state, user:  action.payload};
             break;

@@ -5,6 +5,6 @@ export const authHeader = () => {
      if (headers['x-auth-token']) {
          return JSON.stringify(headers)
      } else {
-         return { 'Content-Type': 'application/json' };
+         return {};
      }
 }

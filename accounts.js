@@ -38,7 +38,7 @@ var corsOption = {
   var sendToken = function (req, res, next) {
 	console.log("sendtoken");
 	res.setHeader('x-auth-token', req.token);
-	return res.status(200).sendfile(JSON.stringify(req.user));
+	return res.status(200).send(JSON.stringify(req.user));
   };
 //token handling middleware
 var authenticate = expressJwt({
@@ -64,10 +64,12 @@ router
 	.use(cors(corsOption))
 	.use(session({secret: 'asfdgdgy657gkutyutkyu6v6iesldkvfjso8ers'}))
 	.post('/login', function(req, res, next) {
+		console.log(req.body.password);
 		var user = {
 			username: req.body.username,
 			password: hash(req.body.password)
 		};
+		
 		db.findOne(user, function(err, data) {
 			if(data){
 				// req.session.userId = data.id;
@@ -105,20 +107,20 @@ router
 		req.user = null;
 		res.redirect('/');
 	})
-	.get('/login', function(req, res) {
-		if (!req.user) {
+	// .get('/login', function(req, res) {
+	// 	if (!req.user) {
 			
-			console.log("user doesnt exist(login)");
-			res.sendfile('./public/index.html');
+	// 		console.log("user doesnt exist(login)");
+	// 		res.sendfile('./public/index.html');
 			
-    	} else {
-			console.log("user exist login");
-			// res.send({sess: req.user});
+  //   	} else {
+	// 		console.log("user exist login");
+	// 		// res.send({sess: req.user});
 			
-			res.redirect('/');
-    	}
-	})
-	.get('/auth',authenticate , function(req, res, next) {
+	// 		res.redirect('/');
+  //   	}
+	// })
+	.get('/authen',authenticate , function(req, res, next) {
 		db.findOne({id: req.auth.id}, function(err, data) {
 			if(!err) {
 				req.user = data;

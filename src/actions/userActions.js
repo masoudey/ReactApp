@@ -1,48 +1,49 @@
 import { userConstants } from "./constances";
 import { authHeader } from "./authHeader";
+import { createBrowserHistory } from "history";
 import axios from "axios";
 
 
-export const loginRequest = (user) => {
+const loginRequest = (user) => {
     return {
         type: userConstants.LOGIN_REQUEST,
         payload: user,
     }
 }
 
-export const loginSuccess = (user) => {
+const loginSuccess = (user) => {
     return {
         type: userConstants.LOGIN_SUCCESS,
         payload: user,
     }
 }
-export const loginFailure = (err) => {
+const loginFailure = (err) => {
     return {
         type: userConstants.LOGIN_FAILURE,
         payload: err,
     }
 }
 
-export const registerRequest = (user) => {
+const registerRequest = (user) => {
     return {
         type : userConstants.REGISTER_REQUEST,
         payload: user,
     }
 }
-export const registerFailure = (err) => {
+const registerFailure = (err) => {
     return {
         type : userConstants.REGISTER_FAILURE,
         payload: err,
     }
 }
-export const registerSuccess = (user) => {
+const registerSuccess = (user) => {
     return {
         type : userConstants.REGISTER_SUCCESS,
         payload: user,
     }
 }
 
-export const setUserOptions = (options) => {
+const setUserOptions = (options) => {
     return {
         type: userConstants.SET_USER_OPTIONS,
         payload: options,
@@ -55,16 +56,19 @@ export const login = (username, password) => (dispatch) => {
     const reqOptions = {
         headers: { 'Content-Type': 'application/json' },
         data: {
-            username,
-            password,
+            username: username,
+            password: password,
         }
     }
+    
     dispatch(loginRequest({username}))
-    axios.post("/login",reqOptions)
+    axios.post("/login",{username, password})
         .then((response) => {
+            console.log(response);
             localStorage.setItem('headers', response.headers)
             localStorage.setItem('user', response.data)
             dispatch(loginSuccess(response.data))
+            createBrowserHistory('/')
         })
         .catch((err) => {
             dispatch(loginFailure(err))

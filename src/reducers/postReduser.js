@@ -5,7 +5,7 @@ const initialState = {
     error: null,
 }
 
-export default reducer = (state=initialState, action) => {
+export const posts = (state=initialState, action) => {
     switch(action.type) {
         case "FETCH_POSTS_START": {
             state = {...state, fetching:true};

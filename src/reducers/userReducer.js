@@ -3,16 +3,11 @@ import { userConstants } from "../actions/constances"
 const initialState = {
     loggingIn: false,
     loggedIn: false,
-    user: {
-        id: null,
-        username: null,
-        password: null,
-        options: {},
-    },
+    user: {},
     error: null,
 }
 
-export default reducer = (state=initialState, action) => {
+export const user = (state=initialState, action) => {
     switch(action.type) {
         case userConstants.LOGIN_REQUEST: {
             state = {...state, loggingIn:true};
@@ -32,7 +27,7 @@ export default reducer = (state=initialState, action) => {
             break;
         }
         case userConstants.LOGOUT: {
-            state = {}
+            state = initialState
             break;
         }
         case "ADD_USER": {

@@ -19,15 +19,17 @@ class App extends Component {
         this.state = {
             title: 'react',
             activePage: PathName,
-            user: null
+            user: null,
         }
     }
 
     componentDidMount() {
-        axios.get("/auth")
-            .then((response) => {
-                console.log(response);
-            })
+        const headers = localStorage.getItem('headers');
+        console.log(headers);
+        if (headers && headers['x-auth-token']) {
+            const user = localStorage.getItem('user');
+            this.setState({user})
+        }
     }
 
     handleUserChange(user) {

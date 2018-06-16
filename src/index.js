@@ -13,6 +13,10 @@ import registerServiceWorker from './registerServiceWorker';
 
 const root = document.getElementById('root');
 
-ReactDom.render(<App />,root);
+ReactDom.render(
+    <Provider store={store}>
+        <App />
+    </Provider>
+    ,root);
 
 registerServiceWorker();

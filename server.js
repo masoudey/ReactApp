@@ -12,7 +12,7 @@ app.use(express.static('./public'))
 			
 			console.log("user doesnt exist");
 			
-			res.redirect('/login');
+			res.sendfile('./public/index.html');
     	} else {
 			console.log("user exist server");
 			// res.send({sess: req.user});

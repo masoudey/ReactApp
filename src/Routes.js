@@ -39,6 +39,7 @@ const Home = Loadable({
 class Routes extends Component {
     render() {
         const user = this.props.user;
+        console.log('routes');
         return (
             <Switch>
                 <PublicRoute 

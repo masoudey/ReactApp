@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { login, logout } from "../actions/userActions";
 import "./login.css";
 
 class Login extends Component {
@@ -6,7 +8,7 @@ class Login extends Component {
         super(props);
 
         // reset login status
-        this.props.dispatch(userActions.logout());
+        // this.props.dispatch(logout());
 
         this.state = {
             username: '',
@@ -30,12 +32,13 @@ class Login extends Component {
         const { username, password } = this.state;
         const { dispatch } = this.props;
         if (username && password) {
-            dispatch(userActions.login(username, password));
+            dispatch(login(username, password));
         }
     }
 
     render() {
-        
+        const { loggingIn } = this.props;
+        const { username, password, submitted } = this.state;
         return (
             <div >        
                 <div class="login-wrapper">
@@ -43,15 +46,14 @@ class Login extends Component {
                     <span class="title">Login</span>
                     <form name="form" onSubmit={this.handleSubmit}>
                         <fieldset>
-                        
                             <div class="inputrow">
                                 <i class="fa icon-user fa-fw"></i>
-                                <input type="text" name="username" id="user" placeholder="Username"  autoFocus required />
+                                <input type="text" name="username" id="user" placeholder="Username" onChange={this.handleChange} value={username}  autoFocus required />
 
                             </div>
                             <div class="inputrow">
                                 <i class="fa icon-key fa-fw"></i>
-                                <input type="password" name="password" id="password" data-typetoggle="#show" 	placeholder="Password" required />
+                                <input type="password" name="password" id="password" data-typetoggle="#show" onChange={this.handleChange} value={password}	placeholder="Password" required />
                             </div>
 
                             <div class="remember">
@@ -61,6 +63,9 @@ class Login extends Component {
                             </div>
                             <div class="button-center">
                                 <button class="btn-log" type="submit" id="submit" >Login</button>
+                                {loggingIn &&
+                                    <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+                                }
                             </div>
                         </fieldset>
                     </form>
@@ -69,5 +74,13 @@ class Login extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    const { user, loggingIn } = state.user
+    return{
+        user,
+        loggingIn,
+    }
+}
 
-export default Login;
+const connectedLoginPage = connect(mapStateToProps)(Login);
+export default connectedLoginPage;

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter, Redirect } from "react-router-dom";
 import { login, logout } from "../actions/userActions";
 import "./login.css";
 
@@ -33,12 +34,14 @@ class Login extends Component {
         const { dispatch } = this.props;
         if (username && password) {
             dispatch(login(username, password));
+            
         }
     }
 
     render() {
         const { loggingIn } = this.props;
         const { username, password, submitted } = this.state;
+        
         return (
             <div >        
                 <div class="login-wrapper">
@@ -82,5 +85,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-const connectedLoginPage = connect(mapStateToProps)(Login);
+const connectedLoginPage = withRouter(connect(mapStateToProps)(Login));
 export default connectedLoginPage;

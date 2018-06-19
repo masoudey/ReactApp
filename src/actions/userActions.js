@@ -3,7 +3,7 @@ import { authHeader } from "./authHeader";
 import { createBrowserHistory } from "history";
 import axios from "axios";
 
-
+const history = createBrowserHistory();
 const loginRequest = (user) => {
     return {
         type: userConstants.LOGIN_REQUEST,
@@ -68,7 +68,7 @@ export const login = (username, password) => (dispatch) => {
             localStorage.setItem('headers', JSON.stringify(response.headers))
             localStorage.setItem('user', JSON.stringify(response.data))
             dispatch(loginSuccess(response.data))
-            createBrowserHistory('/')
+            history.push('/');
         })
         .catch((err) => {
             dispatch(loginFailure(err))

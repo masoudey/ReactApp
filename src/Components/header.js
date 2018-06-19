@@ -34,8 +34,9 @@ class Header extends Component {
     }
     
     logout() {
-        this.props.changeUserState(null);
+        // this.props.changeUserState(null);
         const { dispatch } = this.props;
+        console.log(this.props);
         dispatch(logout());
     }
     
@@ -45,7 +46,7 @@ class Header extends Component {
         const toggleBtnClass = collapsed ? '' : 'collapsed';
         const navBtnClass = exposed || !collapsed ? 'nav-exposed' : '';
         const user = this.props.user;
-        
+        console.log(user);
         return (
             
             <header>

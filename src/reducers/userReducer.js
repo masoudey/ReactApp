@@ -3,7 +3,7 @@ import { userConstants } from "../actions/constances"
 const initialState = {
     loggingIn: false,
     loggedIn: false,
-    user: {},
+    user: null,
     error: null,
 }
 

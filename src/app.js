@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import { createBrowserHistory } from "history";
 import { Header } from "./Components/header";
 import Footer from "./Components/footer";
 import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 import ActivePage from "./Components/ActivePage";
-import Routes from "./Routes";
+import { Routes } from "./Routes";
 import axios from "axios";
 
 const PathName = withRouter(({location, match}) => {
@@ -13,6 +14,8 @@ const PathName = withRouter(({location, match}) => {
     )
 });
 
+const history = createBrowserHistory();
+
 class App extends Component {
     constructor(props){
         super(props);
@@ -21,6 +24,7 @@ class App extends Component {
             activePage: PathName,
             user: null,
         }
+        
     }
 
     componentDidMount() {
@@ -28,11 +32,14 @@ class App extends Component {
         if (headers && headers['x-auth-token']) {
             const user = JSON.parse(localStorage.getItem('user'));
             this.setState({user})
+            console.log("did mount user", user);
         }
+        console.log("did mount")
     }
 
     handleUserChange(user) {
-        this.setState({user})
+        this.setState({user: user})
+        console.log(this.state.user)
     }
 
     handlePageChange(page) {
@@ -42,7 +49,7 @@ class App extends Component {
     render() {
         
         return (
-            <Router>
+            <Router >
                 <ActivePage>
                 <Header 
                     changeUserState={this.handleUserChange.bind(this)} 
@@ -51,7 +58,7 @@ class App extends Component {
                     title={this.state.title}/>
                 <main >
                     <Routes 
-                        user= {this.state.user} 
+                        // user= {this.state.user} 
                         changeUserState={this.handleUserChange.bind(this)} /> 
                 </main>
                 <Footer />

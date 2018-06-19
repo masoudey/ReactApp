@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, withRouter } from "react-router-dom";
 import Loadable from "react-loadable";
+import { connect } from "react-redux";
+import { logout } from "./actions/userActions";
 
 import PrivateRoute from "./Components/PrivateRoute";
 import PublicRoute from "./Components/PublicRoute"
@@ -43,15 +45,13 @@ class Routes extends Component {
     }
     render() {
         const headers = JSON.parse(localStorage.getItem('headers'));
-        if (headers) {console.log(headers['x-auth-token'])}
+        // if (headers) {console.log(headers['x-auth-token'])}
+        
+        // if (!headers && !headers['x-auth-token']) {
+        //     this.props.dispatch(logout())
+        // }
         const user = this.props.user;
-        if (headers && headers['x-auth-token'] && !user) {
-            const user = JSON.parse(localStorage.getItem('user'));
-            console.log(user);
-            this.handleAppState(user);
-        }
-        // const user = this.props.user;
-        console.log('routes');
+        console.log(user);
         return (
             <Switch>
                 <PublicRoute 
@@ -75,4 +75,12 @@ class Routes extends Component {
     }
 }
 
-export default Routes;
+const mapStateToProps = (state) => {
+    const { user } = state.user
+    return{
+        user,
+    }
+}
+
+const connectedLoginPage = withRouter(connect(mapStateToProps)(Routes));
+export { connectedLoginPage as Routes };

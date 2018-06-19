@@ -24,10 +24,9 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const headers = localStorage.getItem('headers');
-        console.log(headers);
+        const headers = JSON.parse(localStorage.getItem('headers'));
         if (headers && headers['x-auth-token']) {
-            const user = localStorage.getItem('user');
+            const user = JSON.parse(localStorage.getItem('user'));
             this.setState({user})
         }
     }
@@ -51,7 +50,9 @@ class App extends Component {
                     user= {this.state.user}  
                     title={this.state.title}/>
                 <main >
-                    <Routes user= {this.state.user} /> 
+                    <Routes 
+                        user= {this.state.user} 
+                        changeUserState={this.handleUserChange.bind(this)} /> 
                 </main>
                 <Footer />
                 </ActivePage>

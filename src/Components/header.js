@@ -70,7 +70,7 @@ class Header extends Component {
                                 <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                                 <DropdownToggle nav={true}  color="primary">
                                     <span class="icon-user"></span> 
-                                    {user && ` ${user.name}`}
+                                    {user && ` ${user.username}`}
                                 </DropdownToggle>
                                 <DropdownMenu>
                                     {!user && <Link to="/login">LogIn</Link>}

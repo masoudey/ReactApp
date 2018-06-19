@@ -65,8 +65,8 @@ export const login = (username, password) => (dispatch) => {
     axios.post("/login",{username, password})
         .then((response) => {
             console.log(response);
-            localStorage.setItem('headers', response.headers)
-            localStorage.setItem('user', response.data)
+            localStorage.setItem('headers', JSON.stringify(response.headers))
+            localStorage.setItem('user', JSON.stringify(response.data))
             dispatch(loginSuccess(response.data))
             createBrowserHistory('/')
         })

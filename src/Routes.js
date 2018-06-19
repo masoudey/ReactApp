@@ -37,8 +37,20 @@ const Home = Loadable({
   });
 
 class Routes extends Component {
+
+    handleAppState (user) {
+        this.props.changeUserState(user)
+    }
     render() {
+        const headers = JSON.parse(localStorage.getItem('headers'));
+        if (headers) {console.log(headers['x-auth-token'])}
         const user = this.props.user;
+        if (headers && headers['x-auth-token'] && !user) {
+            const user = JSON.parse(localStorage.getItem('user'));
+            console.log(user);
+            this.handleAppState(user);
+        }
+        // const user = this.props.user;
         console.log('routes');
         return (
             <Switch>

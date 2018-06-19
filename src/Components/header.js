@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, NavItem, Button, Dropdown, DropdownMenu, DropdownItem, DropdownToggle } from "mdbreact";
-import { BrowserRouter as Router, NavLink, Link, withRouter } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import { logout } from "../actions/userActions";
+import { connect } from "react-redux";
 
 
 class Header extends Component {
@@ -32,7 +34,9 @@ class Header extends Component {
     }
     
     logout() {
-        this.props.changeUserState(undefined);
+        this.props.changeUserState(null);
+        const { dispatch } = this.props;
+        dispatch(logout());
     }
     
     render() {
@@ -94,4 +98,12 @@ class Header extends Component {
     }
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+    const { user } = state.user
+    return{
+        user,
+    }
+}
+
+const connectedLoginPage = connect(mapStateToProps)(Header);
+export { connectedLoginPage as Header };

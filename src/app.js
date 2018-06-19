@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Header from "./Components/header";
+import { Header } from "./Components/header";
 import Footer from "./Components/footer";
 import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
 import ActivePage from "./Components/ActivePage";

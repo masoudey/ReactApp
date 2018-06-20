@@ -54,7 +54,7 @@ class App extends Component {
                 <Header 
                     changeUserState={this.handleUserChange.bind(this)} 
                     // getActivePage={this.handlePageChange.bind(this)} 
-                    user= {this.state.user}  
+                    // user= {this.state.user}  
                     title={this.state.title}/>
                 <main >
                     <Routes 

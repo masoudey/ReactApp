@@ -43,13 +43,15 @@ class Routes extends Component {
     
     render() {
         const headers = JSON.parse(localStorage.getItem('headers'));
-        if (headers) {console.log(headers['x-auth-token'])}
+        if (headers) {
+            console.log(headers['x-auth-token'])
+        }
         
         // if (!headers && !headers['x-auth-token']) {
         //     this.props.dispatch(logout())
         // }
         const user = this.props.user;
-        console.log(user);
+        // console.log(user);
         return (
             <Switch>
                 <PublicRoute 

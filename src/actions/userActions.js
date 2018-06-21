@@ -11,7 +11,7 @@ const loginRequest = (user) => {
     }
 }
 
-const loginSuccess = (user) => {
+export const loginSuccess = (user) => {
     return {
         type: userConstants.LOGIN_SUCCESS,
         payload: user,

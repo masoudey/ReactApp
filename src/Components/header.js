@@ -46,7 +46,7 @@ class Header extends Component {
         const toggleBtnClass = collapsed ? '' : 'collapsed';
         const navBtnClass = exposed || !collapsed ? 'nav-exposed' : '';
         const user = this.props.user;
-        console.log(user);
+        
         return (
             
             <header>

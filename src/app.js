@@ -1,10 +1,12 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { createBrowserHistory } from "history";
 import { Header } from "./Components/header";
 import Footer from "./Components/footer";
-import { BrowserRouter as Router, Route, withRouter } from "react-router-dom";
+import {  Router, Route, withRouter } from "react-router-dom";
 import ActivePage from "./Components/ActivePage";
 import { Routes } from "./Routes";
+import { loginSuccess } from "./actions/userActions";
 import axios from "axios";
 
 const PathName = withRouter(({location, match}) => {
@@ -29,10 +31,10 @@ class App extends Component {
 
     componentDidMount() {
         const headers = JSON.parse(localStorage.getItem('headers'));
+        const { dispatch } = this.props;
         if (headers && headers['x-auth-token']) {
             const user = JSON.parse(localStorage.getItem('user'));
-            this.setState({user})
-            console.log("did mount user", user);
+            dispatch(loginSuccess(user));
         }
         console.log("did mount")
     }
@@ -68,5 +70,12 @@ class App extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    const { user } = state.user;
+    return {
+        user,
+    }
+}
+const connectedApp =  connect(mapStateToProps)(App);
 
-export default App;
+export { connectedApp as App };

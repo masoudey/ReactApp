@@ -40,12 +40,10 @@ const Home = Loadable({
 
 class Routes extends Component {
 
-    handleAppState (user) {
-        this.props.changeUserState(user)
-    }
+    
     render() {
         const headers = JSON.parse(localStorage.getItem('headers'));
-        // if (headers) {console.log(headers['x-auth-token'])}
+        if (headers) {console.log(headers['x-auth-token'])}
         
         // if (!headers && !headers['x-auth-token']) {
         //     this.props.dispatch(logout())

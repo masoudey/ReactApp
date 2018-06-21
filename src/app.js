@@ -49,7 +49,7 @@ class App extends Component {
     render() {
         
         return (
-            <Router >
+            <Router history={history}>
                 <ActivePage>
                 <Header 
                     changeUserState={this.handleUserChange.bind(this)} 

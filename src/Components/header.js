@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, NavItem, Button, Dropdown, DropdownMenu, DropdownItem, DropdownToggle } from "mdbreact";
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, withRouter } from 'react-router-dom';
 import { logout } from "../actions/userActions";
 import { connect } from "react-redux";
 
@@ -106,5 +106,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-const connectedLoginPage = connect(mapStateToProps)(Header);
+const connectedLoginPage = withRouter(connect(mapStateToProps)(Header));
 export { connectedLoginPage as Header };

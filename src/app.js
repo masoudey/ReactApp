@@ -6,7 +6,8 @@ import Footer from "./Components/footer";
 import {  Router, Route, withRouter } from "react-router-dom";
 import ActivePage from "./Components/ActivePage";
 import { Routes } from "./Routes";
-import { loginSuccess } from "./actions/userActions";
+import { loginSuccess, logout } from "./actions/userActions";
+import jwt from "jsonwebtoken";
 import axios from "axios";
 
 const PathName = withRouter(({location, match}) => {
@@ -33,8 +34,21 @@ class App extends Component {
         const headers = JSON.parse(localStorage.getItem('headers'));
         const { dispatch } = this.props;
         if (headers && headers['x-auth-token']) {
-            const user = JSON.parse(localStorage.getItem('user'));
-            dispatch(loginSuccess(user));
+            const token = headers['x-auth-token'];
+            console.log("headers exist", token);
+            jwt.verify(token, 'my-secret', function(err, decoded) {
+                if (decoded) {
+                    const user = JSON.parse(localStorage.getItem('user'));
+                    dispatch(loginSuccess(user));
+                }else {
+                    console.log("not decoded", err)
+                    if (err.name === "TokenExpiredError") {
+                        dispatch(logout());
+                        console.log("TokenExpiredError");
+                    }
+                }
+              });
+            
         }
         console.log("did mount")
     }

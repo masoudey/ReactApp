@@ -40,6 +40,7 @@ class App extends Component {
                 if (decoded) {
                     const user = JSON.parse(localStorage.getItem('user'));
                     dispatch(loginSuccess(user));
+                    console.log(decoded);
                 }else {
                     console.log("not decoded", err)
                     if (err.name === "TokenExpiredError") {

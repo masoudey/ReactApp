@@ -25,7 +25,7 @@ var corsOption = {
 	  id: auth.id
 	}, 'my-secret',
 	{
-	  expiresIn: 10 * 10
+	  expiresIn: 2 * 60
 	});
   };
   

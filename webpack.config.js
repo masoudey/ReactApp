@@ -43,7 +43,7 @@ const clientConfig = {
               }
         ]
     },
-    devtool: 'inline-source-map',
+    devtool: 'eval-source-map',
     devServer: {
         port: 3000,
         contentBase: './public',

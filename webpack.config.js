@@ -9,6 +9,9 @@ const clientConfig = {
         path: path.resolve(__dirname,'public'),
         filename: 'bundle.js'
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()
+    ],
     module: {
         rules: [
             {

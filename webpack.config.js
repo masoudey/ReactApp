@@ -7,7 +7,7 @@ const clientConfig = {
 
     output: {
         path: path.resolve(__dirname,'public'),
-        filename: 'bundle.min.js'
+        filename: 'bundle.js'
     },
     module: {
         rules: [
@@ -43,7 +43,7 @@ const clientConfig = {
               }
         ]
     },
-    devtool: 'eval-source-map',
+    devtool: 'source-map',
     devServer: {
         port: 3000,
         contentBase: './public',

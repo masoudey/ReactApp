@@ -51,7 +51,7 @@ class App extends Component {
               });
             
         }
-        console.log("did mount")
+        console.log("did mount d")
     }
 
     handleUserChange(user) {

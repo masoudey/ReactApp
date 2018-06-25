@@ -1,7 +1,11 @@
-var express = require('express'),
-	api		= require('./api'),
-	users 	= require('./accounts'),
-    app 	= express();
+var express 			 = require('express'),
+	webpack 			 = require('webpack'),
+	webpackDevMiddleware = require('webpack-dev-middleware'),
+	webpackHotMiddleware = require('webpack-hot-middleware'),
+	config  			 = require('./webpack.config'),
+	api					 = require('./api'),
+	users 				 = require('./accounts'),
+    app 				 = express();
 
 
 app.use(express.static('./public'))

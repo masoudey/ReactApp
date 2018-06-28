@@ -1,19 +1,13 @@
-import express from 'express'
-import webpack from'webpack'
-import webpackDevMiddleware from 'webpack-dev-middleware'
-import webpackHotMiddleware from 'webpack-hot-middleware'
-import webpackConfig from './webpack.config'
-import api from './api'
-import users from './accounts'
+var express 			 = require('express'),
+	webpack 			 = require('webpack'),
+	webpackDevMiddleware = require('webpack-dev-middleware'),
+	webpackHotMiddleware = require('webpack-hot-middleware'),
+	webpackConfig		 = require('./webpack.config'),
+	api					 = require('./api'),
+	users 				 = require('./accounts'),
 
-import React from "react"
-import { renderToString } from "react-dom/server"
-import { Provider } from "react-redux"
-import { store } from "./src/store"
-import { App } from "./src/app"
-
-
-app = new express();
+	
+    app = new express();
 
 	const compiler = webpack(webpackConfig);
 	app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }))

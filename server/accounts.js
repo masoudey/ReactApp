@@ -1,25 +1,25 @@
-var express		= require('express'),
-	bodyParser	= require('body-parser'),
-	session		= require('express-session'),
-	cors 		= require('cors');
-	expressJwt	= require('express-jwt');
-	jwt			= require('jsonwebtoken');
-	Bourne		= require('bourne'),
-	crypto		= require('crypto');
+import express from 'express'
+import	bodyParser from	'body-parser'
+import	session from 'express-session'
+import	cors from	'cors'
+import	expressJwt from 'express-jwt'
+import	jwt	from	'jsonwebtoken'
+import	Bourne from	'bourne'
+import	crypto from	'crypto'
 
-var router	= express.Router(),
-	db		= new Bourne('users.json');
+const router = express.Router();
+const	db = new Bourne('users.json');
 
 function hash (password) {
 	return crypto.createHash('sha256').update(password).digest('hex');
 }
-var corsOption = {
+const corsOption = {
 	origin: true,
 	methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
 	credentials: true,
 	exposedHeaders: ['x-auth-token']
   };
-  var createToken = function(auth) {
+  const createToken = function(auth) {
 	  console.log(auth);
 	return jwt.sign({
 	  id: auth.id
@@ -29,19 +29,19 @@ var corsOption = {
 	});
   };
   
-  var generateToken = function (req, res, next) {
+  const generateToken = function (req, res, next) {
 	  console.log("generatetoken");
 	req.token = createToken(req.auth);
 	return next();
   };
   
-  var sendToken = function (req, res, next) {
+  const sendToken = function (req, res, next) {
 	console.log("sendtoken");
 	res.setHeader('x-auth-token', req.token);
 	return res.status(200).send(JSON.stringify(req.user));
   };
 //token handling middleware
-var authenticate = expressJwt({
+const authenticate = expressJwt({
 	secret: 'my-secret',
 	requestProperty: 'auth',
 	getToken: function(req) {
@@ -52,10 +52,10 @@ var authenticate = expressJwt({
 	}
 	});
 	
-  var getOne = function (req, res) {
-	var user = req.user.toObject();
+  const getOne = function (req, res) {
+		var user = req.user.toObject();
   
-	res.json(user);
+		res.json(user);
   };
 
 router
@@ -127,7 +127,6 @@ router
 				req.auth = {
 					id: data.id
 				};
-				// res.send({sess: req.session});
 				console.log("auth")
 				next();
 			} else {
@@ -136,12 +135,10 @@ router
 		});
 	},getOne)
 	.use(function(req, res, next){
-		if (req.session.userId) {
-			db.findOne({id: req.session.userId}, function(err, data) {
+		if (req.auth.id) {
+			db.findOne({id: req.auth.id}, function(err, data) {
 				req.user = data;
-				req.auth = {
-					id: data.id
-				  };
+				
 				// res.send({sess: req.session});
 				console.log("run")
 				
@@ -150,4 +147,4 @@ router
 		next();
 	});
 
-module.exports = router;
+export default router;

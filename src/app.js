@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { createBrowserHistory } from "history";
 import { Header } from "./Components/header";
 import Footer from "./Components/footer";
 import {  Router, Route, withRouter } from "react-router-dom";
@@ -17,7 +16,7 @@ const PathName = withRouter(({location, match}) => {
     )
 });
 
-const history = createBrowserHistory();
+
 
 class App extends Component {
     constructor(props){
@@ -66,7 +65,7 @@ class App extends Component {
     render() {
         
         return (
-            <Router history={history}>
+            
                 <ActivePage>
                 <Header 
                     changeUserState={this.handleUserChange.bind(this)} 
@@ -80,7 +79,7 @@ class App extends Component {
                 </main>
                 <Footer />
                 </ActivePage>
-            </Router>
+           
             
         )
     }

@@ -1,16 +1,11 @@
-var express 	= require('express'),
-	Bourne		= require('bourne'),
-	bodyParser	= require('body-parser'),
+import express from 'express';
+import Bourne from 'bourne';
+import bodyParser from 'body-parser';
 
-	db			= new Bourne('data.json'),
-	router		= express.Router();
+const db = new Bourne('data.json');
+const router = express.Router();
 
 router
-	// .use(function (req, res, next){
-	// 	if (!req.user) 
-	// 		req.user = {id:1};
-	// 	next();
-	// })
 	.use(bodyParser.json())
 	.route('/post')
 		.get(function(req, res){
@@ -52,4 +47,5 @@ router
 				res.json(null);
 			});
 		});
-module.exports = router;
+		
+export default router;

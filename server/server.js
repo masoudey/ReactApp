@@ -3,7 +3,7 @@ import webpack from'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 import webpackConfig from '../webpack.config'
-// import api from './api'
+import api from './api'
 import users from './accounts'
 import jwt from "jsonwebtoken";
 
@@ -23,7 +23,7 @@ app = new express();
 	app.use(webpackHotMiddleware(compiler))
 app.use(express.static('../public'))
 	.use(users)
-	// .use('/api', api)
+	.use('/api', api)
     .get('*', function (req, res){
 		
 		let user = req.user ?  req.user : {}

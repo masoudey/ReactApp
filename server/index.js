@@ -1,4 +1,4 @@
 require('babel-register')( {
-    presets: [ "env", "react" ],
+    presets:['react', 'env', 'stage-0'],
 } );
 require('./server');

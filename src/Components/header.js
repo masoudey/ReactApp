@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, NavItem, Button, Dropdown, DropdownMenu, DropdownItem, DropdownToggle } from "mdbreact";
+// import { Navbar, NavbarBrand, NavbarNav, NavbarToggler, NavItem, Button } from "mdbreact";
 import { NavLink, Link, withRouter } from 'react-router-dom';
 import { logout } from "../actions/userActions";
 import { connect } from "react-redux";
@@ -50,14 +50,16 @@ class Header extends Component {
         return (
             
             <header>
-                <Navbar color="" dark expand="md" fixed="top" scrolling>
-                    <NavbarBrand href="/">
+                <nav navbar color="" dark navbar-expand-md fixed="top" scrolling>
+                    <a class="navbar-brand" href="/">
                         <img src='' alt="" height="20" />  ReactCMS
-                    </NavbarBrand>
-                    <NavbarToggler class={toggleBtnClass} onClick={this.toggleCollapse.bind(this)} />
+                    </a>
+                    <button class={`navbar-toggler ${toggleBtnClass}`} onClick={this.toggleCollapse.bind(this)} data-toggle="collapse" data-target="#reactNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button> />
                     <div class={`collapse navbar-collapse ${navClass}  ${navBtnClass}` } id="reactNavbar">
                         
-                        <NavbarNav right={true} class="mr-3" >
+                        <ul  right={true} class="navbar-nav mr-3" >
                                 
                                 <NavLink exact activeClassName="active" class="nav-link" to="/">Home</NavLink>
                            
@@ -72,7 +74,7 @@ class Header extends Component {
                                 </NavLink>
                                 
                                 <NavLink activeClassName="active" class="nav-link" to="/about">About</NavLink>
-                                <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+                                {/* <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                                 <DropdownToggle nav={true}  color="primary">
                                     <span class="icon-user"></span> 
                                     {user && ` ${user.username}`}
@@ -82,8 +84,8 @@ class Header extends Component {
                                     {user && <Link to="/addpost">Add Post</Link>}
                                     {user && <DropdownItem onClick={this.logout.bind(this)} href="">Logout</DropdownItem>}
                                 </DropdownMenu>
-                                </Dropdown>
-                        </NavbarNav>
+                                </Dropdown> */}
+                        </ul>
                         <div class={`nav-button `} onClick={this.navExpose.bind(this)}>
                             <div class="hamburger">
                                 <div class="line"></div>
@@ -93,7 +95,7 @@ class Header extends Component {
                             <div id="menu-click-area"></div>
                         </div>
                     </div>
-                </Navbar>  
+                </nav>  
             </header>
         )
     }

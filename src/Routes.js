@@ -40,7 +40,9 @@ const Home = Loadable({
 
 class Routes extends Component {
 
-    
+    componentDidMount() {
+        
+    }
     render() {
         const headers = JSON.parse(localStorage.getItem('headers'));
         if (headers) {

@@ -66,7 +66,8 @@ const serverConfig = {
         filename: 'server.js',
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        
     ],
     module: {
         rules: [

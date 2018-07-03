@@ -16,7 +16,7 @@ const store = configureStore(preloadedState)
 
 const history = createBrowserHistory();
 const root = document.getElementById('root');
-ReactDom.render(
+ReactDom.hydrate(
     <Provider store={store}>
         <Router history={history}>
             <App />

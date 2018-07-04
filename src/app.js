@@ -7,7 +7,7 @@ import ActivePage from "./Components/ActivePage";
 import { Routes } from "./Routes";
 import { loginSuccess, logout } from "./actions/userActions";
 import jwt from "jsonwebtoken";
-import axios from "axios";
+
 
 const PathName = withRouter(({ location, match }) => {
   return location.pathname.substring(1);

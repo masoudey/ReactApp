@@ -11,6 +11,7 @@ import React from "react"
 import { renderToString } from "react-dom/server"
 import { Provider } from "react-redux"
 import { StaticRouter } from "react-router-dom"
+import Loadable from "react-loadable";
 import { configureStore } from "../src/store"
 import { App } from "../src/app"
 import { loginSuccess, logout } from "../src/actions/userActions";
@@ -78,4 +79,7 @@ app.use(express.static('../public'))
 			`
 		}
     })
-    .listen(3000);
+	Loadable.preloadAll().then(() => {
+		app.listen(3000);
+	})
+	

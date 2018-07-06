@@ -12,6 +12,7 @@ import { renderToString } from "react-dom/server"
 import { Provider } from "react-redux"
 import { StaticRouter } from "react-router-dom"
 import Loadable from "react-loadable";
+import { getBundles } from "react-loadable/webpack";
 import { configureStore } from "../src/store"
 import { App } from "../src/app"
 import { loginSuccess, logout } from "../src/actions/userActions";
@@ -47,11 +48,14 @@ app.use(express.static('../public'))
 		}
 		
 		const context = req.user ? req.user : {};
+		const modules = [];
 		const html = renderToString(
 			<Provider store={store}>
-			  <StaticRouter location={req.url} context={context} >
-			  	<App />
-			  </StaticRouter>
+				<StaticRouter location={req.url} context={context} >
+					<Loadable.Capture report= {moduleName => modules.push(moduleName)} >
+			  			<App />
+					</Loadable.Capture>
+				</StaticRouter>
 			</Provider>
 		)
 		const finalState = store.getState()

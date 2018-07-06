@@ -13,6 +13,7 @@ import { Provider } from "react-redux"
 import { StaticRouter } from "react-router-dom"
 import Loadable from "react-loadable";
 import { getBundles } from "react-loadable/webpack";
+import stats  from "../public/react-loadable.json";
 import { configureStore } from "../src/store"
 import { App } from "../src/app"
 import { loginSuccess, logout } from "../src/actions/userActions";
@@ -48,7 +49,7 @@ app.use(express.static('../public'))
 		}
 		
 		const context = req.user ? req.user : {};
-		const modules = [];
+		let modules = [];
 		const html = renderToString(
 			<Provider store={store}>
 				<StaticRouter location={req.url} context={context} >
@@ -59,6 +60,9 @@ app.use(express.static('../public'))
 			</Provider>
 		)
 		const finalState = store.getState()
+		let bundles = getBundles(stats, modules);
+		let styles = bundles.filter(bundle => bundle.file.endsWith('.css'));
+		let scripts = bundles.filter(bundle => bundle.file.endsWith('.js'));
 
 		res.send(renderFullPage(html,finalState));
 
@@ -71,12 +75,19 @@ app.use(express.static('../public'))
 					<meta name="viewport" content="width=device-width, initial-scale=1.0">
 					<meta http-equiv="X-UA-Compatible" content="ie=edge">
 					<title>Universal App</title>
+					${styles.map(style => {
+						return `<link href="/dist/${style.file}" rel="stylesheet"/>`;
+					}).join('\n')}
 				</head>
 				<body>
 					<div id="root">${html}</div>
 					<script>
           				window.__PRELOADED_STATE__ = ${JSON.stringify(preloadedState).replace(/</g, '\\x3c')}
-       				</script>
+					   </script>
+					   <script src="/dist/manifest.js"></script>
+						${scripts.map(script => {
+          					return `<script src="/dist/${script.file}"></script>`
+        				}).join('\n')}
 					<script src="/bundle.js"></script>
 				</body>
 				</html>

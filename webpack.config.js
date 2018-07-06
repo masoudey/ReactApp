@@ -1,5 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
+const ReactLoadablePlugin = require('react-loadable/webpack');
 
 const clientConfig = {
     mode: 'development',
@@ -67,7 +68,13 @@ const serverConfig = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        
+        new ReactLoadablePlugin({
+            filename: './public/react-loadable.json',
+          }),
+          new webpack.optimize.CommonsChunkPlugin({
+            name: 'manifest',
+            minChunks: Infinity
+          }),
     ],
     module: {
         rules: [

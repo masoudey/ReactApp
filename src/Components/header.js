@@ -50,16 +50,16 @@ class Header extends Component {
         return (
             
             <header>
-                <nav navbar color="" dark navbar-expand-md fixed="top" scrolling>
+                <nav class="navbar dark navbar-expand-md scrolling navbar-dark " fixed="top" >
                     <a class="navbar-brand" href="/">
                         <img src='' alt="" height="20" />  ReactCMS
                     </a>
                     <button class={`navbar-toggler ${toggleBtnClass}`} onClick={this.toggleCollapse.bind(this)} data-toggle="collapse" data-target="#reactNavbar">
                         <span class="navbar-toggler-icon"></span>
-                    </button> />
-                    <div class={`collapse navbar-collapse ${navClass}  ${navBtnClass}` } id="reactNavbar">
+                    </button>
+                    <div class={`collapse navbar-collapse navbar-right ${navClass}  ${navBtnClass}` } id="reactNavbar">
                         
-                        <ul  right={true} class="navbar-nav mr-3" >
+                        <ul  class="navbar-nav mr-3 right" >
                                 
                                 <NavLink exact activeClassName="active" class="nav-link" to="/">Home</NavLink>
                            
@@ -74,6 +74,7 @@ class Header extends Component {
                                 </NavLink>
                                 
                                 <NavLink activeClassName="active" class="nav-link" to="/about">About</NavLink>
+                                {!user && <Link to="/login">LogIn</Link>}
                                 {/* <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
                                 <DropdownToggle nav={true}  color="primary">
                                     <span class="icon-user"></span> 

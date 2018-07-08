@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
 
-/***/ "./node_modules/css-loader/index.js!./src/Pages/works.css":
-/*!*******************************************************!*\
-  !*** ./node_modules/css-loader!./src/Pages/works.css ***!
-  \*******************************************************/
+/***/ "./node_modules/css-loader/index.js!./src/containers/works.css":
+/*!************************************************************!*\
+  !*** ./node_modules/css-loader!./src/containers/works.css ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -19,10 +19,10 @@ exports.push([module.i, ".works {\r\n    background-color: blueviolet;\r\n}\r\n\
 
 /***/ }),
 
-/***/ "./src/Pages/WorksPage.js":
-/*!********************************!*\
-  !*** ./src/Pages/WorksPage.js ***!
-  \********************************/
+/***/ "./src/containers/WorksPage.js":
+/*!*************************************!*\
+  !*** ./src/containers/WorksPage.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -39,7 +39,7 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(/*! ./works.css */ "./src/Pages/works.css");
+__webpack_require__(/*! ./works.css */ "./src/containers/works.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -88,15 +88,15 @@ exports.default = WorksPage;
 
 /***/ }),
 
-/***/ "./src/Pages/works.css":
-/*!*****************************!*\
-  !*** ./src/Pages/works.css ***!
-  \*****************************/
+/***/ "./src/containers/works.css":
+/*!**********************************!*\
+  !*** ./src/containers/works.css ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../node_modules/css-loader!./works.css */ "./node_modules/css-loader/index.js!./src/Pages/works.css");
+var content = __webpack_require__(/*! !../../node_modules/css-loader!./works.css */ "./node_modules/css-loader/index.js!./src/containers/works.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -115,8 +115,8 @@ var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyl
 if(content.locals) module.exports = content.locals;
 
 if(true) {
-	module.hot.accept(/*! !../../node_modules/css-loader!./works.css */ "./node_modules/css-loader/index.js!./src/Pages/works.css", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { (function() {
-		var newContent = __webpack_require__(/*! !../../node_modules/css-loader!./works.css */ "./node_modules/css-loader/index.js!./src/Pages/works.css");
+	module.hot.accept(/*! !../../node_modules/css-loader!./works.css */ "./node_modules/css-loader/index.js!./src/containers/works.css", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { (function() {
+		var newContent = __webpack_require__(/*! !../../node_modules/css-loader!./works.css */ "./node_modules/css-loader/index.js!./src/containers/works.css");
 
 		if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
 

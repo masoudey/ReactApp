@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[2],{
 
-/***/ "./node_modules/css-loader/index.js!./src/Pages/login.css":
-/*!*******************************************************!*\
-  !*** ./node_modules/css-loader!./src/Pages/login.css ***!
-  \*******************************************************/
+/***/ "./node_modules/css-loader/index.js!./src/containers/login.css":
+/*!************************************************************!*\
+  !*** ./node_modules/css-loader!./src/containers/login.css ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -20,10 +20,10 @@ exports.push([module.i, "html{font-family:sans-serif;-ms-text-size-adjust:100%;-
 
 /***/ }),
 
-/***/ "./src/Pages/Login.js":
-/*!****************************!*\
-  !*** ./src/Pages/Login.js ***!
-  \****************************/
+/***/ "./src/containers/Login.js":
+/*!*********************************!*\
+  !*** ./src/containers/Login.js ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -31,7 +31,7 @@ exports.push([module.i, "html{font-family:sans-serif;-ms-text-size-adjust:100%;-
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
@@ -46,7 +46,7 @@ var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_module
 
 var _userActions = __webpack_require__(/*! ../actions/userActions */ "./src/actions/userActions.js");
 
-__webpack_require__(/*! ./login.css */ "./src/Pages/login.css");
+__webpack_require__(/*! ./login.css */ "./src/containers/login.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -59,130 +59,153 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 var Login = function (_Component) {
-    _inherits(Login, _Component);
+  _inherits(Login, _Component);
 
-    function Login(props) {
-        _classCallCheck(this, Login);
+  function Login(props) {
+    _classCallCheck(this, Login);
 
-        // reset login status
-        // this.props.dispatch(logout());
+    // reset login status
+    // this.props.dispatch(logout());
 
-        var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
+    var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
 
-        _this.state = {
-            username: '',
-            password: '',
-            submitted: false
-        };
+    _this.state = {
+      username: "",
+      password: "",
+      submitted: false
+    };
 
-        _this.handleChange = _this.handleChange.bind(_this);
-        _this.handleSubmit = _this.handleSubmit.bind(_this);
-        return _this;
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    return _this;
+  }
+
+  _createClass(Login, [{
+    key: "handleChange",
+    value: function handleChange(e) {
+      var _e$target = e.target,
+          name = _e$target.name,
+          value = _e$target.value;
+
+      this.setState(_defineProperty({}, name, value));
     }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
 
-    _createClass(Login, [{
-        key: "handleChange",
-        value: function handleChange(e) {
-            var _e$target = e.target,
-                name = _e$target.name,
-                value = _e$target.value;
+      this.setState({ submitted: true });
+      var _state = this.state,
+          username = _state.username,
+          password = _state.password;
+      var dispatch = this.props.dispatch;
 
-            this.setState(_defineProperty({}, name, value));
-        }
-    }, {
-        key: "handleSubmit",
-        value: function handleSubmit(e) {
-            e.preventDefault();
-
-            this.setState({ submitted: true });
-            var _state = this.state,
-                username = _state.username,
-                password = _state.password;
-            var dispatch = this.props.dispatch;
-
-            if (username && password) {
-                dispatch((0, _userActions.login)(username, password));
-            }
-        }
-    }, {
-        key: "render",
-        value: function render() {
-            var loggingIn = this.props.loggingIn;
-            var _state2 = this.state,
-                username = _state2.username,
-                password = _state2.password,
-                submitted = _state2.submitted;
+      if (username && password) {
+        dispatch((0, _userActions.login)(username, password));
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var loggingIn = this.props.loggingIn;
+      var _state2 = this.state,
+          username = _state2.username,
+          password = _state2.password,
+          submitted = _state2.submitted;
 
 
-            return _react2.default.createElement(
+      return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement(
+          "div",
+          { className: "login-wrapper" },
+          _react2.default.createElement("div", { className: "logo ir" }),
+          _react2.default.createElement(
+            "span",
+            { className: "title" },
+            "Login"
+          ),
+          _react2.default.createElement(
+            "form",
+            { name: "form", onSubmit: this.handleSubmit },
+            _react2.default.createElement(
+              "fieldset",
+              null,
+              _react2.default.createElement(
                 "div",
-                null,
+                { className: "inputrow" },
+                _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
+                _react2.default.createElement("input", {
+                  type: "text",
+                  name: "username",
+                  id: "user",
+                  placeholder: "Username",
+                  onChange: this.handleChange,
+                  value: username,
+                  autoFocus: true,
+                  required: true
+                })
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "inputrow" },
+                _react2.default.createElement("i", { className: "fa icon-key fa-fw" }),
+                _react2.default.createElement("input", {
+                  type: "password",
+                  name: "password",
+                  id: "password",
+                  "data-typetoggle": "#show",
+                  onChange: this.handleChange,
+                  value: password,
+                  placeholder: "Password",
+                  required: true
+                })
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "remember" },
+                _react2.default.createElement("input", {
+                  type: "checkbox",
+                  name: "remember_login",
+                  value: "1",
+                  id: "remember_login"
+                }),
                 _react2.default.createElement(
-                    "div",
-                    { className: "login-wrapper" },
-                    _react2.default.createElement("div", { className: "logo ir" }),
-                    _react2.default.createElement(
-                        "span",
-                        { className: "title" },
-                        "Login"
-                    ),
-                    _react2.default.createElement(
-                        "form",
-                        { name: "form", onSubmit: this.handleSubmit },
-                        _react2.default.createElement(
-                            "fieldset",
-                            null,
-                            _react2.default.createElement(
-                                "div",
-                                { className: "inputrow" },
-                                _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
-                                _react2.default.createElement("input", { type: "text", name: "username", id: "user", placeholder: "Username", onChange: this.handleChange, value: username, autoFocus: true, required: true })
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "inputrow" },
-                                _react2.default.createElement("i", { className: "fa icon-key fa-fw" }),
-                                _react2.default.createElement("input", { type: "password", name: "password", id: "password", "data-typetoggle": "#show", onChange: this.handleChange, value: password, placeholder: "Password", required: true })
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "remember" },
-                                _react2.default.createElement("input", { type: "checkbox", name: "remember_login", value: "1", id: "remember_login" }),
-                                _react2.default.createElement(
-                                    "label",
-                                    { htmlFor: "remember_login", className: "radio" },
-                                    "Remember me"
-                                )
-                            ),
-                            _react2.default.createElement(
-                                "div",
-                                { className: "button-center" },
-                                _react2.default.createElement(
-                                    "button",
-                                    { className: "btn-log", type: "submit", id: "submit" },
-                                    "Login"
-                                ),
-                                loggingIn && _react2.default.createElement("img", { src: "data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" })
-                            )
-                        )
-                    )
+                  "label",
+                  { htmlFor: "remember_login", className: "radio" },
+                  "Remember me"
                 )
-            );
-        }
-    }]);
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "button-center" },
+                _react2.default.createElement(
+                  "button",
+                  { className: "btn-log", type: "submit", id: "submit" },
+                  "Login"
+                ),
+                loggingIn && _react2.default.createElement("img", { src: "data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" })
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
 
-    return Login;
+  return Login;
 }(_react.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    var _state$user = state.user,
-        user = _state$user.user,
-        loggingIn = _state$user.loggingIn;
+  var _state$user = state.user,
+      user = _state$user.user,
+      loggingIn = _state$user.loggingIn;
 
-    return {
-        user: user,
-        loggingIn: loggingIn
-    };
+  return {
+    user: user,
+    loggingIn: loggingIn
+  };
 };
 
 var connectedLoginPage = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(Login));
@@ -190,15 +213,15 @@ exports.default = connectedLoginPage;
 
 /***/ }),
 
-/***/ "./src/Pages/login.css":
-/*!*****************************!*\
-  !*** ./src/Pages/login.css ***!
-  \*****************************/
+/***/ "./src/containers/login.css":
+/*!**********************************!*\
+  !*** ./src/containers/login.css ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../node_modules/css-loader!./login.css */ "./node_modules/css-loader/index.js!./src/Pages/login.css");
+var content = __webpack_require__(/*! !../../node_modules/css-loader!./login.css */ "./node_modules/css-loader/index.js!./src/containers/login.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -217,8 +240,8 @@ var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyl
 if(content.locals) module.exports = content.locals;
 
 if(true) {
-	module.hot.accept(/*! !../../node_modules/css-loader!./login.css */ "./node_modules/css-loader/index.js!./src/Pages/login.css", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { (function() {
-		var newContent = __webpack_require__(/*! !../../node_modules/css-loader!./login.css */ "./node_modules/css-loader/index.js!./src/Pages/login.css");
+	module.hot.accept(/*! !../../node_modules/css-loader!./login.css */ "./node_modules/css-loader/index.js!./src/containers/login.css", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { (function() {
+		var newContent = __webpack_require__(/*! !../../node_modules/css-loader!./login.css */ "./node_modules/css-loader/index.js!./src/containers/login.css");
 
 		if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
 

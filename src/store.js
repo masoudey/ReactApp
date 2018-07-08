@@ -6,6 +6,9 @@ import reducers from "./reducers";
 
 const middleware = applyMiddleware(thunk, logger);
 
-const configureStore = preloadedState => store = createStore(reducers,preloadedState,middleware);
+const configureStore = preloadedState => {
+    const store = createStore(reducers,preloadedState,middleware);
+    return store;
+};
 
 export {configureStore}; 

@@ -81,6 +81,6 @@ const mapStateToProps = state => {
     user
   };
 };
-const connectedApp = connect(mapStateToProps)(App);
+const connectedApp = withRouter(connect(mapStateToProps)(App));
 
 export { connectedApp as App };

@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "start": "webpack -w & nodemon server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "npm-run-all --parallel dev:*",
+    "dev:build": "webpack --config webpack.config.js --watch",
+    "dev:server": "nodemon --watch build --exec node server.js"
   },
   "author": "Masoud ey",
   "license": "ISC",
@@ -14,11 +14,13 @@
     "axios": "^0.18.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-dynamic-import-node": "^2.0.0",
     "babel-plugin-react-html-attrs": "^2.1.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-react-constant-elements": "^6.23.0",
     "babel-plugin-transform-react-inline-elements": "^6.22.0",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
@@ -37,6 +39,7 @@
     "mdbootstrap": "^4.5.3",
     "mdbreact": "^4.4.0",
     "nodemon": "^1.17.5",
+    "npm-run-all": "^4.1.3",
     "path": "^0.12.7",
     "prop-types": "^15.6.1",
     "react": "^16.3.2",
@@ -53,6 +56,7 @@
     "webpack-cli": "^2.1.3",
     "webpack-dev-middleware": "^3.1.3",
     "webpack-dev-server": "^3.1.4",
-    "webpack-hot-middleware": "^2.22.2"
+    "webpack-hot-middleware": "^2.22.2",
+    "webpack-node-externals": "^1.7.2"
   }
 }

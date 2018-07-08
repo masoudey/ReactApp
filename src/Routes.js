@@ -7,12 +7,12 @@ import { logout } from "./actions/userActions";
 import PrivateRoute from "./Components/PrivateRoute";
 import PublicRoute from "./Components/PublicRoute"
 
-// import HomePage from "./Pages/HomePage";
-// import WorksPage from "./Pages/WorksPage";
-import BlogPage from "./Pages/BlogPage";
-import SingleWork from "./Pages/SingleWork";
-// import Login from "./Pages/Login";
-import AddPost from "./Pages/AddPost";
+// import Home from "./containers/HomePage";
+// import Works from "./containers/WorksPage";
+import BlogPage from "./containers/BlogPage";
+import SingleWork from "./containers/SingleWork";
+// import Login from "./containers/Login";
+import AddPost from "./containers/AddPost";
 
 const Loading = () => <section id="loader-wrapper">
 <div id="loader"></div>
@@ -21,19 +21,21 @@ const Loading = () => <section id="loader-wrapper">
 </section>
 
 const Home = Loadable({
-    loader: () => import("./Pages/HomePage"),
+    loader: () => import("./containers/HomePage"),
     loading: Loading,
+    modules: ["./containers/HomePage"],
+    webpack: () => [require.resolveWeak("./containers/HomePage")],
     delay: 90000,
   });
 
   const Works = Loadable({
-    loader: () => import("./Pages/WorksPage"),
+    loader: () => import("./containers/WorksPage"),
     loading: Loading,
     delay: 90000,
   });
 
   const Login = Loadable({
-    loader: () => import("./Pages/Login"),
+    loader: () => import("./containers/Login"),
     loading: Loading,
     delay: 90000,
   });
@@ -44,10 +46,10 @@ class Routes extends Component {
         
     }
     render() {
-        const headers = JSON.parse(localStorage.getItem('headers'));
-        if (headers) {
-            console.log(headers['x-auth-token'])
-        }
+        // const headers = JSON.parse(localStorage.getItem('headers'));
+        // if (headers) {
+        //     console.log(headers['x-auth-token'])
+        // }
         
         // if (!headers && !headers['x-auth-token']) {
         //     this.props.dispatch(logout())

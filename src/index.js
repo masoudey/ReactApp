@@ -1,5 +1,7 @@
+import 'babel-polyfill';
 import React, { Component } from "react";
 import ReactDom from "react-dom";
+import Loadable from "react-loadable";
 import { Provider } from "react-redux";
 import { createBrowserHistory } from "history";
 import { configureStore } from "./store";
@@ -16,12 +18,15 @@ const store = configureStore(preloadedState)
 
 const history = createBrowserHistory();
 const root = document.getElementById('root');
-ReactDom.hydrate(
-    <Provider store={store}>
-        <Router history={history}>
-            <App />
-        </Router>   
-    </Provider>
-    ,root);
+Loadable.preloadReady().then(() => {
+    ReactDom.hydrate(
+        <Provider store={store}>
+            <Router history={history}>
+                <App />
+            </Router>   
+        </Provider>
+        ,root);
+});
+
 
 registerServiceWorker();

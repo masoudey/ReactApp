@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0],{
 
-/***/ "./node_modules/css-loader/index.js!./src/Pages/home.css":
-/*!******************************************************!*\
-  !*** ./node_modules/css-loader!./src/Pages/home.css ***!
-  \******************************************************/
+/***/ "./node_modules/css-loader/index.js!./src/containers/home.css":
+/*!***********************************************************!*\
+  !*** ./node_modules/css-loader!./src/containers/home.css ***!
+  \***********************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -39,10 +39,10 @@ exports.push([module.i, "/**\n * Swiper 4.1.6\n * Most modern mobile touch slide
 
 /***/ }),
 
-/***/ "./src/Pages/HomePage.js":
-/*!*******************************!*\
-  !*** ./src/Pages/HomePage.js ***!
-  \*******************************/
+/***/ "./src/containers/HomePage.js":
+/*!************************************!*\
+  !*** ./src/containers/HomePage.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -65,7 +65,7 @@ var _reactIdSwiper2 = _interopRequireDefault(_reactIdSwiper);
 
 __webpack_require__(/*! ../swiper.css */ "./src/swiper.css");
 
-__webpack_require__(/*! ./home.css */ "./src/Pages/home.css");
+__webpack_require__(/*! ./home.css */ "./src/containers/home.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -137,15 +137,15 @@ exports.default = HomePage;
 
 /***/ }),
 
-/***/ "./src/Pages/home.css":
-/*!****************************!*\
-  !*** ./src/Pages/home.css ***!
-  \****************************/
+/***/ "./src/containers/home.css":
+/*!*********************************!*\
+  !*** ./src/containers/home.css ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(/*! !../../node_modules/css-loader!./home.css */ "./node_modules/css-loader/index.js!./src/Pages/home.css");
+var content = __webpack_require__(/*! !../../node_modules/css-loader!./home.css */ "./node_modules/css-loader/index.js!./src/containers/home.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -164,8 +164,8 @@ var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyl
 if(content.locals) module.exports = content.locals;
 
 if(true) {
-	module.hot.accept(/*! !../../node_modules/css-loader!./home.css */ "./node_modules/css-loader/index.js!./src/Pages/home.css", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { (function() {
-		var newContent = __webpack_require__(/*! !../../node_modules/css-loader!./home.css */ "./node_modules/css-loader/index.js!./src/Pages/home.css");
+	module.hot.accept(/*! !../../node_modules/css-loader!./home.css */ "./node_modules/css-loader/index.js!./src/containers/home.css", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { (function() {
+		var newContent = __webpack_require__(/*! !../../node_modules/css-loader!./home.css */ "./node_modules/css-loader/index.js!./src/containers/home.css");
 
 		if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
 

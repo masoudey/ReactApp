@@ -135,7 +135,7 @@ router
 		});
 	},getOne)
 	.use(function(req, res, next){
-		if (req.auth.id) {
+		if (req.auth) {
 			db.findOne({id: req.auth.id}, function(err, data) {
 				req.user = data;
 				

@@ -11,6 +11,7 @@ import PublicRoute from "./Components/PublicRoute"
 // import Works from "./containers/WorksPage";
 import BlogPage from "./containers/BlogPage";
 import SingleWork from "./containers/SingleWork";
+import SinglePost from "./containers/SinglePost";
 // import Login from "./containers/Login";
 import AddPost from "./containers/AddPost";
 
@@ -66,6 +67,7 @@ class Routes extends Component {
                 <Route exact path='/' component={Home} />
                 <Route exact path='/works' component={Works} />
                 <Route exact path='/blog' component={BlogPage} />
+                <Route exact path='/blog/:postid' component={SinglePost} />
                 <PrivateRoute 
                     path="/addpost"
                     component={AddPost}

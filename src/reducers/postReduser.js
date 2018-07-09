@@ -20,7 +20,7 @@ export const posts = (state=initialState, action) => {
                 ...state, 
                 fetching:false, 
                 fetched: true, 
-                users: action.payload
+                posts: action.payload
             };
             break;
         }

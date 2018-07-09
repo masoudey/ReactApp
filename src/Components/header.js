@@ -11,17 +11,12 @@ class Header extends Component {
         this.state = {
             collapsed: true,
             exposed: false,
-            dropdownOpen: false,
         }
 
-        this.toggle = this.toggle.bind(this);
+       
     }
 
-    toggle() {
-        this.setState({
-          dropdownOpen: !this.state.dropdownOpen
-        });
-      }
+
 
     toggleCollapse() {
         const collapsed = !this.state.collapsed;
@@ -50,9 +45,9 @@ class Header extends Component {
         return (
             
             <header>
-                <nav class="navbar dark navbar-expand-md scrolling navbar-dark " fixed="top" >
+                <nav class="navbar dark navbar-expand-md scrolling navbar-dark fixed-top"  >
                     <a class="navbar-brand" href="/">
-                        <img src='' alt="" height="20" />  ReactCMS
+                        <img src='' alt="" height="20" />  ReactApp
                     </a>
                     <button class={`navbar-toggler ${toggleBtnClass}`} onClick={this.toggleCollapse.bind(this)} data-toggle="collapse" data-target="#reactNavbar">
                         <span class="navbar-toggler-icon"></span>
@@ -74,18 +69,17 @@ class Header extends Component {
                                 </NavLink>
                                 
                                 <NavLink activeClassName="active" class="nav-link" to="/about">About</NavLink>
-                                {!user && <Link to="/login">LogIn</Link>}
-                                {/* <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-                                <DropdownToggle nav={true}  color="primary">
+                                <li class="dropdown nav-item"  >
+                                <a class="dropdown-toggle nav-link" >
                                     <span class="icon-user"></span> 
                                     {user && ` ${user.username}`}
-                                </DropdownToggle>
-                                <DropdownMenu>
-                                    {!user && <Link to="/login">LogIn</Link>}
-                                    {user && <Link to="/addpost">Add Post</Link>}
-                                    {user && <DropdownItem onClick={this.logout.bind(this)} href="">Logout</DropdownItem>}
-                                </DropdownMenu>
-                                </Dropdown> */}
+                                </a>
+                                <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink" >
+                                    {!user && <Link class="dropdown-item" to="/login">LogIn</Link>}
+                                    {user && <Link class="dropdown-item" to="/addpost">Add Post</Link>}
+                                    {user && <a class="dropdown-item" onClick={this.logout.bind(this)} href="#">Logout</a>}
+                                </div>
+                                </li>
                         </ul>
                         <div class={`nav-button `} onClick={this.navExpose.bind(this)}>
                             <div class="hamburger">

@@ -72,7 +72,7 @@ app.use(express.static('public'))
 					<meta http-equiv="X-UA-Compatible" content="ie=edge">
 					<title>Universal App</title>
 					${styles.map(style => {
-						return `<link href="/dist/${style.file}" rel="stylesheet"/>`;
+						return `<link href="/${style.file}" rel="stylesheet"/>`;
 					  }).join('\n')}
 				</head>
 				<body>

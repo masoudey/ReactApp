@@ -333,6 +333,12 @@ body {
         display: block;
     }
 }
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown-menu {
+    margin: 0;
+}
 /*------------loader----------------*/
 #loader-wrapper {
     position: fixed;

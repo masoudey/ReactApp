@@ -1,4 +1,4 @@
-import { userConstants } from "./constances";
+import { userConstants } from "../constants";
 import { authHeader } from "./authHeader";
 // import { createBrowserHistory } from "history";
 import axios from "axios";

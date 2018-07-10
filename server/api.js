@@ -9,8 +9,8 @@ router
 	.use(bodyParser.json())
 	.route('/post')
 		.get(function(req, res){
-			console.log(req.user.id);
-			db.find({userId: parseInt(req.user.id, 10)}, function (err, data){
+			console.log(req.user);
+			db.find({}, function (err, data){
 				res.json(data);
 			});
 		})

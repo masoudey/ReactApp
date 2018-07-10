@@ -1,3 +1,4 @@
+import { postConstants } from "../constants";
 const initialState = {
     fetching: false,
     fetched: false,
@@ -7,15 +8,15 @@ const initialState = {
 
 export const posts = (state=initialState, action) => {
     switch(action.type) {
-        case "FETCH_POSTS_START": {
+        case postConstants.POSTS_REQUEST: {
             state = {...state, fetching:true};
             break;
         }
-        case "FETCH_POSTS_ERROR": {
+        case postConstants.POSTS_FAILURE: {
             state = {...state, fetching:false, error: action.payload};
             break;
         }
-        case "RECIVED_POSTS": {
+        case postConstants.POSTS_SUCCESS: {
             state = {
                 ...state, 
                 fetching:false, 
@@ -24,11 +25,11 @@ export const posts = (state=initialState, action) => {
             };
             break;
         }
-        case "ADD_POST": {
+        case postConstants.ADD_POST: {
             state = {...state, posts: [...state.posts, action.payload]};
             break;
         }
-        case "UPDATE_POST": {
+        case postConstants.UPDATE_POST: {
             const { id, title, desc, content, cotagory, img, date, userId} = action.payload
             const newPosts = [...state.posts]
             const postToUpdate = newPosts.findIndex(post => post.id === id)
@@ -36,7 +37,7 @@ export const posts = (state=initialState, action) => {
             state = {...state, posts: newPosts};
             break;
         }
-        case "DELETE_POST": {
+        case postConstants.DELETE_POST: {
             state = {...state, posts: state.posts.filter(post => post.id !== action.payload)};
             break;
         }

@@ -89,7 +89,7 @@
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "978967d57df07172c540"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "6ff4d6403bdf4988497f"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -68496,22 +68496,13 @@ var Header = function (_Component) {
 
         _this.state = {
             collapsed: true,
-            exposed: false,
-            dropdownOpen: false
+            exposed: false
         };
 
-        _this.toggle = _this.toggle.bind(_this);
         return _this;
     }
 
     _createClass(Header, [{
-        key: "toggle",
-        value: function toggle() {
-            this.setState({
-                dropdownOpen: !this.state.dropdownOpen
-            });
-        }
-    }, {
         key: "toggleCollapse",
         value: function toggleCollapse() {
             var collapsed = !this.state.collapsed;
@@ -68615,7 +68606,7 @@ var Header = function (_Component) {
                                     ),
                                     user && _react2.default.createElement(
                                         "a",
-                                        { className: "dropdown-item", onClick: this.logout.bind(this), href: "" },
+                                        { className: "dropdown-item", onClick: this.logout.bind(this), href: "#" },
                                         "Logout"
                                     )
                                 )
@@ -68692,6 +68683,87 @@ exports.default = {
 
 /***/ }),
 
+/***/ "./src/Components/postthumbnail.js":
+/*!*****************************************!*\
+  !*** ./src/Components/postthumbnail.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var PostThumb = function PostThumb(props) {
+    var post = props.post;
+    return _react2.default.createElement(
+        "ul",
+        { id: "grid", className: "grid effect-5" },
+        _react2.default.createElement(
+            "li",
+            { className: "shown" },
+            _react2.default.createElement(
+                "div",
+                { className: " grid-post" },
+                _react2.default.createElement(
+                    "figure",
+                    { className: "effect-phoebe phoebe" },
+                    _react2.default.createElement("img", { src: "./src/imgs/" + post.img, alt: "img03" }),
+                    ">",
+                    _react2.default.createElement(
+                        "figcaption",
+                        { className: "phoebe" },
+                        _react2.default.createElement(
+                            "h2",
+                            null,
+                            post.title
+                        ),
+                        _react2.default.createElement(
+                            "p",
+                            { className: "desc" },
+                            post.desc
+                        ),
+                        _react2.default.createElement(
+                            "p",
+                            null,
+                            _react2.default.createElement(
+                                "a",
+                                { href: "#" },
+                                _react2.default.createElement("i", { className: "icon-user" })
+                            ),
+                            _react2.default.createElement(
+                                "a",
+                                { href: "#" },
+                                _react2.default.createElement("i", { className: "icon-heart" })
+                            ),
+                            _react2.default.createElement(
+                                "link",
+                                { to: "/blog/:" + post.id },
+                                _react2.default.createElement("i", { className: "icon-link" })
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    );
+};
+
+exports.default = PostThumb;
+
+/***/ }),
+
 /***/ "./src/Routes.js":
 /*!***********************!*\
   !*** ./src/Routes.js ***!
@@ -68733,11 +68805,13 @@ var _PublicRoute2 = _interopRequireDefault(_PublicRoute);
 
 var _BlogPage = __webpack_require__(/*! ./containers/BlogPage */ "./src/containers/BlogPage.js");
 
-var _BlogPage2 = _interopRequireDefault(_BlogPage);
-
 var _SingleWork = __webpack_require__(/*! ./containers/SingleWork */ "./src/containers/SingleWork.js");
 
 var _SingleWork2 = _interopRequireDefault(_SingleWork);
+
+var _SinglePost = __webpack_require__(/*! ./containers/SinglePost */ "./src/containers/SinglePost.js");
+
+var _SinglePost2 = _interopRequireDefault(_SinglePost);
 
 var _AddPost = __webpack_require__(/*! ./containers/AddPost */ "./src/containers/AddPost.js");
 
@@ -68838,7 +68912,8 @@ var Routes = function (_Component) {
                 }),
                 _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: Home }),
                 _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/works", component: Works }),
-                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/blog", component: _BlogPage2.default }),
+                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/blog", component: _BlogPage.BlogPage }),
+                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/blog/:postid", component: _SinglePost2.default }),
                 _react2.default.createElement(_PrivateRoute2.default, {
                     path: "/addpost",
                     component: _AddPost2.default,
@@ -68899,10 +68974,10 @@ var authHeader = exports.authHeader = function authHeader() {
 
 /***/ }),
 
-/***/ "./src/actions/constances.js":
-/*!***********************************!*\
-  !*** ./src/actions/constances.js ***!
-  \***********************************/
+/***/ "./src/actions/postActions.js":
+/*!************************************!*\
+  !*** ./src/actions/postActions.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -68912,30 +68987,53 @@ var authHeader = exports.authHeader = function authHeader() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-var userConstants = exports.userConstants = {
-    LOGIN_REQUEST: 'USER_LOGIN_REQUEST',
-    LOGIN_SUCCESS: 'USER_LOGIN_SUCCESS',
-    LOGIN_FAILURE: 'USER_LOGIN_FAILURE',
+exports.fetchAllPosts = undefined;
 
-    LOGOUT: 'USERS_LOGOUT',
+var _constants = __webpack_require__(/*! ../constants */ "./src/constants/index.js");
 
-    REGISTER_REQUEST: 'USER_REGISTER_REQUEST',
-    REGISTER_SUCCESS: 'USER_REGISTER_SUCCESS',
-    REGISTER_FAILURE: 'USER_REGISTER_FAILURE',
+var _authHeader = __webpack_require__(/*! ./authHeader */ "./src/actions/authHeader.js");
 
-    SET_USER_OPTIONS: 'SET_USER_OPTIONS'
+var _axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var postsRequest = function postsRequest() {
+    return {
+        type: _constants.postConstants.POSTS_REQUEST
+    };
+};
+var postsSuccess = function postsSuccess(posts) {
+    return {
+        type: _constants.postConstants.POSTS_SUCCESS,
+        payload: posts
+    };
+};
+var postsFailure = function postsFailure(err) {
+    return {
+        type: _constants.postConstants.POSTS_FAILURE,
+        payload: err
+    };
 };
 
-var postConstants = exports.postConstants = {
-    POSTS_REQUEST: 'FETCH_POSTS_REQUEST',
-    POSTS_SUCCESS: 'FETCH_POSTS_SUCCESS',
-    POSTS_FAILURE: 'FETCH_POSTS_FAILURE',
+var fetchAllPosts = exports.fetchAllPosts = function fetchAllPosts(userId) {
+    return function (dispatch) {
+        var reqOptions = {
+            headers: { 'Content-Type': 'application/json' },
+            user: {
+                id: userId
+            }
+        };
 
-    LOGOUT: 'USERS_LOGOUT',
-
-    REGISTER_REQUEST: 'USER_REGISTER_REQUEST',
-    REGISTER_SUCCESS: 'USER_REGISTER_SUCCESS',
-    REGISTER_FAILURE: 'USER_REGISTER_FAILURE'
+        dispatch(postsRequest());
+        _axios2.default.get("/api/post", reqOptions).then(function (response) {
+            console.log(response);
+            dispatch(postsSuccess(response.data));
+        }).catch(function (err) {
+            dispatch(postsFailure(err));
+        });
+    };
 };
 
 /***/ }),
@@ -68955,7 +69053,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.logout = exports.login = exports.loginSuccess = undefined;
 
-var _constances = __webpack_require__(/*! ./constances */ "./src/actions/constances.js");
+var _constants = __webpack_require__(/*! ../constants */ "./src/constants/index.js");
 
 var _authHeader = __webpack_require__(/*! ./authHeader */ "./src/actions/authHeader.js");
 
@@ -68968,46 +69066,46 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // const history = createBrowserHistory();
 var loginRequest = function loginRequest(user) {
     return {
-        type: _constances.userConstants.LOGIN_REQUEST,
+        type: _constants.userConstants.LOGIN_REQUEST,
         payload: user
     };
 };
 // import { createBrowserHistory } from "history";
 var loginSuccess = exports.loginSuccess = function loginSuccess(user) {
     return {
-        type: _constances.userConstants.LOGIN_SUCCESS,
+        type: _constants.userConstants.LOGIN_SUCCESS,
         payload: user
     };
 };
 var loginFailure = function loginFailure(err) {
     return {
-        type: _constances.userConstants.LOGIN_FAILURE,
+        type: _constants.userConstants.LOGIN_FAILURE,
         payload: err
     };
 };
 
 var registerRequest = function registerRequest(user) {
     return {
-        type: _constances.userConstants.REGISTER_REQUEST,
+        type: _constants.userConstants.REGISTER_REQUEST,
         payload: user
     };
 };
 var registerFailure = function registerFailure(err) {
     return {
-        type: _constances.userConstants.REGISTER_FAILURE,
+        type: _constants.userConstants.REGISTER_FAILURE,
         payload: err
     };
 };
 var registerSuccess = function registerSuccess(user) {
     return {
-        type: _constances.userConstants.REGISTER_SUCCESS,
+        type: _constants.userConstants.REGISTER_SUCCESS,
         payload: user
     };
 };
 
 var setUserOptions = function setUserOptions(options) {
     return {
-        type: _constances.userConstants.SET_USER_OPTIONS,
+        type: _constants.userConstants.SET_USER_OPTIONS,
         payload: options
     };
 };
@@ -69038,7 +69136,7 @@ var login = exports.login = function login(username, password) {
 var logout = exports.logout = function logout() {
     localStorage.removeItem('user');
     localStorage.removeItem('headers');
-    return { type: _constances.userConstants.LOGOUT };
+    return { type: _constants.userConstants.LOGOUT };
 };
 
 /***/ }),
@@ -69194,6 +69292,46 @@ exports.App = connectedApp;
 
 /***/ }),
 
+/***/ "./src/constants/index.js":
+/*!********************************!*\
+  !*** ./src/constants/index.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+var userConstants = exports.userConstants = {
+    LOGIN_REQUEST: 'USER_LOGIN_REQUEST',
+    LOGIN_SUCCESS: 'USER_LOGIN_SUCCESS',
+    LOGIN_FAILURE: 'USER_LOGIN_FAILURE',
+
+    LOGOUT: 'USERS_LOGOUT',
+
+    REGISTER_REQUEST: 'USER_REGISTER_REQUEST',
+    REGISTER_SUCCESS: 'USER_REGISTER_SUCCESS',
+    REGISTER_FAILURE: 'USER_REGISTER_FAILURE',
+
+    SET_USER_OPTIONS: 'SET_USER_OPTIONS'
+};
+
+var postConstants = exports.postConstants = {
+    POSTS_REQUEST: 'FETCH_POSTS_REQUEST',
+    POSTS_SUCCESS: 'FETCH_POSTS_SUCCESS',
+    POSTS_FAILURE: 'FETCH_POSTS_FAILURE',
+
+    ADD_POST: 'ADD_POST',
+
+    UPDATE_POST: 'UPDATE_POST',
+    DELETE_POST: 'DELETE_POST'
+};
+
+/***/ }),
+
 /***/ "./src/containers/AddPost.js":
 /*!***********************************!*\
   !*** ./src/containers/AddPost.js ***!
@@ -69263,12 +69401,21 @@ exports.default = AddPost;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.BlogPage = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _postActions = __webpack_require__(/*! ../actions/postActions */ "./src/actions/postActions.js");
+
+var _postthumbnail = __webpack_require__(/*! ../Components/postthumbnail */ "./src/Components/postthumbnail.js");
+
+var _postthumbnail2 = _interopRequireDefault(_postthumbnail);
 
 __webpack_require__(/*! ./blog.css */ "./src/containers/blog.css");
 
@@ -69290,69 +69437,63 @@ var BlogPage = function (_Component) {
     }
 
     _createClass(BlogPage, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            var dispatch = this.props.dispatch;
+
+            var user = this.props.user;
+            dispatch((0, _postActions.fetchAllPosts)());
+        }
+    }, {
         key: "render",
         value: function render() {
-
+            var posts = this.props.posts;
+            console.log(posts);
             return _react2.default.createElement(
                 "div",
-                null,
-                "this is ",
-                this.props.match.path,
-                " page",
+                { id: "blog", className: "blog intro-effect-jam3 scrollanim" },
                 _react2.default.createElement(
-                    "div",
-                    null,
-                    "this is a test for posts page"
+                    "section",
+                    { id: "header-block", className: "header " },
+                    _react2.default.createElement(
+                        "div",
+                        { className: " wedget-post" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "bg-img" },
+                            _react2.default.createElement("img", { src: "./src/imgs/blog.jpg", alt: "Background Image" })
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "title" },
+                            _react2.default.createElement(
+                                "h1",
+                                null,
+                                "Posts"
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "button",
+                            { className: "trigger" },
+                            _react2.default.createElement("span", { className: "icon-arrow-down4" })
+                        )
+                    )
                 ),
                 _react2.default.createElement(
-                    "div",
-                    null,
-                    "this is a test for posts page"
-                ),
-                _react2.default.createElement(
-                    "div",
-                    null,
-                    "this is a test for posts page"
-                ),
-                _react2.default.createElement(
-                    "div",
-                    null,
-                    "this is a test for posts page"
-                ),
-                _react2.default.createElement(
-                    "div",
-                    null,
-                    "this is a test for posts page"
-                ),
-                _react2.default.createElement(
-                    "div",
-                    null,
-                    "this is a test for posts page"
-                ),
-                _react2.default.createElement(
-                    "div",
-                    null,
-                    "this is a test for posts page"
-                ),
-                _react2.default.createElement(
-                    "div",
-                    null,
-                    "this is a test for posts page"
-                ),
-                _react2.default.createElement(
-                    "div",
-                    null,
-                    "this is a test for posts page"
-                ),
-                _react2.default.createElement(
-                    "div",
-                    null,
-                    "this is a test for posts page"
-                ),
-                _react2.default.createElement(
-                    "div",
-                    null,
-                    "this is a test for posts page"
+                    "section",
+                    { id: "posts-block", className: "posts content  blog-thumb" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "container" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement("input", { type: "text", name: "" }),
+                            posts.map(function (post) {
+                                return _react2.default.createElement(_postthumbnail2.default, { post: post });
+                            })
+                        )
+                    )
                 )
             );
         }
@@ -69361,7 +69502,134 @@ var BlogPage = function (_Component) {
     return BlogPage;
 }(_react.Component);
 
-exports.default = BlogPage;
+var mapStateToProps = function mapStateToProps(state) {
+    var user = state.user.user;
+    var posts = state.posts.posts;
+
+    return {
+        posts: posts,
+        user: user
+    };
+};
+var connectedBlog = (0, _reactRedux.connect)(mapStateToProps)(BlogPage);
+exports.BlogPage = connectedBlog;
+
+/***/ }),
+
+/***/ "./src/containers/SinglePost.js":
+/*!**************************************!*\
+  !*** ./src/containers/SinglePost.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var SinglePost = function (_Component) {
+    _inherits(SinglePost, _Component);
+
+    function SinglePost() {
+        _classCallCheck(this, SinglePost);
+
+        return _possibleConstructorReturn(this, (SinglePost.__proto__ || Object.getPrototypeOf(SinglePost)).apply(this, arguments));
+    }
+
+    _createClass(SinglePost, [{
+        key: "render",
+        value: function render() {
+
+            return _react2.default.createElement(
+                "div",
+                { id: "post1", className: "post1 intro-effect-fadeout scrollanim" },
+                _react2.default.createElement(
+                    "header",
+                    { className: "header" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "bg-img" },
+                        _react2.default.createElement("img", { src: "./src/imgs/" + post.img, alt: "Background Image" })
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "title" },
+                        _react2.default.createElement(
+                            "h1",
+                            null,
+                            post.title
+                        ),
+                        _react2.default.createElement(
+                            "p",
+                            { className: "subline" },
+                            post.desc,
+                            " ."
+                        ),
+                        _react2.default.createElement(
+                            "p",
+                            null,
+                            "by ",
+                            _react2.default.createElement(
+                                "strong",
+                                null,
+                                "1"
+                            ),
+                            " \u2014 Posted on ",
+                            _react2.default.createElement(
+                                "strong",
+                                null,
+                                post.date
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "button",
+                        { className: "trigger" },
+                        _react2.default.createElement("span", null)
+                    )
+                ),
+                _react2.default.createElement(
+                    "article",
+                    { className: "content" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "container" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "p",
+                                null,
+                                post.content
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
+
+    return SinglePost;
+}(_react.Component);
+
+exports.default = SinglePost;
 
 /***/ }),
 
@@ -69695,8 +69963,11 @@ exports.default = reducers;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.posts = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _constants = __webpack_require__(/*! ../constants */ "./src/constants/index.js");
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
@@ -69712,31 +69983,31 @@ var posts = exports.posts = function posts() {
     var action = arguments[1];
 
     switch (action.type) {
-        case "FETCH_POSTS_START":
+        case _constants.postConstants.POSTS_REQUEST:
             {
                 state = _extends({}, state, { fetching: true });
                 break;
             }
-        case "FETCH_POSTS_ERROR":
+        case _constants.postConstants.POSTS_FAILURE:
             {
                 state = _extends({}, state, { fetching: false, error: action.payload });
                 break;
             }
-        case "RECIVED_POSTS":
+        case _constants.postConstants.POSTS_SUCCESS:
             {
                 state = _extends({}, state, {
                     fetching: false,
                     fetched: true,
-                    users: action.payload
+                    posts: action.payload
                 });
                 break;
             }
-        case "ADD_POST":
+        case _constants.postConstants.ADD_POST:
             {
                 state = _extends({}, state, { posts: [].concat(_toConsumableArray(state.posts), [action.payload]) });
                 break;
             }
-        case "UPDATE_POST":
+        case _constants.postConstants.UPDATE_POST:
             {
                 var _action$payload = action.payload,
                     id = _action$payload.id,
@@ -69756,7 +70027,7 @@ var posts = exports.posts = function posts() {
                 state = _extends({}, state, { posts: newPosts });
                 break;
             }
-        case "DELETE_POST":
+        case _constants.postConstants.DELETE_POST:
             {
                 state = _extends({}, state, { posts: state.posts.filter(function (post) {
                         return post.id !== action.payload;
@@ -69786,7 +70057,7 @@ exports.user = undefined;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
-var _constances = __webpack_require__(/*! ../actions/constances */ "./src/actions/constances.js");
+var _constants = __webpack_require__(/*! ../constants */ "./src/constants/index.js");
 
 var initialState = {
     loggingIn: false,
@@ -69800,17 +70071,17 @@ var user = exports.user = function user() {
     var action = arguments[1];
 
     switch (action.type) {
-        case _constances.userConstants.LOGIN_REQUEST:
+        case _constants.userConstants.LOGIN_REQUEST:
             {
                 state = _extends({}, state, { loggingIn: true });
                 break;
             }
-        case _constances.userConstants.LOGIN_FAILURE:
+        case _constants.userConstants.LOGIN_FAILURE:
             {
                 state = _extends({}, state, { loggingIn: false, error: action.payload });
                 break;
             }
-        case _constances.userConstants.LOGIN_SUCCESS:
+        case _constants.userConstants.LOGIN_SUCCESS:
             {
                 state = _extends({}, state, {
                     loggingIn: false,
@@ -69819,7 +70090,7 @@ var user = exports.user = function user() {
                 });
                 break;
             }
-        case _constances.userConstants.LOGOUT:
+        case _constants.userConstants.LOGOUT:
             {
                 state = initialState;
                 break;

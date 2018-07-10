@@ -9,7 +9,7 @@ import PublicRoute from "./Components/PublicRoute"
 
 // import Home from "./containers/HomePage";
 // import Works from "./containers/WorksPage";
-import BlogPage from "./containers/BlogPage";
+import { BlogPage } from "./containers/BlogPage";
 import SingleWork from "./containers/SingleWork";
 import SinglePost from "./containers/SinglePost";
 // import Login from "./containers/Login";

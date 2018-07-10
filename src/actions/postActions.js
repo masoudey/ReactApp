@@ -1,4 +1,4 @@
-import { postConstants } from "./constances";
+import { postConstants } from "../constants";
 import { authHeader } from "./authHeader";
 import axios from "axios";
 
@@ -18,4 +18,23 @@ const postsFailure = (err) => {
         type: postConstants.POSTS_FAILURE,
         payload: err,
     }
+}
+
+export const fetchAllPosts = (userId) => (dispatch) => {
+    const reqOptions = {
+        headers: { 'Content-Type': 'application/json' },
+        user: {
+            id: userId, 
+        }
+    }
+
+    dispatch(postsRequest())
+    axios.get("/api/post",reqOptions)
+        .then((response) => {
+            console.log(response);
+            dispatch(postsSuccess(response.data))
+        })
+        .catch((err) => {
+            dispatch(postsFailure(err))
+        })
 }

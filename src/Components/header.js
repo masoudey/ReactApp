@@ -52,9 +52,9 @@ class Header extends Component {
                     <button class={`navbar-toggler ${toggleBtnClass}`} onClick={this.toggleCollapse.bind(this)} data-toggle="collapse" data-target="#reactNavbar">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class={`collapse navbar-collapse navbar-right ${navClass}  ${navBtnClass}` } id="reactNavbar">
+                    <div class={`collapse navbar-collapse  ${navClass}  ${navBtnClass}` } id="reactNavbar">
                         
-                        <ul  class="navbar-nav mr-3 right" >
+                        <ul  class="navbar-nav mr-3 ml-auto" >
                                 
                                 <NavLink exact activeClassName="active" class="nav-link" to="/">Home</NavLink>
                            

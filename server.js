@@ -21,7 +21,7 @@
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "aaf8076a27bc96c71246"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "bdeea90226588be317b6"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -1102,7 +1102,7 @@ app.use(_express2.default.static('public')).use(_accounts2.default).use('/api', 
 	res.send(renderFullPage(html, finalState));
 });
 _reactLoadable2.default.preloadAll().then(function () {
-	app.listen(3000);
+	app.listen(4000);
 });
 
 /***/ }),
@@ -1628,10 +1628,10 @@ var Header = function (_Component) {
                     ),
                     _react2.default.createElement(
                         "div",
-                        { className: "collapse navbar-collapse navbar-right " + navClass + "  " + navBtnClass, id: "reactNavbar" },
+                        { className: "collapse navbar-collapse  " + navClass + "  " + navBtnClass, id: "reactNavbar" },
                         _react2.default.createElement(
                             "ul",
-                            { className: "navbar-nav mr-3 right" },
+                            { className: "navbar-nav mr-3 ml-auto" },
                             _react2.default.createElement(
                                 _reactRouterDom.NavLink,
                                 { exact: true, activeClassName: "active", className: "nav-link", to: "/" },
@@ -1782,50 +1782,45 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var PostThumb = function PostThumb(props) {
     var post = props.post;
     return _react2.default.createElement(
-        "ul",
-        { id: "grid", className: "grid effect-5" },
+        "li",
+        { className: "shown" },
         _react2.default.createElement(
-            "li",
-            { className: "shown" },
+            "div",
+            { className: " grid-post" },
             _react2.default.createElement(
-                "div",
-                { className: " grid-post" },
+                "figure",
+                { className: "effect-phoebe phoebe" },
+                _react2.default.createElement("img", { src: "/" + post.img[0], alt: "img03" }),
                 _react2.default.createElement(
-                    "figure",
-                    { className: "effect-phoebe phoebe" },
-                    _react2.default.createElement("img", { src: "./src/imgs/" + post.img, alt: "img03" }),
-                    ">",
+                    "figcaption",
+                    { className: "phoebe" },
                     _react2.default.createElement(
-                        "figcaption",
-                        { className: "phoebe" },
+                        "h2",
+                        null,
+                        post.title[0]
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        { className: "desc" },
+                        post.desc[0]
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        null,
                         _react2.default.createElement(
-                            "h2",
-                            null,
-                            post.title
+                            "a",
+                            { href: "#" },
+                            _react2.default.createElement("i", { className: "icon-user" })
                         ),
                         _react2.default.createElement(
-                            "p",
-                            { className: "desc" },
-                            post.desc
+                            "a",
+                            { href: "#" },
+                            _react2.default.createElement("i", { className: "icon-heart" })
                         ),
                         _react2.default.createElement(
-                            "p",
-                            null,
-                            _react2.default.createElement(
-                                "a",
-                                { href: "#" },
-                                _react2.default.createElement("i", { className: "icon-user" })
-                            ),
-                            _react2.default.createElement(
-                                "a",
-                                { href: "#" },
-                                _react2.default.createElement("i", { className: "icon-heart" })
-                            ),
-                            _react2.default.createElement(
-                                "link",
-                                { to: "/blog/:" + post.id },
-                                _react2.default.createElement("i", { className: "icon-link" })
-                            )
+                            _reactRouterDom.Link,
+                            { to: "/blog/" + post.id },
+                            _react2.default.createElement("i", { className: "icon-link" })
                         )
                     )
                 )
@@ -2512,10 +2507,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var BlogPage = function (_Component) {
     _inherits(BlogPage, _Component);
 
-    function BlogPage() {
+    function BlogPage(props) {
         _classCallCheck(this, BlogPage);
 
-        return _possibleConstructorReturn(this, (BlogPage.__proto__ || Object.getPrototypeOf(BlogPage)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (BlogPage.__proto__ || Object.getPrototypeOf(BlogPage)).call(this, props));
+
+        _this.state = {
+            scrollanim: false
+        };
+        return _this;
     }
 
     _createClass(BlogPage, [{
@@ -2525,15 +2525,37 @@ var BlogPage = function (_Component) {
 
             var user = this.props.user;
             dispatch((0, _postActions.fetchAllPosts)());
+            if (window) {
+                window.addEventListener('scroll', this.handleScroll.bind(this));
+            }
+            console.log(this.state.scrollanim);
+        }
+    }, {
+        key: "componentWillMount",
+        value: function componentWillMount() {
+            if (window) {
+                window.removeEventListener('scroll', this.handleScroll.bind(this));
+            }
+        }
+    }, {
+        key: "handleScroll",
+        value: function handleScroll(event) {
+
+            if (window.scrollY > 1 && this.state.scrollanim === false) {
+                this.setState({ scrollanim: true });
+            } else if (window.scrollY <= 1 && this.state.scrollanim === true) {
+                this.setState({ scrollanim: false });
+            }
         }
     }, {
         key: "render",
         value: function render() {
             var posts = this.props.posts;
+            var scrolling = this.state.scrollanim ? 'modify' : '';
             console.log(posts);
             return _react2.default.createElement(
                 "div",
-                { id: "blog", className: "blog intro-effect-jam3 scrollanim" },
+                { id: "blog", className: "blog intro-effect-jam3  " + scrolling },
                 _react2.default.createElement(
                     "section",
                     { id: "header-block", className: "header " },
@@ -2543,7 +2565,7 @@ var BlogPage = function (_Component) {
                         _react2.default.createElement(
                             "div",
                             { className: "bg-img" },
-                            _react2.default.createElement("img", { src: "./src/imgs/blog.jpg", alt: "Background Image" })
+                            _react2.default.createElement("img", { src: "/blog.jpg", alt: "Background Image" })
                         ),
                         _react2.default.createElement(
                             "div",
@@ -2553,11 +2575,6 @@ var BlogPage = function (_Component) {
                                 null,
                                 "Posts"
                             )
-                        ),
-                        _react2.default.createElement(
-                            "button",
-                            { className: "trigger" },
-                            _react2.default.createElement("span", { className: "icon-arrow-down4" })
                         )
                     )
                 ),
@@ -2571,9 +2588,13 @@ var BlogPage = function (_Component) {
                             "div",
                             { className: "row" },
                             _react2.default.createElement("input", { type: "text", name: "" }),
-                            posts.map(function (post) {
-                                return _react2.default.createElement(_postthumbnail2.default, { post: post });
-                            })
+                            _react2.default.createElement(
+                                "ul",
+                                { id: "grid", className: "grid effect-5" },
+                                posts.map(function (post) {
+                                    return _react2.default.createElement(_postthumbnail2.default, { key: post.id, post: post });
+                                })
+                            )
                         )
                     )
                 )

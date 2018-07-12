@@ -1,8 +1,16 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
 
 class SinglePost extends Component {
-
+    constructor(props) {
+        super(props)
+    }
     
+    componentDidMount() {
+        const { postid } = this.props.match.params;
+
+    }
     
     render() {
         

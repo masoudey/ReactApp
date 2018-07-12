@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { fetchSinglePost } from "../actions/postActions";
 
 
 class SinglePost extends Component {
@@ -9,11 +10,13 @@ class SinglePost extends Component {
     
     componentDidMount() {
         const { postid } = this.props.match.params;
-
+        console.log("dfdgdfgd",postid);
+        const { dispatch } = this.props;
+        dispatch(fetchSinglePost(postid));
     }
     
     render() {
-        
+        const post = this.props.posts;
         return (
             <div id="post1" class="post1 intro-effect-fadeout scrollanim">
                 <header class="header">
@@ -38,5 +41,12 @@ class SinglePost extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    const { posts } = state.posts;
+    return {
+        posts,
+    }
+}
+const connectedSinglePost = connect(mapStateToProps)(SinglePost);
 
-export default SinglePost;
+export  {connectedSinglePost as SinglePost};

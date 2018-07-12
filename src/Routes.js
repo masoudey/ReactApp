@@ -11,7 +11,7 @@ import PublicRoute from "./Components/PublicRoute"
 // import Works from "./containers/WorksPage";
 import { BlogPage } from "./containers/BlogPage";
 import SingleWork from "./containers/SingleWork";
-import SinglePost from "./containers/SinglePost";
+import { SinglePost } from "./containers/SinglePost";
 // import Login from "./containers/Login";
 import AddPost from "./containers/AddPost";
 

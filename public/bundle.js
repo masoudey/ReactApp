@@ -89,7 +89,7 @@
 /******/ 	}
 /******/
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "545f75106e4fdfd13b74"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "0183d7f7ca85daabb682"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -68806,8 +68806,6 @@ var _SingleWork2 = _interopRequireDefault(_SingleWork);
 
 var _SinglePost = __webpack_require__(/*! ./containers/SinglePost */ "./src/containers/SinglePost.js");
 
-var _SinglePost2 = _interopRequireDefault(_SinglePost);
-
 var _AddPost = __webpack_require__(/*! ./containers/AddPost */ "./src/containers/AddPost.js");
 
 var _AddPost2 = _interopRequireDefault(_AddPost);
@@ -68908,7 +68906,7 @@ var Routes = function (_Component) {
                 _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: Home }),
                 _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/works", component: Works }),
                 _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/blog", component: _BlogPage.BlogPage }),
-                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/blog/:postid", component: _SinglePost2.default }),
+                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/blog/:postid", component: _SinglePost.SinglePost }),
                 _react2.default.createElement(_PrivateRoute2.default, {
                     path: "/addpost",
                     component: _AddPost2.default,
@@ -68982,7 +68980,7 @@ var authHeader = exports.authHeader = function authHeader() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.fetchAllPosts = undefined;
+exports.fetchSinglePost = exports.fetchAllPosts = undefined;
 
 var _constants = __webpack_require__(/*! ../constants */ "./src/constants/index.js");
 
@@ -69023,6 +69021,19 @@ var fetchAllPosts = exports.fetchAllPosts = function fetchAllPosts(userId) {
 
         dispatch(postsRequest());
         _axios2.default.get("/api/post", reqOptions).then(function (response) {
+            console.log(response);
+            dispatch(postsSuccess(response.data));
+        }).catch(function (err) {
+            dispatch(postsFailure(err));
+        });
+    };
+};
+
+var fetchSinglePost = exports.fetchSinglePost = function fetchSinglePost(postId) {
+    return function (dispatch) {
+
+        dispatch(postsRequest());
+        _axios2.default.get("/api/post/:" + postId, { params: { id: postId } }).then(function (response) {
             console.log(response);
             dispatch(postsSuccess(response.data));
         }).catch(function (err) {
@@ -69550,12 +69561,17 @@ exports.BlogPage = connectedBlog;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+exports.SinglePost = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _postActions = __webpack_require__(/*! ../actions/postActions */ "./src/actions/postActions.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -69568,16 +69584,26 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var SinglePost = function (_Component) {
     _inherits(SinglePost, _Component);
 
-    function SinglePost() {
+    function SinglePost(props) {
         _classCallCheck(this, SinglePost);
 
-        return _possibleConstructorReturn(this, (SinglePost.__proto__ || Object.getPrototypeOf(SinglePost)).apply(this, arguments));
+        return _possibleConstructorReturn(this, (SinglePost.__proto__ || Object.getPrototypeOf(SinglePost)).call(this, props));
     }
 
     _createClass(SinglePost, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            var postid = this.props.match.params.postid;
+
+            console.log("dfdgdfgd", postid);
+            var dispatch = this.props.dispatch;
+
+            dispatch((0, _postActions.fetchSinglePost)(postid));
+        }
+    }, {
         key: "render",
         value: function render() {
-
+            var post = this.props.posts;
             return _react2.default.createElement(
                 "div",
                 { id: "post1", className: "post1 intro-effect-fadeout scrollanim" },
@@ -69650,7 +69676,16 @@ var SinglePost = function (_Component) {
     return SinglePost;
 }(_react.Component);
 
-exports.default = SinglePost;
+var mapStateToProps = function mapStateToProps(state) {
+    var posts = state.posts.posts;
+
+    return {
+        posts: posts
+    };
+};
+var connectedSinglePost = (0, _reactRedux.connect)(mapStateToProps)(SinglePost);
+
+exports.SinglePost = connectedSinglePost;
 
 /***/ }),
 

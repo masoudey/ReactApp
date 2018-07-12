@@ -30,7 +30,9 @@ router
 	})
 	.route('/post/:id')
 		.get(function (req, res){
-			db.findOne(req.dbQuery, function (err, data){
+			console.log("/post/:id",req.params.id.substring(1) );
+
+			db.findOne({ 'id': parseInt(req.params.id.substring(1), 10)}, function (err, data){
 				res.json(data);
 			});
 		})

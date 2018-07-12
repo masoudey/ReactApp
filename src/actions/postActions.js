@@ -38,3 +38,16 @@ export const fetchAllPosts = (userId) => (dispatch) => {
             dispatch(postsFailure(err))
         })
 }
+
+export const fetchSinglePost = (postId) => (dispatch) => {
+
+    dispatch(postsRequest())
+    axios.get(`/api/post/:${postId}`,{params: {id: postId}})
+        .then((response) => {
+            console.log(response);
+            dispatch(postsSuccess(response.data))
+        })
+        .catch((err) => {
+            dispatch(postsFailure(err))
+        })
+}

@@ -1,4 +1,388 @@
 {
+  "react-id-swiper": [
+    {
+      "id": "./node_modules/react-id-swiper/lib/index.js",
+      "name": "./node_modules/react-id-swiper/lib/index.js",
+      "file": "0.bundle.js",
+      "publicPath": "/0.bundle.js"
+    },
+    {
+      "id": "./node_modules/react-id-swiper/lib/index.js",
+      "name": "./node_modules/react-id-swiper/lib/index.js",
+      "file": "0.bundle.js.map",
+      "publicPath": "/0.bundle.js.map"
+    }
+  ],
+  "./utils": [
+    {
+      "id": "./node_modules/react-id-swiper/lib/utils.js",
+      "name": "./node_modules/react-id-swiper/lib/utils.js",
+      "file": "0.bundle.js",
+      "publicPath": "/0.bundle.js"
+    },
+    {
+      "id": "./node_modules/react-id-swiper/lib/utils.js",
+      "name": "./node_modules/react-id-swiper/lib/utils.js",
+      "file": "0.bundle.js.map",
+      "publicPath": "/0.bundle.js.map"
+    },
+    {
+      "id": "./node_modules/axios/lib/utils.js",
+      "name": "./node_modules/axios/lib/utils.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/axios/lib/utils.js",
+      "name": "./node_modules/axios/lib/utils.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./checkPropTypes": [
+    {
+      "id": "./node_modules/react-id-swiper/node_modules/prop-types/checkPropTypes.js",
+      "name": "./node_modules/react-id-swiper/node_modules/prop-types/checkPropTypes.js",
+      "file": "0.bundle.js",
+      "publicPath": "/0.bundle.js"
+    },
+    {
+      "id": "./node_modules/react-id-swiper/node_modules/prop-types/checkPropTypes.js",
+      "name": "./node_modules/react-id-swiper/node_modules/prop-types/checkPropTypes.js",
+      "file": "0.bundle.js.map",
+      "publicPath": "/0.bundle.js.map"
+    }
+  ],
+  "./factoryWithTypeCheckers": [
+    {
+      "id": "./node_modules/react-id-swiper/node_modules/prop-types/factoryWithTypeCheckers.js",
+      "name": "./node_modules/react-id-swiper/node_modules/prop-types/factoryWithTypeCheckers.js",
+      "file": "0.bundle.js",
+      "publicPath": "/0.bundle.js"
+    },
+    {
+      "id": "./node_modules/react-id-swiper/node_modules/prop-types/factoryWithTypeCheckers.js",
+      "name": "./node_modules/react-id-swiper/node_modules/prop-types/factoryWithTypeCheckers.js",
+      "file": "0.bundle.js.map",
+      "publicPath": "/0.bundle.js.map"
+    },
+    {
+      "id": "./node_modules/prop-types/factoryWithTypeCheckers.js",
+      "name": "./node_modules/prop-types/factoryWithTypeCheckers.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/prop-types/factoryWithTypeCheckers.js",
+      "name": "./node_modules/prop-types/factoryWithTypeCheckers.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "prop-types": [
+    {
+      "id": "./node_modules/react-id-swiper/node_modules/prop-types/index.js",
+      "name": "./node_modules/react-id-swiper/node_modules/prop-types/index.js",
+      "file": "0.bundle.js",
+      "publicPath": "/0.bundle.js"
+    },
+    {
+      "id": "./node_modules/react-id-swiper/node_modules/prop-types/index.js",
+      "name": "./node_modules/react-id-swiper/node_modules/prop-types/index.js",
+      "file": "0.bundle.js.map",
+      "publicPath": "/0.bundle.js.map"
+    },
+    {
+      "id": "./node_modules/prop-types/index.js",
+      "name": "./node_modules/prop-types/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/prop-types/index.js",
+      "name": "./node_modules/prop-types/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./lib/ReactPropTypesSecret": [
+    {
+      "id": "./node_modules/react-id-swiper/node_modules/prop-types/lib/ReactPropTypesSecret.js",
+      "name": "./node_modules/react-id-swiper/node_modules/prop-types/lib/ReactPropTypesSecret.js",
+      "file": "0.bundle.js",
+      "publicPath": "/0.bundle.js"
+    },
+    {
+      "id": "./node_modules/react-id-swiper/node_modules/prop-types/lib/ReactPropTypesSecret.js",
+      "name": "./node_modules/react-id-swiper/node_modules/prop-types/lib/ReactPropTypesSecret.js",
+      "file": "0.bundle.js.map",
+      "publicPath": "/0.bundle.js.map"
+    },
+    {
+      "id": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
+      "name": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
+      "name": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "swiper/dist/js/swiper": [
+    {
+      "id": "./node_modules/swiper/dist/js/swiper.js",
+      "name": "./node_modules/swiper/dist/js/swiper.js",
+      "file": "0.bundle.js",
+      "publicPath": "/0.bundle.js"
+    },
+    {
+      "id": "./node_modules/swiper/dist/js/swiper.js",
+      "name": "./node_modules/swiper/dist/js/swiper.js",
+      "file": "0.bundle.js.map",
+      "publicPath": "/0.bundle.js.map"
+    }
+  ],
+  "!!../../node_modules/css-loader/index.js!./login.css": [
+    {
+      "id": "./node_modules/css-loader/index.js!./src/containers/login.css",
+      "name": "./node_modules/css-loader/index.js!./src/containers/login.css",
+      "file": "1.bundle.js",
+      "publicPath": "/1.bundle.js"
+    },
+    {
+      "id": "./node_modules/css-loader/index.js!./src/containers/login.css",
+      "name": "./node_modules/css-loader/index.js!./src/containers/login.css",
+      "file": "1.bundle.js.map",
+      "publicPath": "/1.bundle.js.map"
+    }
+  ],
+  "./containers/Login": [
+    {
+      "id": "./src/containers/Login.js",
+      "name": "./src/containers/Login.js",
+      "file": "1.bundle.js",
+      "publicPath": "/1.bundle.js"
+    },
+    {
+      "id": "./src/containers/Login.js",
+      "name": "./src/containers/Login.js",
+      "file": "1.bundle.js.map",
+      "publicPath": "/1.bundle.js.map"
+    }
+  ],
+  "./login.css": [
+    {
+      "id": "./src/containers/login.css",
+      "name": "./src/containers/login.css",
+      "file": "1.bundle.js",
+      "publicPath": "/1.bundle.js"
+    },
+    {
+      "id": "./src/containers/login.css",
+      "name": "./src/containers/login.css",
+      "file": "1.bundle.js.map",
+      "publicPath": "/1.bundle.js.map"
+    }
+  ],
+  "../imgs/loginbackground.jpg": [
+    {
+      "id": "./src/imgs/loginbackground.jpg",
+      "name": "./src/imgs/loginbackground.jpg",
+      "file": "1.bundle.js",
+      "publicPath": "/1.bundle.js"
+    },
+    {
+      "id": "./src/imgs/loginbackground.jpg",
+      "name": "./src/imgs/loginbackground.jpg",
+      "file": "1.bundle.js.map",
+      "publicPath": "/1.bundle.js.map"
+    }
+  ],
+  "!!../../node_modules/css-loader/index.js!./works.css": [
+    {
+      "id": "./node_modules/css-loader/index.js!./src/containers/works.css",
+      "name": "./node_modules/css-loader/index.js!./src/containers/works.css",
+      "file": "2.bundle.js",
+      "publicPath": "/2.bundle.js"
+    },
+    {
+      "id": "./node_modules/css-loader/index.js!./src/containers/works.css",
+      "name": "./node_modules/css-loader/index.js!./src/containers/works.css",
+      "file": "2.bundle.js.map",
+      "publicPath": "/2.bundle.js.map"
+    }
+  ],
+  "./containers/WorksPage": [
+    {
+      "id": "./src/containers/WorksPage.js",
+      "name": "./src/containers/WorksPage.js",
+      "file": "2.bundle.js",
+      "publicPath": "/2.bundle.js"
+    },
+    {
+      "id": "./src/containers/WorksPage.js",
+      "name": "./src/containers/WorksPage.js",
+      "file": "2.bundle.js.map",
+      "publicPath": "/2.bundle.js.map"
+    }
+  ],
+  "./works.css": [
+    {
+      "id": "./src/containers/works.css",
+      "name": "./src/containers/works.css",
+      "file": "2.bundle.js",
+      "publicPath": "/2.bundle.js"
+    },
+    {
+      "id": "./src/containers/works.css",
+      "name": "./src/containers/works.css",
+      "file": "2.bundle.js.map",
+      "publicPath": "/2.bundle.js.map"
+    }
+  ],
+  "!!../../node_modules/css-loader/index.js!./home.css": [
+    {
+      "id": "./node_modules/css-loader/index.js!./src/containers/home.css",
+      "name": "./node_modules/css-loader/index.js!./src/containers/home.css",
+      "file": "3.bundle.js",
+      "publicPath": "/3.bundle.js"
+    },
+    {
+      "id": "./node_modules/css-loader/index.js!./src/containers/home.css",
+      "name": "./node_modules/css-loader/index.js!./src/containers/home.css",
+      "file": "3.bundle.js.map",
+      "publicPath": "/3.bundle.js.map"
+    }
+  ],
+  "!!../node_modules/css-loader/index.js!./swiper.css": [
+    {
+      "id": "./node_modules/css-loader/index.js!./src/swiper.css",
+      "name": "./node_modules/css-loader/index.js!./src/swiper.css",
+      "file": "3.bundle.js",
+      "publicPath": "/3.bundle.js"
+    },
+    {
+      "id": "./node_modules/css-loader/index.js!./src/swiper.css",
+      "name": "./node_modules/css-loader/index.js!./src/swiper.css",
+      "file": "3.bundle.js.map",
+      "publicPath": "/3.bundle.js.map"
+    }
+  ],
+  "./containers/HomePage": [
+    {
+      "id": "./src/containers/HomePage.js",
+      "name": "./src/containers/HomePage.js",
+      "file": "3.bundle.js",
+      "publicPath": "/3.bundle.js"
+    },
+    {
+      "id": "./src/containers/HomePage.js",
+      "name": "./src/containers/HomePage.js",
+      "file": "3.bundle.js.map",
+      "publicPath": "/3.bundle.js.map"
+    }
+  ],
+  "./home.css": [
+    {
+      "id": "./src/containers/home.css",
+      "name": "./src/containers/home.css",
+      "file": "3.bundle.js",
+      "publicPath": "/3.bundle.js"
+    },
+    {
+      "id": "./src/containers/home.css",
+      "name": "./src/containers/home.css",
+      "file": "3.bundle.js.map",
+      "publicPath": "/3.bundle.js.map"
+    }
+  ],
+  "../imgs/1.jpg": [
+    {
+      "id": "./src/imgs/1.jpg",
+      "name": "./src/imgs/1.jpg",
+      "file": "3.bundle.js",
+      "publicPath": "/3.bundle.js"
+    },
+    {
+      "id": "./src/imgs/1.jpg",
+      "name": "./src/imgs/1.jpg",
+      "file": "3.bundle.js.map",
+      "publicPath": "/3.bundle.js.map"
+    }
+  ],
+  "../imgs/2.jpg": [
+    {
+      "id": "./src/imgs/2.jpg",
+      "name": "./src/imgs/2.jpg",
+      "file": "3.bundle.js",
+      "publicPath": "/3.bundle.js"
+    },
+    {
+      "id": "./src/imgs/2.jpg",
+      "name": "./src/imgs/2.jpg",
+      "file": "3.bundle.js.map",
+      "publicPath": "/3.bundle.js.map"
+    }
+  ],
+  "../imgs/3.jpg": [
+    {
+      "id": "./src/imgs/3.jpg",
+      "name": "./src/imgs/3.jpg",
+      "file": "3.bundle.js",
+      "publicPath": "/3.bundle.js"
+    },
+    {
+      "id": "./src/imgs/3.jpg",
+      "name": "./src/imgs/3.jpg",
+      "file": "3.bundle.js.map",
+      "publicPath": "/3.bundle.js.map"
+    }
+  ],
+  "../imgs/4.jpg": [
+    {
+      "id": "./src/imgs/4.jpg",
+      "name": "./src/imgs/4.jpg",
+      "file": "3.bundle.js",
+      "publicPath": "/3.bundle.js"
+    },
+    {
+      "id": "./src/imgs/4.jpg",
+      "name": "./src/imgs/4.jpg",
+      "file": "3.bundle.js.map",
+      "publicPath": "/3.bundle.js.map"
+    }
+  ],
+  "../imgs/5.jpg": [
+    {
+      "id": "./src/imgs/5.jpg",
+      "name": "./src/imgs/5.jpg",
+      "file": "3.bundle.js",
+      "publicPath": "/3.bundle.js"
+    },
+    {
+      "id": "./src/imgs/5.jpg",
+      "name": "./src/imgs/5.jpg",
+      "file": "3.bundle.js.map",
+      "publicPath": "/3.bundle.js.map"
+    }
+  ],
+  "../swiper.css": [
+    {
+      "id": "./src/swiper.css",
+      "name": "./src/swiper.css",
+      "file": "3.bundle.js",
+      "publicPath": "/3.bundle.js"
+    },
+    {
+      "id": "./src/swiper.css",
+      "name": "./src/swiper.css",
+      "file": "3.bundle.js.map",
+      "publicPath": "/3.bundle.js.map"
+    }
+  ],
   "asn1.js": [
     {
       "id": "./node_modules/asn1.js/lib/asn1.js",
@@ -525,32 +909,6 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./utils": [
-    {
-      "id": "./node_modules/axios/lib/utils.js",
-      "name": "./node_modules/axios/lib/utils.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/axios/lib/utils.js",
-      "name": "./node_modules/axios/lib/utils.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": "./node_modules/react-id-swiper/lib/utils.js",
-      "name": "./node_modules/react-id-swiper/lib/utils.js",
-      "file": "3.bundle.js",
-      "publicPath": "/3.bundle.js"
-    },
-    {
-      "id": "./node_modules/react-id-swiper/lib/utils.js",
-      "name": "./node_modules/react-id-swiper/lib/utils.js",
-      "file": "3.bundle.js.map",
-      "publicPath": "/3.bundle.js.map"
-    }
-  ],
   "babel-polyfill": [
     {
       "id": "./node_modules/babel-polyfill/lib/index.js",
@@ -719,7 +1077,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./incr32": [
+  "../incr32": [
     {
       "id": "./node_modules/browserify-aes/incr32.js",
       "name": "./node_modules/browserify-aes/incr32.js",
@@ -915,6 +1273,32 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "safe-buffer": [
+    {
+      "id": "./node_modules/browserify-des/node_modules/safe-buffer/index.js",
+      "name": "./node_modules/browserify-des/node_modules/safe-buffer/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/safe-buffer/index.js",
+      "name": "./node_modules/safe-buffer/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/browserify-des/node_modules/safe-buffer/index.js",
+      "name": "./node_modules/browserify-des/node_modules/safe-buffer/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": "./node_modules/safe-buffer/index.js",
+      "name": "./node_modules/safe-buffer/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "browserify-rsa": [
     {
       "id": "./node_modules/browserify-rsa/index.js",
@@ -1075,6 +1459,44 @@
     {
       "id": "./node_modules/buffer/index.js",
       "name": "./node_modules/buffer/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "isarray": [
+    {
+      "id": "./node_modules/buffer/node_modules/isarray/index.js",
+      "name": "./node_modules/buffer/node_modules/isarray/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/isarray/index.js",
+      "name": "./node_modules/isarray/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/readable-stream/node_modules/isarray/index.js",
+      "name": "./node_modules/readable-stream/node_modules/isarray/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/buffer/node_modules/isarray/index.js",
+      "name": "./node_modules/buffer/node_modules/isarray/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": "./node_modules/isarray/index.js",
+      "name": "./node_modules/isarray/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": "./node_modules/readable-stream/node_modules/isarray/index.js",
+      "name": "./node_modules/readable-stream/node_modules/isarray/index.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -6593,22 +7015,10 @@
   ],
   "./DOMUtils": [
     {
-      "id": "./node_modules/history/DOMUtils.js",
-      "name": "./node_modules/history/DOMUtils.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
       "id": "./node_modules/history/es/DOMUtils.js",
       "name": "./node_modules/history/es/DOMUtils.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/history/DOMUtils.js",
-      "name": "./node_modules/history/DOMUtils.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
     },
     {
       "id": "./node_modules/history/es/DOMUtils.js",
@@ -6619,22 +7029,10 @@
   ],
   "./LocationUtils": [
     {
-      "id": "./node_modules/history/LocationUtils.js",
-      "name": "./node_modules/history/LocationUtils.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
       "id": "./node_modules/history/es/LocationUtils.js",
       "name": "./node_modules/history/es/LocationUtils.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/history/LocationUtils.js",
-      "name": "./node_modules/history/LocationUtils.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
     },
     {
       "id": "./node_modules/history/es/LocationUtils.js",
@@ -6645,94 +7043,14 @@
   ],
   "./PathUtils": [
     {
-      "id": "./node_modules/history/PathUtils.js",
-      "name": "./node_modules/history/PathUtils.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
       "id": "./node_modules/history/es/PathUtils.js",
       "name": "./node_modules/history/es/PathUtils.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     },
     {
-      "id": "./node_modules/history/PathUtils.js",
-      "name": "./node_modules/history/PathUtils.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
       "id": "./node_modules/history/es/PathUtils.js",
       "name": "./node_modules/history/es/PathUtils.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "history/createBrowserHistory": [
-    {
-      "id": "./node_modules/history/createBrowserHistory.js",
-      "name": "./node_modules/history/createBrowserHistory.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/history/createBrowserHistory.js",
-      "name": "./node_modules/history/createBrowserHistory.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "history/createHashHistory": [
-    {
-      "id": "./node_modules/history/createHashHistory.js",
-      "name": "./node_modules/history/createHashHistory.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/history/createHashHistory.js",
-      "name": "./node_modules/history/createHashHistory.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "history/createMemoryHistory": [
-    {
-      "id": "./node_modules/history/createMemoryHistory.js",
-      "name": "./node_modules/history/createMemoryHistory.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/history/createMemoryHistory.js",
-      "name": "./node_modules/history/createMemoryHistory.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "./createTransitionManager": [
-    {
-      "id": "./node_modules/history/createTransitionManager.js",
-      "name": "./node_modules/history/createTransitionManager.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/history/es/createTransitionManager.js",
-      "name": "./node_modules/history/es/createTransitionManager.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/history/createTransitionManager.js",
-      "name": "./node_modules/history/createTransitionManager.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": "./node_modules/history/es/createTransitionManager.js",
-      "name": "./node_modules/history/es/createTransitionManager.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -6779,6 +7097,20 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "./createTransitionManager": [
+    {
+      "id": "./node_modules/history/es/createTransitionManager.js",
+      "name": "./node_modules/history/es/createTransitionManager.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/history/es/createTransitionManager.js",
+      "name": "./node_modules/history/es/createTransitionManager.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "history": [
     {
       "id": "./node_modules/history/es/index.js",
@@ -6809,14 +7141,14 @@
   ],
   "hoist-non-react-statics": [
     {
-      "id": "./node_modules/hoist-non-react-statics/index.js",
-      "name": "./node_modules/hoist-non-react-statics/index.js",
+      "id": "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js",
+      "name": "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     },
     {
-      "id": "./node_modules/hoist-non-react-statics/index.js",
-      "name": "./node_modules/hoist-non-react-statics/index.js",
+      "id": "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js",
+      "name": "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -6857,20 +7189,8 @@
       "publicPath": "/bundle.js"
     },
     {
-      "id": "./node_modules/util/node_modules/inherits/inherits_browser.js",
-      "name": "./node_modules/util/node_modules/inherits/inherits_browser.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
       "id": "./node_modules/inherits/inherits_browser.js",
       "name": "./node_modules/inherits/inherits_browser.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": "./node_modules/util/node_modules/inherits/inherits_browser.js",
-      "name": "./node_modules/util/node_modules/inherits/inherits_browser.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -6899,32 +7219,6 @@
     {
       "id": "./node_modules/is-buffer/index.js",
       "name": "./node_modules/is-buffer/index.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "isarray": [
-    {
-      "id": "./node_modules/isarray/index.js",
-      "name": "./node_modules/isarray/index.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/react-router/node_modules/isarray/index.js",
-      "name": "./node_modules/react-router/node_modules/isarray/index.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/isarray/index.js",
-      "name": "./node_modules/isarray/index.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": "./node_modules/react-router/node_modules/isarray/index.js",
-      "name": "./node_modules/react-router/node_modules/isarray/index.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -7601,48 +7895,6 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./factoryWithTypeCheckers": [
-    {
-      "id": "./node_modules/prop-types/factoryWithTypeCheckers.js",
-      "name": "./node_modules/prop-types/factoryWithTypeCheckers.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/prop-types/factoryWithTypeCheckers.js",
-      "name": "./node_modules/prop-types/factoryWithTypeCheckers.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "prop-types": [
-    {
-      "id": "./node_modules/prop-types/index.js",
-      "name": "./node_modules/prop-types/index.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/prop-types/index.js",
-      "name": "./node_modules/prop-types/index.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "./lib/ReactPropTypesSecret": [
-    {
-      "id": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
-      "name": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
-      "name": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
   "public-encrypt": [
     {
       "id": "./node_modules/public-encrypt/browser.js",
@@ -7937,56 +8189,6 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "undefined": [
-    {
-      "id": 3,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 2,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 1,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 2,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 1,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
   "../utils/PropTypes": [
     {
       "id": "./node_modules/react-redux/es/utils/PropTypes.js",
@@ -8211,6 +8413,20 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "./generatePath": [
+    {
+      "id": "./node_modules/react-router-dom/es/generatePath.js",
+      "name": "./node_modules/react-router-dom/es/generatePath.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-router-dom/es/generatePath.js",
+      "name": "./node_modules/react-router-dom/es/generatePath.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "react-router-dom": [
     {
       "id": "./node_modules/react-router-dom/es/index.js",
@@ -8249,6 +8465,44 @@
     {
       "id": "./node_modules/react-router-dom/es/withRouter.js",
       "name": "./node_modules/react-router-dom/es/withRouter.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "warning": [
+    {
+      "id": "./node_modules/react-router-dom/node_modules/warning/warning.js",
+      "name": "./node_modules/react-router-dom/node_modules/warning/warning.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-router/node_modules/warning/warning.js",
+      "name": "./node_modules/react-router/node_modules/warning/warning.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/warning/browser.js",
+      "name": "./node_modules/warning/browser.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-router-dom/node_modules/warning/warning.js",
+      "name": "./node_modules/react-router-dom/node_modules/warning/warning.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": "./node_modules/react-router/node_modules/warning/warning.js",
+      "name": "./node_modules/react-router/node_modules/warning/warning.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": "./node_modules/warning/browser.js",
+      "name": "./node_modules/warning/browser.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -8347,6 +8601,20 @@
     {
       "id": "./node_modules/react-router/es/Switch.js",
       "name": "./node_modules/react-router/es/Switch.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "react-router/es/generatePath": [
+    {
+      "id": "./node_modules/react-router/es/generatePath.js",
+      "name": "./node_modules/react-router/es/generatePath.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-router/es/generatePath.js",
+      "name": "./node_modules/react-router/es/generatePath.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -8645,34 +8913,6 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "symbol-observable": [
-    {
-      "id": "./node_modules/redux/node_modules/symbol-observable/es/index.js",
-      "name": "./node_modules/redux/node_modules/symbol-observable/es/index.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/redux/node_modules/symbol-observable/es/index.js",
-      "name": "./node_modules/redux/node_modules/symbol-observable/es/index.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "./ponyfill.js": [
-    {
-      "id": "./node_modules/redux/node_modules/symbol-observable/es/ponyfill.js",
-      "name": "./node_modules/redux/node_modules/symbol-observable/es/ponyfill.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/redux/node_modules/symbol-observable/es/ponyfill.js",
-      "name": "./node_modules/redux/node_modules/symbol-observable/es/ponyfill.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
   "resolve-pathname": [
     {
       "id": "./node_modules/resolve-pathname/index.js",
@@ -8697,20 +8937,6 @@
     {
       "id": "./node_modules/ripemd160/index.js",
       "name": "./node_modules/ripemd160/index.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "safe-buffer": [
-    {
-      "id": "./node_modules/safe-buffer/index.js",
-      "name": "./node_modules/safe-buffer/index.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/safe-buffer/index.js",
-      "name": "./node_modules/safe-buffer/index.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -8897,6 +9123,34 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "symbol-observable": [
+    {
+      "id": "./node_modules/symbol-observable/es/index.js",
+      "name": "./node_modules/symbol-observable/es/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/symbol-observable/es/index.js",
+      "name": "./node_modules/symbol-observable/es/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./ponyfill.js": [
+    {
+      "id": "./node_modules/symbol-observable/es/ponyfill.js",
+      "name": "./node_modules/symbol-observable/es/ponyfill.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/symbol-observable/es/ponyfill.js",
+      "name": "./node_modules/symbol-observable/es/ponyfill.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "./../../timers-browserify/main.js": [
     {
       "id": "./node_modules/timers-browserify/main.js",
@@ -8981,20 +9235,6 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "warning": [
-    {
-      "id": "./node_modules/warning/browser.js",
-      "name": "./node_modules/warning/browser.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/warning/browser.js",
-      "name": "./node_modules/warning/browser.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
   "./../../webpack/buildin/global.js": [
     {
       "id": "./node_modules/webpack/buildin/global.js",
@@ -9009,7 +9249,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./../../../../webpack/buildin/harmony-module.js": [
+  "./../../webpack/buildin/harmony-module.js": [
     {
       "id": "./node_modules/webpack/buildin/harmony-module.js",
       "name": "./node_modules/webpack/buildin/harmony-module.js",
@@ -9033,20 +9273,6 @@
     {
       "id": "./node_modules/webpack/buildin/module.js",
       "name": "./node_modules/webpack/buildin/module.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "xtend": [
-    {
-      "id": "./node_modules/xtend/immutable.js",
-      "name": "./node_modules/xtend/immutable.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/xtend/immutable.js",
-      "name": "./node_modules/xtend/immutable.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -9387,7 +9613,57 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "C:\\Users\\Masoud\\Desktop\\react-app\\src\\index.js": [
+  "undefined": [
+    {
+      "id": 0,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 1,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 1,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "/home/masoud/Documents/ReactApp/src/index.js": [
     {
       "id": "./src/index.js",
       "name": "./src/index.js",
@@ -9469,272 +9745,6 @@
       "name": "./src/store.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
-    }
-  ],
-  "!!../../node_modules/css-loader/index.js!./home.css": [
-    {
-      "id": "./node_modules/css-loader/index.js!./src/containers/home.css",
-      "name": "./node_modules/css-loader/index.js!./src/containers/home.css",
-      "file": "0.bundle.js",
-      "publicPath": "/0.bundle.js"
-    },
-    {
-      "id": "./node_modules/css-loader/index.js!./src/containers/home.css",
-      "name": "./node_modules/css-loader/index.js!./src/containers/home.css",
-      "file": "0.bundle.js.map",
-      "publicPath": "/0.bundle.js.map"
-    }
-  ],
-  "!!../node_modules/css-loader/index.js!./swiper.css": [
-    {
-      "id": "./node_modules/css-loader/index.js!./src/swiper.css",
-      "name": "./node_modules/css-loader/index.js!./src/swiper.css",
-      "file": "0.bundle.js",
-      "publicPath": "/0.bundle.js"
-    },
-    {
-      "id": "./node_modules/css-loader/index.js!./src/swiper.css",
-      "name": "./node_modules/css-loader/index.js!./src/swiper.css",
-      "file": "0.bundle.js.map",
-      "publicPath": "/0.bundle.js.map"
-    }
-  ],
-  "./containers/HomePage": [
-    {
-      "id": "./src/containers/HomePage.js",
-      "name": "./src/containers/HomePage.js",
-      "file": "0.bundle.js",
-      "publicPath": "/0.bundle.js"
-    },
-    {
-      "id": "./src/containers/HomePage.js",
-      "name": "./src/containers/HomePage.js",
-      "file": "0.bundle.js.map",
-      "publicPath": "/0.bundle.js.map"
-    }
-  ],
-  "./home.css": [
-    {
-      "id": "./src/containers/home.css",
-      "name": "./src/containers/home.css",
-      "file": "0.bundle.js",
-      "publicPath": "/0.bundle.js"
-    },
-    {
-      "id": "./src/containers/home.css",
-      "name": "./src/containers/home.css",
-      "file": "0.bundle.js.map",
-      "publicPath": "/0.bundle.js.map"
-    }
-  ],
-  "../imgs/1.jpg": [
-    {
-      "id": "./src/imgs/1.jpg",
-      "name": "./src/imgs/1.jpg",
-      "file": "0.bundle.js",
-      "publicPath": "/0.bundle.js"
-    },
-    {
-      "id": "./src/imgs/1.jpg",
-      "name": "./src/imgs/1.jpg",
-      "file": "0.bundle.js.map",
-      "publicPath": "/0.bundle.js.map"
-    }
-  ],
-  "../imgs/2.jpg": [
-    {
-      "id": "./src/imgs/2.jpg",
-      "name": "./src/imgs/2.jpg",
-      "file": "0.bundle.js",
-      "publicPath": "/0.bundle.js"
-    },
-    {
-      "id": "./src/imgs/2.jpg",
-      "name": "./src/imgs/2.jpg",
-      "file": "0.bundle.js.map",
-      "publicPath": "/0.bundle.js.map"
-    }
-  ],
-  "../imgs/3.jpg": [
-    {
-      "id": "./src/imgs/3.jpg",
-      "name": "./src/imgs/3.jpg",
-      "file": "0.bundle.js",
-      "publicPath": "/0.bundle.js"
-    },
-    {
-      "id": "./src/imgs/3.jpg",
-      "name": "./src/imgs/3.jpg",
-      "file": "0.bundle.js.map",
-      "publicPath": "/0.bundle.js.map"
-    }
-  ],
-  "../imgs/4.jpg": [
-    {
-      "id": "./src/imgs/4.jpg",
-      "name": "./src/imgs/4.jpg",
-      "file": "0.bundle.js",
-      "publicPath": "/0.bundle.js"
-    },
-    {
-      "id": "./src/imgs/4.jpg",
-      "name": "./src/imgs/4.jpg",
-      "file": "0.bundle.js.map",
-      "publicPath": "/0.bundle.js.map"
-    }
-  ],
-  "../imgs/5.jpg": [
-    {
-      "id": "./src/imgs/5.jpg",
-      "name": "./src/imgs/5.jpg",
-      "file": "0.bundle.js",
-      "publicPath": "/0.bundle.js"
-    },
-    {
-      "id": "./src/imgs/5.jpg",
-      "name": "./src/imgs/5.jpg",
-      "file": "0.bundle.js.map",
-      "publicPath": "/0.bundle.js.map"
-    }
-  ],
-  "../swiper.css": [
-    {
-      "id": "./src/swiper.css",
-      "name": "./src/swiper.css",
-      "file": "0.bundle.js",
-      "publicPath": "/0.bundle.js"
-    },
-    {
-      "id": "./src/swiper.css",
-      "name": "./src/swiper.css",
-      "file": "0.bundle.js.map",
-      "publicPath": "/0.bundle.js.map"
-    }
-  ],
-  "!!../../node_modules/css-loader/index.js!./works.css": [
-    {
-      "id": "./node_modules/css-loader/index.js!./src/containers/works.css",
-      "name": "./node_modules/css-loader/index.js!./src/containers/works.css",
-      "file": "1.bundle.js",
-      "publicPath": "/1.bundle.js"
-    },
-    {
-      "id": "./node_modules/css-loader/index.js!./src/containers/works.css",
-      "name": "./node_modules/css-loader/index.js!./src/containers/works.css",
-      "file": "1.bundle.js.map",
-      "publicPath": "/1.bundle.js.map"
-    }
-  ],
-  "./containers/WorksPage": [
-    {
-      "id": "./src/containers/WorksPage.js",
-      "name": "./src/containers/WorksPage.js",
-      "file": "1.bundle.js",
-      "publicPath": "/1.bundle.js"
-    },
-    {
-      "id": "./src/containers/WorksPage.js",
-      "name": "./src/containers/WorksPage.js",
-      "file": "1.bundle.js.map",
-      "publicPath": "/1.bundle.js.map"
-    }
-  ],
-  "./works.css": [
-    {
-      "id": "./src/containers/works.css",
-      "name": "./src/containers/works.css",
-      "file": "1.bundle.js",
-      "publicPath": "/1.bundle.js"
-    },
-    {
-      "id": "./src/containers/works.css",
-      "name": "./src/containers/works.css",
-      "file": "1.bundle.js.map",
-      "publicPath": "/1.bundle.js.map"
-    }
-  ],
-  "!!../../node_modules/css-loader/index.js!./login.css": [
-    {
-      "id": "./node_modules/css-loader/index.js!./src/containers/login.css",
-      "name": "./node_modules/css-loader/index.js!./src/containers/login.css",
-      "file": "2.bundle.js",
-      "publicPath": "/2.bundle.js"
-    },
-    {
-      "id": "./node_modules/css-loader/index.js!./src/containers/login.css",
-      "name": "./node_modules/css-loader/index.js!./src/containers/login.css",
-      "file": "2.bundle.js.map",
-      "publicPath": "/2.bundle.js.map"
-    }
-  ],
-  "./containers/Login": [
-    {
-      "id": "./src/containers/Login.js",
-      "name": "./src/containers/Login.js",
-      "file": "2.bundle.js",
-      "publicPath": "/2.bundle.js"
-    },
-    {
-      "id": "./src/containers/Login.js",
-      "name": "./src/containers/Login.js",
-      "file": "2.bundle.js.map",
-      "publicPath": "/2.bundle.js.map"
-    }
-  ],
-  "./login.css": [
-    {
-      "id": "./src/containers/login.css",
-      "name": "./src/containers/login.css",
-      "file": "2.bundle.js",
-      "publicPath": "/2.bundle.js"
-    },
-    {
-      "id": "./src/containers/login.css",
-      "name": "./src/containers/login.css",
-      "file": "2.bundle.js.map",
-      "publicPath": "/2.bundle.js.map"
-    }
-  ],
-  "../imgs/loginbackground.jpg": [
-    {
-      "id": "./src/imgs/loginbackground.jpg",
-      "name": "./src/imgs/loginbackground.jpg",
-      "file": "2.bundle.js",
-      "publicPath": "/2.bundle.js"
-    },
-    {
-      "id": "./src/imgs/loginbackground.jpg",
-      "name": "./src/imgs/loginbackground.jpg",
-      "file": "2.bundle.js.map",
-      "publicPath": "/2.bundle.js.map"
-    }
-  ],
-  "react-id-swiper": [
-    {
-      "id": "./node_modules/react-id-swiper/lib/index.js",
-      "name": "./node_modules/react-id-swiper/lib/index.js",
-      "file": "3.bundle.js",
-      "publicPath": "/3.bundle.js"
-    },
-    {
-      "id": "./node_modules/react-id-swiper/lib/index.js",
-      "name": "./node_modules/react-id-swiper/lib/index.js",
-      "file": "3.bundle.js.map",
-      "publicPath": "/3.bundle.js.map"
-    }
-  ],
-  "swiper/dist/js/swiper": [
-    {
-      "id": "./node_modules/swiper/dist/js/swiper.js",
-      "name": "./node_modules/swiper/dist/js/swiper.js",
-      "file": "3.bundle.js",
-      "publicPath": "/3.bundle.js"
-    },
-    {
-      "id": "./node_modules/swiper/dist/js/swiper.js",
-      "name": "./node_modules/swiper/dist/js/swiper.js",
-      "file": "3.bundle.js.map",
-      "publicPath": "/3.bundle.js.map"
     }
   ]
 }

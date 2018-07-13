@@ -19,7 +19,6 @@ class SinglePost extends Component {
     render() {
         const { postid } = this.props.match.params;
         const post = this.props.posts;
-        // const post = posts.filter(po => po.id == postid)[0];
         console.log("single post",post);
         return (
             <div id="post1" class="post1 intro-effect-fadeout scrollanim">

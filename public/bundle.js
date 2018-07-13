@@ -68935,7 +68935,6 @@ var SinglePost = function (_Component) {
             var postid = this.props.match.params.postid;
 
             var post = this.props.posts;
-            // const post = posts.filter(po => po.id == postid)[0];
             console.log("single post", post);
             return _react2.default.createElement(
                 "div",

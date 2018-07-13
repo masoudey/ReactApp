@@ -15,7 +15,7 @@ const PostThumb = (props) => {
                             <p>
                                 <a href="#"><i class="icon-user"></i></a>
                                 <a href="#"><i class="icon-heart"></i></a>
-                                <Link to={`/blog/${post.id}`}><i class="icon-link"></i></Link>
+                                <Link state={post} to={`/blog/${post.id}`}><i class="icon-link"></i></Link>
                             </p>
                         </figcaption>           
                     </figure>

@@ -14,7 +14,7 @@ const clientConfig = {
         publicPath: '/'
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
         new ReactLoadablePlugin({
             filename: './public/react-loadable.json',
           }),
@@ -85,7 +85,7 @@ const serverConfig = {
         },
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
+        // new webpack.HotModuleReplacementPlugin(),
         
     ],
     module: {

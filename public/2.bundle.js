@@ -239,32 +239,7 @@ var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyl
 
 if(content.locals) module.exports = content.locals;
 
-if(true) {
-	module.hot.accept(/*! !../../node_modules/css-loader!./login.css */ "./node_modules/css-loader/index.js!./src/containers/login.css", function(__WEBPACK_OUTDATED_DEPENDENCIES__) { (function() {
-		var newContent = __webpack_require__(/*! !../../node_modules/css-loader!./login.css */ "./node_modules/css-loader/index.js!./src/containers/login.css");
-
-		if(typeof newContent === 'string') newContent = [[module.i, newContent, '']];
-
-		var locals = (function(a, b) {
-			var key, idx = 0;
-
-			for(key in a) {
-				if(!b || a[key] !== b[key]) return false;
-				idx++;
-			}
-
-			for(key in b) idx--;
-
-			return idx === 0;
-		}(content.locals, newContent.locals));
-
-		if(!locals) throw new Error('Aborting CSS HMR due to changed css-modules locals.');
-
-		update(newContent);
-	})(__WEBPACK_OUTDATED_DEPENDENCIES__); });
-
-	module.hot.dispose(function() { update(); });
-}
+if(false) {}
 
 /***/ }),
 

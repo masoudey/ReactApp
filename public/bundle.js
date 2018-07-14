@@ -68745,6 +68745,8 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
 var _postActions = __webpack_require__(/*! ../actions/postActions */ "./src/actions/postActions.js");
 
 var _postthumbnail = __webpack_require__(/*! ../Components/postthumbnail */ "./src/Components/postthumbnail.js");
@@ -68790,7 +68792,7 @@ var BlogPage = function (_Component) {
     }, {
         key: "componentWillMount",
         value: function componentWillMount() {
-            if (window) {
+            if (!(typeof window === "undefined")) {
                 window.removeEventListener('scroll', this.handleScroll.bind(this));
             }
         }
@@ -68871,7 +68873,7 @@ var mapStateToProps = function mapStateToProps(state) {
         user: user
     };
 };
-var connectedBlog = (0, _reactRedux.connect)(mapStateToProps)(BlogPage);
+var connectedBlog = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(BlogPage));
 exports.BlogPage = connectedBlog;
 
 /***/ }),

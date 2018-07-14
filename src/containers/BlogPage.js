@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import { fetchAllPosts } from "../actions/postActions";
 import PostThumb from "../Components/postthumbnail";
 import "./blog.css"
@@ -22,7 +23,7 @@ class BlogPage extends Component {
     }
 
     componentWillMount() {
-        if (window) {
+        if ( !(typeof window === "undefined")) {
             window.removeEventListener('scroll', this.handleScroll.bind(this))
         }
     }
@@ -77,5 +78,5 @@ const mapStateToProps = state => {
         user
     };
 }
-const connectedBlog = connect(mapStateToProps)(BlogPage);
+const connectedBlog = withRouter(connect(mapStateToProps)(BlogPage));
 export  {connectedBlog as  BlogPage};

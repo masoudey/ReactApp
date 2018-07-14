@@ -1077,7 +1077,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "../incr32": [
+  "./incr32": [
     {
       "id": "./node_modules/browserify-aes/incr32.js",
       "name": "./node_modules/browserify-aes/incr32.js",
@@ -1809,7 +1809,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./modules/_core": [
+  "../../modules/_core": [
     {
       "id": "./node_modules/core-js/modules/_core.js",
       "name": "./node_modules/core-js/modules/_core.js",
@@ -3433,7 +3433,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./modules/es6.array.iterator": [
+  "./es6.array.iterator": [
     {
       "id": "./node_modules/core-js/modules/es6.array.iterator.js",
       "name": "./node_modules/core-js/modules/es6.array.iterator.js",
@@ -3699,7 +3699,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./modules/es6.map": [
+  "./es6.map": [
     {
       "id": "./node_modules/core-js/modules/es6.map.js",
       "name": "./node_modules/core-js/modules/es6.map.js",
@@ -4693,7 +4693,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./modules/es6.set": [
+  "./es6.set": [
     {
       "id": "./node_modules/core-js/modules/es6.set.js",
       "name": "./node_modules/core-js/modules/es6.set.js",
@@ -5183,7 +5183,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./modules/es6.weak-map": [
+  "./es6.weak-map": [
     {
       "id": "./node_modules/core-js/modules/es6.weak-map.js",
       "name": "./node_modules/core-js/modules/es6.weak-map.js",
@@ -9095,7 +9095,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "!../../../style-loader/lib/addStyles.js": [
+  "!../node_modules/style-loader/lib/addStyles.js": [
     {
       "id": "./node_modules/style-loader/lib/addStyles.js",
       "name": "./node_modules/style-loader/lib/addStyles.js",

@@ -16,7 +16,7 @@ class BlogPage extends Component {
         const { dispatch } = this.props;
         const user = this.props.user;
         dispatch(fetchAllPosts());
-        if (window) {
+        if ( !(typeof window === 'undefined')) {
             window.addEventListener('scroll', this.handleScroll.bind(this))
         }
         console.log(this.state.scrollanim);

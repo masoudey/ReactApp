@@ -68784,10 +68784,12 @@ var BlogPage = function (_Component) {
 
             var user = this.props.user;
             dispatch((0, _postActions.fetchAllPosts)());
-            if (window) {
+
+            if (!(typeof window === 'undefined')) {
                 window.addEventListener('scroll', this.handleScroll.bind(this));
             }
             console.log(this.state.scrollanim);
+            console.log('did mount');
         }
     }, {
         key: "componentWillMount",
@@ -68795,6 +68797,7 @@ var BlogPage = function (_Component) {
             if (!(typeof window === "undefined")) {
                 window.removeEventListener('scroll', this.handleScroll.bind(this));
             }
+            console.log("will mount");
         }
     }, {
         key: "handleScroll",
@@ -68805,6 +68808,11 @@ var BlogPage = function (_Component) {
             } else if (window.scrollY <= 1 && this.state.scrollanim === true) {
                 this.setState({ scrollanim: false });
             }
+        }
+    }, {
+        key: "componentWillUnmount",
+        value: function componentWillUnmount() {
+            console.log('will unmount');
         }
     }, {
         key: "render",

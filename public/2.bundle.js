@@ -52,16 +52,58 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var WorksPage = function (_Component) {
     _inherits(WorksPage, _Component);
 
-    function WorksPage() {
+    function WorksPage(props) {
         _classCallCheck(this, WorksPage);
 
-        return _possibleConstructorReturn(this, (WorksPage.__proto__ || Object.getPrototypeOf(WorksPage)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (WorksPage.__proto__ || Object.getPrototypeOf(WorksPage)).call(this, props));
+
+        _this.state = {
+            test: ''
+        };
+        console.log('constructor');
+        return _this;
     }
 
     _createClass(WorksPage, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            console.log('did mount');
+        }
+    }, {
+        key: "componentWillMount",
+        value: function componentWillMount() {
+            console.log('will mount');
+        }
+    }, {
+        key: "componentWillUnmount",
+        value: function componentWillUnmount() {
+            console.log('will unmount');
+        }
+    }, {
+        key: "componentWillUpdate",
+        value: function componentWillUpdate() {
+            console.log('will update');
+        }
+    }, {
+        key: "shouldComponentUpdate",
+        value: function shouldComponentUpdate() {
+            console.log('should update');
+            return true;
+        }
+    }, {
+        key: "componentDidUpdate",
+        value: function componentDidUpdate() {
+            console.log('did update');
+        }
+    }, {
+        key: "changeState",
+        value: function changeState() {
+            this.setState({ test: 'something' });
+        }
+    }, {
         key: "render",
         value: function render() {
-
+            console.log('render');
             return _react2.default.createElement(
                 "div",
                 { className: "work-page" },
@@ -75,7 +117,12 @@ var WorksPage = function (_Component) {
                     { className: "work-block" },
                     "this is ",
                     this.props.match.path,
-                    " page"
+                    " page",
+                    _react2.default.createElement(
+                        "button",
+                        { onClick: this.changeState.bind(this) },
+                        "ok"
+                    )
                 )
             );
         }

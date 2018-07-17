@@ -16,16 +16,19 @@ class BlogPage extends Component {
         const { dispatch } = this.props;
         const user = this.props.user;
         dispatch(fetchAllPosts());
+        
         if ( !(typeof window === 'undefined')) {
             window.addEventListener('scroll', this.handleScroll.bind(this))
         }
         console.log(this.state.scrollanim);
+        console.log('did mount')
     }
 
     componentWillMount() {
         if ( !(typeof window === "undefined")) {
             window.removeEventListener('scroll', this.handleScroll.bind(this))
         }
+        console.log("will mount")
     }
     
     handleScroll (event) {
@@ -37,6 +40,10 @@ class BlogPage extends Component {
         } else if (window.scrollY <= 1 && this.state.scrollanim === true) {
             this.setState({scrollanim: false})
         }
+    }
+
+    componentWillUnmount() {
+        console.log('will unmount');
     }
 
     render() {

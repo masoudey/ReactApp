@@ -1,2 +1,2 @@
-[{"title":["success"],"desc":["you can be successfull"],"content":["trying is so good and make you achive your goal with Planning and hard try"],"cotagory":["social"],"img":["20.jpg"],"date":["2017-08-04T07:02:16.974Z"],"userId":2,"id":1},
-	{"title":["Health"],"desc":["you can be Healthy"],"content":["trying is so good and make you achive your goal with Planning and hard try"],"cotagory":["social"],"img":["21.jpg"],"date":["2017-08-04T07:02:16.974Z"],"userId":2,"id":2}]
+[{"title":"success","desc":"you can be successfull","content":"trying is so good and make you achive your goal with Planning and hard try","cotagory":"social","img":"20.jpg","date":"2017-08-04T07:02:16.974Z","comments":[1,2],"userId":2,"id":1},
+	{"title":"Health","desc":"you can be Healthy","content":"trying is so good and make you achive your goal with Planning and hard try","cotagory":"social","img":"21.jpg","date":"2017-08-04T07:02:16.974Z","comments":[3],"userId":2,"id":2}]

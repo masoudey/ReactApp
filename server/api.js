@@ -3,16 +3,27 @@ import Bourne from 'bourne';
 import bodyParser from 'body-parser';
 
 const db = new Bourne('data.json');
+const users = new Bourne('users.json');
 const router = express.Router();
 
 router
 	.use(bodyParser.json())
 	.route('/post')
 		.get(function(req, res){
+			let formatPosts = [];
 			console.log(req.user);
 			db.find({}, function (err, data){
-				res.json(data);
+				let posts = JSON.parse(data);
+				for (let da of posts) {
+					users.findOne({}, (err, response) => {
+						let user = JSON.parse(response);
+						da["author"] = user;
+						formatPosts.push(da);
+					})
+				}
 			});
+
+			res.json(JSON.stringify(formatPosts));
 		})
 		.post(function(req, res){
 			var post = req.body;

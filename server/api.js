@@ -13,17 +13,18 @@ router
 			let formatPosts = [];
 			console.log(req.user);
 			db.find({}, function (err, data){
-				let posts = JSON.parse(data);
-				for (let da of posts) {
-					users.findOne({}, (err, response) => {
-						let user = JSON.parse(response);
-						da["author"] = user;
+				console.log(data);
+				
+				for (let da of data) {
+					users.findOne({ 'id': parseInt(da.userId, 10)}, (err, response) => {
+						
+						da["author"] = response;
 						formatPosts.push(da);
 					})
 				}
 			});
-
-			res.json(JSON.stringify(formatPosts));
+			console.log("formatposts",formatPosts);
+			res.json(formatPosts);
 		})
 		.post(function(req, res){
 			var post = req.body;

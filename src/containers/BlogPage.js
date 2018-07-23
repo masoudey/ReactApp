@@ -13,9 +13,7 @@ class BlogPage extends Component {
     }
 
     componentDidMount() {
-        const { dispatch } = this.props;
-        const user = this.props.user;
-        dispatch(fetchAllPosts());
+       
         
         if ( !(typeof window === 'undefined')) {
             window.addEventListener('scroll', this.handleScroll.bind(this))
@@ -25,12 +23,18 @@ class BlogPage extends Component {
     }
 
     componentWillMount() {
+        const { dispatch } = this.props;
+        const user = this.props.user;
+        dispatch(fetchAllPosts());
         if ( !(typeof window === "undefined")) {
             window.removeEventListener('scroll', this.handleScroll.bind(this))
         }
-        console.log("will mount")
+        console.log("will mount");
     }
-    
+    componentWillReceiveProps() {
+        console.log("will recevie")
+    }
+
     handleScroll (event) {
        
       

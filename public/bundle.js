@@ -67997,19 +67997,19 @@ var PostThumb = function PostThumb(props) {
             _react2.default.createElement(
                 "figure",
                 { className: "effect-phoebe phoebe" },
-                _react2.default.createElement("img", { src: "/" + post.img[0], alt: "img03" }),
+                _react2.default.createElement("img", { src: "/" + post.img, alt: "img03" }),
                 _react2.default.createElement(
                     "figcaption",
                     { className: "phoebe" },
                     _react2.default.createElement(
                         "h2",
                         null,
-                        post.title[0]
+                        post.title
                     ),
                     _react2.default.createElement(
                         "p",
                         { className: "desc" },
-                        post.desc[0]
+                        post.desc
                     ),
                     _react2.default.createElement(
                         "p",
@@ -68733,10 +68733,6 @@ var BlogPage = function (_Component) {
     _createClass(BlogPage, [{
         key: "componentDidMount",
         value: function componentDidMount() {
-            var dispatch = this.props.dispatch;
-
-            var user = this.props.user;
-            dispatch((0, _postActions.fetchAllPosts)());
 
             if (!(typeof window === 'undefined')) {
                 window.addEventListener('scroll', this.handleScroll.bind(this));
@@ -68747,10 +68743,19 @@ var BlogPage = function (_Component) {
     }, {
         key: "componentWillMount",
         value: function componentWillMount() {
+            var dispatch = this.props.dispatch;
+
+            var user = this.props.user;
+            dispatch((0, _postActions.fetchAllPosts)());
             if (!(typeof window === "undefined")) {
                 window.removeEventListener('scroll', this.handleScroll.bind(this));
             }
             console.log("will mount");
+        }
+    }, {
+        key: "componentWillReceiveProps",
+        value: function componentWillReceiveProps() {
+            console.log("will recevie");
         }
     }, {
         key: "handleScroll",
@@ -68882,8 +68887,8 @@ var SinglePost = function (_Component) {
     }
 
     _createClass(SinglePost, [{
-        key: "componentDidMount",
-        value: function componentDidMount() {
+        key: "componentWillMount",
+        value: function componentWillMount() {
             var postid = this.props.match.params.postid;
 
             var po = this.props.location.state;

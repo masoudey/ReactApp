@@ -8,7 +8,7 @@ class SinglePost extends Component {
         super(props)
     }
     
-    componentDidMount() {
+    componentWillMount() {
         const { postid } = this.props.match.params;
         const po = this.props.location.state;
         console.log("dfdgkdfgd",postid,po);

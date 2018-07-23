@@ -1387,7 +1387,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "../../modules/_core": [
+  "./modules/_core": [
     {
       "id": "./node_modules/core-js/modules/_core.js",
       "name": "./node_modules/core-js/modules/_core.js",
@@ -5769,7 +5769,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "../../../css-loader/lib/css-base.js": [
+  "../node_modules/css-loader/lib/css-base.js": [
     {
       "id": "./node_modules/css-loader/lib/css-base.js",
       "name": "./node_modules/css-loader/lib/css-base.js",

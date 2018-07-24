@@ -32,7 +32,7 @@ class BlogPage extends Component {
         console.log("will mount");
     }
     componentWillReceiveProps() {
-        console.log("will recevie")
+        console.log("will recevie props")
     }
 
     handleScroll (event) {

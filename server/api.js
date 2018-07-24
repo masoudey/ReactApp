@@ -4,6 +4,7 @@ import bodyParser from 'body-parser';
 
 const db = new Bourne('data.json');
 const users = new Bourne('users.json');
+const comments = new Bourne('comments.json');
 const router = express.Router();
 
 router
@@ -11,7 +12,7 @@ router
 	.route('/post')
 		.get(function(req, res){
 			let formatPosts = [];
-			console.log(req.user);
+			
 			db.find({}, function (err, data){
 				console.log(data);
 				
@@ -21,9 +22,15 @@ router
 						da["author"] = response;
 						formatPosts.push(da);
 					})
+					for (let i=0; i < da.comments.length ;i++ ){
+						comments.findOne({ 'id': parseInt(da.comments[i])}, (err, comm) => {
+							da.comments[i] = comm;
+
+						}
+					)}
 				}
 			});
-			console.log("formatposts",formatPosts);
+			
 			res.json(formatPosts);
 		})
 		.post(function(req, res){

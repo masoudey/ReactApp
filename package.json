@@ -6,7 +6,7 @@
   "scripts": {
     "start": "npm-run-all --parallel dev:*",
     "dev:build": "webpack -w",
-    "dev:server": "node server.js"
+    "dev:server": "nodemon server.js"
   },
   "author": "Masoud ey",
   "license": "ISC",
@@ -37,6 +37,7 @@
     "history": "^4.7.2",
     "humps": "^2.0.1",
     "jsonwebtoken": "^8.2.2",
+    "loadash": "^1.0.0",
     "mdbootstrap": "^4.5.3",
     "mdbreact": "^4.4.0",
     "nodemon": "^1.17.5",

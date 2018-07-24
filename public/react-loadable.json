@@ -719,7 +719,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "../incr32": [
+  "./incr32": [
     {
       "id": "./node_modules/browserify-aes/incr32.js",
       "name": "./node_modules/browserify-aes/incr32.js",

@@ -1,1 +1,1 @@
-[{"id":1,"commenterId":2,"text":"this is a really good shit"},{"id":2,"commenterId":3,"text":"Awesome"},{"id":3,"commenterId":1,"text":"Usefull"}]
+[{"id":1,"commenter":2,"text":"this is a really good shit"},{"id":2,"commenterId":3,"text":"Awesome"},{"id":3,"commenterId":1,"text":"Usefull"}]

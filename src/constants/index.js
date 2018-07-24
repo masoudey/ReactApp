@@ -22,3 +22,5 @@ export const postConstants = {
     UPDATE_POST: 'UPDATE_POST',
     DELETE_POST: 'DELETE_POST',
 }
+
+export const CALL_API = 'Call API';

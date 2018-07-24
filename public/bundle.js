@@ -68617,6 +68617,8 @@ var postConstants = exports.postConstants = {
     DELETE_POST: 'DELETE_POST'
 };
 
+var CALL_API = exports.CALL_API = 'Call API';
+
 /***/ }),
 
 /***/ "./src/containers/AddPost.js":
@@ -68755,7 +68757,7 @@ var BlogPage = function (_Component) {
     }, {
         key: "componentWillReceiveProps",
         value: function componentWillReceiveProps() {
-            console.log("will recevie");
+            console.log("will recevie props");
         }
     }, {
         key: "handleScroll",

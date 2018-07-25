@@ -24,3 +24,4 @@ export const postConstants = {
 }
 
 export const CALL_API = 'Call API';
+export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE';

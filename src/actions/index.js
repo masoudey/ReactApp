@@ -2,6 +2,7 @@ import { Schemas } from "../middleware/api";
 import { userConstants, CALL_API } from "../constants";
 
 const fetchUser = (username, password) => ({
+    username,
     [CALL_API]: {
         types: [userConstants.LOGIN_REQUEST, userConstants.LOGIN_SUCCESS, userConstants.LOGIN_FAILURE],
         endpoint: '/login',

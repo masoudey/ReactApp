@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
-import { RESET_ERROR_MESSAGE }  from "../constants";
-import merge from "loadash/merge";
+import { RESET_ERROR_MESSAGE, userConstants, postConstants }  from "../constants";
+import baseReducer from "./baseReducer";
+import merge from "lodash/merge";
 
 
 import { user } from "./userReducer";
@@ -22,8 +23,28 @@ const errorMessage = (state = null, action) => {
     }
     return state
 }
+
 const reducers = combineReducers({
+    logedinUser: baseReducer({
+        mapActionToKey: action => action.username,
+        types: [
+            userConstants.LOGIN_REQUEST,
+            userConstants.LOGIN_SUCCESS,
+            userConstants.LOGIN_FAILURE
+        ]
+    }),
+    postById: baseReducer({
+        mapActionToKey: action => action.id,
+        types: [
+            postConstants.POST_REQUEST,
+            postConstants.POST_SUCCESS,
+            postConstants.POST_FAILURE
+        ]
+    })
+})
+
+const rootReducer = combineReducers({
     user,
     posts,
 })
-export default reducers;
+export default rootReducer;

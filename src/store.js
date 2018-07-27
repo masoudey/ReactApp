@@ -1,13 +1,14 @@
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, createStore, compose } from "redux";
 
-import logger from "redux-logger";
+import logger, { createLogger } from "redux-logger";
 import thunk from "redux-thunk";
 import reducers from "./reducers";
+import DevTools from "./containers/DevTools";
 
-const middleware = applyMiddleware(thunk, logger);
+const middleware = applyMiddleware(thunk, createLogger());
 
 const configureStore = preloadedState => {
-    const store = createStore(reducers,preloadedState,middleware);
+    const store = createStore(reducers,preloadedState,compose(middleware,DevTools.instrument()));
     return store;
 };
 

@@ -1,20 +1,26 @@
 import { normalize, schema } from "normalizr";
 import { camelizeKeys } from "humps";
+import axios from "axios";
+import { CALL_API } from "../constants";
 
-const API_ROOT = "http://localhost4000/";
+const API_ROOT = "http://localhost4000";
 
 const callApi = (endpoint, schema, method, bodyReq) => {
     const fullUrl = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint;
-
-    return fetch(fullUrl,{
+    
+    return axios({
             method: method,
-            body: bodyReq
+            url: endpoint,
+            data: bodyReq
         })
-        .then(response => response.json()
-        .then(json => {
-            const camelizedJson = camelizeKeys(json);
+        .then(response => {
+            console.log(response);
+            if (!response.ok) {
+                return Promise.reject(response)
+              }
+            const camelizedJson = camelizeKeys(response.data);
             return Object.assign({}, normalize(camelizedJson, schema))
-        }))
+        })
         .catch(err => {
             console.log(err)
         })

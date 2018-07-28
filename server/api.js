@@ -12,9 +12,9 @@ router
 	.route('/post')
 		.get(function(req, res){
 			let formatPosts = [];
-			
+			console.log("get request");
 			db.find({}, function (err, data){
-				console.log(data);
+				console.log("data",data);
 				
 				for (let da of data) {
 					users.findOne({ 'id': parseInt(da.userId, 10)}, (err, response) => {

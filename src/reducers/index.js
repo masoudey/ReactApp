@@ -7,7 +7,7 @@ import merge from "lodash/merge";
 import { user } from "./userReducer";
 import { posts } from "./postReduser";
 
-const entities = (state = {user: {}, posts: {}}, action) => {
+const entities = (state = {user: {}, posts: {}, comments: {}}, action) => {
     if (action.response && action.response.entities) {
         return merge({}, state, action.response.entities)
     }
@@ -44,7 +44,8 @@ const reducers = combineReducers({
 })
 
 const rootReducer = combineReducers({
-    user,
-    posts,
+    entities,
+    reducers,
+    errorMessage,
 })
 export default rootReducer;

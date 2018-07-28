@@ -1,5 +1,5 @@
 import { Schemas } from "../middleware/api";
-import { userConstants, CALL_API } from "../constants";
+import { userConstants, postConstants, CALL_API } from "../constants";
 
 const fetchUser = (username, password) => ({
     username,
@@ -18,4 +18,18 @@ export const loginUser = (username, password) => (dispatch, getState) => {
         return null
     }
     return dispatch(fetchUser(username, password))
+}
+
+const fetchPosts = () => ({
+    [CALL_API]: {
+        types: [postConstants.POSTS_REQUEST,postConstants.POSTS_SUCCESS,postConstants.POSTS_FAILURE],
+        endpoint: '/api/post',
+        schema: Schemas.POST_ARRAY,
+        method: 'get',
+        bodyReq: {},
+    }
+})
+
+export const loadPosts = () => (dispatch, getState) => {
+    return dispatch(fetchPosts())
 }

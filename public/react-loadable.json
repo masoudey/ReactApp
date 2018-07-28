@@ -3743,7 +3743,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "../../modules/es6.string.iterator": [
+  "../modules/es6.string.iterator": [
     {
       "id": "./node_modules/core-js/library/modules/es6.string.iterator.js",
       "name": "./node_modules/core-js/library/modules/es6.string.iterator.js",
@@ -4047,6 +4047,56 @@
     {
       "id": "./node_modules/core-js/modules/_date-to-primitive.js",
       "name": "./node_modules/core-js/modules/_date-to-primitive.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "undefined": [
+    {
+      "id": 0,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 1,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 1,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 3,
+      "name": null,
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -6315,56 +6365,6 @@
     {
       "id": "./node_modules/core-js/modules/es6.string.iterator.js",
       "name": "./node_modules/core-js/modules/es6.string.iterator.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "undefined": [
-    {
-      "id": 2,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 1,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 2,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 1,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 0,
-      "name": null,
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -8719,6 +8719,20 @@
     {
       "id": "./node_modules/hoist-non-react-statics/index.js",
       "name": "./node_modules/hoist-non-react-statics/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "humps": [
+    {
+      "id": "./node_modules/humps/humps.js",
+      "name": "./node_modules/humps/humps.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/humps/humps.js",
+      "name": "./node_modules/humps/humps.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -11657,6 +11671,118 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "normalizr": [
+    {
+      "id": "./node_modules/normalizr/dist/src/index.js",
+      "name": "./node_modules/normalizr/dist/src/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/normalizr/dist/src/index.js",
+      "name": "./node_modules/normalizr/dist/src/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./schemas/Array": [
+    {
+      "id": "./node_modules/normalizr/dist/src/schemas/Array.js",
+      "name": "./node_modules/normalizr/dist/src/schemas/Array.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/normalizr/dist/src/schemas/Array.js",
+      "name": "./node_modules/normalizr/dist/src/schemas/Array.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./schemas/Entity": [
+    {
+      "id": "./node_modules/normalizr/dist/src/schemas/Entity.js",
+      "name": "./node_modules/normalizr/dist/src/schemas/Entity.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/normalizr/dist/src/schemas/Entity.js",
+      "name": "./node_modules/normalizr/dist/src/schemas/Entity.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./schemas/ImmutableUtils": [
+    {
+      "id": "./node_modules/normalizr/dist/src/schemas/ImmutableUtils.js",
+      "name": "./node_modules/normalizr/dist/src/schemas/ImmutableUtils.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/normalizr/dist/src/schemas/ImmutableUtils.js",
+      "name": "./node_modules/normalizr/dist/src/schemas/ImmutableUtils.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./schemas/Object": [
+    {
+      "id": "./node_modules/normalizr/dist/src/schemas/Object.js",
+      "name": "./node_modules/normalizr/dist/src/schemas/Object.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/normalizr/dist/src/schemas/Object.js",
+      "name": "./node_modules/normalizr/dist/src/schemas/Object.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./Polymorphic": [
+    {
+      "id": "./node_modules/normalizr/dist/src/schemas/Polymorphic.js",
+      "name": "./node_modules/normalizr/dist/src/schemas/Polymorphic.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/normalizr/dist/src/schemas/Polymorphic.js",
+      "name": "./node_modules/normalizr/dist/src/schemas/Polymorphic.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./schemas/Union": [
+    {
+      "id": "./node_modules/normalizr/dist/src/schemas/Union.js",
+      "name": "./node_modules/normalizr/dist/src/schemas/Union.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/normalizr/dist/src/schemas/Union.js",
+      "name": "./node_modules/normalizr/dist/src/schemas/Union.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./schemas/Values": [
+    {
+      "id": "./node_modules/normalizr/dist/src/schemas/Values.js",
+      "name": "./node_modules/normalizr/dist/src/schemas/Values.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/normalizr/dist/src/schemas/Values.js",
+      "name": "./node_modules/normalizr/dist/src/schemas/Values.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "object-assign": [
     {
       "id": "./node_modules/object-assign/index.js",
@@ -13099,7 +13225,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./lib/_stream_transform.js": [
+  "./_stream_transform": [
     {
       "id": "./node_modules/readable-stream/lib/_stream_transform.js",
       "name": "./node_modules/readable-stream/lib/_stream_transform.js",
@@ -14125,6 +14251,20 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "../actions": [
+    {
+      "id": "./src/actions/index.js",
+      "name": "./src/actions/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./src/actions/index.js",
+      "name": "./src/actions/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "../actions/postActions": [
     {
       "id": "./src/actions/postActions.js",
@@ -14359,6 +14499,20 @@
     {
       "id": "./src/index.js",
       "name": "./src/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./middleware/api": [
+    {
+      "id": "./src/middleware/api.js",
+      "name": "./src/middleware/api.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./src/middleware/api.js",
+      "name": "./src/middleware/api.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }

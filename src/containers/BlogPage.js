@@ -1,9 +1,14 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { fetchAllPosts } from "../actions/postActions";
+// import { fetchAllPosts } from "../actions/postActions";
+import { loadPosts } from "../actions";
 import PostThumb from "../Components/postthumbnail";
 import "./blog.css"
+
+const loadData = props => {
+    props.loadPosts()
+}
 class BlogPage extends Component {
     constructor(props) {
         super(props);
@@ -23,9 +28,10 @@ class BlogPage extends Component {
     }
 
     componentWillMount() {
-        const { dispatch } = this.props;
-        const user = this.props.user;
-        dispatch(fetchAllPosts());
+        // const { dispatch } = this.props;
+        // const user = this.props.user;
+        // dispatch(fetchAllPosts());
+        loadData(this.props)
         if ( !(typeof window === "undefined")) {
             window.removeEventListener('scroll', this.handleScroll.bind(this))
         }
@@ -82,12 +88,11 @@ class BlogPage extends Component {
     }
 }
 const mapStateToProps = state => {
-    const {user} = state.user;
-    const {posts} = state.posts;
+    const {entities: { user, posts }} = state;
     return {
         posts,
         user
     };
 }
-const connectedBlog = withRouter(connect(mapStateToProps)(BlogPage));
+const connectedBlog = withRouter(connect(mapStateToProps, {loadPosts})(BlogPage));
 export  {connectedBlog as  BlogPage};

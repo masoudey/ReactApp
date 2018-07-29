@@ -19,7 +19,7 @@ class BlogPage extends Component {
 
     componentDidMount() {
        
-        
+       
         if ( !(typeof window === 'undefined')) {
             window.addEventListener('scroll', this.handleScroll.bind(this))
         }
@@ -78,7 +78,7 @@ class BlogPage extends Component {
                     <div class="row">
                         <input type="text" name=""  />
                         <ul id="grid" class="grid effect-5" >
-                        {posts.map(post => <PostThumb key={post.id} post={post} />)}
+                        {posts && posts.map(post => <PostThumb key={post.id} post={post} />)}
                         </ul>
                     </div>
                 </div>

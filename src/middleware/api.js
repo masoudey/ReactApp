@@ -7,7 +7,7 @@ const API_ROOT = "http://localhost4000";
 
 const callApi = (endpoint, schema, method, bodyReq) => {
     const fullUrl = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint;
-    
+
     return axios({
             method: method,
             url: endpoint,
@@ -15,7 +15,7 @@ const callApi = (endpoint, schema, method, bodyReq) => {
         })
         .then(response => {
             console.log(response);
-            if (!response.ok) {
+            if (response.status !== 200) {
                 return Promise.reject(response)
               }
             const camelizedJson = camelizeKeys(response.data);
@@ -26,20 +26,19 @@ const callApi = (endpoint, schema, method, bodyReq) => {
         })
 }
 
-const userSchema = new schema.Entity('users', {}, {
+const userSchema = new schema.Entity('users', {
     idAttribute: user => user.username.toLowerCase()
-})
+  })
 
 const commentSchema = new schema.Entity('comments', {
     commenter: userSchema
 });
 
 
-const postSchema = new schema.Entity('posts', {}, {
+const postSchema = new schema.Entity('posts', {
     author: userSchema,
     comments: [commentSchema]
-    },{
-    idAttribute: post => post.title.toUpperCase()
+    
 })
 
 export const Schemas = {
@@ -82,10 +81,12 @@ export default store => next => action => {
       next(actionWith({ type: requestType }))
 
       return callApi(endpoint, schema, method, bodyReq)
-            .then(response => next(actionWith({
+            .then(response => {
+                console.log(response);
+                return next(actionWith({
                     type: successType,
                     response
-                }))
+                }))}
             )
             .catch(error => next(actionWith({
                 type: failureType,

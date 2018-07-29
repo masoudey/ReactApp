@@ -87790,7 +87790,7 @@ var BlogPage = function (_Component) {
                             _react2.default.createElement(
                                 "ul",
                                 { id: "grid", className: "grid effect-5" },
-                                posts.map(function (post) {
+                                posts && posts.map(function (post) {
                                     return _react2.default.createElement(_postthumbnail2.default, { key: post.id, post: post });
                                 })
                             )
@@ -88283,7 +88283,7 @@ var callApi = function callApi(endpoint, schema, method, bodyReq) {
         data: bodyReq
     }).then(function (response) {
         console.log(response);
-        if (!response.ok) {
+        if (response.status !== 200) {
             return Promise.reject(response);
         }
         var camelizedJson = (0, _humps.camelizeKeys)(response.data);
@@ -88293,7 +88293,7 @@ var callApi = function callApi(endpoint, schema, method, bodyReq) {
     });
 };
 
-var userSchema = new _normalizr.schema.Entity('users', {}, {
+var userSchema = new _normalizr.schema.Entity('users', {
     idAttribute: function idAttribute(user) {
         return user.username.toLowerCase();
     }
@@ -88303,13 +88303,10 @@ var commentSchema = new _normalizr.schema.Entity('comments', {
     commenter: userSchema
 });
 
-var postSchema = new _normalizr.schema.Entity('posts', {}, {
+var postSchema = new _normalizr.schema.Entity('posts', {
     author: userSchema,
     comments: [commentSchema]
-}, {
-    idAttribute: function idAttribute(post) {
-        return post.title.toUpperCase();
-    }
+
 });
 
 var Schemas = exports.Schemas = {
@@ -88364,6 +88361,7 @@ exports.default = function (store) {
             next(actionWith({ type: requestType }));
 
             return callApi(endpoint, schema, method, bodyReq).then(function (response) {
+                console.log(response);
                 return next(actionWith({
                     type: successType,
                     response: response
@@ -88490,7 +88488,7 @@ var _postReduser = __webpack_require__(/*! ./postReduser */ "./src/reducers/post
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var entities = function entities() {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { user: {}, posts: {}, comments: {} };
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { users: {}, posts: {}, comments: {} };
     var action = arguments[1];
 
     if (action.response && action.response.entities) {

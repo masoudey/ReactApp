@@ -87707,7 +87707,6 @@ var BlogPage = function (_Component) {
     _createClass(BlogPage, [{
         key: "componentDidMount",
         value: function componentDidMount() {
-
             if (!(typeof window === 'undefined')) {
                 window.addEventListener('scroll', this.handleScroll.bind(this));
             }
@@ -87717,9 +87716,7 @@ var BlogPage = function (_Component) {
     }, {
         key: "componentWillMount",
         value: function componentWillMount() {
-            // const { dispatch } = this.props;
-            // const user = this.props.user;
-            // dispatch(fetchAllPosts());
+
             loadData(this.props);
             if (!(typeof window === "undefined")) {
                 window.removeEventListener('scroll', this.handleScroll.bind(this));
@@ -87734,7 +87731,6 @@ var BlogPage = function (_Component) {
     }, {
         key: "handleScroll",
         value: function handleScroll(event) {
-
             if (window.scrollY > 1 && this.state.scrollanim === false) {
                 this.setState({ scrollanim: true });
             } else if (window.scrollY <= 1 && this.state.scrollanim === true) {
@@ -88361,7 +88357,6 @@ exports.default = function (store) {
             next(actionWith({ type: requestType }));
 
             return callApi(endpoint, schema, method, bodyReq).then(function (response) {
-                console.log(response);
                 return next(actionWith({
                     type: successType,
                     response: response

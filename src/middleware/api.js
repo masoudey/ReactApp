@@ -81,12 +81,10 @@ export default store => next => action => {
       next(actionWith({ type: requestType }))
 
       return callApi(endpoint, schema, method, bodyReq)
-            .then(response => {
-                console.log(response);
-                return next(actionWith({
+            .then(response => next(actionWith({
                     type: successType,
                     response
-                }))}
+                }))
             )
             .catch(error => next(actionWith({
                 type: failureType,

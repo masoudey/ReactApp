@@ -9,6 +9,7 @@ import "./blog.css"
 const loadData = props => {
     props.loadPosts()
 }
+
 class BlogPage extends Component {
     constructor(props) {
         super(props);
@@ -18,8 +19,6 @@ class BlogPage extends Component {
     }
 
     componentDidMount() {
-       
-       
         if ( !(typeof window === 'undefined')) {
             window.addEventListener('scroll', this.handleScroll.bind(this))
         }
@@ -28,9 +27,7 @@ class BlogPage extends Component {
     }
 
     componentWillMount() {
-        // const { dispatch } = this.props;
-        // const user = this.props.user;
-        // dispatch(fetchAllPosts());
+
         loadData(this.props)
         if ( !(typeof window === "undefined")) {
             window.removeEventListener('scroll', this.handleScroll.bind(this))
@@ -42,8 +39,6 @@ class BlogPage extends Component {
     }
 
     handleScroll (event) {
-       
-      
         if (window.scrollY > 1 && this.state.scrollanim === false) {
             this.setState({scrollanim: true})
             

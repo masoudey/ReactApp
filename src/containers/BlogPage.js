@@ -5,6 +5,7 @@ import { withRouter } from "react-router-dom";
 import { loadPosts } from "../actions";
 import PostThumb from "../Components/postthumbnail";
 import "./blog.css"
+import List from "../Components/List";
 
 const loadData = props => {
     props.loadPosts()
@@ -51,6 +52,10 @@ class BlogPage extends Component {
         console.log('will unmount');
     }
 
+    renderPost(post) {
+        return <PostThumb post={post} key={post.id}></PostThumb>
+    }
+
     render() {
         const posts = this.props.posts;
         const scrolling = this.state.scrollanim ? 'modify' : '';
@@ -73,7 +78,11 @@ class BlogPage extends Component {
                     <div class="row">
                         <input type="text" name=""  />
                         <ul id="grid" class="grid effect-5" >
-                        {posts && posts.map(post => <PostThumb key={post.id} post={post} />)}
+                        {/* {posts && posts.map(post => <PostThumb key={post.id} post={post} />)} */}
+                        <List renderItem={this.renderPost}
+                            items={posts}
+                            loadingText={'Loading Posts'}
+                            />
                         </ul>
                     </div>
                 </div>

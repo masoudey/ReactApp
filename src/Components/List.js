@@ -10,7 +10,7 @@ class List extends Component {
 
     render() {
         const { fetching, items, renderItem, loadingText } = this.props;
-
+        console.log(items);
         const isEmpty = items.length === 0 ;
 
         if (isEmpty && fetching) {

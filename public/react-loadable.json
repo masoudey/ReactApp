@@ -1,4 +1,60 @@
 {
+  "@emotion/hash": [
+    {
+      "id": "./node_modules/@emotion/hash/dist/hash.esm.js",
+      "name": "./node_modules/@emotion/hash/dist/hash.esm.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/@emotion/hash/dist/hash.esm.js",
+      "name": "./node_modules/@emotion/hash/dist/hash.esm.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "@emotion/memoize": [
+    {
+      "id": "./node_modules/@emotion/memoize/dist/memoize.esm.js",
+      "name": "./node_modules/@emotion/memoize/dist/memoize.esm.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/@emotion/memoize/dist/memoize.esm.js",
+      "name": "./node_modules/@emotion/memoize/dist/memoize.esm.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "@emotion/stylis": [
+    {
+      "id": "./node_modules/@emotion/stylis/dist/stylis.esm.js",
+      "name": "./node_modules/@emotion/stylis/dist/stylis.esm.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/@emotion/stylis/dist/stylis.esm.js",
+      "name": "./node_modules/@emotion/stylis/dist/stylis.esm.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "@emotion/unitless": [
+    {
+      "id": "./node_modules/@emotion/unitless/dist/unitless.esm.js",
+      "name": "./node_modules/@emotion/unitless/dist/unitless.esm.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/@emotion/unitless/dist/unitless.esm.js",
+      "name": "./node_modules/@emotion/unitless/dist/unitless.esm.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "asn1.js": [
     {
       "id": "./node_modules/asn1.js/lib/asn1.js",
@@ -705,7 +761,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "babel-runtime/core-js/symbol/iterator": [
+  "../core-js/symbol/iterator": [
     {
       "id": "./node_modules/babel-runtime/core-js/symbol/iterator.js",
       "name": "./node_modules/babel-runtime/core-js/symbol/iterator.js",
@@ -1849,6 +1905,20 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "change-emitter": [
+    {
+      "id": "./node_modules/change-emitter/lib/index.js",
+      "name": "./node_modules/change-emitter/lib/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/change-emitter/lib/index.js",
+      "name": "./node_modules/change-emitter/lib/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "cipher-base": [
     {
       "id": "./node_modules/cipher-base/index.js",
@@ -2181,8 +2251,20 @@
       "publicPath": "/bundle.js"
     },
     {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
       "id": "./node_modules/core-js/library/modules/_core.js",
       "name": "./node_modules/core-js/library/modules/_core.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -3997,20 +4079,6 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./modules/_core": [
-    {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
   "./_create-property": [
     {
       "id": "./node_modules/core-js/modules/_create-property.js",
@@ -4055,18 +4123,6 @@
   ],
   "undefined": [
     {
-      "id": 0,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 2,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
       "id": 1,
       "name": null,
       "file": "bundle.js",
@@ -4081,14 +4137,14 @@
     {
       "id": 0,
       "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
     },
     {
       "id": 2,
       "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
     },
     {
       "id": 1,
@@ -4098,6 +4154,18 @@
     },
     {
       "id": 3,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 2,
       "name": null,
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
@@ -7561,6 +7629,20 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "create-emotion": [
+    {
+      "id": "./node_modules/create-emotion/dist/index.esm.js",
+      "name": "./node_modules/create-emotion/dist/index.esm.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/create-emotion/dist/index.esm.js",
+      "name": "./node_modules/create-emotion/dist/index.esm.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "create-hash": [
     {
       "id": "./node_modules/create-hash/browser.js",
@@ -8085,6 +8167,20 @@
     {
       "id": "./node_modules/elliptic/package.json",
       "name": "./node_modules/elliptic/package.json",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "emotion": [
+    {
+      "id": "./node_modules/emotion/dist/index.esm.js",
+      "name": "./node_modules/emotion/dist/index.esm.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/emotion/dist/index.esm.js",
+      "name": "./node_modules/emotion/dist/index.esm.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -13143,6 +13239,314 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "../helpers": [
+    {
+      "id": "./node_modules/react-spinners/dist/helpers/index.js",
+      "name": "./node_modules/react-spinners/dist/helpers/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/helpers/index.js",
+      "name": "./node_modules/react-spinners/dist/helpers/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./dist/index": [
+    {
+      "id": "./node_modules/react-spinners/dist/index.js",
+      "name": "./node_modules/react-spinners/dist/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/index.js",
+      "name": "./node_modules/react-spinners/dist/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/BarLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/BarLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/BarLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/BarLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/BarLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/BeatLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/BeatLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/BeatLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/BeatLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/BeatLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/BounceLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/BounceLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/BounceLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/BounceLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/BounceLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/CircleLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/CircleLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/CircleLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/CircleLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/CircleLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/ClimbingBoxLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/ClimbingBoxLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/ClimbingBoxLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/ClimbingBoxLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/ClimbingBoxLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/ClipLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/ClipLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/ClipLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/ClipLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/ClipLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/DotLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/DotLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/DotLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/DotLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/DotLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/FadeLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/FadeLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/FadeLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/FadeLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/FadeLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/GridLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/GridLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/GridLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/GridLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/GridLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/HashLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/HashLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/HashLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/HashLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/HashLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/MoonLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/MoonLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/MoonLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/MoonLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/MoonLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/PacmanLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/PacmanLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/PacmanLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/PacmanLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/PacmanLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/PropagateLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/PropagateLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/PropagateLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/PropagateLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/PropagateLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/PulseLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/PulseLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/PulseLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/PulseLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/PulseLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/RingLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/RingLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/RingLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/RingLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/RingLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/RiseLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/RiseLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/RiseLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/RiseLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/RiseLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/RotateLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/RotateLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/RotateLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/RotateLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/RotateLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/ScaleLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/ScaleLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/ScaleLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/ScaleLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/ScaleLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./spinners/SyncLoader": [
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/SyncLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/SyncLoader.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/dist/spinners/SyncLoader.js",
+      "name": "./node_modules/react-spinners/dist/spinners/SyncLoader.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "react-spinners": [
+    {
+      "id": "./node_modules/react-spinners/index.js",
+      "name": "./node_modules/react-spinners/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/react-spinners/index.js",
+      "name": "./node_modules/react-spinners/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "./cjs/react.development.js": [
     {
       "id": "./node_modules/react/cjs/react.development.js",
@@ -13353,6 +13757,96 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "recompose": [
+    {
+      "id": "./node_modules/recompose/es/Recompose.js",
+      "name": "./node_modules/recompose/es/Recompose.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/recompose/es/Recompose.js",
+      "name": "./node_modules/recompose/es/Recompose.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "symbol-observable": [
+    {
+      "id": "./node_modules/recompose/node_modules/symbol-observable/es/index.js",
+      "name": "./node_modules/recompose/node_modules/symbol-observable/es/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/index.js",
+      "name": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/redux/node_modules/symbol-observable/es/index.js",
+      "name": "./node_modules/redux/node_modules/symbol-observable/es/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/recompose/node_modules/symbol-observable/es/index.js",
+      "name": "./node_modules/recompose/node_modules/symbol-observable/es/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/index.js",
+      "name": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": "./node_modules/redux/node_modules/symbol-observable/es/index.js",
+      "name": "./node_modules/redux/node_modules/symbol-observable/es/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./ponyfill.js": [
+    {
+      "id": "./node_modules/recompose/node_modules/symbol-observable/es/ponyfill.js",
+      "name": "./node_modules/recompose/node_modules/symbol-observable/es/ponyfill.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/ponyfill.js",
+      "name": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/ponyfill.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/redux/node_modules/symbol-observable/es/ponyfill.js",
+      "name": "./node_modules/redux/node_modules/symbol-observable/es/ponyfill.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/recompose/node_modules/symbol-observable/es/ponyfill.js",
+      "name": "./node_modules/recompose/node_modules/symbol-observable/es/ponyfill.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/ponyfill.js",
+      "name": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/ponyfill.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": "./node_modules/redux/node_modules/symbol-observable/es/ponyfill.js",
+      "name": "./node_modules/redux/node_modules/symbol-observable/es/ponyfill.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "./DockMonitor": [
     {
       "id": "./node_modules/redux-devtools-dock-monitor/lib/DockMonitor.js",
@@ -13469,58 +13963,6 @@
     {
       "id": "./node_modules/redux-devtools-instrument/lib/instrument.js",
       "name": "./node_modules/redux-devtools-instrument/lib/instrument.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "symbol-observable": [
-    {
-      "id": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/index.js",
-      "name": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/index.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/redux/node_modules/symbol-observable/es/index.js",
-      "name": "./node_modules/redux/node_modules/symbol-observable/es/index.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/index.js",
-      "name": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/index.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": "./node_modules/redux/node_modules/symbol-observable/es/index.js",
-      "name": "./node_modules/redux/node_modules/symbol-observable/es/index.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "./ponyfill.js": [
-    {
-      "id": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/ponyfill.js",
-      "name": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/ponyfill.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/redux/node_modules/symbol-observable/es/ponyfill.js",
-      "name": "./node_modules/redux/node_modules/symbol-observable/es/ponyfill.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/ponyfill.js",
-      "name": "./node_modules/redux-devtools-instrument/node_modules/symbol-observable/es/ponyfill.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": "./node_modules/redux/node_modules/symbol-observable/es/ponyfill.js",
-      "name": "./node_modules/redux/node_modules/symbol-observable/es/ponyfill.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -13973,6 +14415,20 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "stylis-rule-sheet": [
+    {
+      "id": "./node_modules/stylis-rule-sheet/index.js",
+      "name": "./node_modules/stylis-rule-sheet/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/stylis-rule-sheet/index.js",
+      "name": "./node_modules/stylis-rule-sheet/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "./../../timers-browserify/main.js": [
     {
       "id": "./node_modules/timers-browserify/main.js",
@@ -14137,6 +14593,20 @@
     {
       "id": "./src/Components/ActivePage.js",
       "name": "./src/Components/ActivePage.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "../Components/List": [
+    {
+      "id": "./src/Components/List.js",
+      "name": "./src/Components/List.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./src/Components/List.js",
+      "name": "./src/Components/List.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }

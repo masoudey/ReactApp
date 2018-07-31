@@ -31,5 +31,31 @@ const fetchPosts = () => ({
 })
 
 export const loadPosts = () => (dispatch, getState) => {
+    const posts = getState().entities.posts
+    if (Object.keys(posts).length > 1) {
+        return null
+    }
     return dispatch(fetchPosts())
+}
+
+const fetchPostById = (id) => ({
+    id,
+    [CALL_API]: {
+        types: [postConstants.POST_REQUEST, postConstants.POST_SUCCESS, postConstants.POST_FAILURE],
+        endpoint: `/api/post/${id}`,
+        schema: Schemas.POST,
+        method: 'get',
+        bodyReq: {},
+    }
+})
+
+export const loadPostById = (id) => (dispatch, getState) => {
+   
+    const post = getState().entities.posts[id]
+
+
+    if (post) {
+        return null
+    }
+    return dispatch(fetchPostById(id));
 }

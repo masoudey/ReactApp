@@ -57,7 +57,7 @@ class BlogPage extends Component {
     }
 
     render() {
-        const posts = this.props.posts;
+        const posts = Object.values(this.props.posts);
         const scrolling = this.state.scrollanim ? 'modify' : '';
         console.log(posts);
         return (
@@ -92,10 +92,10 @@ class BlogPage extends Component {
     }
 }
 const mapStateToProps = state => {
-    const {entities: { user, posts }} = state;
+    const {entities: { users, posts }} = state;
     return {
         posts,
-        user
+        users
     };
 }
 const connectedBlog = withRouter(connect(mapStateToProps, {loadPosts})(BlogPage));

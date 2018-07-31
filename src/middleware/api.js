@@ -7,7 +7,7 @@ const API_ROOT = "http://localhost4000";
 
 const callApi = (endpoint, schema, method, bodyReq) => {
     const fullUrl = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint;
-
+    console.log(endpoint);
     return axios({
             method: method,
             url: endpoint,

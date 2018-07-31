@@ -20,14 +20,14 @@ router
 					users.findOne({ 'id': parseInt(da.userId, 10)}, (err, response) => {
 						
 						da["author"] = response;
-						formatPosts.push(da);
+						
 					})
-					for (let i=0; i < da.comments.length ;i++ ){
-						comments.findOne({ 'id': parseInt(da.comments[i])}, (err, comm) => {
-							da.comments[i] = comm;
+					// for (let i=0; i < da.comments.length ;i++ ){
+					comments.find({ 'postId': parseInt(da.id)}, (err, comms) => {
+							da['comments'] = comms;
 
-						}
-					)}
+					})
+					formatPosts.push(da);
 				}
 			});
 			
@@ -45,13 +45,14 @@ router
 router
 	.param('id', function(req, res, next){
 		req.dbQuery = {id: parseInt(req.params.id, 10)}
+		console.log(req.dbQuery);
 		next();
 	})
 	.route('/post/:id')
 		.get(function (req, res){
 			console.log("/post/:id",req.params.id.substring(1) );
 
-			db.findOne({ 'id': parseInt(req.params.id.substring(1), 10)}, function (err, data){
+			db.findOne({ 'id': parseInt(req.params.id, 10)}, function (err, data){
 				res.json(data);
 			});
 		})

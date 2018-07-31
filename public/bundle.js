@@ -27529,6 +27529,25 @@ exports.push([module.i, ".posts {\r\n    background-color: rgb(141, 50, 34);\r\n
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./src/containers/singlePost.css":
+/*!*****************************************************************!*\
+  !*** ./node_modules/css-loader!./src/containers/singlePost.css ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "/* -------------------------- */\r\n/* Faded gradient */\r\n/* -------------------------- */\r\n\r\n.intro-effect-fadeout:not(.notrans) .bg-img {\r\n    -webkit-transition-property: -webkit-transform;\r\n    transition-property: transform;\r\n}\r\n\r\n.intro-effect-fadeout:not(.notrans) .bg-img::after {\r\n    -webkit-transition-property: opacity;\r\n    transition-property: opacity;\r\n}\r\n\r\n.intro-effect-fadeout:not(.notrans) .header h1 {\r\n    -webkit-transition-property: color;\r\n    transition-property: color;\r\n}\r\n\r\n.intro-effect-fadeout:not(.notrans) .header p,\r\n.intro-effect-fadeout:not(.notrans) .content > div {\r\n    -webkit-transition-property: -webkit-transform, opacity;\r\n    transition-property: transform, opacity;\r\n}\r\n\r\n.intro-effect-fadeout:not(.notrans) .bg-img,\r\n.intro-effect-fadeout:not(.notrans) .bg-img::after,\r\n.intro-effect-fadeout:not(.notrans) .header h1,\r\n.intro-effect-fadeout:not(.notrans) .header p,\r\n.intro-effect-fadeout:not(.notrans) .content > div {\r\n    -webkit-transition-duration: 0.5s;\r\n    transition-duration: 0.5s;\r\n}\r\n\r\n.intro-effect-fadeout .header {\r\n    overflow: hidden;\r\n}\r\n\r\n.intro-effect-fadeout.modify .bg-img {\r\n    -webkit-transform: translateY(-25%);\r\n    transform: translateY(-25%);\r\n    position: fixed;\r\n}\r\n.intro-effect-fadeout.modify .bg-img img{\r\n    opacity: 0.6;\r\n}\r\n.intro-effect-fadeout .bg-img::after {\r\n    content: '';\r\n    position: absolute;\r\n    width: 100%;\r\n    height: 101%;\r\n    top: 0;\r\n    left: 0;\r\n    opacity: 0;\r\n    pointer-events: none;\r\n    background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);\r\n    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);\r\n}\r\n\r\n.intro-effect-fadeout.modify .bg-img::after {\r\n    opacity: 1;\r\n}\r\n\r\n.intro-effect-fadeout .title {\r\n    /*text-align: left;*/\r\n    max-width: 900px;\r\n}\r\n\r\n.intro-effect-fadeout.modify .header h1,\r\n.intro-effect-fadeout .header p {\r\n    color: #514753;\r\n}\r\n\r\n.intro-effect-fadeout .header p {\r\n    opacity: 0;\r\n}\r\n\r\n.intro-effect-fadeout .header p:nth-child(2) {\r\n    -webkit-transform: translateX(150px);\r\n    transform: translateX(150px);\r\n}\r\n\r\n.intro-effect-fadeout .header p:nth-child(3) {\r\n    -webkit-transform: translateX(-150px);\r\n    transform: translateX(-150px);\r\n}\r\n\r\n.intro-effect-fadeout.modify .header p:nth-child(2),\r\n.intro-effect-fadeout.modify .header p:nth-child(3),\r\n.intro-effect-fadeout.modify .header ul{\r\n    opacity: 1;\r\n    -webkit-transform: translateX(0);\r\n    transform: translateX(0);\r\n}\r\n\r\n.intro-effect-fadeout .content {\r\n    z-index: 1000;\r\n    position: relative;\r\n}\r\n\r\n.intro-effect-fadeout .content > div {\r\n    opacity: 0;\r\n    -webkit-transform: translateY(350px);\r\n    transform: translateY(350px);\r\n}\r\n\r\n.intro-effect-fadeout.modify .content > div {\r\n    opacity: 1;\r\n    -webkit-transform: translateY(0);\r\n    transform: translateY(0);\r\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/index.js!./src/index.css":
 /*!*************************************************!*\
   !*** ./node_modules/css-loader!./src/index.css ***!
@@ -91900,9 +91919,9 @@ var List = function (_Component) {
                 renderItem = _props.renderItem,
                 loadingText = _props.loadingText;
 
-            console.log(items);
-            var isEmpty = items.length === 0;
 
+            var isEmpty = Object.keys(items).length === 0;
+            console.log(items, isEmpty);
             if (isEmpty && fetching) {
                 return _react2.default.createElement(_reactSpinners.GridLoader, { color: '#123abc', loading: fetching });
             }
@@ -92813,7 +92832,7 @@ var authHeader = exports.authHeader = function authHeader() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.loadPosts = exports.loginUser = undefined;
+exports.loadPostById = exports.loadPosts = exports.loginUser = undefined;
 
 var _api = __webpack_require__(/*! ../middleware/api */ "./src/middleware/api.js");
 
@@ -92855,84 +92874,35 @@ var fetchPosts = function fetchPosts() {
 
 var loadPosts = exports.loadPosts = function loadPosts() {
     return function (dispatch, getState) {
+        var posts = getState().entities.posts;
+        if (Object.keys(posts).length > 1) {
+            return null;
+        }
         return dispatch(fetchPosts());
     };
 };
 
-/***/ }),
-
-/***/ "./src/actions/postActions.js":
-/*!************************************!*\
-  !*** ./src/actions/postActions.js ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.fetchSinglePost = exports.fetchAllPosts = undefined;
-
-var _constants = __webpack_require__(/*! ../constants */ "./src/constants/index.js");
-
-var _authHeader = __webpack_require__(/*! ./authHeader */ "./src/actions/authHeader.js");
-
-var _axios = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-
-var _axios2 = _interopRequireDefault(_axios);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var postsRequest = function postsRequest() {
-    return {
-        type: _constants.postConstants.POSTS_REQUEST
-    };
-};
-var postsSuccess = function postsSuccess(posts) {
-    return {
-        type: _constants.postConstants.POSTS_SUCCESS,
-        payload: posts
-    };
-};
-var postsFailure = function postsFailure(err) {
-    return {
-        type: _constants.postConstants.POSTS_FAILURE,
-        payload: err
-    };
+var fetchPostById = function fetchPostById(id) {
+    return _defineProperty({
+        id: id
+    }, _constants.CALL_API, {
+        types: [_constants.postConstants.POST_REQUEST, _constants.postConstants.POST_SUCCESS, _constants.postConstants.POST_FAILURE],
+        endpoint: "/api/post/" + id,
+        schema: _api.Schemas.POST,
+        method: 'get',
+        bodyReq: {}
+    });
 };
 
-var fetchAllPosts = exports.fetchAllPosts = function fetchAllPosts(userId) {
-    return function (dispatch) {
-        var reqOptions = {
-            headers: { 'Content-Type': 'application/json' },
-            user: {
-                id: userId
-            }
-        };
+var loadPostById = exports.loadPostById = function loadPostById(id) {
+    return function (dispatch, getState) {
 
-        dispatch(postsRequest());
-        _axios2.default.get("/api/post", reqOptions).then(function (response) {
-            console.log(response);
-            dispatch(postsSuccess(response.data));
-        }).catch(function (err) {
-            dispatch(postsFailure(err));
-        });
-    };
-};
+        var post = getState().entities.posts[id];
 
-var fetchSinglePost = exports.fetchSinglePost = function fetchSinglePost(postId) {
-    return function (dispatch) {
-
-        dispatch(postsRequest());
-        _axios2.default.get("/api/post/:" + postId, { params: { id: postId } }).then(function (response) {
-            console.log(response);
-            dispatch(postsSuccess(response.data));
-        }).catch(function (err) {
-            dispatch(postsFailure(err));
-        });
+        if (post) {
+            return null;
+        }
+        return dispatch(fetchPostById(id));
     };
 };
 
@@ -93406,7 +93376,7 @@ var BlogPage = function (_Component) {
     }, {
         key: "render",
         value: function render() {
-            var posts = this.props.posts;
+            var posts = Object.values(this.props.posts);
             var scrolling = this.state.scrollanim ? 'modify' : '';
             console.log(posts);
             return _react2.default.createElement(
@@ -93464,12 +93434,12 @@ var BlogPage = function (_Component) {
 
 var mapStateToProps = function mapStateToProps(state) {
     var _state$entities = state.entities,
-        user = _state$entities.user,
+        users = _state$entities.users,
         posts = _state$entities.posts;
 
     return {
         posts: posts,
-        user: user
+        users: users
     };
 };
 var connectedBlog = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, { loadPosts: _actions.loadPosts })(BlogPage));
@@ -93539,7 +93509,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
-var _postActions = __webpack_require__(/*! ../actions/postActions */ "./src/actions/postActions.js");
+var _reactSpinners = __webpack_require__(/*! react-spinners */ "./node_modules/react-spinners/index.js");
+
+var _actions = __webpack_require__(/*! ../actions */ "./src/actions/index.js");
+
+__webpack_require__(/*! ./singlePost.css */ "./src/containers/singlePost.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -93548,6 +93522,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import { fetchSinglePost } from "../actions/postActions";
+
+
+var loadData = function loadData(props) {
+    var id = props.postId;
+    props.loadPostById(id);
+};
 
 var SinglePost = function (_Component) {
     _inherits(SinglePost, _Component);
@@ -93555,30 +93536,58 @@ var SinglePost = function (_Component) {
     function SinglePost(props) {
         _classCallCheck(this, SinglePost);
 
-        return _possibleConstructorReturn(this, (SinglePost.__proto__ || Object.getPrototypeOf(SinglePost)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (SinglePost.__proto__ || Object.getPrototypeOf(SinglePost)).call(this, props));
+
+        _this.state = {
+            scrollanim: false
+        };
+        return _this;
     }
 
     _createClass(SinglePost, [{
         key: "componentWillMount",
         value: function componentWillMount() {
-            var postid = this.props.match.params.postid;
-
-            var po = this.props.location.state;
-            console.log("dfdgkdfgd", postid, po);
-            var dispatch = this.props.dispatch;
-
-            dispatch((0, _postActions.fetchSinglePost)(postid));
+            // const { postid } = this.props.match.params;
+            // const po = this.props.location.state;
+            // console.log("dfdgkdfgd",postid,po);
+            // const { dispatch } = this.props;
+            // dispatch(fetchSinglePost(postid));
+            loadData(this.props);
+            if (!(typeof window === 'undefined')) {
+                window.removeEventListener('scroll', this.handleScroll.bind(this));
+            }
+        }
+    }, {
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            if (!(typeof window === 'undefined')) {
+                window.addEventListener('scroll', this.handleScroll.bind(this));
+            }
+        }
+    }, {
+        key: "handleScroll",
+        value: function handleScroll(event) {
+            if (window.scrollY > 1 && this.state.scrollanim === false) {
+                this.setState({ scrollanim: true });
+            } else if (window.scrollY <= 1 && this.state.scrollanim === true) {
+                this.setState({ scrollanim: false });
+            }
         }
     }, {
         key: "render",
         value: function render() {
             var postid = this.props.match.params.postid;
 
-            var post = this.props.posts;
+            var scrolling = this.state.scrollanim ? 'modify' : '';
+            var post = this.props.post;
+            // const {fetching, fetched} = this.props.postResult;
             console.log("single post", post);
+            if (post === undefined) {
+                return _react2.default.createElement(_reactSpinners.CircleLoader, { color: '#123abc', loading: true });
+            }
             return _react2.default.createElement(
                 "div",
-                { id: "post1", className: "post1 intro-effect-fadeout scrollanim" },
+                { id: "post1", className: " intro-effect-fadeout " + scrolling },
                 _react2.default.createElement(
                     "header",
                     { className: "header" },
@@ -93649,14 +93658,26 @@ var SinglePost = function (_Component) {
     return SinglePost;
 }(_react.Component);
 
-var mapStateToProps = function mapStateToProps(state) {
-    var posts = state.posts.posts;
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+    var postId = ownProps.match.params.postid;
+    console.log(postId);
+    var _state$entities = state.entities,
+        posts = _state$entities.posts,
+        users = _state$entities.users,
+        comments = _state$entities.comments,
+        postById = state.reducers.postById;
 
+    var post = posts[postId];
+    var postResult = postById[postId];
+    // const commentsByPost =  comments.map(comment => comment.postId === postId)
     return {
-        posts: posts
+        postId: postId,
+        post: post,
+        postResult: postResult
+        // commentsByPost,
     };
 };
-var connectedSinglePost = (0, _reactRedux.connect)(mapStateToProps)(SinglePost);
+var connectedSinglePost = (0, _reactRedux.connect)(mapStateToProps, { loadPostById: _actions.loadPostById })(SinglePost);
 
 exports.SinglePost = connectedSinglePost;
 
@@ -93728,6 +93749,36 @@ exports.default = SingleWork;
 
 
 var content = __webpack_require__(/*! !../../node_modules/css-loader!./blog.css */ "./node_modules/css-loader/index.js!./src/containers/blog.css");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
+/***/ "./src/containers/singlePost.css":
+/*!***************************************!*\
+  !*** ./src/containers/singlePost.css ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../node_modules/css-loader!./singlePost.css */ "./node_modules/css-loader/index.js!./src/containers/singlePost.css");
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -93934,7 +93985,7 @@ var API_ROOT = "http://localhost4000";
 
 var callApi = function callApi(endpoint, schema, method, bodyReq) {
     var fullUrl = endpoint.indexOf(API_ROOT) === -1 ? API_ROOT + endpoint : endpoint;
-
+    console.log(endpoint);
     return (0, _axios2.default)({
         method: method,
         url: endpoint,
@@ -94145,7 +94196,7 @@ var _postReduser = __webpack_require__(/*! ./postReduser */ "./src/reducers/post
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var entities = function entities() {
-    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { users: {}, posts: [], comments: {} };
+    var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { users: {}, posts: {}, comments: {} };
     var action = arguments[1];
 
     if (action.response && action.response.entities) {
@@ -94181,6 +94232,14 @@ var reducers = (0, _redux.combineReducers)({
         },
         types: [_constants.postConstants.POST_REQUEST, _constants.postConstants.POST_SUCCESS, _constants.postConstants.POST_FAILURE]
     })
+    // allPosts: baseReducer({
+    //     mapActionToKey: '',
+    //     types: [
+    //         postConstants.POSTS_REQUEST,
+    //         postConstants.POSTS_SUCCESS,
+    //         postConstants.POSTS_FAILURE
+    //     ]
+    // })
 });
 
 var rootReducer = (0, _redux.combineReducers)({

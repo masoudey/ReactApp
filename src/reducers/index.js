@@ -7,7 +7,7 @@ import merge from "lodash/merge";
 import { user } from "./userReducer";
 import { posts } from "./postReduser";
 
-const entities = (state = {users: {}, posts: [], comments: {}}, action) => {
+const entities = (state = {users: {}, posts: {}, comments: {}}, action) => {
     if (action.response && action.response.entities) {
         return merge({}, state, action.response.entities)
     }
@@ -40,7 +40,15 @@ const reducers = combineReducers({
             postConstants.POST_SUCCESS,
             postConstants.POST_FAILURE
         ]
-    })
+    }),
+    // allPosts: baseReducer({
+    //     mapActionToKey: '',
+    //     types: [
+    //         postConstants.POSTS_REQUEST,
+    //         postConstants.POSTS_SUCCESS,
+    //         postConstants.POSTS_FAILURE
+    //     ]
+    // })
 })
 
 const rootReducer = combineReducers({

@@ -761,7 +761,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "../core-js/symbol/iterator": [
+  "babel-runtime/core-js/symbol/iterator": [
     {
       "id": "./node_modules/babel-runtime/core-js/symbol/iterator.js",
       "name": "./node_modules/babel-runtime/core-js/symbol/iterator.js",
@@ -3813,7 +3813,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "../modules/es6.string.iterator": [
+  "../../modules/es6.string.iterator": [
     {
       "id": "./node_modules/core-js/library/modules/es6.string.iterator.js",
       "name": "./node_modules/core-js/library/modules/es6.string.iterator.js",
@@ -4117,56 +4117,6 @@
     {
       "id": "./node_modules/core-js/modules/_date-to-primitive.js",
       "name": "./node_modules/core-js/modules/_date-to-primitive.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "undefined": [
-    {
-      "id": 1,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 2,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 1,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 2,
-      "name": null,
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -5819,6 +5769,56 @@
     {
       "id": "./node_modules/core-js/modules/es6.object.is-sealed.js",
       "name": "./node_modules/core-js/modules/es6.object.is-sealed.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "undefined": [
+    {
+      "id": 1,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 1,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 2,
+      "name": null,
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -7737,6 +7737,20 @@
     {
       "id": "./node_modules/css-loader/index.js!./src/containers/blog.css",
       "name": "./node_modules/css-loader/index.js!./src/containers/blog.css",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "!!../../node_modules/css-loader/index.js!./singlePost.css": [
+    {
+      "id": "./node_modules/css-loader/index.js!./src/containers/singlePost.css",
+      "name": "./node_modules/css-loader/index.js!./src/containers/singlePost.css",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/css-loader/index.js!./src/containers/singlePost.css",
+      "name": "./node_modules/css-loader/index.js!./src/containers/singlePost.css",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -14737,20 +14751,6 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "../actions/postActions": [
-    {
-      "id": "./src/actions/postActions.js",
-      "name": "./src/actions/postActions.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./src/actions/postActions.js",
-      "name": "./src/actions/postActions.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
   "./actions/userActions": [
     {
       "id": "./src/actions/userActions.js",
@@ -14873,6 +14873,20 @@
     {
       "id": "./src/containers/blog.css",
       "name": "./src/containers/blog.css",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./singlePost.css": [
+    {
+      "id": "./src/containers/singlePost.css",
+      "name": "./src/containers/singlePost.css",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./src/containers/singlePost.css",
+      "name": "./src/containers/singlePost.css",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }

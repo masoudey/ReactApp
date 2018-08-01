@@ -112,7 +112,9 @@ body {
 }
 @media (max-width:992px) {
     .nav-button div.hamburger .line {
+        backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
+        perspective: 1000;
         -webkit-perspective: 1000;
     }
 }
@@ -522,6 +524,7 @@ footer p { line-height: 30px; }
 
 footer a {
     color: #ddd;
+    transition: all .2s;
     -o-transition: all .2s;
     -moz-transition: all .2s;
     -webkit-transition: all .2s;
@@ -606,6 +609,7 @@ footer a:hover { color: #aaa; }
     font-family: 'PT Sans', Helvetica, Arial, sans-serif;
     font-size: 16px;
     color: #fff;
+    transition: all .2s;
     -o-transition: all .2s;
     -moz-transition: all .2s;
     -webkit-transition: all .2s;

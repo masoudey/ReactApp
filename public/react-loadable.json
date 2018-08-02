@@ -3813,7 +3813,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "../../modules/es6.string.iterator": [
+  "../modules/es6.string.iterator": [
     {
       "id": "./node_modules/core-js/library/modules/es6.string.iterator.js",
       "name": "./node_modules/core-js/library/modules/es6.string.iterator.js",

@@ -13,7 +13,7 @@ const fetchUser = (username, password) => ({
 })
 
 export const loginUser = (username, password) => (dispatch, getState) => {
-    const user = getState().entities.user[username]
+    const user = getState().entities.users[username]
     if (user) {
         return null
     }

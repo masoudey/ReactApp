@@ -2,45 +2,51 @@ import { postConstants } from "../constants";
 const initialState = {
     fetching: false,
     fetched: false,
-    posts: [],
+    data: [],
     error: null,
 }
 
 export const posts = (state=initialState, action) => {
     switch(action.type) {
-        case postConstants.POSTS_REQUEST: {
-            state = {...state, fetching:true};
-            break;
-        }
-        case postConstants.POSTS_FAILURE: {
-            state = {...state, fetching:false, error: action.payload};
-            break;
-        }
-        case postConstants.POSTS_SUCCESS: {
-            state = {
+        case postConstants.POST_REQUEST: 
+            return {
+                ...state, 
+                fetching:true
+            }
+        case postConstants.POST_SUCCESS: 
+            return {
                 ...state, 
                 fetching:false, 
                 fetched: true, 
-                posts: action.payload
-            };
-            break;
-        }
-        case postConstants.ADD_POST: {
-            state = {...state, posts: [...state.posts, action.payload]};
-            break;
-        }
+                data: action.response.result
+            }
+        case postConstants.POST_FAILURE: 
+            return {
+                ...state, 
+                fetching:false, 
+                error: action.response
+            }
+        case postConstants.ADD_POST: 
+            return {
+                ...state, 
+                data: [...state.posts, action.payload]
+            }
         case postConstants.UPDATE_POST: {
             const { id, title, desc, content, cotagory, img, date, userId} = action.payload
-            const newPosts = [...state.posts]
+            const newPosts = [...state.data]
             const postToUpdate = newPosts.findIndex(post => post.id === id)
             newPosts[postToUpdate] = action.payload;
-            state = {...state, posts: newPosts};
-            break;
+            return {
+                ...state, 
+                data: newPosts
+            }
         }
-        case postConstants.DELETE_POST: {
-            state = {...state, posts: state.posts.filter(post => post.id !== action.payload)};
-            break;
+        case postConstants.DELETE_POST: 
+            return {
+                ...state, 
+                data: state.posts.filter(post => post.id !== action.payload)
         }
+        default:
+            return state
     }
-    return state;
 };

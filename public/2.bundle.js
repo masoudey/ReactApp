@@ -118,12 +118,17 @@ var Login = function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      var fetching = this.props.logedinUser.fetching;
+      var _props$logedinUser = this.props.logedinUser,
+          fetching = _props$logedinUser.fetching,
+          fetched = _props$logedinUser.fetched;
       var _state2 = this.state,
           username = _state2.username,
           password = _state2.password,
           submitted = _state2.submitted;
 
+      if (fetched) {
+        return _react2.default.createElement(_reactRouterDom.Redirect, { to: "/" });
+      }
 
       return _react2.default.createElement(
         "div",

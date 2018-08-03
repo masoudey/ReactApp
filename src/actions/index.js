@@ -11,7 +11,15 @@ const fetchUser = (username, password) => ({
         bodyReq: {username,password}
     }
 })
-
+export const loginSuccess = (user) => ({
+    type: userConstants.LOGIN_SUCCESS,
+    response: {entities:{users:user}, result: user.id},
+})
+export const logOut = () => {
+    localStorage.removeItem('user')
+    localStorage.removeItem('headers')
+    return {type: userConstants.LOGOUT}
+}
 export const loginUser = (username, password) => (dispatch, getState) => {
     const user = getState().entities.users[username]
     if (user) {

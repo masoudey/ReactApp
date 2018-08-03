@@ -5,7 +5,7 @@ import Footer from "./Components/footer";
 import { Router, Route, withRouter } from "react-router-dom";
 import ActivePage from "./Components/ActivePage";
 import { Routes } from "./Routes";
-import { loginSuccess, logout } from "./actions/userActions";
+import { loginSuccess, logOut } from "./actions";
 import jwt from "jsonwebtoken";
 
 
@@ -37,7 +37,7 @@ class App extends Component {
         } else {
           console.log("not decoded", err);
           if (err.name === "TokenExpiredError") {
-            dispatch(logout());
+            dispatch(logOut());
             console.log("TokenExpiredError");
           }
         }
@@ -76,7 +76,9 @@ class App extends Component {
   }
 }
 const mapStateToProps = state => {
-  const { entities: {user} } = state;
+  const { entities: {users}, reducers: {logedinUser} } = state;
+  const user = users[logedinUser.data]
+  console.log(user);
   return {
     user
   };

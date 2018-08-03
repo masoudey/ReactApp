@@ -92486,8 +92486,10 @@ var Header = function (_Component) {
 }(_react.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    var user = state.entities.user;
+    var users = state.entities.users,
+        logedinUser = state.reducers.logedinUser;
 
+    var user = users[logedinUser.data];
     return {
         user: user
     };
@@ -92832,7 +92834,7 @@ var authHeader = exports.authHeader = function authHeader() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.loadPostById = exports.loadPosts = exports.loginUser = undefined;
+exports.loadPostById = exports.loadPosts = exports.loginUser = exports.logOut = exports.loginSuccess = undefined;
 
 var _api = __webpack_require__(/*! ../middleware/api */ "./src/middleware/api.js");
 
@@ -92851,7 +92853,17 @@ var fetchUser = function fetchUser(username, password) {
         bodyReq: { username: username, password: password }
     });
 };
-
+var loginSuccess = exports.loginSuccess = function loginSuccess(user) {
+    return {
+        type: _constants.userConstants.LOGIN_SUCCESS,
+        response: { entities: { users: user }, result: user.id }
+    };
+};
+var logOut = exports.logOut = function logOut() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('headers');
+    return { type: _constants.userConstants.LOGOUT };
+};
 var loginUser = exports.loginUser = function loginUser(username, password) {
     return function (dispatch, getState) {
         var user = getState().entities.users[username];
@@ -93048,7 +93060,7 @@ var _ActivePage2 = _interopRequireDefault(_ActivePage);
 
 var _Routes = __webpack_require__(/*! ./Routes */ "./src/Routes.js");
 
-var _userActions = __webpack_require__(/*! ./actions/userActions */ "./src/actions/userActions.js");
+var _actions = __webpack_require__(/*! ./actions */ "./src/actions/index.js");
 
 var _jsonwebtoken = __webpack_require__(/*! jsonwebtoken */ "./node_modules/jsonwebtoken/index.js");
 
@@ -93097,12 +93109,12 @@ var App = function (_Component) {
         _jsonwebtoken2.default.verify(token, "my-secret", function (err, decoded) {
           if (decoded) {
             var user = JSON.parse(localStorage.getItem("user"));
-            dispatch((0, _userActions.loginSuccess)(user));
+            dispatch((0, _actions.loginSuccess)(user));
             console.log(decoded);
           } else {
             console.log("not decoded", err);
             if (err.name === "TokenExpiredError") {
-              dispatch((0, _userActions.logout)());
+              dispatch((0, _actions.logOut)());
               console.log("TokenExpiredError");
             }
           }
@@ -93150,8 +93162,11 @@ var App = function (_Component) {
 }(_react.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-  var user = state.entities.user;
+  var users = state.entities.users,
+      logedinUser = state.reducers.logedinUser;
 
+  var user = users[logedinUser.data];
+  console.log(user);
   return {
     user: user
   };
@@ -93991,9 +94006,12 @@ var callApi = function callApi(endpoint, schema, method, bodyReq) {
         url: endpoint,
         data: bodyReq
     }).then(function (response) {
-        console.log(response);
         if (response.status !== 200) {
             return Promise.reject(response);
+        }
+        if (endpoint === '/login') {
+            localStorage.setItem('headers', JSON.stringify(response.headers));
+            localStorage.setItem('user', JSON.stringify(response.data));
         }
         var camelizedJson = (0, _humps.camelizeKeys)(response.data);
         return Object.assign({}, (0, _normalizr.normalize)(camelizedJson, schema));
@@ -94029,137 +94047,61 @@ exports.default = function (store) {
     return function (next) {
         return function (action) {
             var callAPI = action[_constants.CALL_API];
+            if (callAPI) {
+                var endpoint = callAPI.endpoint;
+                var types = callAPI.types,
+                    _schema = callAPI.schema,
+                    method = callAPI.method,
+                    bodyReq = callAPI.bodyReq;
 
-            var endpoint = callAPI.endpoint;
-            var types = callAPI.types,
-                schema = callAPI.schema,
-                method = callAPI.method,
-                bodyReq = callAPI.bodyReq;
 
+                if (typeof endpoint === 'function') {
+                    endpoint = endpoint(store.getState());
+                }
 
-            if (typeof endpoint === 'function') {
-                endpoint = endpoint(store.getState());
+                if (typeof endpoint !== 'string') {
+                    throw new Error('Specify a string endpoint URL.');
+                }
+                if (!_schema) {
+                    throw new Error('Specify one of the exported Schemas.');
+                }
+                if (!Array.isArray(types) || types.length !== 3) {
+                    throw new Error('Expected an array of three action types.');
+                }
+                if (!types.every(function (type) {
+                    return typeof type === 'string';
+                })) {
+                    throw new Error('Expected action types to be strings.');
+                }
+
+                var actionWith = function actionWith(data) {
+                    var finalAction = Object.assign({}, action, data);
+                    delete finalAction[_constants.CALL_API];
+                    return finalAction;
+                };
+
+                var _types = _slicedToArray(types, 3),
+                    requestType = _types[0],
+                    successType = _types[1],
+                    failureType = _types[2];
+
+                next(actionWith({ type: requestType }));
+
+                return callApi(endpoint, _schema, method, bodyReq).then(function (response) {
+                    return next(actionWith({
+                        type: successType,
+                        response: response
+                    }));
+                }).catch(function (error) {
+                    return next(actionWith({
+                        type: failureType,
+                        error: error.message
+                    }));
+                });
             }
-
-            if (typeof endpoint !== 'string') {
-                throw new Error('Specify a string endpoint URL.');
-            }
-            if (!schema) {
-                throw new Error('Specify one of the exported Schemas.');
-            }
-            if (!Array.isArray(types) || types.length !== 3) {
-                throw new Error('Expected an array of three action types.');
-            }
-            if (!types.every(function (type) {
-                return typeof type === 'string';
-            })) {
-                throw new Error('Expected action types to be strings.');
-            }
-
-            var actionWith = function actionWith(data) {
-                var finalAction = Object.assign({}, action, data);
-                delete finalAction[_constants.CALL_API];
-                return finalAction;
-            };
-
-            var _types = _slicedToArray(types, 3),
-                requestType = _types[0],
-                successType = _types[1],
-                failureType = _types[2];
-
-            next(actionWith({ type: requestType }));
-
-            return callApi(endpoint, schema, method, bodyReq).then(function (response) {
-                return next(actionWith({
-                    type: successType,
-                    response: response
-                }));
-            }).catch(function (error) {
-                return next(actionWith({
-                    type: failureType,
-                    error: error.message
-                }));
-            });
         };
     };
 };
-
-/***/ }),
-
-/***/ "./src/reducers/baseReducer.js":
-/*!*************************************!*\
-  !*** ./src/reducers/baseReducer.js ***!
-  \*************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var baseReducer = function baseReducer(_ref) {
-    var types = _ref.types,
-        mapActionToKey = _ref.mapActionToKey;
-
-    var _types = _slicedToArray(types, 3),
-        requestType = _types[0],
-        successType = _types[1],
-        failureType = _types[2];
-
-    var initialState = {
-        fetching: false,
-        fetched: false,
-        data: []
-    };
-    var update = function update() {
-        var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-        var action = arguments[1];
-
-        switch (action.type) {
-            case requestType:
-                return _extends({}, state, {
-                    fetching: true
-                });
-            case successType:
-                return _extends({}, state, {
-                    fetching: false,
-                    fetched: true,
-                    data: action.response.result
-                });
-            case failureType:
-                return _extends({}, state, {
-                    fetching: false
-                });
-            default:
-                return state;
-        }
-    };
-    return function () {
-        var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-        var action = arguments[1];
-
-        switch (action.type) {
-            case requestType:
-            case successType:
-            case failureType:
-                var key = mapActionToKey(action);
-                return _extends({}, state, _defineProperty({}, key, update(state[key], action)));
-            default:
-                return state;
-        }
-    };
-};
-
-exports.default = baseReducer;
 
 /***/ }),
 
@@ -94181,10 +94123,6 @@ var _redux = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js"
 
 var _constants = __webpack_require__(/*! ../constants */ "./src/constants/index.js");
 
-var _baseReducer = __webpack_require__(/*! ./baseReducer */ "./src/reducers/baseReducer.js");
-
-var _baseReducer2 = _interopRequireDefault(_baseReducer);
-
 var _merge = __webpack_require__(/*! lodash/merge */ "./node_modules/lodash/merge.js");
 
 var _merge2 = _interopRequireDefault(_merge);
@@ -94205,7 +94143,7 @@ var entities = function entities() {
     return state;
 };
 
-var errorMessage = function errorMessage() {
+var messages = function messages() {
     var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
     var action = arguments[1];
     var type = action.type,
@@ -94220,32 +94158,14 @@ var errorMessage = function errorMessage() {
 };
 
 var reducers = (0, _redux.combineReducers)({
-    logedinUser: (0, _baseReducer2.default)({
-        mapActionToKey: function mapActionToKey(action) {
-            return action.username;
-        },
-        types: [_constants.userConstants.LOGIN_REQUEST, _constants.userConstants.LOGIN_SUCCESS, _constants.userConstants.LOGIN_FAILURE]
-    }),
-    postById: (0, _baseReducer2.default)({
-        mapActionToKey: function mapActionToKey(action) {
-            return action.id;
-        },
-        types: [_constants.postConstants.POST_REQUEST, _constants.postConstants.POST_SUCCESS, _constants.postConstants.POST_FAILURE]
-    })
-    // allPosts: baseReducer({
-    //     mapActionToKey: '',
-    //     types: [
-    //         postConstants.POSTS_REQUEST,
-    //         postConstants.POSTS_SUCCESS,
-    //         postConstants.POSTS_FAILURE
-    //     ]
-    // })
+    logedinUser: _userReducer.user,
+    postById: _postReduser.posts
 });
 
 var rootReducer = (0, _redux.combineReducers)({
     entities: entities,
     reducers: reducers,
-    errorMessage: errorMessage
+    messages: messages
 });
 exports.default = rootReducer;
 
@@ -94275,7 +94195,7 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 var initialState = {
     fetching: false,
     fetched: false,
-    posts: [],
+    data: [],
     error: null
 };
 
@@ -94284,30 +94204,25 @@ var posts = exports.posts = function posts() {
     var action = arguments[1];
 
     switch (action.type) {
-        case _constants.postConstants.POSTS_REQUEST:
-            {
-                state = _extends({}, state, { fetching: true });
-                break;
-            }
-        case _constants.postConstants.POSTS_FAILURE:
-            {
-                state = _extends({}, state, { fetching: false, error: action.payload });
-                break;
-            }
-        case _constants.postConstants.POSTS_SUCCESS:
-            {
-                state = _extends({}, state, {
-                    fetching: false,
-                    fetched: true,
-                    posts: action.payload
-                });
-                break;
-            }
+        case _constants.postConstants.POST_REQUEST:
+            return _extends({}, state, {
+                fetching: true
+            });
+        case _constants.postConstants.POST_SUCCESS:
+            return _extends({}, state, {
+                fetching: false,
+                fetched: true,
+                data: action.response.result
+            });
+        case _constants.postConstants.POST_FAILURE:
+            return _extends({}, state, {
+                fetching: false,
+                error: action.response
+            });
         case _constants.postConstants.ADD_POST:
-            {
-                state = _extends({}, state, { posts: [].concat(_toConsumableArray(state.posts), [action.payload]) });
-                break;
-            }
+            return _extends({}, state, {
+                data: [].concat(_toConsumableArray(state.posts), [action.payload])
+            });
         case _constants.postConstants.UPDATE_POST:
             {
                 var _action$payload = action.payload,
@@ -94320,23 +94235,24 @@ var posts = exports.posts = function posts() {
                     date = _action$payload.date,
                     userId = _action$payload.userId;
 
-                var newPosts = [].concat(_toConsumableArray(state.posts));
+                var newPosts = [].concat(_toConsumableArray(state.data));
                 var postToUpdate = newPosts.findIndex(function (post) {
                     return post.id === id;
                 });
                 newPosts[postToUpdate] = action.payload;
-                state = _extends({}, state, { posts: newPosts });
-                break;
+                return _extends({}, state, {
+                    data: newPosts
+                });
             }
         case _constants.postConstants.DELETE_POST:
-            {
-                state = _extends({}, state, { posts: state.posts.filter(function (post) {
-                        return post.id !== action.payload;
-                    }) });
-                break;
-            }
+            return _extends({}, state, {
+                data: state.posts.filter(function (post) {
+                    return post.id !== action.payload;
+                })
+            });
+        default:
+            return state;
     }
-    return state;
 };
 
 /***/ }),
@@ -94361,9 +94277,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 var _constants = __webpack_require__(/*! ../constants */ "./src/constants/index.js");
 
 var initialState = {
-    loggingIn: false,
-    loggedIn: false,
-    user: null,
+    fetching: false,
+    fetched: false,
+    data: null,
     error: null
 };
 
@@ -94373,41 +94289,34 @@ var user = exports.user = function user() {
 
     switch (action.type) {
         case _constants.userConstants.LOGIN_REQUEST:
-            {
-                state = _extends({}, state, { loggingIn: true });
-                break;
-            }
-        case _constants.userConstants.LOGIN_FAILURE:
-            {
-                state = _extends({}, state, { loggingIn: false, error: action.payload });
-                break;
-            }
+            return _extends({}, state, {
+                fetching: true
+            });
         case _constants.userConstants.LOGIN_SUCCESS:
-            {
-                state = _extends({}, state, {
-                    loggingIn: false,
-                    loggedIn: true,
-                    user: action.payload
-                });
-                break;
-            }
+            return _extends({}, state, {
+                fetching: false,
+                fetched: true,
+                data: action.response.result
+            });
+        case _constants.userConstants.LOGIN_FAILURE:
+            return _extends({}, state, {
+                fetching: false,
+                error: action.response
+            });
         case _constants.userConstants.LOGOUT:
-            {
-                state = initialState;
-                break;
-            }
+            return initialState;
+
         case "ADD_USER":
-            {
-                state = _extends({}, state, { user: action.payload });
-                break;
-            }
+            return _extends({}, state, {
+                data: action.payload
+            });
         case "SET_USER_OPTIONS":
-            {
-                state = _extends({}, state, { options: action.payload });
-                break;
-            }
+            return _extends({}, state.data, {
+                options: action.payload
+            });
+        default:
+            return state;
     }
-    return state;
 };
 
 /***/ }),

@@ -1,43 +1,47 @@
 import { userConstants } from "../constants";
 
 const initialState = {
-    loggingIn: false,
-    loggedIn: false,
-    user: null,
-    error: null,
+    fetching: false,
+    fetched: false,
+    data: null,
+    error: null
 }
 
 export const user = (state=initialState, action) => {
     switch(action.type) {
-        case userConstants.LOGIN_REQUEST: {
-            state = {...state, loggingIn:true};
-            break;
-        }
-        case userConstants.LOGIN_FAILURE: {
-            state = {...state, loggingIn:false, error: action.payload};
-            break;
-        }
-        case userConstants.LOGIN_SUCCESS: {
-            state = {
+        case userConstants.LOGIN_REQUEST: 
+            return {
                 ...state, 
-                loggingIn:false, 
-                loggedIn: true, 
-                user: action.payload
-            };
-            break;
-        }
-        case userConstants.LOGOUT: {
-            state = initialState
-            break;
-        }
-        case "ADD_USER": {
-            state = {...state, user:  action.payload};
-            break;
-        }
-        case "SET_USER_OPTIONS": {
-            state = {...state, options: action.payload};
-            break;
-        }
+                fetching:true
+            }
+        case userConstants.LOGIN_SUCCESS: 
+            return {
+                ...state, 
+                fetching:false, 
+                fetched: true, 
+                data: action.response.result
+            }
+        case userConstants.LOGIN_FAILURE: 
+            return {
+                ...state,
+                fetching:false,
+                error: action.response
+            }
+        case userConstants.LOGOUT: 
+            return initialState
+    
+        case "ADD_USER": 
+            return {
+                ...state, 
+                data:  action.payload
+            }
+        case "SET_USER_OPTIONS": 
+            return {
+                ...state.data, 
+                options: action.payload
+            }
+        default: 
+            return state
     }
-    return state;
+
 };

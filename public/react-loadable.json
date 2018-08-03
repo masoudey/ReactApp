@@ -4121,6 +4121,56 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "undefined": [
+    {
+      "id": 1,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 1,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "./_fails-is-regexp": [
     {
       "id": "./node_modules/core-js/modules/_fails-is-regexp.js",
@@ -5769,56 +5819,6 @@
     {
       "id": "./node_modules/core-js/modules/es6.object.is-sealed.js",
       "name": "./node_modules/core-js/modules/es6.object.is-sealed.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "undefined": [
-    {
-      "id": 1,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 2,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 1,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 2,
-      "name": null,
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -14999,20 +14999,6 @@
     {
       "id": "./src/middleware/api.js",
       "name": "./src/middleware/api.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "./baseReducer": [
-    {
-      "id": "./src/reducers/baseReducer.js",
-      "name": "./src/reducers/baseReducer.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./src/reducers/baseReducer.js",
-      "name": "./src/reducers/baseReducer.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }

@@ -1,6 +1,5 @@
 import { combineReducers } from "redux";
 import { RESET_ERROR_MESSAGE, userConstants, postConstants }  from "../constants";
-import baseReducer from "./baseReducer";
 import merge from "lodash/merge";
 
 
@@ -14,46 +13,24 @@ const entities = (state = {users: {}, posts: {}, comments: {}}, action) => {
     return state
 }
 
-const errorMessage = (state = null, action) => {
+const messages = (state = null, action) => {
     const { type, error } = action;
     if (type === RESET_ERROR_MESSAGE){
         return null
-    } else if (error) {
+    }else if (error) {
         return error
     }
     return state
 }
 
 const reducers = combineReducers({
-    logedinUser: baseReducer({
-        mapActionToKey: action => action.username,
-        types: [
-            userConstants.LOGIN_REQUEST,
-            userConstants.LOGIN_SUCCESS,
-            userConstants.LOGIN_FAILURE
-        ]
-    }),
-    postById: baseReducer({
-        mapActionToKey: action => action.id,
-        types: [
-            postConstants.POST_REQUEST,
-            postConstants.POST_SUCCESS,
-            postConstants.POST_FAILURE
-        ]
-    }),
-    // allPosts: baseReducer({
-    //     mapActionToKey: '',
-    //     types: [
-    //         postConstants.POSTS_REQUEST,
-    //         postConstants.POSTS_SUCCESS,
-    //         postConstants.POSTS_FAILURE
-    //     ]
-    // })
+    logedinUser: user,
+    postById: posts,
 })
 
 const rootReducer = combineReducers({
     entities,
     reducers,
-    errorMessage,
+    messages,
 })
 export default rootReducer;

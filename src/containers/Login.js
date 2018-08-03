@@ -40,12 +40,16 @@ class Login extends Component {
     const { username, password } = this.state;
     if (username && password) {
       loadData({username, password, ...this.props} );
+      
     }
   }
 
   render() {
-    const { fetching } = this.props.logedinUser;
+    const { fetching, fetched } = this.props.logedinUser;
     const { username, password, submitted } = this.state;
+      if (fetched) {
+        return <Redirect to='/'></Redirect>
+      }
 
     return (
       <div>

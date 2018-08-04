@@ -6,7 +6,7 @@ import merge from "lodash/merge";
 import { user } from "./userReducer";
 import { posts } from "./postReduser";
 
-const entities = (state = {users: {}, posts: {}, comments: {}}, action) => {
+const entities = (state = {users: {}, posts: {}, comments: {}, works: {}}, action) => {
     if (action.response && action.response.entities) {
         return merge({}, state, action.response.entities)
     }

@@ -45,7 +45,7 @@ class Header extends Component {
         return (
             
             <header>
-                <nav class="navbar dark navbar-expand-md scrolling navbar-dark fixed-top"  >
+                <nav class="navbar dark navbar-expand-md scrolling fixed-top"  >
                     <a class="navbar-brand" href="/">
                         <img src='' alt="" height="20" />  ReactApp
                     </a>

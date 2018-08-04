@@ -93,5 +93,7 @@ export default store => next => action => {
                     type: failureType,
                     error: error.message
                 })))
+    }else {
+        next(action)
     }
 }

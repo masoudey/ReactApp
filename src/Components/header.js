@@ -99,6 +99,7 @@ class Header extends Component {
 const mapStateToProps = (state) => {
     const { entities: {users}, reducers: {logedinUser} } = state;
     const user = users[logedinUser.data];
+    console.log(user)
     return{
         user,
     }

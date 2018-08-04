@@ -23,7 +23,8 @@ const tokenVerification = () => {
         }
 }
 const mapStateToProps = (state) => {
-    const { user } = state.user;
+    const {entities: {users}, reducers: {logedinUser} } = state;
+    const user = users[logedinUser.data];
     return {
         user,
     }

@@ -92049,6 +92049,61 @@ exports.default = PrivateRoute;
 
 /***/ }),
 
+/***/ "./src/Components/authVerify.js":
+/*!**************************************!*\
+  !*** ./src/Components/authVerify.js ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.tokenVerification = undefined;
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _userActions = __webpack_require__(/*! ../actions/userActions */ "./src/actions/userActions.js");
+
+var tokenVerification = function tokenVerification() {
+    var headers = JSON.parse(localStorage.getItem('headers'));
+    var dispatch = undefined.props.dispatch;
+
+    if (headers && headers['x-auth-token']) {
+        var token = headers['x-auth-token'];
+        console.log("headers exist", token);
+        jwt.verify(token, 'my-secret', function (err, decoded) {
+            if (decoded) {
+                var user = JSON.parse(localStorage.getItem('user'));
+                dispatch((0, _userActions.loginSuccess)(user));
+                console.log(decoded);
+            } else {
+                console.log("not decoded", err);
+                if (err.name === "TokenExpiredError") {
+                    dispatch((0, _userActions.logout)());
+                    console.log("TokenExpiredError");
+                }
+            }
+        });
+    }
+};
+var mapStateToProps = function mapStateToProps(state) {
+    var users = state.entities.users,
+        logedinUser = state.reducers.logedinUser;
+
+    var user = users[logedinUser.data];
+    return {
+        user: user
+    };
+};
+var connectedAuth = (0, _reactRedux.connect)(mapStateToProps)(tokenVerification);
+exports.tokenVerification = connectedAuth;
+
+/***/ }),
+
 /***/ "./src/Components/footer.js":
 /*!**********************************!*\
   !*** ./src/Components/footer.js ***!
@@ -92490,6 +92545,7 @@ var mapStateToProps = function mapStateToProps(state) {
         logedinUser = state.reducers.logedinUser;
 
     var user = users[logedinUser.data];
+    console.log(user);
     return {
         user: user
     };
@@ -92783,8 +92839,10 @@ var Routes = function (_Component) {
 }(_react.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-    var user = state.entities.user;
+    var users = state.entities.users,
+        logedinUser = state.reducers.logedinUser;
 
+    var user = users[logedinUser.data];
     return {
         user: user
     };
@@ -92856,7 +92914,7 @@ var fetchUser = function fetchUser(username, password) {
 var loginSuccess = exports.loginSuccess = function loginSuccess(user) {
     return {
         type: _constants.userConstants.LOGIN_SUCCESS,
-        response: { entities: { users: user }, result: user.id }
+        response: { entities: { users: _defineProperty({}, user.id, user) }, result: user.id }
     };
 };
 var logOut = exports.logOut = function logOut() {
@@ -93066,6 +93124,8 @@ var _jsonwebtoken = __webpack_require__(/*! jsonwebtoken */ "./node_modules/json
 
 var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
 
+var _authVerify = __webpack_require__(/*! ./Components/authVerify */ "./src/Components/authVerify.js");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -93098,29 +93158,31 @@ var App = function (_Component) {
   }
 
   _createClass(App, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      var headers = JSON.parse(localStorage.getItem("headers"));
-      var dispatch = this.props.dispatch;
+    key: "componentWillMount",
+    value: function componentWillMount() {
+      if (typeof localStorage !== 'undefined') {
+        var headers = JSON.parse(localStorage.getItem("headers"));
+        var dispatch = this.props.dispatch;
 
-      if (headers && headers["x-auth-token"]) {
-        var token = headers["x-auth-token"];
-        console.log("headers exist", token);
-        _jsonwebtoken2.default.verify(token, "my-secret", function (err, decoded) {
-          if (decoded) {
-            var user = JSON.parse(localStorage.getItem("user"));
-            dispatch((0, _actions.loginSuccess)(user));
-            console.log(decoded);
-          } else {
-            console.log("not decoded", err);
-            if (err.name === "TokenExpiredError") {
-              dispatch((0, _actions.logOut)());
-              console.log("TokenExpiredError");
+        if (headers && headers["x-auth-token"]) {
+          var token = headers["x-auth-token"];
+          console.log("headers exist", token);
+          _jsonwebtoken2.default.verify(token, "my-secret", function (err, decoded) {
+            if (decoded) {
+              var user = JSON.parse(localStorage.getItem("user"));
+              dispatch((0, _actions.loginSuccess)(user));
+              console.log(decoded);
+            } else {
+              console.log("not decoded", err);
+              if (err.name === "TokenExpiredError") {
+                dispatch((0, _actions.logOut)());
+                console.log("TokenExpiredError");
+              }
             }
-          }
-        });
+          });
+        }
       }
-      console.log("did mount dd");
+      console.log("will mount dd");
     }
   }, {
     key: "handleUserChange",
@@ -93166,7 +93228,6 @@ var mapStateToProps = function mapStateToProps(state) {
       logedinUser = state.reducers.logedinUser;
 
   var user = users[logedinUser.data];
-  console.log(user);
   return {
     user: user
   };
@@ -94098,6 +94159,8 @@ exports.default = function (store) {
                         error: error.message
                     }));
                 });
+            } else {
+                next(action);
             }
         };
     };

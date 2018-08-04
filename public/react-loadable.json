@@ -2251,20 +2251,8 @@
       "publicPath": "/bundle.js"
     },
     {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
       "id": "./node_modules/core-js/library/modules/_core.js",
       "name": "./node_modules/core-js/library/modules/_core.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -4079,6 +4067,20 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "./modules/_core": [
+    {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "./_create-property": [
     {
       "id": "./node_modules/core-js/modules/_create-property.js",
@@ -4117,56 +4119,6 @@
     {
       "id": "./node_modules/core-js/modules/_date-to-primitive.js",
       "name": "./node_modules/core-js/modules/_date-to-primitive.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "undefined": [
-    {
-      "id": 1,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 2,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 1,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 2,
-      "name": null,
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -5819,6 +5771,56 @@
     {
       "id": "./node_modules/core-js/modules/es6.object.is-sealed.js",
       "name": "./node_modules/core-js/modules/es6.object.is-sealed.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "undefined": [
+    {
+      "id": 1,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 1,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 2,
+      "name": null,
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -13889,6 +13891,12 @@
       "publicPath": "/bundle.js"
     },
     {
+      "id": "./src/actions/index.js",
+      "name": "./src/actions/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
       "id": "./node_modules/redux-devtools-dock-monitor/lib/actions.js",
       "name": "./node_modules/redux-devtools-dock-monitor/lib/actions.js",
       "file": "bundle.js.map",
@@ -13897,6 +13905,12 @@
     {
       "id": "./node_modules/redux-devtools-log-monitor/lib/actions.js",
       "name": "./node_modules/redux-devtools-log-monitor/lib/actions.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": "./src/actions/index.js",
+      "name": "./src/actions/index.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -14653,6 +14667,20 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "./Components/authVerify": [
+    {
+      "id": "./src/Components/authVerify.js",
+      "name": "./src/Components/authVerify.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./src/Components/authVerify.js",
+      "name": "./src/Components/authVerify.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "./Components/footer": [
     {
       "id": "./src/Components/footer.js",
@@ -14733,20 +14761,6 @@
     {
       "id": "./src/actions/authHeader.js",
       "name": "./src/actions/authHeader.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "../actions": [
-    {
-      "id": "./src/actions/index.js",
-      "name": "./src/actions/index.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./src/actions/index.js",
-      "name": "./src/actions/index.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }

@@ -7,6 +7,7 @@ import ActivePage from "./Components/ActivePage";
 import { Routes } from "./Routes";
 import { loginSuccess, logOut } from "./actions";
 import jwt from "jsonwebtoken";
+import { tokenVerification } from "./Components/authVerify";
 
 
 const PathName = withRouter(({ location, match }) => {
@@ -23,7 +24,8 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
+    if (typeof localStorage !== 'undefined') {
     const headers = JSON.parse(localStorage.getItem("headers"));
     const { dispatch } = this.props;
     if (headers && headers["x-auth-token"]) {
@@ -42,8 +44,8 @@ class App extends Component {
           }
         }
       });
-    }
-    console.log("did mount dd");
+    }}
+    console.log("will mount dd");
   }
 
   handleUserChange(user) {
@@ -78,7 +80,6 @@ class App extends Component {
 const mapStateToProps = state => {
   const { entities: {users}, reducers: {logedinUser} } = state;
   const user = users[logedinUser.data]
-  console.log(user);
   return {
     user
   };

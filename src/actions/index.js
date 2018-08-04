@@ -13,7 +13,7 @@ const fetchUser = (username, password) => ({
 })
 export const loginSuccess = (user) => ({
     type: userConstants.LOGIN_SUCCESS,
-    response: {entities:{users:user}, result: user.id},
+    response: {entities:{users:{[user.id]:user}}, result: user.id},
 })
 export const logOut = () => {
     localStorage.removeItem('user')

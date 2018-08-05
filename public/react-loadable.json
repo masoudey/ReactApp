@@ -1545,7 +1545,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "../incr32": [
+  "./incr32": [
     {
       "id": "./node_modules/browserify-aes/incr32.js",
       "name": "./node_modules/browserify-aes/incr32.js",
@@ -4179,6 +4179,56 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "undefined": [
+    {
+      "id": 1,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 1,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "./_for-of": [
     {
       "id": "./node_modules/core-js/modules/_for-of.js",
@@ -5771,56 +5821,6 @@
     {
       "id": "./node_modules/core-js/modules/es6.object.is-sealed.js",
       "name": "./node_modules/core-js/modules/es6.object.is-sealed.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "undefined": [
-    {
-      "id": 1,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 2,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 1,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 2,
-      "name": null,
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -11519,7 +11519,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "lodash/isPlainObject": [
+  "./isPlainObject": [
     {
       "id": "./node_modules/lodash/isPlainObject.js",
       "name": "./node_modules/lodash/isPlainObject.js",
@@ -14803,6 +14803,20 @@
     {
       "id": "./src/constants/index.js",
       "name": "./src/constants/index.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./containers/AboutPage": [
+    {
+      "id": "./src/containers/AboutPage.js",
+      "name": "./src/containers/AboutPage.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./src/containers/AboutPage.js",
+      "name": "./src/containers/AboutPage.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }

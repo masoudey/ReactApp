@@ -41,7 +41,6 @@ class WorksPage extends Component {
     handleScroll (event) {
         if (window.scrollY > 1 && this.state.scrollanim === false) {
             this.setState({scrollanim: true})
-            
         } else if (window.scrollY <= 1 && this.state.scrollanim === true) {
             this.setState({scrollanim: false})
         }

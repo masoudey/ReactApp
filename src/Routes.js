@@ -14,6 +14,7 @@ import SingleWork from "./containers/SingleWork";
 import { SinglePost } from "./containers/SinglePost";
 // import Login from "./containers/Login";
 import AddPost from "./containers/AddPost";
+import {About} from "./containers/AboutPage";
 
 const Loading = () => <section id="loader-wrapper">
 <div id="loader"></div>
@@ -74,7 +75,7 @@ class Routes extends Component {
                     user={user}
                 />
                 <Route path='/works/:workid' component={SingleWork} />
-                <Route path='/about' component={Works} />
+                <Route path='/about' component={About} />
                 <Route render= {() => <h1>Not Found!</h1>} />
             </Switch>
         )

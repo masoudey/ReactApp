@@ -12,7 +12,7 @@ exports = module.exports = __webpack_require__(/*! ../../node_modules/css-loader
 
 
 // module
-exports.push([module.i, ".works {\r\n    background-color: rgb(255, 255, 255);\r\n}\r\n\r\n.work-page {\r\n    /* margin-top: 100px */\r\n}\r\n\r\n.work-block {\r\n    color: chocolate;\r\n    text-align: center;\r\n}\r\n", ""]);
+exports.push([module.i, ".works {\r\n    background-color: rgb(255, 255, 255);\r\n}\r\n\r\n\r\n.work-block {\r\n    color: chocolate;\r\n    text-align: center;\r\n}\r\n", ""]);
 
 // exports
 

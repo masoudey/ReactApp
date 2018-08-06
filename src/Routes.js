@@ -44,7 +44,7 @@ const Home = Loadable({
 
 class Routes extends Component {
 
-    componentDidMount() {
+    componentWillMount() {
         
     }
     render() {
@@ -56,6 +56,7 @@ class Routes extends Component {
         // if (!headers && !headers['x-auth-token']) {
         //     this.props.dispatch(logout())
         // }
+        if (typeof window !== 'undefined') {window.scrollTo(0, 0);}
         const user = this.props.user;
         // console.log(user);
         return (

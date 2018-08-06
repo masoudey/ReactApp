@@ -8,6 +8,7 @@ const style = {
     'z-index': '10',
 }
 
+
 export const About = (props) => {
     return (
         <div>

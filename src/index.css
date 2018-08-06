@@ -1150,7 +1150,8 @@ body {
     top: -45px;
     right: -30px;
     bottom: -45px;
-    left: -30px;
+    /* left: -30px; */
+    width: 100%;
     background: #514753;
 }
 

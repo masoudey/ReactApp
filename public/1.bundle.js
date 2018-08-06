@@ -183,7 +183,9 @@ var WorksPage = function (_Component) {
     }, {
         key: "componentWillUnmount",
         value: function componentWillUnmount() {
-            console.log('will unmount');
+            if (!(typeof window === "undefined")) {
+                window.removeEventListener('scroll', this.handleScroll.bind(this));
+            }
         }
     }, {
         key: "renderPost",

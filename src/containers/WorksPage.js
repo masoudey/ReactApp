@@ -47,7 +47,9 @@ class WorksPage extends Component {
     }
 
     componentWillUnmount() {
-        console.log('will unmount');
+        if ( !(typeof window === "undefined")) {
+            window.removeEventListener('scroll', this.handleScroll.bind(this))
+        }
     }
 
     renderPost(work) {

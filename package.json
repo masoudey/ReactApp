@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel dev:*",
+    "start": "node server.js",
+    "startr": "npm-run-all --parallel dev:*",
     "dev:build": "webpack -w",
     "dev:server": "node server.js"
   },

@@ -493,7 +493,7 @@ app.use(_express2.default.static('public')).use(_accounts2.default).use('/api', 
 	res.send(renderFullPage(html, finalState));
 });
 _reactLoadable2.default.preloadAll().then(function () {
-	app.listen(4000);
+	app.listen(process.env.PORT);
 });
 
 /***/ }),

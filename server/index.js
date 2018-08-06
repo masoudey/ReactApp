@@ -92,6 +92,6 @@ app.use(express.static('public'))
 		res.send(renderFullPage(html,finalState));
     })
 	Loadable.preloadAll().then(() => {
-		app.listen(process.env.PORT || 4000);
+		app.listen(process.env.PORT);
 	})
 	

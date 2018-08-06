@@ -1545,7 +1545,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./incr32": [
+  "../incr32": [
     {
       "id": "./node_modules/browserify-aes/incr32.js",
       "name": "./node_modules/browserify-aes/incr32.js",
@@ -2251,8 +2251,20 @@
       "publicPath": "/bundle.js"
     },
     {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
       "id": "./node_modules/core-js/library/modules/_core.js",
       "name": "./node_modules/core-js/library/modules/_core.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -4063,20 +4075,6 @@
     {
       "id": "./node_modules/core-js/modules/_collection.js",
       "name": "./node_modules/core-js/modules/_collection.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "./modules/_core": [
-    {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }

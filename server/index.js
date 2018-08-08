@@ -83,7 +83,7 @@ app.use(express.static('public'))
 					   ${scripts.map(script => {
 						return `<script src="/${script.file}"></script>`
 					  }).join('\n')}
-					<script src="/bundle.js" defer></script>
+					  <script src="/bundle.js" defer></script>
 				</body>
 				</html>
 			`

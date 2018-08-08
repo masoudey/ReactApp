@@ -93757,6 +93757,7 @@ var SinglePost = function (_Component) {
             if (!(typeof window === 'undefined')) {
                 window.removeEventListener('scroll', this.handleScroll.bind(this));
             }
+            console.log("single post will mount");
         }
     }, {
         key: "componentDidMount",
@@ -94182,29 +94183,56 @@ var _constants = __webpack_require__(/*! ../constants */ "./src/constants/index.
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var API_ROOT = "http://localhost4000";
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
-var callApi = function callApi(endpoint, schema, method, bodyReq) {
-    var fullUrl = endpoint.indexOf(API_ROOT) === -1 ? API_ROOT + endpoint : endpoint;
-    console.log(endpoint);
-    return (0, _axios2.default)({
-        method: method,
-        url: endpoint,
-        data: bodyReq
-    }).then(function (response) {
-        if (response.status !== 200) {
-            return Promise.reject(response);
-        }
-        if (endpoint === '/login') {
-            localStorage.setItem('headers', JSON.stringify(response.headers));
-            localStorage.setItem('user', JSON.stringify(response.data));
-        }
-        var camelizedJson = (0, _humps.camelizeKeys)(response.data);
-        return Object.assign({}, (0, _normalizr.normalize)(camelizedJson, schema));
-    }).catch(function (err) {
-        console.log(err);
-    });
-};
+var API_ROOT = "http://localhost:4000";
+
+var callApi = function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(endpoint, schema, method, bodyReq) {
+        var fullUrl;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+            while (1) {
+                switch (_context.prev = _context.next) {
+                    case 0:
+                        fullUrl = endpoint.indexOf(API_ROOT) === -1 ? API_ROOT + endpoint : endpoint;
+
+                        console.log(endpoint);
+                        _context.next = 4;
+                        return (0, _axios2.default)({
+                            method: method,
+                            url: endpoint,
+                            data: bodyReq,
+                            proxy: { host: '127.0.0.1', port: 4000 }
+                        }).then(function (response) {
+                            if (response.status !== 200) {
+                                return Promise.reject(response);
+                            }
+                            if (endpoint === '/login') {
+                                localStorage.setItem('headers', JSON.stringify(response.headers));
+                                localStorage.setItem('user', JSON.stringify(response.data));
+                            }
+                            var camelizedJson = (0, _humps.camelizeKeys)(response.data);
+                            console.log("response in middleware", response);
+                            return Object.assign({}, (0, _normalizr.normalize)(camelizedJson, schema));
+                        }).catch(function (err) {
+                            console.log("error in middleware", err);
+                        });
+
+                    case 4:
+                        return _context.abrupt("return", _context.sent);
+
+                    case 5:
+                    case "end":
+                        return _context.stop();
+                }
+            }
+        }, _callee, undefined);
+    }));
+
+    return function callApi(_x, _x2, _x3, _x4) {
+        return _ref.apply(this, arguments);
+    };
+}();
 
 var userSchema = new _normalizr.schema.Entity('users', {
     idAttribute: function idAttribute(user) {

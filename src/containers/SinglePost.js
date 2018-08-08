@@ -28,6 +28,7 @@ class SinglePost extends Component {
         if (!(typeof window === 'undefined')) {
             window.removeEventListener('scroll', this.handleScroll.bind(this))
         }
+        console.log("single post will mount")
     }
 
     componentDidMount() {

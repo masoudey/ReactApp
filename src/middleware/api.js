@@ -3,15 +3,17 @@ import { camelizeKeys } from "humps";
 import axios from "axios";
 import { CALL_API } from "../constants";
 
-const API_ROOT = "http://localhost4000";
 
-const callApi = (endpoint, schema, method, bodyReq) => {
+const API_ROOT = "http://localhost:4000";
+
+const callApi = async (endpoint, schema, method, bodyReq) => {
     const fullUrl = (endpoint.indexOf(API_ROOT) === -1) ? API_ROOT + endpoint : endpoint;
     console.log(endpoint);
-    return axios({
+    return await axios({
             method: method,
             url: endpoint,
-            data: bodyReq
+            data: bodyReq,
+            proxy: { host: '127.0.0.1', port: 4000 }
         })
         .then(response => {
             if (response.status !== 200) {
@@ -22,10 +24,11 @@ const callApi = (endpoint, schema, method, bodyReq) => {
                 localStorage.setItem('user', JSON.stringify(response.data))
             }
             const camelizedJson = camelizeKeys(response.data);
+            console.log("response in middleware", response);
             return Object.assign({}, normalize(camelizedJson, schema))
         })
         .catch(err => {
-            console.log(err)
+            console.log("error in middleware", err)
         })
 }
 
@@ -84,15 +87,15 @@ export default store => next => action => {
         next(actionWith({ type: requestType }))
 
         return callApi(endpoint, schema, method, bodyReq)
-                .then(response => next(actionWith({
-                        type: successType,
-                        response
-                    }))
-                )
-                .catch(error => next(actionWith({
-                    type: failureType,
-                    error: error.message
-                })))
+                        .then(response => next(actionWith({
+                                type: successType,
+                                response
+                            }))
+                        )
+                        .catch(error => next(actionWith({
+                            type: failureType,
+                            error: error.message
+                        })))
     }else {
         next(action)
     }

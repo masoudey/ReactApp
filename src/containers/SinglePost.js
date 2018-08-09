@@ -18,13 +18,13 @@ class SinglePost extends Component {
         }
     }
     
-    componentWillMount() {
+    async componentWillMount() {
         // const { postid } = this.props.match.params;
         // const po = this.props.location.state;
         // console.log("dfdgkdfgd",postid,po);
         // const { dispatch } = this.props;
         // dispatch(fetchSinglePost(postid));
-        loadData(this.props)
+        await loadData(this.props)
         if (!(typeof window === 'undefined')) {
             window.removeEventListener('scroll', this.handleScroll.bind(this))
         }

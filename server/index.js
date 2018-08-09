@@ -43,7 +43,7 @@ app.use(express.static('public'))
 			
 		}
 		
-		const context = req.user ? req.user : {};
+		let context = req.user ? req.user : {};
 		let modules = [];
 		const html = renderToString(
 			<Provider store={store}>
@@ -54,6 +54,7 @@ app.use(express.static('public'))
 				</StaticRouter>
 			</Provider>
 		)
+		console.log("context", context);
 		const finalState = store.getState()
 		console.log(modules);
 		let bundles = getBundles(stats, modules);
@@ -83,7 +84,7 @@ app.use(express.static('public'))
 					   ${scripts.map(script => {
 						return `<script src="/${script.file}"></script>`
 					  }).join('\n')}
-					  <script src="/bundle.js" defer></script>
+					  
 				</body>
 				</html>
 			`

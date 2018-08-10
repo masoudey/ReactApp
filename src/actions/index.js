@@ -40,7 +40,9 @@ const fetchPosts = () => ({
 
 export const loadPosts = () => (dispatch, getState) => {
     const posts = getState().entities.posts
+    console.log("posts in action===========", getState());
     if (Object.keys(posts).length > 1) {
+        
         return null
     }
     return dispatch(fetchPosts())
@@ -60,7 +62,7 @@ const fetchPostById = (id) => ({
 export const loadPostById = (id) => (dispatch, getState) => {
    
     const post = getState().entities.posts[id]
-
+    console.log("postbyid", post)
 
     if (post) {
         return null

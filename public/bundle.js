@@ -92950,7 +92950,9 @@ var fetchPosts = function fetchPosts() {
 var loadPosts = exports.loadPosts = function loadPosts() {
     return function (dispatch, getState) {
         var posts = getState().entities.posts;
+        console.log("posts in action===========", getState());
         if (Object.keys(posts).length > 1) {
+
             return null;
         }
         return dispatch(fetchPosts());
@@ -92973,6 +92975,7 @@ var loadPostById = exports.loadPostById = function loadPostById(id) {
     return function (dispatch, getState) {
 
         var post = getState().entities.posts[id];
+        console.log("postbyid", post);
 
         if (post) {
             return null;
@@ -93763,6 +93766,7 @@ var SinglePost = function (_Component) {
                                     window.removeEventListener('scroll', this.handleScroll.bind(this));
                                 }
                                 console.log("single post will mount");
+                                // console.log("props", this.props)
 
                             case 4:
                             case "end":

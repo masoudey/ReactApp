@@ -13,7 +13,7 @@ import { getBundles } from "react-loadable/webpack";
 import stats  from "../public/react-loadable.json";
 import { configureStore } from "../src/store"
 import { App } from "../src/app"
-import { loginSuccess, logout } from "../src/actions/userActions";
+import { loginSuccess, logOut, loadPosts } from "../src/actions";
 
 
 const app = express();
@@ -22,19 +22,19 @@ const app = express();
 app.use(express.static('public'))
 	.use(users)
 	.use('/api', api)
-    .get('*', function (req, res){
+    .get('*', async function (req, res){
 		
 		let user = req.user ?  req.user : {}
 		const store = configureStore()
 		if (req.token) {
 			const token = req.token;
-			jwt.verify(token, 'my-secret', function(err, decoded) {
+			jwt.verify(token, 'my-secret', async function(err, decoded) {
                 if (decoded) {
-                    store.dispatch(loginSuccess(user));
+                    await store.dispatch(loginSuccess(user));
                     res.setHeader('x-auth-token', req.token);
                 }else {
                     if (err.name === "TokenExpiredError") {
-						store.dispatch(logout());
+						store.dispatch(logOut());
 						req.token = null;
                         console.log("TokenExpiredError");
                     }
@@ -42,8 +42,11 @@ app.use(express.static('public'))
               });
 			
 		}
-		
+		await store.dispatch();
+		console.log("after dispatch =======================================================")
 		let context = req.user ? req.user : {};
+
+
 		let modules = [];
 		const html = renderToString(
 			<Provider store={store}>

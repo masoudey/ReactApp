@@ -29,6 +29,7 @@ class SinglePost extends Component {
             window.removeEventListener('scroll', this.handleScroll.bind(this))
         }
         console.log("single post will mount")
+        // console.log("props", this.props)
     }
 
     componentDidMount() {

@@ -42,7 +42,7 @@ app.use(express.static('public'))
               });
 			
 		}
-		await store.dispatch();
+		
 		console.log("after dispatch =======================================================")
 		let context = req.user ? req.user : {};
 

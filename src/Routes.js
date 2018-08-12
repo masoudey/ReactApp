@@ -6,7 +6,7 @@ import { logout } from "./actions/userActions";
 
 import PrivateRoute from "./Components/PrivateRoute";
 import PublicRoute from "./Components/PublicRoute"
-
+import routes from "./RoutesConfig";
 // import Home from "./containers/HomePage";
 // import Works from "./containers/WorksPage";
 import { BlogPage } from "./containers/BlogPage";
@@ -48,6 +48,10 @@ class Routes extends Component {
         
     }
     render() {
+        const user = this.props.user;
+        let regularRoutes = routes.regular.map((route, i) => <Route key={i} {...route} />);
+        let privateRoutes = routes.private.map((route, i) => <PrivateRoute key={i} {...route} user={user} />);
+        let publicRoutes = routes.public.map((route, i) => <PublicRoute key={i} {...route} user={user} />)
         // const headers = JSON.parse(localStorage.getItem('headers'));
         // if (headers) {
         //     console.log(headers['x-auth-token'])
@@ -57,11 +61,14 @@ class Routes extends Component {
         //     this.props.dispatch(logout())
         // }
         if (typeof window !== 'undefined') {window.scrollTo(0, 0);}
-        const user = this.props.user;
+        
         // console.log(user);
         return (
             <Switch>
-                <PublicRoute 
+                {publicRoutes}
+                {privateRoutes}
+                {regularRoutes}
+                {/* <PublicRoute 
                     path="/login"
                     component={Login}
                     user={user}
@@ -77,7 +84,7 @@ class Routes extends Component {
                 />
                 <Route path='/works/:workid' component={SingleWork} />
                 <Route path='/about' component={About} />
-                <Route render= {() => <h1>Not Found!</h1>} />
+                <Route render= {() => <h1>Not Found!</h1>} /> */}
             </Switch>
         )
     }

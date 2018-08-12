@@ -92684,6 +92684,8 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.Routes = undefined;
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
@@ -92708,6 +92710,10 @@ var _PublicRoute = __webpack_require__(/*! ./Components/PublicRoute */ "./src/Co
 
 var _PublicRoute2 = _interopRequireDefault(_PublicRoute);
 
+var _RoutesConfig = __webpack_require__(/*! ./RoutesConfig */ "./src/RoutesConfig.js");
+
+var _RoutesConfig2 = _interopRequireDefault(_RoutesConfig);
+
 var _BlogPage = __webpack_require__(/*! ./containers/BlogPage */ "./src/containers/BlogPage.js");
 
 var _SingleWork = __webpack_require__(/*! ./containers/SingleWork */ "./src/containers/SingleWork.js");
@@ -92729,7 +92735,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
 // import Home from "./containers/HomePage";
 // import Works from "./containers/WorksPage";
 
@@ -92797,6 +92802,16 @@ var Routes = function (_Component) {
     }, {
         key: "render",
         value: function render() {
+            var user = this.props.user;
+            var regularRoutes = _RoutesConfig2.default.regular.map(function (route, i) {
+                return _react2.default.createElement(_reactRouterDom.Route, _extends({ key: i }, route));
+            });
+            var privateRoutes = _RoutesConfig2.default.private.map(function (route, i) {
+                return _react2.default.createElement(_PrivateRoute2.default, _extends({ key: i }, route, { user: user }));
+            });
+            var publicRoutes = _RoutesConfig2.default.public.map(function (route, i) {
+                return _react2.default.createElement(_PublicRoute2.default, _extends({ key: i }, route, { user: user }));
+            });
             // const headers = JSON.parse(localStorage.getItem('headers'));
             // if (headers) {
             //     console.log(headers['x-auth-token'])
@@ -92808,34 +92823,14 @@ var Routes = function (_Component) {
             if (typeof window !== 'undefined') {
                 window.scrollTo(0, 0);
             }
-            var user = this.props.user;
+
             // console.log(user);
             return _react2.default.createElement(
                 _reactRouterDom.Switch,
                 null,
-                _react2.default.createElement(_PublicRoute2.default, {
-                    path: "/login",
-                    component: Login,
-                    user: user
-                }),
-                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: Home }),
-                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/works", component: Works }),
-                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/blog", component: _BlogPage.BlogPage }),
-                _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/blog/:postid", component: _SinglePost.SinglePost }),
-                _react2.default.createElement(_PrivateRoute2.default, {
-                    path: "/addpost",
-                    component: _AddPost2.default,
-                    user: user
-                }),
-                _react2.default.createElement(_reactRouterDom.Route, { path: "/works/:workid", component: _SingleWork2.default }),
-                _react2.default.createElement(_reactRouterDom.Route, { path: "/about", component: _AboutPage.About }),
-                _react2.default.createElement(_reactRouterDom.Route, { render: function render() {
-                        return _react2.default.createElement(
-                            "h1",
-                            null,
-                            "Not Found!"
-                        );
-                    } })
+                publicRoutes,
+                privateRoutes,
+                regularRoutes
             );
         }
     }]);
@@ -92855,6 +92850,131 @@ var mapStateToProps = function mapStateToProps(state) {
 
 var connectedLoginPage = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(Routes));
 exports.Routes = connectedLoginPage;
+
+/***/ }),
+
+/***/ "./src/RoutesConfig.js":
+/*!*****************************!*\
+  !*** ./src/RoutesConfig.js ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _reactLoadable = __webpack_require__(/*! react-loadable */ "./node_modules/react-loadable/lib/index.js");
+
+var _reactLoadable2 = _interopRequireDefault(_reactLoadable);
+
+var _BlogPage = __webpack_require__(/*! ./containers/BlogPage */ "./src/containers/BlogPage.js");
+
+var _SingleWork = __webpack_require__(/*! ./containers/SingleWork */ "./src/containers/SingleWork.js");
+
+var _SingleWork2 = _interopRequireDefault(_SingleWork);
+
+var _SinglePost = __webpack_require__(/*! ./containers/SinglePost */ "./src/containers/SinglePost.js");
+
+var _AddPost = __webpack_require__(/*! ./containers/AddPost */ "./src/containers/AddPost.js");
+
+var _AddPost2 = _interopRequireDefault(_AddPost);
+
+var _AboutPage = __webpack_require__(/*! ./containers/AboutPage */ "./src/containers/AboutPage.js");
+
+var _NotFound = __webpack_require__(/*! ./containers/NotFound */ "./src/containers/NotFound.js");
+
+var _NotFound2 = _interopRequireDefault(_NotFound);
+
+var _userActions = __webpack_require__(/*! ./actions/userActions */ "./src/actions/userActions.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Loading = function Loading() {
+    return React.createElement(
+        "section",
+        { id: "loader-wrapper" },
+        React.createElement("div", { id: "loader" }),
+        React.createElement("div", { className: "loader-section section-left" }),
+        React.createElement("div", { className: "loader-section section-right" })
+    );
+};
+
+var Home = (0, _reactLoadable2.default)({
+    loader: function loader() {
+        return Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(0)]).then(function() { var module = __webpack_require__(/*! ./containers/HomePage */ "./src/containers/HomePage.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); });
+    },
+    loading: Loading,
+    modules: ["./containers/HomePage"],
+    webpack: function webpack() {
+        return [/*require.resolve*/(/*! ./containers/HomePage */ "./src/containers/HomePage.js")];
+    },
+    delay: 90000
+});
+
+var Works = (0, _reactLoadable2.default)({
+    loader: function loader() {
+        return __webpack_require__.e(/*! import() */ 1).then(function() { var module = __webpack_require__(/*! ./containers/WorksPage */ "./src/containers/WorksPage.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); });
+    },
+    modules: ["./containers/WorksPage"],
+    webpack: function webpack() {
+        return [/*require.resolve*/(/*! ./containers/WorksPage */ "./src/containers/WorksPage.js")];
+    },
+    loading: Loading,
+    delay: 90000
+});
+
+var Login = (0, _reactLoadable2.default)({
+    loader: function loader() {
+        return __webpack_require__.e(/*! import() */ 2).then(function() { var module = __webpack_require__(/*! ./containers/Login */ "./src/containers/Login.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); });
+    },
+    modules: ["./containers/Login"],
+    webpack: function webpack() {
+        return [/*require.resolve*/(/*! ./containers/Login */ "./src/containers/Login.js")];
+    },
+    loading: Loading,
+    delay: 90000
+});
+
+var routes = {
+    regular: [{
+        path: '/',
+        component: Home,
+        exact: true
+    }, {
+        path: '/works',
+        component: Works,
+        exact: true
+    }, {
+        path: '/blog',
+        component: _BlogPage.BlogPage,
+        exact: true
+    }, {
+        path: '/blog/:postid',
+        component: _SinglePost.SinglePost
+    }, {
+        path: '/works/:workid',
+        component: _SingleWork2.default
+    }, {
+        path: '/about',
+        component: _AboutPage.About
+    }, {
+        component: _NotFound2.default
+    }],
+    private: [{
+        path: '/addpost',
+        component: _AddPost2.default
+    }],
+    public: [{
+        path: '/login',
+        component: Login
+    }]
+};
+
+exports.default = routes;
 
 /***/ }),
 
@@ -93687,6 +93807,52 @@ exports.default = (0, _reduxDevtools.createDevTools)(_react2.default.createEleme
     changePositionKey: 'ctrl-w' },
   _react2.default.createElement(_reduxDevtoolsLogMonitor2.default, null)
 ));
+
+/***/ }),
+
+/***/ "./src/containers/NotFound.js":
+/*!************************************!*\
+  !*** ./src/containers/NotFound.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = NotFound;
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function NotFound() {
+  return _react2.default.createElement(
+    "div",
+    { className: "container" },
+    _react2.default.createElement(
+      "h1",
+      null,
+      "Doh! 404!"
+    ),
+    _react2.default.createElement(
+      "p",
+      null,
+      "These are ",
+      _react2.default.createElement(
+        "em",
+        null,
+        "not"
+      ),
+      " the droids you are looking for!"
+    )
+  );
+}
 
 /***/ }),
 

@@ -24,7 +24,6 @@ const callApi = async (endpoint, schema, method, bodyReq) => {
                 localStorage.setItem('user', JSON.stringify(response.data))
             }
             const camelizedJson = camelizeKeys(response.data);
-            console.log("response in middleware", response);
             return Object.assign({}, normalize(camelizedJson, schema))
         })
         .catch(err => {

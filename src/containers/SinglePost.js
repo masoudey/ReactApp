@@ -17,14 +17,19 @@ class SinglePost extends Component {
             scrollanim: false
         }
     }
-    
-    async componentWillMount() {
+
+    static fetchData = (props) => {
+        const id = props.postid;
+        return loadPostById(id);
+    }
+
+    componentWillMount() {
         // const { postid } = this.props.match.params;
         // const po = this.props.location.state;
         // console.log("dfdgkdfgd",postid,po);
         // const { dispatch } = this.props;
         // dispatch(fetchSinglePost(postid));
-        await loadData(this.props)
+        loadData(this.props)
         if (!(typeof window === 'undefined')) {
             window.removeEventListener('scroll', this.handleScroll.bind(this))
         }

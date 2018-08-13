@@ -17,6 +17,9 @@ class WorksPage extends Component {
             scrollanim:false,
         }
     }
+    static fetchData = (props) => {
+        return loadPosts()
+    }
 
     componentDidMount() {
         if ( !(typeof window === 'undefined')) {
@@ -79,7 +82,8 @@ class WorksPage extends Component {
                     <div class="row">
                         <ul id="grid" class="grid effect-5" >
                         {/* {posts && posts.map(post => <PostThumb key={post.id} post={post} />)} */}
-                        <List renderItem={this.renderPost}
+                        <List 
+                            renderItem={this.renderPost}
                             items={works}
                             loadingText={'Loading Posts'}
                             />

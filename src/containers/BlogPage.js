@@ -18,6 +18,9 @@ class BlogPage extends Component {
             scrollanim:false,
         }
     }
+    static fetchData = (props) => {
+        return loadPosts()
+    }
 
     componentDidMount() {
         if ( !(typeof window === 'undefined')) {

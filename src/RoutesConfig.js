@@ -1,3 +1,4 @@
+import React from "react";
 import Loadable from "react-loadable";
 import { BlogPage } from "./containers/BlogPage";
 import SingleWork from "./containers/SingleWork";
@@ -24,7 +25,11 @@ const Home = Loadable({
 const Works = Loadable({
     loader: () => import("./containers/WorksPage"),
     loading: Loading,
-    delay: 90000,
+    render(loaded, props) {
+        let WorksPage = loaded.default;
+        
+        return <WorksPage {...props} />;
+    }
 });
 
 const Login = Loadable({

@@ -241,7 +241,8 @@ var WorksPage = function (_Component) {
                             _react2.default.createElement(
                                 "ul",
                                 { id: "grid", className: "grid effect-5" },
-                                _react2.default.createElement(_List2.default, { renderItem: this.renderPost,
+                                _react2.default.createElement(_List2.default, {
+                                    renderItem: this.renderPost,
                                     items: works,
                                     loadingText: 'Loading Posts'
                                 })
@@ -255,6 +256,10 @@ var WorksPage = function (_Component) {
 
     return WorksPage;
 }(_react.Component);
+
+WorksPage.fetchData = function (props) {
+    return (0, _actions.loadPosts)();
+};
 
 var mapStateToProps = function mapStateToProps(state) {
     var _state$entities = state.entities,

@@ -7,13 +7,14 @@ import jwt from "jsonwebtoken";
 import React from "react"
 import { renderToString } from "react-dom/server"
 import { Provider } from "react-redux"
-import { StaticRouter } from "react-router-dom"
+import { StaticRouter, matchPath } from "react-router-dom"
 import Loadable from "react-loadable";
 import { getBundles } from "react-loadable/webpack";
 import stats  from "../public/react-loadable.json";
 import { configureStore } from "../src/store"
 import { App } from "../src/app"
 import { loginSuccess, logOut, loadPosts } from "../src/actions";
+import routes from "../src/RoutesConfig";
 
 
 const app = express();
@@ -42,10 +43,24 @@ app.use(express.static('public'))
               });
 			
 		}
-		
-		console.log("after dispatch =======================================================")
-		let context = req.user ? req.user : {};
+		let match = null;
+		let {path, component } = await routes.regular.find(
+			({path, exact= false}) => {
+			match = matchPath(req.originalUrl, {
+				path,
+				exact,
+				strict: false
+			  })
+			return match;
+		}) || {};
+		console.log(component);
+		console.log("matchhhhhhhhhhhhhhhhhhhhh",match);
+		const params = match.params;
+		if (component.fetchData)
+			await store.dispatch(component.fetchData({...params}))
 
+		let context = req.user ? req.user : {};
+		console.log("context", context);
 
 		let modules = [];
 		const html = renderToString(
@@ -57,7 +72,7 @@ app.use(express.static('public'))
 				</StaticRouter>
 			</Provider>
 		)
-		console.log("context", context);
+		
 		const finalState = store.getState()
 		console.log(modules);
 		let bundles = getBundles(stats, modules);
@@ -87,7 +102,7 @@ app.use(express.static('public'))
 					   ${scripts.map(script => {
 						return `<script src="/${script.file}"></script>`
 					  }).join('\n')}
-					  
+					  <script src="/bundle.js" defer></script>
 				</body>
 				</html>
 			`

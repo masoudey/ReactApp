@@ -92694,10 +92694,6 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
-var _reactLoadable = __webpack_require__(/*! react-loadable */ "./node_modules/react-loadable/lib/index.js");
-
-var _reactLoadable2 = _interopRequireDefault(_reactLoadable);
-
 var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
 var _userActions = __webpack_require__(/*! ./actions/userActions */ "./src/actions/userActions.js");
@@ -92714,20 +92710,6 @@ var _RoutesConfig = __webpack_require__(/*! ./RoutesConfig */ "./src/RoutesConfi
 
 var _RoutesConfig2 = _interopRequireDefault(_RoutesConfig);
 
-var _BlogPage = __webpack_require__(/*! ./containers/BlogPage */ "./src/containers/BlogPage.js");
-
-var _SingleWork = __webpack_require__(/*! ./containers/SingleWork */ "./src/containers/SingleWork.js");
-
-var _SingleWork2 = _interopRequireDefault(_SingleWork);
-
-var _SinglePost = __webpack_require__(/*! ./containers/SinglePost */ "./src/containers/SinglePost.js");
-
-var _AddPost = __webpack_require__(/*! ./containers/AddPost */ "./src/containers/AddPost.js");
-
-var _AddPost2 = _interopRequireDefault(_AddPost);
-
-var _AboutPage = __webpack_require__(/*! ./containers/AboutPage */ "./src/containers/AboutPage.js");
-
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -92735,57 +92717,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import Home from "./containers/HomePage";
-// import Works from "./containers/WorksPage";
-
-// import Login from "./containers/Login";
-
-
-var Loading = function Loading() {
-    return _react2.default.createElement(
-        "section",
-        { id: "loader-wrapper" },
-        _react2.default.createElement("div", { id: "loader" }),
-        _react2.default.createElement("div", { className: "loader-section section-left" }),
-        _react2.default.createElement("div", { className: "loader-section section-right" })
-    );
-};
-
-var Home = (0, _reactLoadable2.default)({
-    loader: function loader() {
-        return Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(0)]).then(function() { var module = __webpack_require__(/*! ./containers/HomePage */ "./src/containers/HomePage.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); });
-    },
-    loading: Loading,
-    modules: ["./containers/HomePage"],
-    webpack: function webpack() {
-        return [/*require.resolve*/(/*! ./containers/HomePage */ "./src/containers/HomePage.js")];
-    },
-    delay: 90000
-});
-
-var Works = (0, _reactLoadable2.default)({
-    loader: function loader() {
-        return __webpack_require__.e(/*! import() */ 1).then(function() { var module = __webpack_require__(/*! ./containers/WorksPage */ "./src/containers/WorksPage.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); });
-    },
-    modules: ["./containers/WorksPage"],
-    webpack: function webpack() {
-        return [/*require.resolve*/(/*! ./containers/WorksPage */ "./src/containers/WorksPage.js")];
-    },
-    loading: Loading,
-    delay: 90000
-});
-
-var Login = (0, _reactLoadable2.default)({
-    loader: function loader() {
-        return __webpack_require__.e(/*! import() */ 2).then(function() { var module = __webpack_require__(/*! ./containers/Login */ "./src/containers/Login.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); });
-    },
-    modules: ["./containers/Login"],
-    webpack: function webpack() {
-        return [/*require.resolve*/(/*! ./containers/Login */ "./src/containers/Login.js")];
-    },
-    loading: Loading,
-    delay: 90000
-});
 
 var Routes = function (_Component) {
     _inherits(Routes, _Component);
@@ -92824,7 +92755,6 @@ var Routes = function (_Component) {
                 window.scrollTo(0, 0);
             }
 
-            // console.log(user);
             return _react2.default.createElement(
                 _reactRouterDom.Switch,
                 null,
@@ -92867,6 +92797,10 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
 var _reactLoadable = __webpack_require__(/*! react-loadable */ "./node_modules/react-loadable/lib/index.js");
 
 var _reactLoadable2 = _interopRequireDefault(_reactLoadable);
@@ -92894,12 +92828,12 @@ var _userActions = __webpack_require__(/*! ./actions/userActions */ "./src/actio
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Loading = function Loading() {
-    return React.createElement(
+    return _react2.default.createElement(
         "section",
         { id: "loader-wrapper" },
-        React.createElement("div", { id: "loader" }),
-        React.createElement("div", { className: "loader-section section-left" }),
-        React.createElement("div", { className: "loader-section section-right" })
+        _react2.default.createElement("div", { id: "loader" }),
+        _react2.default.createElement("div", { className: "loader-section section-left" }),
+        _react2.default.createElement("div", { className: "loader-section section-right" })
     );
 };
 
@@ -92924,9 +92858,13 @@ var Works = (0, _reactLoadable2.default)({
         return [/*require.resolve*/(/*! ./containers/WorksPage */ "./src/containers/WorksPage.js")];
     },
     loading: Loading,
-    delay: 90000
+    render: function render(loaded, props) {
+        var WorksPage = loaded.default;
+        return _react2.default.createElement(WorksPage, props);
+    }
 });
-
+Works.preload();
+console.log(Works);
 var Login = (0, _reactLoadable2.default)({
     loader: function loader() {
         return __webpack_require__.e(/*! import() */ 2).then(function() { var module = __webpack_require__(/*! ./containers/Login */ "./src/containers/Login.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); });
@@ -93756,6 +93694,10 @@ var BlogPage = function (_Component) {
     return BlogPage;
 }(_react.Component);
 
+BlogPage.fetchData = function (props) {
+    return (0, _actions.loadPosts)();
+};
+
 var mapStateToProps = function mapStateToProps(state) {
     var _state$entities = state.entities,
         users = _state$entities.users,
@@ -93887,8 +93829,6 @@ __webpack_require__(/*! ./singlePost.css */ "./src/containers/singlePost.css");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
-
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
@@ -93918,36 +93858,19 @@ var SinglePost = function (_Component) {
 
     _createClass(SinglePost, [{
         key: "componentWillMount",
-        value: function () {
-            var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-                return regeneratorRuntime.wrap(function _callee$(_context) {
-                    while (1) {
-                        switch (_context.prev = _context.next) {
-                            case 0:
-                                _context.next = 2;
-                                return loadData(this.props);
-
-                            case 2:
-                                if (!(typeof window === 'undefined')) {
-                                    window.removeEventListener('scroll', this.handleScroll.bind(this));
-                                }
-                                console.log("single post will mount");
-                                // console.log("props", this.props)
-
-                            case 4:
-                            case "end":
-                                return _context.stop();
-                        }
-                    }
-                }, _callee, this);
-            }));
-
-            function componentWillMount() {
-                return _ref.apply(this, arguments);
+        value: function componentWillMount() {
+            // const { postid } = this.props.match.params;
+            // const po = this.props.location.state;
+            // console.log("dfdgkdfgd",postid,po);
+            // const { dispatch } = this.props;
+            // dispatch(fetchSinglePost(postid));
+            loadData(this.props);
+            if (!(typeof window === 'undefined')) {
+                window.removeEventListener('scroll', this.handleScroll.bind(this));
             }
-
-            return componentWillMount;
-        }()
+            console.log("single post will mount");
+            // console.log("props", this.props)
+        }
     }, {
         key: "componentDidMount",
         value: function componentDidMount() {
@@ -94048,6 +93971,11 @@ var SinglePost = function (_Component) {
 
     return SinglePost;
 }(_react.Component);
+
+SinglePost.fetchData = function (props) {
+    var id = props.postid;
+    return (0, _actions.loadPostById)(id);
+};
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
     var postId = ownProps.match.params.postid;
@@ -94401,7 +94329,6 @@ var callApi = function () {
                                 localStorage.setItem('user', JSON.stringify(response.data));
                             }
                             var camelizedJson = (0, _humps.camelizeKeys)(response.data);
-                            console.log("response in middleware", response);
                             return Object.assign({}, (0, _normalizr.normalize)(camelizedJson, schema));
                         }).catch(function (err) {
                             console.log("error in middleware", err);

@@ -76,10 +76,8 @@ app.use(express.static('public'))
 		const finalState = store.getState()
 		console.log(modules);
 		let bundles = getBundles(stats, modules);
-		console.log(bundles);
 		let styles = bundles.filter(bundle => bundle.file.endsWith('.css'));
 		let scripts = bundles.filter(bundle => bundle.file.endsWith('.js'));
-
 
     	const renderFullPage = (html, preloadedState) => {
 			return `
@@ -102,12 +100,12 @@ app.use(express.static('public'))
 					   ${scripts.map(script => {
 						return `<script src="/${script.file}"></script>`
 					  }).join('\n')}
-					  <script src="/bundle.js" defer></script>
+					  
 				</body>
 				</html>
 			`
 		}
-
+		// <script src="/bundle.js" defer></script>
 		res.send(renderFullPage(html,finalState));
     })
 	Loadable.preloadAll().then(() => {

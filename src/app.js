@@ -8,7 +8,7 @@ import { Routes } from "./Routes";
 import { loginSuccess, logOut } from "./actions";
 import jwt from "jsonwebtoken";
 import { tokenVerification } from "./Components/authVerify";
-
+import './index.css';
 
 const PathName = withRouter(({ location, match }) => {
   return location.pathname.substring(1);

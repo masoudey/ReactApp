@@ -93200,6 +93200,8 @@ var _jsonwebtoken2 = _interopRequireDefault(_jsonwebtoken);
 
 var _authVerify = __webpack_require__(/*! ./Components/authVerify */ "./src/Components/authVerify.js");
 
+__webpack_require__(/*! ./index.css */ "./src/index.css");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -94237,8 +94239,6 @@ var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_module
 
 __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ "./node_modules/bootstrap/dist/css/bootstrap.min.css");
 
-__webpack_require__(/*! ./index.css */ "./src/index.css");
-
 var _app = __webpack_require__(/*! ./app */ "./src/app.js");
 
 var _registerServiceWorker = __webpack_require__(/*! ./registerServiceWorker */ "./src/registerServiceWorker.js");
@@ -94247,9 +94247,10 @@ var _registerServiceWorker2 = _interopRequireDefault(_registerServiceWorker);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var preloadedState = window.__PRELOADED_STATE__;
 // import 'mdbootstrap/css/mdb.min.css';
 
+
+var preloadedState = window.__PRELOADED_STATE__;
 var store = (0, _store.configureStore)(preloadedState);
 
 var history = (0, _history.createBrowserHistory)();

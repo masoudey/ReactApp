@@ -257,10 +257,6 @@ var WorksPage = function (_Component) {
     return WorksPage;
 }(_react.Component);
 
-WorksPage.fetchData = function (props) {
-    return (0, _actions.loadPosts)();
-};
-
 var mapStateToProps = function mapStateToProps(state) {
     var _state$entities = state.entities,
         users = _state$entities.users,

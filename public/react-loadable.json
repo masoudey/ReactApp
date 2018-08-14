@@ -859,7 +859,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "babel-runtime/helpers/typeof": [
+  "../helpers/typeof": [
     {
       "id": "./node_modules/babel-runtime/helpers/typeof.js",
       "name": "./node_modules/babel-runtime/helpers/typeof.js",

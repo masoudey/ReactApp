@@ -18,11 +18,6 @@ class SinglePost extends Component {
         }
     }
 
-    static fetchData = (props) => {
-        const id = props.postid;
-        return loadPostById(id);
-    }
-
     componentWillMount() {
         // const { postid } = this.props.match.params;
         // const po = this.props.location.state;

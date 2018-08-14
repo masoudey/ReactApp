@@ -92823,7 +92823,7 @@ var _NotFound = __webpack_require__(/*! ./containers/NotFound */ "./src/containe
 
 var _NotFound2 = _interopRequireDefault(_NotFound);
 
-var _userActions = __webpack_require__(/*! ./actions/userActions */ "./src/actions/userActions.js");
+var _actions = __webpack_require__(/*! ./actions */ "./src/actions/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -92863,8 +92863,7 @@ var Works = (0, _reactLoadable2.default)({
         return _react2.default.createElement(WorksPage, props);
     }
 });
-Works.preload();
-console.log(Works);
+
 var Login = (0, _reactLoadable2.default)({
     loader: function loader() {
         return __webpack_require__.e(/*! import() */ 2).then(function() { var module = __webpack_require__(/*! ./containers/Login */ "./src/containers/Login.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); });
@@ -92885,14 +92884,23 @@ var routes = {
     }, {
         path: '/works',
         component: Works,
-        exact: true
+        exact: true,
+        loadData: function loadData() {
+            return (0, _actions.loadPosts)();
+        }
     }, {
         path: '/blog',
         component: _BlogPage.BlogPage,
-        exact: true
+        exact: true,
+        loadData: function loadData() {
+            return (0, _actions.loadPosts)();
+        }
     }, {
         path: '/blog/:postid',
-        component: _SinglePost.SinglePost
+        component: _SinglePost.SinglePost,
+        loadData: function loadData(id) {
+            return (0, _actions.loadPostById)(id.postid);
+        }
     }, {
         path: '/works/:workid',
         component: _SingleWork2.default
@@ -93694,10 +93702,6 @@ var BlogPage = function (_Component) {
     return BlogPage;
 }(_react.Component);
 
-BlogPage.fetchData = function (props) {
-    return (0, _actions.loadPosts)();
-};
-
 var mapStateToProps = function mapStateToProps(state) {
     var _state$entities = state.entities,
         users = _state$entities.users,
@@ -93971,11 +93975,6 @@ var SinglePost = function (_Component) {
 
     return SinglePost;
 }(_react.Component);
-
-SinglePost.fetchData = function (props) {
-    var id = props.postid;
-    return (0, _actions.loadPostById)(id);
-};
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
     var postId = ownProps.match.params.postid;

@@ -6,7 +6,7 @@ import { SinglePost } from "./containers/SinglePost";
 import AddPost from "./containers/AddPost";
 import {About} from "./containers/AboutPage";
 import NotFound from "./containers/NotFound";
-import { login } from "./actions/userActions";
+import { loginSuccess, loadPosts, loadPostById } from "./actions";
 
 const Loading = () => <section id="loader-wrapper">
 <div id="loader"></div>
@@ -27,7 +27,6 @@ const Works = Loadable({
     loading: Loading,
     render(loaded, props) {
         let WorksPage = loaded.default;
-        
         return <WorksPage {...props} />;
     }
 });
@@ -48,16 +47,19 @@ const routes = {
         {
             path: '/works',
             component: Works,
-            exact: true
+            exact: true,
+            loadData: () => loadPosts()
         },
         {
             path: '/blog',
             component: BlogPage,
-            exact: true
+            exact: true,
+            loadData: () => loadPosts()
         },
         {
             path: '/blog/:postid',
             component: SinglePost,
+            loadData: (id) => loadPostById(id.postid)
         },
         {
             path: '/works/:workid',

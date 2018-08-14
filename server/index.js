@@ -44,7 +44,7 @@ app.use(express.static('public'))
 			
 		}
 		let match = null;
-		let {path, component } = await routes.regular.find(
+		let {loadData, component } = await routes.regular.find(
 			({path, exact= false}) => {
 			match = matchPath(req.originalUrl, {
 				path,
@@ -53,11 +53,11 @@ app.use(express.static('public'))
 			  })
 			return match;
 		}) || {};
-		console.log(component);
-		console.log("matchhhhhhhhhhhhhhhhhhhhh",match);
+
 		const params = match.params;
-		if (component.fetchData)
-			await store.dispatch(component.fetchData({...params}))
+		if (component.preload) await component.preload();
+		if (loadData)
+			await store.dispatch(loadData({...params}))
 
 		let context = req.user ? req.user : {};
 		console.log("context", context);

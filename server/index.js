@@ -64,20 +64,23 @@ app.use(express.static('public'))
 
 		let modules = [];
 		const html = renderToString(
+			<Loadable.Capture report= {moduleName => modules.push(moduleName)} >
 			<Provider store={store}>
 				<StaticRouter location={req.url} context={context} >
-					<Loadable.Capture report= {moduleName => modules.push(moduleName)} >
+					
 			  			<App />
-					</Loadable.Capture>
+					
 				</StaticRouter>
 			</Provider>
+			</Loadable.Capture>
 		)
 		
 		const finalState = store.getState()
-		console.log(modules);
+		console.log("modules", modules);
 		let bundles = getBundles(stats, modules);
 		let styles = bundles.filter(bundle => bundle.file.endsWith('.css'));
 		let scripts = bundles.filter(bundle => bundle.file.endsWith('.js'));
+		console.log(scripts);
 
     	const renderFullPage = (html, preloadedState) => {
 			return `
@@ -88,6 +91,7 @@ app.use(express.static('public'))
 					<meta name="viewport" content="width=device-width, initial-scale=1.0">
 					<meta http-equiv="X-UA-Compatible" content="ie=edge">
 					<title>Universal App</title>
+					<link rel="stylesheet" type="text/css" href="/styles.css">
 					${styles.map(style => {
 						return `<link href="/${style.file}" rel="stylesheet"/>`;
 					  }).join('\n')}
@@ -100,7 +104,7 @@ app.use(express.static('public'))
 					   ${scripts.map(script => {
 						return `<script src="/${script.file}"></script>`
 					  }).join('\n')}
-					  
+					 
 				</body>
 				</html>
 			`

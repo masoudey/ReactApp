@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const webpackNodeExternals = require('webpack-node-externals');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Loadable = require('react-loadable/webpack');
 const ReactLoadablePlugin = Loadable.ReactLoadablePlugin;
 
@@ -18,6 +19,11 @@ const clientConfig = {
         new ReactLoadablePlugin({
             filename: './public/react-loadable.json',
           }),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: "styles.css",
+          })
     ],
     module: {
         rules: [
@@ -39,20 +45,37 @@ const clientConfig = {
             {
                 test: /\.css$/,
                 use: [
-                    'style-loader',
+                    {
+                        loader: MiniCssExtractPlugin.loader,
+                        options: {
+                          // you can specify a publicPath here
+                          // by default it use publicPath in webpackOptions.output
+                          publicPath: '/'
+                        }
+                      },
                     'css-loader'
                 ]
             },
             {
                 test: /\.(png|svg|jpg|gif|ico)$/,
                 use: [
-                  'file-loader'
+                    {
+                        loader: 'file-loader',
+                        options: {
+                          name: '[name].[ext]'
+                        }
+                    }
                 ]
               },
               {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 use: [
-                  'file-loader'
+                    {
+                        loader: 'file-loader',
+                        options: {
+                          name: '[name].[ext]'
+                        }
+                    }
                 ]
               }
         ]
@@ -85,8 +108,7 @@ const serverConfig = {
         },
     },
     plugins: [
-        // new webpack.HotModuleReplacementPlugin(),
-        
+     
     ],
     module: {
         rules: [
@@ -110,20 +132,29 @@ const serverConfig = {
             {
                 test: /\.css$/,
                 use: [
-                    // 'style-loader',
-                    'css-loader/locals'
+                    'css-loader'
                 ]
             },
             {
                 test: /\.(png|svg|jpg|gif|ico)$/,
                 use: [
-                  'file-loader'
+                    {
+                        loader: 'file-loader',
+                        options: {
+                          name: 'public/[name].[ext]'
+                        }
+                    }
                 ]
               },
               {
                 test: /\.(woff|woff2|eot|ttf|otf)$/,
                 use: [
-                  'file-loader'
+                    {
+                        loader: 'file-loader',
+                        options: {
+                          name: 'public/[name].[ext]'
+                        }
+                    }
                 ]
               }
         ]

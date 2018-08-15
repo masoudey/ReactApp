@@ -5,7 +5,7 @@ const style = {
     height: '157px',
     position: 'fixed',
     top: '0',
-    'z-index': '10',
+    zIndex: '10',
 }
 
 

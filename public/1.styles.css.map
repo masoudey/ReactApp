@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/containers/works.css"],"names":[],"mappings":"AAAA;AACA;AACA;;;AAGA;AACA;AACA;AACA","file":"1.styles.css","sourcesContent":[".works {\r\n    background-color: rgb(255, 255, 255);\r\n}\r\n\r\n\r\n.work-block {\r\n    color: chocolate;\r\n    text-align: center;\r\n}\r\n"],"sourceRoot":""}

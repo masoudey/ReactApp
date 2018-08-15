@@ -8,6 +8,7 @@ import { Routes } from "./Routes";
 import { loginSuccess, logOut } from "./actions";
 import jwt from "jsonwebtoken";
 import { tokenVerification } from "./Components/authVerify";
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 
 const PathName = withRouter(({ location, match }) => {

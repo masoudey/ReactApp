@@ -1,6 +1,5 @@
 import React from "react";
 import Loadable from "react-loadable";
-import { BlogPage } from "./containers/BlogPage";
 import SingleWork from "./containers/SingleWork";
 import { SinglePost } from "./containers/SinglePost";
 import AddPost from "./containers/AddPost";
@@ -31,6 +30,11 @@ const Works = Loadable({
     }
 });
 
+const Blog = Loadable({
+    loader: () => import("./containers/BlogPage"),
+    loading: Loading,
+});
+
 const Login = Loadable({
     loader: () => import("./containers/Login"),
     loading: Loading,
@@ -52,7 +56,7 @@ const routes = {
         },
         {
             path: '/blog',
-            component: BlogPage,
+            component: Blog,
             exact: true,
             loadData: () => loadPosts()
         },

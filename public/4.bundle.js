@@ -1,4 +1,4 @@
-(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
+(window["webpackJsonp"] = window["webpackJsonp"] || []).push([[4],{
 
 /***/ "./src/Components/List.js":
 /*!********************************!*\
@@ -74,9 +74,9 @@ exports.default = List;
 
 /***/ }),
 
-/***/ "./src/Components/workthumbnail.js":
+/***/ "./src/Components/postthumbnail.js":
 /*!*****************************************!*\
-  !*** ./src/Components/workthumbnail.js ***!
+  !*** ./src/Components/postthumbnail.js ***!
   \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -96,8 +96,8 @@ var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_module
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var workThumb = function workThumb(props) {
-    var work = props.work;
+var PostThumb = function PostThumb(props) {
+    var post = props.post;
     return _react2.default.createElement(
         "li",
         { className: "shown" },
@@ -106,27 +106,37 @@ var workThumb = function workThumb(props) {
             { className: " grid-post" },
             _react2.default.createElement(
                 "figure",
-                { className: "effect-layla layla" },
-                _react2.default.createElement("img", { src: "/" + work.img, alt: "img03" }),
+                { className: "effect-phoebe phoebe" },
+                _react2.default.createElement("img", { src: "/" + post.img, alt: "img03" }),
                 _react2.default.createElement(
                     "figcaption",
-                    { className: "layla" },
+                    { className: "phoebe" },
                     _react2.default.createElement(
                         "h2",
                         null,
-                        work.title
+                        post.title
                     ),
                     _react2.default.createElement(
                         "p",
                         { className: "desc" },
-                        work.desc
+                        post.desc
                     ),
                     _react2.default.createElement(
                         "p",
                         null,
                         _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            _react2.default.createElement("i", { className: "icon-user" })
+                        ),
+                        _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            _react2.default.createElement("i", { className: "icon-heart" })
+                        ),
+                        _react2.default.createElement(
                             _reactRouterDom.Link,
-                            { state: work, to: "/blog/" + work.id },
+                            { state: post, to: "/blog/" + post.id },
                             _react2.default.createElement("i", { className: "icon-link" })
                         )
                     )
@@ -136,14 +146,14 @@ var workThumb = function workThumb(props) {
     );
 };
 
-exports.default = workThumb;
+exports.default = PostThumb;
 
 /***/ }),
 
-/***/ "./src/containers/WorksPage.js":
-/*!*************************************!*\
-  !*** ./src/containers/WorksPage.js ***!
-  \*************************************/
+/***/ "./src/containers/BlogPage.js":
+/*!************************************!*\
+  !*** ./src/containers/BlogPage.js ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -160,21 +170,21 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
-__webpack_require__(/*! ./works.css */ "./src/containers/works.css");
-
 var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 
 var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
 
 var _actions = __webpack_require__(/*! ../actions */ "./src/actions/index.js");
 
+var _postthumbnail = __webpack_require__(/*! ../Components/postthumbnail */ "./src/Components/postthumbnail.js");
+
+var _postthumbnail2 = _interopRequireDefault(_postthumbnail);
+
+__webpack_require__(/*! ./blog.css */ "./src/containers/blog.css");
+
 var _List = __webpack_require__(/*! ../Components/List */ "./src/Components/List.js");
 
 var _List2 = _interopRequireDefault(_List);
-
-var _workthumbnail = __webpack_require__(/*! ../Components/workthumbnail */ "./src/Components/workthumbnail.js");
-
-var _workthumbnail2 = _interopRequireDefault(_workthumbnail);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -183,18 +193,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+// import { fetchAllPosts } from "../actions/postActions";
+
 
 var loadData = function loadData(props) {
     props.loadPosts();
 };
 
-var WorksPage = function (_Component) {
-    _inherits(WorksPage, _Component);
+var BlogPage = function (_Component) {
+    _inherits(BlogPage, _Component);
 
-    function WorksPage(props) {
-        _classCallCheck(this, WorksPage);
+    function BlogPage(props) {
+        _classCallCheck(this, BlogPage);
 
-        var _this = _possibleConstructorReturn(this, (WorksPage.__proto__ || Object.getPrototypeOf(WorksPage)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (BlogPage.__proto__ || Object.getPrototypeOf(BlogPage)).call(this, props));
 
         _this.state = {
             scrollanim: false
@@ -202,7 +214,7 @@ var WorksPage = function (_Component) {
         return _this;
     }
 
-    _createClass(WorksPage, [{
+    _createClass(BlogPage, [{
         key: "componentDidMount",
         value: function componentDidMount() {
             if (!(typeof window === 'undefined')) {
@@ -244,61 +256,55 @@ var WorksPage = function (_Component) {
         }
     }, {
         key: "renderPost",
-        value: function renderPost(work) {
-            return _react2.default.createElement(_workthumbnail2.default, { work: work, key: work.id });
+        value: function renderPost(post) {
+            return _react2.default.createElement(_postthumbnail2.default, { post: post, key: post.id });
         }
     }, {
         key: "render",
         value: function render() {
-            var works = Object.values(this.props.posts);
+            var posts = Object.values(this.props.posts);
             var scrolling = this.state.scrollanim ? 'modify' : '';
-
+            console.log(posts);
             return _react2.default.createElement(
                 "div",
-                { id: "works", className: "blog intro-effect-sliced  " + scrolling },
+                { id: "blog", className: "blog intro-effect-jam3  " + scrolling },
                 _react2.default.createElement(
                     "section",
                     { id: "header-block", className: "header " },
                     _react2.default.createElement(
                         "div",
-                        { className: "bg-img" },
-                        _react2.default.createElement("img", { src: "/works.jpg", alt: "Background Image" })
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "title" },
+                        { className: " wedget-post" },
                         _react2.default.createElement(
-                            "h1",
-                            null,
-                            "Works"
+                            "div",
+                            { className: "bg-img" },
+                            _react2.default.createElement("img", { src: "/blog.jpg", alt: "Background Image" })
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "title" },
+                            _react2.default.createElement(
+                                "h1",
+                                null,
+                                "Posts"
+                            )
                         )
-                    ),
-                    _react2.default.createElement(
-                        "p",
-                        { className: "subline" },
-                        "Inspiration for Article Intro Effects"
-                    ),
-                    _react2.default.createElement(
-                        "div",
-                        { className: "bg-img" },
-                        _react2.default.createElement("img", { src: "/works.jpg", alt: "Background Image" })
                     )
                 ),
                 _react2.default.createElement(
                     "section",
-                    { id: "posts-block", className: "works content  blog-thumb" },
+                    { id: "posts-block", className: "posts content  blog-thumb" },
                     _react2.default.createElement(
                         "div",
                         { className: "container" },
                         _react2.default.createElement(
                             "div",
                             { className: "row" },
+                            _react2.default.createElement("input", { type: "text", name: "" }),
                             _react2.default.createElement(
                                 "ul",
                                 { id: "grid", className: "grid effect-5" },
-                                _react2.default.createElement(_List2.default, {
-                                    renderItem: this.renderPost,
-                                    items: works,
+                                _react2.default.createElement(_List2.default, { renderItem: this.renderPost,
+                                    items: posts,
                                     loadingText: 'Loading Posts'
                                 })
                             )
@@ -309,7 +315,7 @@ var WorksPage = function (_Component) {
         }
     }]);
 
-    return WorksPage;
+    return BlogPage;
 }(_react.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
@@ -322,15 +328,15 @@ var mapStateToProps = function mapStateToProps(state) {
         users: users
     };
 };
-var connectedBlog = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, { loadPosts: _actions.loadPosts })(WorksPage));
+var connectedBlog = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, { loadPosts: _actions.loadPosts })(BlogPage));
 exports.default = connectedBlog;
 
 /***/ }),
 
-/***/ "./src/containers/works.css":
-/*!**********************************!*\
-  !*** ./src/containers/works.css ***!
-  \**********************************/
+/***/ "./src/containers/blog.css":
+/*!*********************************!*\
+  !*** ./src/containers/blog.css ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -339,4 +345,4 @@ exports.default = connectedBlog;
 /***/ })
 
 }]);
-//# sourceMappingURL=1.bundle.js.map
+//# sourceMappingURL=4.bundle.js.map

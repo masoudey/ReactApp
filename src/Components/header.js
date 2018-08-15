@@ -50,7 +50,7 @@ class Header extends Component {
                         <img src='' alt="" height="20" />  ReactApp
                     </a>
                     <button class={`navbar-toggler ${toggleBtnClass}`} onClick={this.toggleCollapse.bind(this)} data-toggle="collapse" data-target="#reactNavbar">
-                        <span class="navbar-toggler-icon"></span>
+                        <span class="icon-menu text-primary"></span>
                     </button>
                     <div class={`collapse navbar-collapse  ${navClass}  ${navBtnClass}` } id="reactNavbar">
                         

@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack:///./src/containers/blog.css"],"names":[],"mappings":"AAAA;AACA;AACA","file":"4.styles.css","sourcesContent":[".posts {\r\n    background-color: rgb(141, 50, 34);\r\n}\r\n\r\n"],"sourceRoot":""}

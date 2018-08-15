@@ -101,4 +101,4 @@ const mapStateToProps = state => {
     };
 }
 const connectedBlog = withRouter(connect(mapStateToProps, {loadPosts})(BlogPage));
-export  {connectedBlog as  BlogPage};
+export default connectedBlog;

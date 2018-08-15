@@ -80,7 +80,7 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"0":1,"1":1,"2":1,"4":1};
+/******/ 		var cssChunks = {"0":1,"1":1,"2":1,"3":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
@@ -91669,7 +91669,7 @@ var Header = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this));
 
         _this.state = {
-            collapsed: true,
+            collapsed: false,
             exposed: false
         };
 
@@ -91734,12 +91734,12 @@ var Header = function (_Component) {
                             { className: "navbar-nav mr-3 ml-auto" },
                             _react2.default.createElement(
                                 _reactRouterDom.NavLink,
-                                { exact: true, activeClassName: "active", className: "nav-link", to: "/" },
+                                { exact: true, activeClassName: "active", onClick: this.toggleCollapse.bind(this), className: "nav-link", to: "/" },
                                 "Home"
                             ),
                             _react2.default.createElement(
                                 _reactRouterDom.NavLink,
-                                { activeClassName: "active", className: "nav-link", to: "/works" },
+                                { activeClassName: "active", onClick: this.toggleCollapse.bind(this), className: "nav-link", to: "/works" },
                                 "Works"
                             ),
                             _react2.default.createElement(
@@ -91747,13 +91747,14 @@ var Header = function (_Component) {
                                 {
                                     activeClassName: "active"
                                     // isActive={this.setActivePage.bind(this)} 
-                                    , className: "nav-link",
+                                    , onClick: this.toggleCollapse.bind(this),
+                                    className: "nav-link",
                                     to: "/blog" },
                                 "Blog"
                             ),
                             _react2.default.createElement(
                                 _reactRouterDom.NavLink,
-                                { activeClassName: "active", className: "nav-link", to: "/about" },
+                                { activeClassName: "active", className: "nav-link", onClick: this.toggleCollapse.bind(this), to: "/about" },
                                 "About"
                             ),
                             _react2.default.createElement(
@@ -91770,12 +91771,12 @@ var Header = function (_Component) {
                                     { className: "dropdown-menu ", "aria-labelledby": "navbarDropdownMenuLink" },
                                     !user && _react2.default.createElement(
                                         _reactRouterDom.Link,
-                                        { className: "dropdown-item", to: "/login" },
+                                        { className: "dropdown-item", onClick: this.toggleCollapse.bind(this), to: "/login" },
                                         "LogIn"
                                     ),
                                     user && _react2.default.createElement(
                                         _reactRouterDom.Link,
-                                        { className: "dropdown-item", to: "/addpost" },
+                                        { className: "dropdown-item", onClick: this.toggleCollapse.bind(this), to: "/addpost" },
                                         "Add Post"
                                     ),
                                     user && _react2.default.createElement(
@@ -92028,7 +92029,7 @@ var Loading = function Loading() {
 
 var Home = (0, _reactLoadable2.default)({
     loader: function loader() {
-        return Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(0)]).then(function() { var module = __webpack_require__(/*! ./containers/HomePage */ "./src/containers/HomePage.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); });
+        return Promise.all(/*! import() */[__webpack_require__.e(4), __webpack_require__.e(0)]).then(function() { var module = __webpack_require__(/*! ./containers/HomePage */ "./src/containers/HomePage.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); });
     },
     loading: Loading,
     modules: ["./containers/HomePage", "react-id-swiper"],
@@ -92055,7 +92056,7 @@ var Works = (0, _reactLoadable2.default)({
 
 var Blog = (0, _reactLoadable2.default)({
     loader: function loader() {
-        return __webpack_require__.e(/*! import() */ 4).then(function() { var module = __webpack_require__(/*! ./containers/BlogPage */ "./src/containers/BlogPage.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); });
+        return __webpack_require__.e(/*! import() */ 2).then(function() { var module = __webpack_require__(/*! ./containers/BlogPage */ "./src/containers/BlogPage.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); });
     },
     modules: ["./containers/BlogPage"],
     webpack: function webpack() {
@@ -92066,7 +92067,7 @@ var Blog = (0, _reactLoadable2.default)({
 
 var Login = (0, _reactLoadable2.default)({
     loader: function loader() {
-        return __webpack_require__.e(/*! import() */ 2).then(function() { var module = __webpack_require__(/*! ./containers/Login */ "./src/containers/Login.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); });
+        return __webpack_require__.e(/*! import() */ 3).then(function() { var module = __webpack_require__(/*! ./containers/Login */ "./src/containers/Login.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); });
     },
     modules: ["./containers/Login"],
     webpack: function webpack() {

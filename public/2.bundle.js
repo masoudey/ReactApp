@@ -1,9 +1,9 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[2],{
 
-/***/ "./src/containers/Login.js":
-/*!*********************************!*\
-  !*** ./src/containers/Login.js ***!
-  \*********************************/
+/***/ "./src/Components/List.js":
+/*!********************************!*\
+  !*** ./src/Components/List.js ***!
+  \********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11,10 +11,158 @@
 
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactSpinners = __webpack_require__(/*! react-spinners */ "./node_modules/react-spinners/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var List = function (_Component) {
+    _inherits(List, _Component);
+
+    function List() {
+        _classCallCheck(this, List);
+
+        return _possibleConstructorReturn(this, (List.__proto__ || Object.getPrototypeOf(List)).apply(this, arguments));
+    }
+
+    _createClass(List, [{
+        key: "render",
+        value: function render() {
+            var _props = this.props,
+                fetching = _props.fetching,
+                items = _props.items,
+                renderItem = _props.renderItem,
+                loadingText = _props.loadingText;
+
+
+            var isEmpty = Object.keys(items).length === 0;
+            console.log(items, isEmpty);
+            if (isEmpty && fetching) {
+                return _react2.default.createElement(_reactSpinners.GridLoader, { color: '#123abc', loading: fetching });
+            }
+
+            return _react2.default.createElement(
+                _react2.default.Fragment,
+                null,
+                items.map(renderItem)
+            );
+        }
+    }]);
+
+    return List;
+}(_react.Component);
+
+List.defaultProps = {
+    fetching: true,
+    loadingText: 'Loading.....'
+};
+exports.default = List;
+
+/***/ }),
+
+/***/ "./src/Components/postthumbnail.js":
+/*!*****************************************!*\
+  !*** ./src/Components/postthumbnail.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var PostThumb = function PostThumb(props) {
+    var post = props.post;
+    return _react2.default.createElement(
+        "li",
+        { className: "shown" },
+        _react2.default.createElement(
+            "div",
+            { className: " grid-post" },
+            _react2.default.createElement(
+                "figure",
+                { className: "effect-phoebe phoebe" },
+                _react2.default.createElement("img", { src: "/" + post.img, alt: "img03" }),
+                _react2.default.createElement(
+                    "figcaption",
+                    { className: "phoebe" },
+                    _react2.default.createElement(
+                        "h2",
+                        null,
+                        post.title
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        { className: "desc" },
+                        post.desc
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        null,
+                        _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            _react2.default.createElement("i", { className: "icon-user" })
+                        ),
+                        _react2.default.createElement(
+                            "a",
+                            { href: "#" },
+                            _react2.default.createElement("i", { className: "icon-heart" })
+                        ),
+                        _react2.default.createElement(
+                            _reactRouterDom.Link,
+                            { state: post, to: "/blog/" + post.id },
+                            _react2.default.createElement("i", { className: "icon-link" })
+                        )
+                    )
+                )
+            )
+        )
+    );
+};
+
+exports.default = PostThumb;
+
+/***/ }),
+
+/***/ "./src/containers/BlogPage.js":
+/*!************************************!*\
+  !*** ./src/containers/BlogPage.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -28,191 +176,167 @@ var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_module
 
 var _actions = __webpack_require__(/*! ../actions */ "./src/actions/index.js");
 
-__webpack_require__(/*! ./login.css */ "./src/containers/login.css");
+var _postthumbnail = __webpack_require__(/*! ../Components/postthumbnail */ "./src/Components/postthumbnail.js");
+
+var _postthumbnail2 = _interopRequireDefault(_postthumbnail);
+
+__webpack_require__(/*! ./blog.css */ "./src/containers/blog.css");
+
+var _List = __webpack_require__(/*! ../Components/List */ "./src/Components/List.js");
+
+var _List2 = _interopRequireDefault(_List);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import { login, logout } from "../actions/userActions";
+// import { fetchAllPosts } from "../actions/postActions";
 
 
 var loadData = function loadData(props) {
-  console.log(props);
-  var username = props.username,
-      password = props.password;
-
-  props.loginUser(username, password);
+    props.loadPosts();
 };
 
-var Login = function (_Component) {
-  _inherits(Login, _Component);
+var BlogPage = function (_Component) {
+    _inherits(BlogPage, _Component);
 
-  function Login(props) {
-    _classCallCheck(this, Login);
+    function BlogPage(props) {
+        _classCallCheck(this, BlogPage);
 
-    // reset login status
-    // this.props.dispatch(logout());
+        var _this = _possibleConstructorReturn(this, (BlogPage.__proto__ || Object.getPrototypeOf(BlogPage)).call(this, props));
 
-    var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
-
-    _this.state = {
-      username: "",
-      password: "",
-      submitted: false
-    };
-
-    _this.handleChange = _this.handleChange.bind(_this);
-    _this.handleSubmit = _this.handleSubmit.bind(_this);
-    return _this;
-  }
-
-  _createClass(Login, [{
-    key: "handleChange",
-    value: function handleChange(e) {
-      var _e$target = e.target,
-          name = _e$target.name,
-          value = _e$target.value;
-
-      this.setState(_defineProperty({}, name, value));
+        _this.state = {
+            scrollanim: false
+        };
+        return _this;
     }
-  }, {
-    key: "handleSubmit",
-    value: function handleSubmit(e) {
-      e.preventDefault();
 
-      this.setState({ submitted: true });
-      var _state = this.state,
-          username = _state.username,
-          password = _state.password;
+    _createClass(BlogPage, [{
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            if (!(typeof window === 'undefined')) {
+                window.addEventListener('scroll', this.handleScroll.bind(this));
+            }
+            console.log(this.state.scrollanim);
+            console.log('did mount');
+        }
+    }, {
+        key: "componentWillMount",
+        value: function componentWillMount() {
 
-      if (username && password) {
-        loadData(_extends({ username: username, password: password }, this.props));
-      }
-    }
-  }, {
-    key: "render",
-    value: function render() {
-      var _props$logedinUser = this.props.logedinUser,
-          fetching = _props$logedinUser.fetching,
-          fetched = _props$logedinUser.fetched;
-      var _state2 = this.state,
-          username = _state2.username,
-          password = _state2.password,
-          submitted = _state2.submitted;
-
-      if (fetched) {
-        return _react2.default.createElement(_reactRouterDom.Redirect, { to: "/" });
-      }
-
-      return _react2.default.createElement(
-        "div",
-        null,
-        _react2.default.createElement(
-          "div",
-          { className: "login-wrapper" },
-          _react2.default.createElement("div", { className: "logo ir" }),
-          _react2.default.createElement(
-            "span",
-            { className: "title" },
-            "Login"
-          ),
-          _react2.default.createElement(
-            "form",
-            { name: "form", onSubmit: this.handleSubmit },
-            _react2.default.createElement(
-              "fieldset",
-              null,
-              _react2.default.createElement(
+            loadData(this.props);
+            if (!(typeof window === "undefined")) {
+                window.removeEventListener('scroll', this.handleScroll.bind(this));
+            }
+            console.log("will mount");
+        }
+    }, {
+        key: "componentWillReceiveProps",
+        value: function componentWillReceiveProps() {
+            console.log("will recevie props");
+        }
+    }, {
+        key: "handleScroll",
+        value: function handleScroll(event) {
+            if (window.scrollY > 1 && this.state.scrollanim === false) {
+                this.setState({ scrollanim: true });
+            } else if (window.scrollY <= 1 && this.state.scrollanim === true) {
+                this.setState({ scrollanim: false });
+            }
+        }
+    }, {
+        key: "componentWillUnmount",
+        value: function componentWillUnmount() {
+            if (!(typeof window === "undefined")) {
+                window.removeEventListener('scroll', this.handleScroll.bind(this));
+            }
+        }
+    }, {
+        key: "renderPost",
+        value: function renderPost(post) {
+            return _react2.default.createElement(_postthumbnail2.default, { post: post, key: post.id });
+        }
+    }, {
+        key: "render",
+        value: function render() {
+            var posts = Object.values(this.props.posts);
+            var scrolling = this.state.scrollanim ? 'modify' : '';
+            console.log(posts);
+            return _react2.default.createElement(
                 "div",
-                { className: "inputrow" },
-                _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
-                _react2.default.createElement("input", {
-                  type: "text",
-                  name: "username",
-                  id: "user",
-                  placeholder: "Username",
-                  onChange: this.handleChange,
-                  value: username,
-                  autoFocus: true,
-                  required: true
-                })
-              ),
-              _react2.default.createElement(
-                "div",
-                { className: "inputrow" },
-                _react2.default.createElement("i", { className: "fa icon-key fa-fw" }),
-                _react2.default.createElement("input", {
-                  type: "password",
-                  name: "password",
-                  id: "password",
-                  "data-typetoggle": "#show",
-                  onChange: this.handleChange,
-                  value: password,
-                  placeholder: "Password",
-                  required: true
-                })
-              ),
-              _react2.default.createElement(
-                "div",
-                { className: "remember" },
-                _react2.default.createElement("input", {
-                  type: "checkbox",
-                  name: "remember_login",
-                  value: "1",
-                  id: "remember_login"
-                }),
+                { id: "blog", className: "blog intro-effect-jam3  " + scrolling },
                 _react2.default.createElement(
-                  "label",
-                  { htmlFor: "remember_login", className: "radio" },
-                  "Remember me"
-                )
-              ),
-              _react2.default.createElement(
-                "div",
-                { className: "button-center" },
-                _react2.default.createElement(
-                  "button",
-                  { className: "btn-log", type: "submit", id: "submit" },
-                  "Login"
+                    "section",
+                    { id: "header-block", className: "header " },
+                    _react2.default.createElement(
+                        "div",
+                        { className: " wedget-post" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "bg-img" },
+                            _react2.default.createElement("img", { src: "/blog.jpg", alt: "Background Image" })
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "title" },
+                            _react2.default.createElement(
+                                "h1",
+                                null,
+                                "Posts"
+                            )
+                        )
+                    )
                 ),
-                fetching && _react2.default.createElement("img", { src: "data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" })
-              )
-            )
-          )
-        )
-      );
-    }
-  }]);
+                _react2.default.createElement(
+                    "section",
+                    { id: "posts-block", className: "posts content  blog-thumb" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "container" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement("input", { type: "text", name: "" }),
+                            _react2.default.createElement(
+                                "ul",
+                                { id: "grid", className: "grid effect-5" },
+                                _react2.default.createElement(_List2.default, { renderItem: this.renderPost,
+                                    items: posts,
+                                    loadingText: 'Loading Posts'
+                                })
+                            )
+                        )
+                    )
+                )
+            );
+        }
+    }]);
 
-  return Login;
+    return BlogPage;
 }(_react.Component);
 
 var mapStateToProps = function mapStateToProps(state) {
-  var users = state.entities.users,
-      logedinUser = state.reducers.logedinUser;
+    var _state$entities = state.entities,
+        users = _state$entities.users,
+        posts = _state$entities.posts;
 
-
-  return {
-    users: users,
-    logedinUser: logedinUser
-  };
+    return {
+        posts: posts,
+        users: users
+    };
 };
-
-var connectedLoginPage = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, { loginUser: _actions.loginUser })(Login));
-exports.default = connectedLoginPage;
+var connectedBlog = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, { loadPosts: _actions.loadPosts })(BlogPage));
+exports.default = connectedBlog;
 
 /***/ }),
 
-/***/ "./src/containers/login.css":
-/*!**********************************!*\
-  !*** ./src/containers/login.css ***!
-  \**********************************/
+/***/ "./src/containers/blog.css":
+/*!*********************************!*\
+  !*** ./src/containers/blog.css ***!
+  \*********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 

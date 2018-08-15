@@ -9,7 +9,7 @@ class Header extends Component {
     constructor() {
         super()
         this.state = {
-            collapsed: true,
+            collapsed: false,
             exposed: false,
         }
 
@@ -56,27 +56,28 @@ class Header extends Component {
                         
                         <ul  class="navbar-nav mr-3 ml-auto" >
                                 
-                                <NavLink exact activeClassName="active" class="nav-link" to="/">Home</NavLink>
+                                <NavLink exact activeClassName="active" onClick={this.toggleCollapse.bind(this)} class="nav-link" to="/">Home</NavLink>
                            
                           
-                                <NavLink activeClassName="active" class="nav-link" to="/works">Works</NavLink>
+                                <NavLink activeClassName="active" onClick={this.toggleCollapse.bind(this)} class="nav-link" to="/works">Works</NavLink>
                                 <NavLink 
                                     activeClassName="active" 
                                     // isActive={this.setActivePage.bind(this)} 
+                                    onClick={this.toggleCollapse.bind(this)}
                                     class="nav-link" 
                                     to="/blog">
                                     Blog
                                 </NavLink>
                                 
-                                <NavLink activeClassName="active" class="nav-link" to="/about">About</NavLink>
+                                <NavLink activeClassName="active" class="nav-link" onClick={this.toggleCollapse.bind(this)} to="/about">About</NavLink>
                                 <li class="dropdown nav-item"  >
                                 <a class="dropdown-toggle nav-link" >
                                     <span class="icon-user"></span> 
                                     {user && ` ${user.username}`}
                                 </a>
                                 <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink" >
-                                    {!user && <Link class="dropdown-item" to="/login">LogIn</Link>}
-                                    {user && <Link class="dropdown-item" to="/addpost">Add Post</Link>}
+                                    {!user && <Link class="dropdown-item" onClick={this.toggleCollapse.bind(this)} to="/login">LogIn</Link>}
+                                    {user && <Link class="dropdown-item" onClick={this.toggleCollapse.bind(this)} to="/addpost">Add Post</Link>}
                                     {user && <a class="dropdown-item" onClick={this.logout.bind(this)} href="#">Logout</a>}
                                 </div>
                                 </li>

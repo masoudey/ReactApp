@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import { createBrowserHistory } from "history";
 import { configureStore } from "./store";
 import { Router, Route } from 'react-router-dom';
-
+import 'bootstrap/dist/css/bootstrap.css';
 
 
 

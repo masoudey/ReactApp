@@ -10732,6 +10732,17 @@ function fromByteArray (uint8) {
 
 /***/ }),
 
+/***/ "./node_modules/bootstrap/dist/css/bootstrap.css":
+/*!*******************************************************!*\
+  !*** ./node_modules/bootstrap/dist/css/bootstrap.css ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
 /***/ "./node_modules/brorand/index.js":
 /*!***************************************!*\
   !*** ./node_modules/brorand/index.js ***!
@@ -92172,7 +92183,7 @@ var Home = (0, _reactLoadable2.default)({
         return Promise.all(/*! import() */[__webpack_require__.e(3), __webpack_require__.e(0)]).then(function() { var module = __webpack_require__(/*! ./containers/HomePage */ "./src/containers/HomePage.js"); return typeof module === "object" && module && module.__esModule ? module : Object.assign({/* fake namespace object */}, typeof module === "object" && module, { "default": module }); });
     },
     loading: Loading,
-    modules: ["./containers/HomePage"],
+    modules: ["./containers/HomePage", "react-id-swiper"],
     webpack: function webpack() {
         return [/*require.resolve*/(/*! ./containers/HomePage */ "./src/containers/HomePage.js")];
     },
@@ -92539,8 +92550,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
 
 var PathName = (0, _reactRouterDom.withRouter)(function (_ref) {
   var location = _ref.location,
@@ -93456,6 +93465,8 @@ var _history = __webpack_require__(/*! history */ "./node_modules/history/es/ind
 var _store = __webpack_require__(/*! ./store */ "./src/store.js");
 
 var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+__webpack_require__(/*! bootstrap/dist/css/bootstrap.css */ "./node_modules/bootstrap/dist/css/bootstrap.css");
 
 var _app = __webpack_require__(/*! ./app */ "./src/app.js");
 

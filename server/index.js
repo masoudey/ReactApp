@@ -67,9 +67,7 @@ app.use(express.static('public'))
 			<Loadable.Capture report= {moduleName => modules.push(moduleName)} >
 			<Provider store={store}>
 				<StaticRouter location={req.url} context={context} >
-					
 			  			<App />
-					
 				</StaticRouter>
 			</Provider>
 			</Loadable.Capture>
@@ -104,7 +102,7 @@ app.use(express.static('public'))
 					   ${scripts.map(script => {
 						return `<script src="/${script.file}"></script>`
 					  }).join('\n')}
-					 
+					  <script src="/bundle.js" defer></script>
 				</body>
 				</html>
 			`

@@ -17,7 +17,7 @@ const Loading = () => <section id="loader-wrapper">
 const Home = Loadable({
     loader: () => import("./containers/HomePage"),
     loading: Loading,
-    modules: ["./containers/HomePage"],
+    modules: ["./containers/HomePage","react-id-swiper"],
     webpack: () => [require.resolveWeak("./containers/HomePage")],
     delay: 90000,
   });

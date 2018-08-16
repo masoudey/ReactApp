@@ -1409,7 +1409,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "../core-js/symbol/iterator": [
+  "babel-runtime/core-js/symbol/iterator": [
     {
       "id": "./node_modules/babel-runtime/core-js/symbol/iterator.js",
       "name": "./node_modules/babel-runtime/core-js/symbol/iterator.js",
@@ -2865,7 +2865,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./incr32": [
+  "../incr32": [
     {
       "id": "./node_modules/browserify-aes/incr32.js",
       "name": "./node_modules/browserify-aes/incr32.js",
@@ -4183,8 +4183,20 @@
       "publicPath": "/styles.css"
     },
     {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
+      "file": "styles.css",
+      "publicPath": "/styles.css"
+    },
+    {
       "id": "./node_modules/core-js/library/modules/_core.js",
       "name": "./node_modules/core-js/library/modules/_core.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     },
@@ -4195,8 +4207,20 @@
       "publicPath": "/styles.css.map"
     },
     {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
+      "file": "styles.css.map",
+      "publicPath": "/styles.css.map"
+    },
+    {
       "id": "./node_modules/core-js/library/modules/_core.js",
       "name": "./node_modules/core-js/library/modules/_core.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -7161,7 +7185,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "../../modules/es6.string.iterator": [
+  "../modules/es6.string.iterator": [
     {
       "id": "./node_modules/core-js/library/modules/es6.string.iterator.js",
       "name": "./node_modules/core-js/library/modules/es6.string.iterator.js",
@@ -7651,32 +7675,6 @@
     {
       "id": "./node_modules/core-js/modules/_collection.js",
       "name": "./node_modules/core-js/modules/_collection.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
-  "./modules/_core": [
-    {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
-      "file": "styles.css",
-      "publicPath": "/styles.css"
-    },
-    {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
-      "file": "styles.css.map",
-      "publicPath": "/styles.css.map"
-    },
-    {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }

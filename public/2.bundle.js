@@ -209,7 +209,8 @@ var BlogPage = function (_Component) {
         var _this = _possibleConstructorReturn(this, (BlogPage.__proto__ || Object.getPrototypeOf(BlogPage)).call(this, props));
 
         _this.state = {
-            scrollanim: false
+            scrollanim: false,
+            posts: null
         };
         return _this;
     }
@@ -255,6 +256,13 @@ var BlogPage = function (_Component) {
             }
         }
     }, {
+        key: "handleFilter",
+        value: function handleFilter(event) {
+            this.setState({ posts: Object.values(this.props.posts).filter(function (post) {
+                    return post.title.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1;
+                }) });
+        }
+    }, {
         key: "renderPost",
         value: function renderPost(post) {
             return _react2.default.createElement(_postthumbnail2.default, { post: post, key: post.id });
@@ -264,7 +272,7 @@ var BlogPage = function (_Component) {
         value: function render() {
             var posts = Object.values(this.props.posts);
             var scrolling = this.state.scrollanim ? 'modify' : '';
-            console.log(posts);
+            console.log(this.state.posts);
             return _react2.default.createElement(
                 "div",
                 { id: "blog", className: "blog intro-effect-jam3  " + scrolling },
@@ -299,12 +307,16 @@ var BlogPage = function (_Component) {
                         _react2.default.createElement(
                             "div",
                             { className: "row" },
-                            _react2.default.createElement("input", { type: "text", name: "" }),
+                            _react2.default.createElement(
+                                "div",
+                                null,
+                                _react2.default.createElement("input", { type: "text", onChange: this.handleFilter.bind(this), placeholder: "Search", name: "" })
+                            ),
                             _react2.default.createElement(
                                 "ul",
                                 { id: "grid", className: "grid effect-5" },
                                 _react2.default.createElement(_List2.default, { renderItem: this.renderPost,
-                                    items: posts,
+                                    items: this.state.posts || posts,
                                     loadingText: 'Loading Posts'
                                 })
                             )

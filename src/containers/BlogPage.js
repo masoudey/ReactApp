@@ -16,6 +16,7 @@ class BlogPage extends Component {
         super(props);
         this.state = {
             scrollanim:false,
+            posts: null,
         }
     }
 
@@ -54,6 +55,10 @@ class BlogPage extends Component {
         }
     }
 
+    handleFilter(event) {
+        this.setState({posts: (Object.values(this.props.posts)).filter(post => {return post.title.toLowerCase().indexOf(event.target.value.toLowerCase()) !== -1})})
+    }
+ 
     renderPost(post) {
         return <PostThumb post={post} key={post.id}></PostThumb>
     }
@@ -61,7 +66,7 @@ class BlogPage extends Component {
     render() {
         const posts = Object.values(this.props.posts);
         const scrolling = this.state.scrollanim ? 'modify' : '';
-        console.log(posts);
+        console.log(this.state.posts);
         return (
             <div id="blog" class={`blog intro-effect-jam3  ${scrolling}`}>
             <section id="header-block" class="header ">
@@ -78,11 +83,13 @@ class BlogPage extends Component {
             <section id="posts-block" class="posts content  blog-thumb">
                 <div class="container">
                     <div class="row">
-                        <input type="text" name=""  />
+                        <div>
+                            <input type="text" onChange={this.handleFilter.bind(this)} placeholder="Search" name=""  />
+                        </div>
                         <ul id="grid" class="grid effect-5" >
                         {/* {posts && posts.map(post => <PostThumb key={post.id} post={post} />)} */}
                         <List renderItem={this.renderPost}
-                            items={posts}
+                            items={this.state.posts || posts}
                             loadingText={'Loading Posts'}
                             />
                         </ul>

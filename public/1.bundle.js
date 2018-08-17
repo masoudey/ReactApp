@@ -126,7 +126,7 @@ var workThumb = function workThumb(props) {
                         null,
                         _react2.default.createElement(
                             _reactRouterDom.Link,
-                            { state: work, to: "/blog/" + work.id },
+                            { state: work, to: "/works/" + work.id },
                             _react2.default.createElement("i", { className: "icon-link" })
                         )
                     )
@@ -216,9 +216,9 @@ var WorksPage = function (_Component) {
         value: function componentWillMount() {
 
             loadData(this.props);
-            if (!(typeof window === "undefined")) {
-                window.removeEventListener('scroll', this.handleScroll.bind(this));
-            }
+            // if ( !(typeof window === "undefined")) {
+            //     window.removeEventListener('scroll', this.handleScroll.bind(this))
+            // }
             console.log("will mount");
         }
     }, {
@@ -238,6 +238,7 @@ var WorksPage = function (_Component) {
     }, {
         key: "componentWillUnmount",
         value: function componentWillUnmount() {
+
             if (!(typeof window === "undefined")) {
                 window.removeEventListener('scroll', this.handleScroll.bind(this));
             }

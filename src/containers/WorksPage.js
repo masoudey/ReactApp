@@ -29,9 +29,9 @@ class WorksPage extends Component {
     componentWillMount() {
 
         loadData(this.props)
-        if ( !(typeof window === "undefined")) {
-            window.removeEventListener('scroll', this.handleScroll.bind(this))
-        }
+        // if ( !(typeof window === "undefined")) {
+        //     window.removeEventListener('scroll', this.handleScroll.bind(this))
+        // }
         console.log("will mount");
     }
     componentWillReceiveProps() {
@@ -47,6 +47,7 @@ class WorksPage extends Component {
     }
 
     componentWillUnmount() {
+        
         if ( !(typeof window === "undefined")) {
             window.removeEventListener('scroll', this.handleScroll.bind(this))
         }

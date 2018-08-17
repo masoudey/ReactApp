@@ -13,7 +13,7 @@ const workThumb = (props) => {
                             <h2>{work.title}</h2>
                             <p class="desc">{work.desc}</p>
                             <p>
-                                <Link state={work} to={`/blog/${work.id}`}><i class="icon-link"></i></Link>
+                                <Link state={work} to={`/works/${work.id}`}><i class="icon-link"></i></Link>
                             </p>
                         </figcaption>           
                     </figure>

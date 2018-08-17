@@ -86,6 +86,188 @@ var HomePage = function (_Component) {
                             _react2.default.createElement("div", { className: "Slide5" })
                         )
                     )
+                ),
+                _react2.default.createElement(
+                    "section",
+                    { className: "intro-block", id: "intro-block" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "container" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "row" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-4" },
+                                _react2.default.createElement("img", { className: "img-responsive tpad", src: "images/logo.png" })
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "col-8" },
+                                _react2.default.createElement(
+                                    "h1",
+                                    null,
+                                    "Porfolio ",
+                                    _react2.default.createElement(
+                                        "span",
+                                        { className: "text-default" },
+                                        "\xBB Everything you want"
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "p",
+                                    { className: "lead" },
+                                    "Masoud Design is a unique Web designed to help people all over the world to Have their own website, And connect to the world"
+                                )
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    "svg",
+                    { id: "bigTriangleShadow", xmlns: "http://www.w3.org/2000/svg", version: "1.1", width: "100%", height: "100", viewBox: "0 0 100 100", preserveAspectRatio: "none" },
+                    _react2.default.createElement("path", { id: "trianglePath1", d: "M0 0 L50 100 L100 0 Z" })
+                ),
+                _react2.default.createElement(
+                    "section",
+                    { className: "services-block", id: "services-block" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "section-overlay" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "container" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "row" },
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "section-title" },
+                                    _react2.default.createElement(
+                                        "h2",
+                                        null,
+                                        _react2.default.createElement(
+                                            "span",
+                                            null,
+                                            "Services"
+                                        )
+                                    )
+                                ),
+                                _react2.default.createElement(
+                                    "div",
+                                    { className: "row" },
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col col-sm-6 col-md-3" },
+                                        _react2.default.createElement(
+                                            "div",
+                                            { className: "service serviceBlock web" },
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "view" },
+                                                _react2.default.createElement(
+                                                    "div",
+                                                    { className: "service-icon" },
+                                                    _react2.default.createElement("span", { className: "icon-laptop" })
+                                                ),
+                                                _react2.default.createElement(
+                                                    "h2",
+                                                    null,
+                                                    "Responsive Web Design"
+                                                ),
+                                                _react2.default.createElement(
+                                                    "p",
+                                                    { className: "lead" },
+                                                    "We offer each and every client one-on-one customer service directly with the web designer that designed their project. With our highly skilled team of website designers and website developers we can create exactly what you need."
+                                                )
+                                            )
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col col-sm-6 col-md-3" },
+                                        _react2.default.createElement(
+                                            "div",
+                                            { className: "service serviceBlock mark" },
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "view" },
+                                                _react2.default.createElement(
+                                                    "div",
+                                                    { className: "service-icon" },
+                                                    _react2.default.createElement("span", { className: "icon-mouse" })
+                                                ),
+                                                _react2.default.createElement(
+                                                    "h3",
+                                                    null,
+                                                    "Pay-per-Click"
+                                                ),
+                                                _react2.default.createElement(
+                                                    "p",
+                                                    { className: "lead" },
+                                                    "Our PPC services are focused on search, display and mobile network advertising as offered by Google, Bing and others. Our pay-per-click management services also integrate powerful paid search tools to maximize efficiency and ROI."
+                                                )
+                                            )
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col col-sm-6 col-md-3" },
+                                        _react2.default.createElement(
+                                            "div",
+                                            { className: "service serviceBlock des" },
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "view" },
+                                                _react2.default.createElement(
+                                                    "div",
+                                                    { className: "service-icon" },
+                                                    _react2.default.createElement("span", { className: "icon-stats" })
+                                                ),
+                                                _react2.default.createElement(
+                                                    "h3",
+                                                    null,
+                                                    "SEO "
+                                                ),
+                                                _react2.default.createElement(
+                                                    "p",
+                                                    { className: "lead" },
+                                                    "Search engine optimization or SEO refers to the art and science of tuning your site so that search engines such as Google bring up your site when a potential visitor enters information into their search engine relevant to your site and Its Content."
+                                                )
+                                            )
+                                        )
+                                    ),
+                                    _react2.default.createElement(
+                                        "div",
+                                        { className: "col col-sm-6 col-md-3" },
+                                        _react2.default.createElement(
+                                            "div",
+                                            { className: "service serviceBlock ecom" },
+                                            _react2.default.createElement(
+                                                "div",
+                                                { className: "view" },
+                                                _react2.default.createElement(
+                                                    "div",
+                                                    { className: "service-icon" },
+                                                    _react2.default.createElement("span", { className: "icon-cart" })
+                                                ),
+                                                _react2.default.createElement(
+                                                    "h3",
+                                                    null,
+                                                    "Ecommerce"
+                                                ),
+                                                _react2.default.createElement(
+                                                    "p",
+                                                    { className: "lead" },
+                                                    "Effective online shopping experiences, focussed on conversion"
+                                                )
+                                            )
+                                        )
+                                    )
+                                )
+                            )
+                        )
+                    )
                 )
             );
         }

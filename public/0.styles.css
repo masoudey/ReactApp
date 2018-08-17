@@ -1117,4 +1117,266 @@ button.swiper-pagination-bullet {
     -o-animation-delay: 500ms;
 }
 
+.intro-block{
+    position: relative;
+    background: #106ba0;
+    padding: 70px 15px 60px;
+    color: #fff;
+    z-index: 10;
+    bottom: -100px;
+}
+
+#bigTriangleShadow{
+    position: relative;
+    display: block;
+    background: transparent;
+    z-index: 30;
+    bottom: -100px;
+}
+#trianglePath1 {
+    fill: #106ba0;
+    stroke: #106ba0;
+}
+
+#trianglePath2 {
+    fill: #106ba0;
+    stroke: #106ba0;
+}
+#curveDownColor{
+    position: relative;
+    display: block;
+    background: #233b4a;
+    z-index: 11;
+}
+#curveDownColor path {
+    fill: #fff;
+    stroke: #fff;
+}
+.section-overlay {
+    background: rgba(1,1,1,0.1) url(/images/01.png);
+    width: 100%;
+    height: auto;
+}
+.services-block{
+    background: #fff url("/services.jpg") no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    position: relative;
+    z-index: 20;
+}
+#services-block .container{
+    padding-top: 100px;
+}
+.section-title{
+    margin: 0 auto;
+}
+
+.section-title h2 {
+    display: inline-block;
+    font-family: "customfont" !important;
+    color: rgba(255, 255, 255, 1);
+    font-size: 36px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+    position: relative;
+    line-height: 40px;
+}
+.services-block .section-title h2{
+    /*color: #fff;*/
+}
+.section-title h2:before, .section-title h2:after {
+    display: block;
+    height: 1px;
+    content: " ";
+    width: 40%;
+    position: absolute;
+    top: 0.53em;
+    z-index: 1;
+}
+.section-title h2:before {
+    background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255,255,255,1) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,0)), color-stop(100%,rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
+    background: linear-gradient(to right, rgba(66,75,81,0) 0%, rgb(66, 75, 81) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#ffffff',GradientType=1 );
+    left: 0;
+}
+.section-title h2:after {
+    background: -moz-linear-gradient(left, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+    background: -o-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+    background: -ms-linear-gradient(left, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%);
+    background: linear-gradient(to right, rgba(66,75,81,1) 0%,rgba(66,75,81,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 );
+    right: 0;
+    left: auto;
+}
+.service{
+    background: rgba(244, 244, 244, 0.4);
+    padding: 5px;
+    margin: 30px 0;
+    text-align: center;
+    border-radius: 2px;
+    height: 370px;
+}
+@media (max-width: 768px) {
+    .service{
+        height: auto;
+    }
+}
+.service .service-icon{
+    width: 70px;
+    height: 70px;
+    border: 2px solid #3ec3d5;
+    border-radius: 50%;
+    margin: 0 auto;
+    line-height: 70px;
+    font-size: 30px;
+    color: #3ec3d5;
+    -webkit-transition: rotateZ 1s ease-in-out;
+    transition: rotateZ 1s ease-in-out;
+}
+/*.service:hover {*/
+    /*background: #e3e3e3;*/
+    /*box-shadow: 1px 1px 6px #C1BAC1;*/
+/*}*/
+.service:hover .service-icon{
+    -ms-transform: rotateZ(360deg);
+    -webkit-transform: rotateZ(360deg);
+    transform: rotateZ(360deg);
+}
+/*.service p{*/
+    /*font-size: 16px;*/
+    /*font-weight: 300;*/
+    /*color: #9c9c9c;*/
+    /*line-height: 23px;*/
+    /*padding:0 10px;*/
+/*}*/
+/*.service h3 {*/
+    /*font-size: 20px;*/
+/*}*/
+.serviceBlock {
+    /*height: 250px;*/
+    display: block;
+    overflow: hidden;
+    border-bottom: 1px solid #eee;
+    text-decoration: none;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+    /* Safari */
+}
+.serviceBlock .view {
+    height: 250px;
+    /*padding: 0 30px;*/
+    text-align: center;
+}
+.serviceBlock .view .service-icon {
+    text-decoration: none;
+    font-size: 40px;
+    /*color: #888;*/
+    margin-top: 80px;
+}
+.serviceBlock .view h2 {
+    text-decoration: none;
+    font-size: 25px;
+    letter-spacing: -1px;
+    margin-top: 10px;
+    color: #333333;
+    font-weight: 300;
+}
+.serviceBlock .view p {
+    text-decoration: none;
+    color: transparent;
+    font-size: 16px;
+    margin-top: 16px;
+    padding: 0 6%;
+}
+
+.serviceBlock .view * {
+    text-decoration: none;
+    transition: all .4s;
+    -webkit-transition: all .4s;
+    /* Safari */
+}
+.serviceBlock:hover, .serviceBlock:focus {
+    cursor: pointer;
+    background-color: #fafafa;
+    border-bottom-width: 15px;
+    text-decoration: none;
+}
+.serviceBlock:hover.web, .serviceBlock:focus.web {
+    border-color: #f47321;
+}
+.serviceBlock:hover.ecom, .serviceBlock:focus.ecom {
+    border-color: #e253b5;
+}
+.serviceBlock:hover.dev, .serviceBlock:focus.dev {
+    border-color: #ffdd67;
+}
+.serviceBlock:hover.des, .serviceBlock:focus.des {
+    border-color: #b3db78;
+}
+.serviceBlock:hover.mark, .serviceBlock:focus.mark {
+    border-color: #8269b3;
+}
+.serviceBlock:hover.support, .serviceBlock:focus.support {
+    border-color: #c9c9c9;
+}
+.serviceBlock:hover.web .service-icon, .serviceBlock:focus.web .service-icon {
+    margin-top: 10px;
+    color: #f47321;
+    border-color: #f47321;
+}
+.serviceBlock:hover.ecom .service-icon, .serviceBlock:focus.ecom .service-icon {
+    margin-top: 10px;
+    color: #e253b5;
+    border-color: #e253b5;
+}
+.serviceBlock:hover.dev .service-icon, .serviceBlock:focus.dev .service-icon {
+    margin-top: 10px;
+    color: #ffdd67;
+    border-color: #ffdd67;
+}
+.serviceBlock:hover.des .service-icon, .serviceBlock:focus.des .service-icon {
+    margin-top: 10px;
+    color: #b3db78;
+    border-color: #b3db78;
+}
+.serviceBlock:hover.mark .service-icon, .serviceBlock:focus.mark .service-icon {
+    margin-top: 10px;
+    color: #8269b3;
+    border-color: #8269b3;
+}
+.serviceBlock:hover.support .service-icon, .serviceBlock:focus.support .service-icon {
+    margin-top: 10px;
+    color: #c9c9c9;
+    border-color: #c9c9c9;
+}
+.serviceBlock:hover h2, .serviceBlock:focus h2 {
+    text-decoration: none;
+    margin-top: 20px;
+}
+.serviceBlock:hover p, .serviceBlock:focus p {
+    text-decoration: none;
+    color: #4c4c4c;
+    margin-top: 0;
+}
+.serviceBlock:hover span.more, .serviceBlock:focus span.more {
+    color: #777;
+    margin-top: 20px;
+}
+
+.text-left{
+    text-align: left;
+}
+.text-muted{
+    color: #e9e6df;
+    font-weight: 100;
+}
+
 /*# sourceMappingURL=0.styles.css.map*/

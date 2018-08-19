@@ -4183,20 +4183,8 @@
       "publicPath": "/styles.css"
     },
     {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
-      "file": "styles.css",
-      "publicPath": "/styles.css"
-    },
-    {
       "id": "./node_modules/core-js/library/modules/_core.js",
       "name": "./node_modules/core-js/library/modules/_core.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     },
@@ -4207,20 +4195,8 @@
       "publicPath": "/styles.css.map"
     },
     {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
-      "file": "styles.css.map",
-      "publicPath": "/styles.css.map"
-    },
-    {
       "id": "./node_modules/core-js/library/modules/_core.js",
       "name": "./node_modules/core-js/library/modules/_core.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -7675,6 +7651,32 @@
     {
       "id": "./node_modules/core-js/modules/_collection.js",
       "name": "./node_modules/core-js/modules/_collection.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./modules/_core": [
+    {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
+      "file": "styles.css",
+      "publicPath": "/styles.css"
+    },
+    {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
+      "file": "styles.css.map",
+      "publicPath": "/styles.css.map"
+    },
+    {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }

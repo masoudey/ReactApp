@@ -27,6 +27,19 @@ export const loginUser = (username, password) => (dispatch, getState) => {
     }
     return dispatch(fetchUser(username, password))
 }
+const postUser = (...props) => ({
+    [CALL_API]: {
+        types: [userConstants.REGISTER_REQUEST, userConstants.REGISTER_SUCCESS, userConstants.REGISTER_FAILURE],
+        endpoint: '/register',
+        schema: Schemas.USER,
+        method: 'POST',
+        bodyReq: {...props}
+    }
+})
+
+export const registerUser = (...props) => (dispatch, getState) => {
+    return dispatch(postUser(props))
+}
 
 const fetchPosts = () => ({
     [CALL_API]: {

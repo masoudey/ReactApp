@@ -92164,7 +92164,9 @@ var authHeader = exports.authHeader = function authHeader() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.loadPostById = exports.loadPosts = exports.loginUser = exports.logOut = exports.loginSuccess = undefined;
+exports.loadPostById = exports.loadPosts = exports.registerUser = exports.loginUser = exports.logOut = exports.loginSuccess = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _api = __webpack_require__(/*! ../middleware/api */ "./src/middleware/api.js");
 
@@ -92201,6 +92203,29 @@ var loginUser = exports.loginUser = function loginUser(username, password) {
             return null;
         }
         return dispatch(fetchUser(username, password));
+    };
+};
+var postUser = function postUser() {
+    for (var _len = arguments.length, props = Array(_len), _key = 0; _key < _len; _key++) {
+        props[_key] = arguments[_key];
+    }
+
+    return _defineProperty({}, _constants.CALL_API, {
+        types: [_constants.userConstants.REGISTER_REQUEST, _constants.userConstants.REGISTER_SUCCESS, _constants.userConstants.REGISTER_FAILURE],
+        endpoint: '/register',
+        schema: _api.Schemas.USER,
+        method: 'POST',
+        bodyReq: _extends({}, props)
+    });
+};
+
+var registerUser = exports.registerUser = function registerUser() {
+    for (var _len2 = arguments.length, props = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+        props[_key2] = arguments[_key2];
+    }
+
+    return function (dispatch, getState) {
+        return dispatch(postUser(props));
     };
 };
 

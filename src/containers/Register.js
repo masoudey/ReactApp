@@ -88,8 +88,8 @@ class Register extends Component {
                 <i class="fa icon-key fa-fw" />
                 <input
                   type="password"
-                  name="password"
-                  id="repeat-password"
+                  name="rePassword"
+                  id="re-password"
                   data-typetoggle="#show"
                   onChange={this.handleChange}
                   value={password}

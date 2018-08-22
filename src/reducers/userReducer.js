@@ -30,10 +30,22 @@ export const user = (state=initialState, action) => {
         case userConstants.LOGOUT: 
             return initialState
     
-        case "ADD_USER": 
+        case userConstants.REGISTER_REQUEST: 
             return {
                 ...state, 
-                data:  action.payload
+                registering: true
+            }
+        case userConstants.REGISTER_SUCCESS: 
+            return {
+                ...state, 
+                registering: false,
+                data:  action.response.result
+            }
+        case userConstants.REGISTER_FAILURE: 
+            return {
+                ...state,
+                registering: false, 
+                data:  action.response
             }
         case "SET_USER_OPTIONS": 
             return {

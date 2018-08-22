@@ -33,7 +33,7 @@ const postUser = (...props) => ({
         endpoint: '/register',
         schema: Schemas.USER,
         method: 'POST',
-        bodyReq: {...props}
+        bodyReq: {props}
     }
 })
 

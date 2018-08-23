@@ -77,6 +77,7 @@ class Header extends Component {
                                 </a>
                                 <div class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink" >
                                     {!user && <Link class="dropdown-item" onClick={this.toggleCollapse.bind(this)} to="/login">LogIn</Link>}
+                                    {!user && <Link class="dropdown-item" onClick={this.toggleCollapse.bind(this)} to="/register">Register</Link>}
                                     {user && <Link class="dropdown-item" onClick={this.toggleCollapse.bind(this)} to="/addpost">Add Post</Link>}
                                     {user && <a class="dropdown-item" onClick={this.logout.bind(this)} href="#">Logout</a>}
                                 </div>

@@ -5,6 +5,7 @@ import { SinglePost } from "./containers/SinglePost";
 import AddPost from "./containers/AddPost";
 import {About} from "./containers/AboutPage";
 import NotFound from "./containers/NotFound";
+import Register from "./containers/Register";
 import { loginSuccess, loadPosts, loadPostById } from "./actions";
 
 const Loading = () => <section id="loader-wrapper">
@@ -87,6 +88,10 @@ const routes = {
         {
             path: '/login',
             component: Login
+        },
+        {
+            path: '/register',
+            component: Register
         }
     ]
 }

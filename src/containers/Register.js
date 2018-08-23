@@ -2,13 +2,24 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { withRouter, Redirect } from "react-router-dom";
 
-import { loginUser } from "../actions";
+import { registerUser } from "../actions";
 import "./login.css";
 
 const loadData = (props) => {
   console.log(props)
-  const {username, password} = props;
-  props.loginUser(username, password)
+  const {user} = props;
+  props.registerUser(user)
+}
+
+const initialState = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  username: '',
+  password: '',
+  passwordConfirm: '',
+  error: '',
+  passwordMatch: null
 }
 
 class Register extends Component {
@@ -18,11 +29,7 @@ class Register extends Component {
     // reset login status
     // this.props.dispatch(logout());
 
-    this.state = {
-      username: "",
-      password: "",
-      submitted: false
-    };
+    this.state = { ...initialState};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -33,13 +40,36 @@ class Register extends Component {
     this.setState({ [name]: value });
   }
 
+  validateForm() {
+    const { firstName, lastName, email, username, password, passwordConfirm } = this.state;
+    const isInvalid = !firstName || !lastName || !email || !username || !password || password !== passwordConfirm || password.length <= 7;
+    return isInvalid;
+  }
+
+  confirmPW() {
+    const { password, passwordConfirm } = this.state
+    const isMatch = password !== passwordConfirm && password.length <= 7;
+    this.setState({
+        passwordMatch: isMatch
+    });
+}
+
   handleSubmit(e) {
     e.preventDefault();
 
     this.setState({ submitted: true });
-    const { username, password } = this.state;
+    const { firstName, lastName, email, username, password, passwordConfirm } = this.state;
     if (username && password) {
-      loadData({username, password, ...this.props} );
+      const user = {
+        options: {
+          firstName,
+          lastName,
+          email
+        },
+        username,
+        password
+      }
+      loadData({user, ...this.props} );
       
     }
   }
@@ -48,7 +78,7 @@ class Register extends Component {
     const { fetching, fetched } = this.props.logedinUser;
     const { username, password, submitted } = this.state;
       if (fetched) {
-        return <Redirect to='/'></Redirect>
+        return <Redirect to='/login'></Redirect>
       }
 
     return (
@@ -88,19 +118,20 @@ class Register extends Component {
                 <i class="fa icon-key fa-fw" />
                 <input
                   type="password"
-                  name="rePassword"
-                  id="re-password"
+                  name="passwordConfirm"
+                  id="passwordConfirm"
                   data-typetoggle="#show"
                   onChange={this.handleChange}
+                  onBlur={this.confirmPW.bind(this)}
                   value={password}
-                  placeholder="Repeat Password"
+                  placeholder="Confirm Password"
                   required
                 />
               </div>
 
              
               <div class="button-center">
-                <button class="btn-log" type="submit" id="submit">
+                <button class="btn-log" type="submit" id="submit" disabled={this.state.passwordMatch && this.validateForm()} >
                   Register
                 </button>
                 {fetching && (
@@ -124,5 +155,5 @@ const mapStateToProps = state => {
   };
 };
 
-const connectedLoginPage = withRouter(connect(mapStateToProps, {loginUser})(Register));
+const connectedLoginPage = withRouter(connect(mapStateToProps, {registerUser})(Register));
 export default connectedLoginPage;

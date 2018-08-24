@@ -207,17 +207,6 @@ var mapStateToProps = function mapStateToProps(state) {
 var connectedLoginPage = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, { loginUser: _actions.loginUser })(Login));
 exports.default = connectedLoginPage;
 
-/***/ }),
-
-/***/ "./src/containers/login.css":
-/*!**********************************!*\
-  !*** ./src/containers/login.css ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
 /***/ })
 
 }]);

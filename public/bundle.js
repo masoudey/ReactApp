@@ -80,7 +80,7 @@
 /******/
 /******/
 /******/ 		// mini-css-extract-plugin CSS loading
-/******/ 		var cssChunks = {"0":1,"1":1,"2":1,"3":1};
+/******/ 		var cssChunks = {"0":1,"1":1,"2":1};
 /******/ 		if(installedCssChunks[chunkId]) promises.push(installedCssChunks[chunkId]);
 /******/ 		else if(installedCssChunks[chunkId] !== 0 && cssChunks[chunkId]) {
 /******/ 			promises.push(installedCssChunks[chunkId] = new Promise(function(resolve, reject) {
@@ -91774,6 +91774,11 @@ var Header = function (_Component) {
                                         { className: "dropdown-item", onClick: this.toggleCollapse.bind(this), to: "/login" },
                                         "LogIn"
                                     ),
+                                    !user && _react2.default.createElement(
+                                        _reactRouterDom.Link,
+                                        { className: "dropdown-item", onClick: this.toggleCollapse.bind(this), to: "/register" },
+                                        "Register"
+                                    ),
                                     user && _react2.default.createElement(
                                         _reactRouterDom.Link,
                                         { className: "dropdown-item", onClick: this.toggleCollapse.bind(this), to: "/addpost" },
@@ -92013,6 +92018,10 @@ var _NotFound = __webpack_require__(/*! ./containers/NotFound */ "./src/containe
 
 var _NotFound2 = _interopRequireDefault(_NotFound);
 
+var _Register = __webpack_require__(/*! ./containers/Register */ "./src/containers/Register.js");
+
+var _Register2 = _interopRequireDefault(_Register);
+
 var _actions = __webpack_require__(/*! ./actions */ "./src/actions/index.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -92118,6 +92127,9 @@ var routes = {
     public: [{
         path: '/login',
         component: Login
+    }, {
+        path: '/register',
+        component: _Register2.default
     }]
 };
 
@@ -92166,8 +92178,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.loadPostById = exports.loadPosts = exports.registerUser = exports.loginUser = exports.logOut = exports.loginSuccess = undefined;
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
 var _api = __webpack_require__(/*! ../middleware/api */ "./src/middleware/api.js");
 
 var _constants = __webpack_require__(/*! ../constants */ "./src/constants/index.js");
@@ -92205,27 +92215,22 @@ var loginUser = exports.loginUser = function loginUser(username, password) {
         return dispatch(fetchUser(username, password));
     };
 };
-var postUser = function postUser() {
-    for (var _len = arguments.length, props = Array(_len), _key = 0; _key < _len; _key++) {
-        props[_key] = arguments[_key];
-    }
-
+var postUser = function postUser(user) {
     return _defineProperty({}, _constants.CALL_API, {
         types: [_constants.userConstants.REGISTER_REQUEST, _constants.userConstants.REGISTER_SUCCESS, _constants.userConstants.REGISTER_FAILURE],
         endpoint: '/register',
         schema: _api.Schemas.USER,
-        method: 'POST',
-        bodyReq: _extends({}, props)
+        method: 'post',
+        bodyReq: user
     });
 };
 
-var registerUser = exports.registerUser = function registerUser() {
-    for (var _len2 = arguments.length, props = Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
-        props[_key2] = arguments[_key2];
-    }
-
+var registerUser = exports.registerUser = function registerUser(user) {
     return function (dispatch, getState) {
-        return dispatch(postUser(props));
+        // dispatch(fetchUser(user.username, user.password))
+        var usr = getState().entities.users[user.username];
+        if (usr) return null;
+        return dispatch(postUser(user));
     };
 };
 
@@ -92846,6 +92851,308 @@ function NotFound() {
 
 /***/ }),
 
+/***/ "./src/containers/Register.js":
+/*!************************************!*\
+  !*** ./src/containers/Register.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+var _actions = __webpack_require__(/*! ../actions */ "./src/actions/index.js");
+
+__webpack_require__(/*! ./login.css */ "./src/containers/login.css");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var loadData = function loadData(props) {
+  console.log(props);
+  var regUser = props.regUser;
+
+  props.registerUser(regUser);
+};
+
+var initialState = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  username: '',
+  password: '',
+  passwordConfirm: '',
+  error: '',
+  passwordMatch: null
+};
+
+var Register = function (_Component) {
+  _inherits(Register, _Component);
+
+  function Register(props) {
+    _classCallCheck(this, Register);
+
+    // reset login status
+    // this.props.dispatch(logout());
+
+    var _this = _possibleConstructorReturn(this, (Register.__proto__ || Object.getPrototypeOf(Register)).call(this, props));
+
+    _this.state = _extends({}, initialState);
+
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    return _this;
+  }
+
+  _createClass(Register, [{
+    key: "handleChange",
+    value: function handleChange(e) {
+      var _e$target = e.target,
+          name = _e$target.name,
+          value = _e$target.value;
+
+      this.setState(_defineProperty({}, name, value));
+    }
+  }, {
+    key: "validateForm",
+    value: function validateForm() {
+      var _state = this.state,
+          firstName = _state.firstName,
+          lastName = _state.lastName,
+          email = _state.email,
+          username = _state.username,
+          password = _state.password,
+          passwordConfirm = _state.passwordConfirm;
+
+      var isInvalid = !firstName || !lastName || !email || !username || !password || password !== passwordConfirm || password.length <= 7;
+      return isInvalid;
+    }
+  }, {
+    key: "confirmPW",
+    value: function confirmPW() {
+      var _state2 = this.state,
+          password = _state2.password,
+          passwordConfirm = _state2.passwordConfirm;
+
+      var isMatch = password !== passwordConfirm && password.length <= 7;
+      this.setState({
+        passwordMatch: isMatch
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+
+      this.setState({ submitted: true });
+      var _state3 = this.state,
+          firstName = _state3.firstName,
+          lastName = _state3.lastName,
+          email = _state3.email,
+          username = _state3.username,
+          password = _state3.password,
+          passwordConfirm = _state3.passwordConfirm;
+
+      if (username && password) {
+        var regUser = {
+          options: {
+            firstName: firstName,
+            lastName: lastName,
+            email: email
+          },
+          username: username,
+          password: password
+        };
+        console.log("user", regUser);
+        loadData(_extends({ regUser: regUser }, this.props));
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _props$logedinUser = this.props.logedinUser,
+          fetching = _props$logedinUser.fetching,
+          fetched = _props$logedinUser.fetched;
+      var _state4 = this.state,
+          username = _state4.username,
+          password = _state4.password,
+          firstName = _state4.firstName,
+          lastName = _state4.lastName,
+          email = _state4.email,
+          passwordConfirm = _state4.passwordConfirm,
+          submitted = _state4.submitted;
+
+      if (fetched) {
+        return _react2.default.createElement(_reactRouterDom.Redirect, { to: "/" });
+      }
+
+      return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement(
+          "div",
+          { className: "login-wrapper" },
+          _react2.default.createElement(
+            "span",
+            { className: "title" },
+            "Register"
+          ),
+          _react2.default.createElement(
+            "form",
+            { name: "form", onSubmit: this.handleSubmit },
+            _react2.default.createElement(
+              "fieldset",
+              null,
+              _react2.default.createElement(
+                "div",
+                { className: "inputrow" },
+                _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
+                _react2.default.createElement("input", {
+                  type: "text",
+                  name: "username",
+                  id: "username",
+                  placeholder: "UserName",
+                  onChange: this.handleChange,
+                  value: username,
+                  autoFocus: true,
+                  required: true
+                })
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "inputrow" },
+                _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
+                _react2.default.createElement("input", {
+                  type: "text",
+                  name: "firstName",
+                  id: "firstName",
+                  placeholder: "FirstName",
+                  onChange: this.handleChange,
+                  value: firstName,
+                  autoFocus: true,
+                  required: true
+                })
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "inputrow" },
+                _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
+                _react2.default.createElement("input", {
+                  type: "text",
+                  name: "lastName",
+                  id: "lastName",
+                  placeholder: "LastName",
+                  onChange: this.handleChange,
+                  value: lastName,
+                  autoFocus: true,
+                  required: true
+                })
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "inputrow" },
+                _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
+                _react2.default.createElement("input", {
+                  type: "email",
+                  name: "email",
+                  id: "email",
+                  placeholder: "Email",
+                  onChange: this.handleChange,
+                  value: email,
+                  autoFocus: true,
+                  required: true
+                })
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "inputrow" },
+                _react2.default.createElement("i", { className: "fa icon-key fa-fw" }),
+                _react2.default.createElement("input", {
+                  type: "password",
+                  name: "password",
+                  id: "password",
+                  "data-typetoggle": "#show",
+                  onChange: this.handleChange,
+                  value: password,
+                  placeholder: "Password",
+                  required: true
+                })
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "inputrow" },
+                _react2.default.createElement("i", { className: "fa icon-key fa-fw" }),
+                _react2.default.createElement("input", {
+                  type: "password",
+                  name: "passwordConfirm",
+                  id: "passwordConfirm",
+                  "data-typetoggle": "#show",
+                  onChange: this.handleChange,
+                  onBlur: this.confirmPW.bind(this),
+                  value: passwordConfirm,
+                  placeholder: "Confirm Password",
+                  required: true
+                })
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "button-center" },
+                _react2.default.createElement(
+                  "button",
+                  { className: "btn-log", type: "submit", id: "submit", disabled: this.state.passwordMatch && this.validateForm() },
+                  "Register"
+                ),
+                fetching && _react2.default.createElement("img", { src: "data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" })
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
+
+  return Register;
+}(_react.Component);
+
+var mapStateToProps = function mapStateToProps(state) {
+  var users = state.entities.users,
+      logedinUser = state.reducers.logedinUser;
+
+
+  return {
+    users: users,
+    logedinUser: logedinUser
+  };
+};
+
+var connectedLoginPage = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, { registerUser: _actions.registerUser })(Register));
+exports.default = connectedLoginPage;
+
+/***/ }),
+
 /***/ "./src/containers/SinglePost.js":
 /*!**************************************!*\
   !*** ./src/containers/SinglePost.js ***!
@@ -93102,6 +93409,17 @@ exports.default = SingleWork;
 
 /***/ }),
 
+/***/ "./src/containers/login.css":
+/*!**********************************!*\
+  !*** ./src/containers/login.css ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
 /***/ "./src/containers/singlePost.css":
 /*!***************************************!*\
   !*** ./src/containers/singlePost.css ***!
@@ -93240,10 +93558,11 @@ var callApi = function () {
                             if (response.status !== 200) {
                                 return Promise.reject(response);
                             }
-                            if (endpoint === '/login') {
+                            if (endpoint === '/login' || endpoint === '/register') {
                                 localStorage.setItem('headers', JSON.stringify(response.headers));
                                 localStorage.setItem('user', JSON.stringify(response.data));
                             }
+                            console.log("response api", response.data);
                             var camelizedJson = (0, _humps.camelizeKeys)(response.data);
                             return Object.assign({}, (0, _normalizr.normalize)(camelizedJson, schema));
                         }).catch(function (err) {
@@ -93554,9 +93873,21 @@ var user = exports.user = function user() {
         case _constants.userConstants.LOGOUT:
             return initialState;
 
-        case "ADD_USER":
+        case _constants.userConstants.REGISTER_REQUEST:
             return _extends({}, state, {
-                data: action.payload
+                registering: true
+            });
+        case _constants.userConstants.REGISTER_SUCCESS:
+            return _extends({}, state, {
+                registering: false,
+                registered: true,
+                data: action.response.result
+            });
+        case _constants.userConstants.REGISTER_FAILURE:
+            return _extends({}, state, {
+                registering: false,
+                registered: false,
+                data: action.response
             });
         case "SET_USER_OPTIONS":
             return _extends({}, state.data, {

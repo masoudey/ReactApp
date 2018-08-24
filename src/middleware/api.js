@@ -19,10 +19,11 @@ const callApi = async (endpoint, schema, method, bodyReq) => {
             if (response.status !== 200) {
                 return Promise.reject(response)
             }
-            if (endpoint === '/login') {
+            if (endpoint === '/login' || endpoint === '/register') {
                 localStorage.setItem('headers', JSON.stringify(response.headers))
                 localStorage.setItem('user', JSON.stringify(response.data))
             }
+            console.log("response api", response.data)
             const camelizedJson = camelizeKeys(response.data);
             return Object.assign({}, normalize(camelizedJson, schema))
         })

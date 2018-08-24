@@ -32,13 +32,13 @@ const postUser = (user) => ({
         types: [userConstants.REGISTER_REQUEST, userConstants.REGISTER_SUCCESS, userConstants.REGISTER_FAILURE],
         endpoint: '/register',
         schema: Schemas.USER,
-        method: 'POST',
+        method: 'post',
         bodyReq: user
     }
 })
 
 export const registerUser = (user) => (dispatch, getState) => {
-    dispatch(fetchUser(user.username, user.password))
+    // dispatch(fetchUser(user.username, user.password))
     const usr = getState().entities.users[user.username]
     if (usr) return null
     return dispatch(postUser(user))

@@ -4183,8 +4183,20 @@
       "publicPath": "/styles.css"
     },
     {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
+      "file": "styles.css",
+      "publicPath": "/styles.css"
+    },
+    {
       "id": "./node_modules/core-js/library/modules/_core.js",
       "name": "./node_modules/core-js/library/modules/_core.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     },
@@ -4195,8 +4207,20 @@
       "publicPath": "/styles.css.map"
     },
     {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
+      "file": "styles.css.map",
+      "publicPath": "/styles.css.map"
+    },
+    {
       "id": "./node_modules/core-js/library/modules/_core.js",
       "name": "./node_modules/core-js/library/modules/_core.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": "./node_modules/core-js/modules/_core.js",
+      "name": "./node_modules/core-js/modules/_core.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -7655,32 +7679,6 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./modules/_core": [
-    {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
-      "file": "styles.css",
-      "publicPath": "/styles.css"
-    },
-    {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
-      "file": "styles.css.map",
-      "publicPath": "/styles.css.map"
-    },
-    {
-      "id": "./node_modules/core-js/modules/_core.js",
-      "name": "./node_modules/core-js/modules/_core.js",
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    }
-  ],
   "./_create-property": [
     {
       "id": "./node_modules/core-js/modules/_create-property.js",
@@ -8017,296 +8015,6 @@
       "name": "./node_modules/core-js/modules/_iter-call.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
-    }
-  ],
-  "undefined": [
-    {
-      "id": 8,
-      "name": null,
-      "file": "styles.css",
-      "publicPath": "/styles.css"
-    },
-    {
-      "id": 7,
-      "name": null,
-      "file": "styles.css",
-      "publicPath": "/styles.css"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "styles.css",
-      "publicPath": "/styles.css"
-    },
-    {
-      "id": 10,
-      "name": null,
-      "file": "styles.css",
-      "publicPath": "/styles.css"
-    },
-    {
-      "id": 1,
-      "name": null,
-      "file": "styles.css",
-      "publicPath": "/styles.css"
-    },
-    {
-      "id": 9,
-      "name": null,
-      "file": "styles.css",
-      "publicPath": "/styles.css"
-    },
-    {
-      "id": 11,
-      "name": null,
-      "file": "styles.css",
-      "publicPath": "/styles.css"
-    },
-    {
-      "id": 8,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 7,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 10,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 1,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 9,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 11,
-      "name": null,
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    },
-    {
-      "id": 8,
-      "name": null,
-      "file": "styles.css.map",
-      "publicPath": "/styles.css.map"
-    },
-    {
-      "id": 7,
-      "name": null,
-      "file": "styles.css.map",
-      "publicPath": "/styles.css.map"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "styles.css.map",
-      "publicPath": "/styles.css.map"
-    },
-    {
-      "id": 10,
-      "name": null,
-      "file": "styles.css.map",
-      "publicPath": "/styles.css.map"
-    },
-    {
-      "id": 1,
-      "name": null,
-      "file": "styles.css.map",
-      "publicPath": "/styles.css.map"
-    },
-    {
-      "id": 9,
-      "name": null,
-      "file": "styles.css.map",
-      "publicPath": "/styles.css.map"
-    },
-    {
-      "id": 11,
-      "name": null,
-      "file": "styles.css.map",
-      "publicPath": "/styles.css.map"
-    },
-    {
-      "id": 8,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 7,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 0,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 10,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 1,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 9,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 11,
-      "name": null,
-      "file": "bundle.js.map",
-      "publicPath": "/bundle.js.map"
-    },
-    {
-      "id": 2,
-      "name": null,
-      "file": "0.styles.css",
-      "publicPath": "/0.styles.css"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "0.styles.css",
-      "publicPath": "/0.styles.css"
-    },
-    {
-      "id": 2,
-      "name": null,
-      "file": "0.bundle.js",
-      "publicPath": "/0.bundle.js"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "0.bundle.js",
-      "publicPath": "/0.bundle.js"
-    },
-    {
-      "id": 2,
-      "name": null,
-      "file": "0.styles.css.map",
-      "publicPath": "/0.styles.css.map"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "0.styles.css.map",
-      "publicPath": "/0.styles.css.map"
-    },
-    {
-      "id": 2,
-      "name": null,
-      "file": "0.bundle.js.map",
-      "publicPath": "/0.bundle.js.map"
-    },
-    {
-      "id": 3,
-      "name": null,
-      "file": "0.bundle.js.map",
-      "publicPath": "/0.bundle.js.map"
-    },
-    {
-      "id": 4,
-      "name": null,
-      "file": "1.styles.css",
-      "publicPath": "/1.styles.css"
-    },
-    {
-      "id": 4,
-      "name": null,
-      "file": "1.bundle.js",
-      "publicPath": "/1.bundle.js"
-    },
-    {
-      "id": 4,
-      "name": null,
-      "file": "1.styles.css.map",
-      "publicPath": "/1.styles.css.map"
-    },
-    {
-      "id": 4,
-      "name": null,
-      "file": "1.bundle.js.map",
-      "publicPath": "/1.bundle.js.map"
-    },
-    {
-      "id": 5,
-      "name": null,
-      "file": "2.styles.css",
-      "publicPath": "/2.styles.css"
-    },
-    {
-      "id": 5,
-      "name": null,
-      "file": "2.bundle.js",
-      "publicPath": "/2.bundle.js"
-    },
-    {
-      "id": 5,
-      "name": null,
-      "file": "2.styles.css.map",
-      "publicPath": "/2.styles.css.map"
-    },
-    {
-      "id": 5,
-      "name": null,
-      "file": "2.bundle.js.map",
-      "publicPath": "/2.bundle.js.map"
-    },
-    {
-      "id": 6,
-      "name": null,
-      "file": "3.styles.css",
-      "publicPath": "/3.styles.css"
-    },
-    {
-      "id": 6,
-      "name": null,
-      "file": "3.bundle.js",
-      "publicPath": "/3.bundle.js"
-    },
-    {
-      "id": 6,
-      "name": null,
-      "file": "3.styles.css.map",
-      "publicPath": "/3.styles.css.map"
-    },
-    {
-      "id": 6,
-      "name": null,
-      "file": "3.bundle.js.map",
-      "publicPath": "/3.bundle.js.map"
     }
   ],
   "./_iter-detect": [
@@ -12233,6 +11941,296 @@
       "name": "./node_modules/core-js/modules/es6.string.italics.js",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
+    }
+  ],
+  "undefined": [
+    {
+      "id": 1,
+      "name": null,
+      "file": "styles.css",
+      "publicPath": "/styles.css"
+    },
+    {
+      "id": 8,
+      "name": null,
+      "file": "styles.css",
+      "publicPath": "/styles.css"
+    },
+    {
+      "id": 7,
+      "name": null,
+      "file": "styles.css",
+      "publicPath": "/styles.css"
+    },
+    {
+      "id": 10,
+      "name": null,
+      "file": "styles.css",
+      "publicPath": "/styles.css"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "styles.css",
+      "publicPath": "/styles.css"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "styles.css",
+      "publicPath": "/styles.css"
+    },
+    {
+      "id": 9,
+      "name": null,
+      "file": "styles.css",
+      "publicPath": "/styles.css"
+    },
+    {
+      "id": 11,
+      "name": null,
+      "file": "styles.css",
+      "publicPath": "/styles.css"
+    },
+    {
+      "id": 1,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 8,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 7,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 10,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 9,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 11,
+      "name": null,
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": 1,
+      "name": null,
+      "file": "styles.css.map",
+      "publicPath": "/styles.css.map"
+    },
+    {
+      "id": 8,
+      "name": null,
+      "file": "styles.css.map",
+      "publicPath": "/styles.css.map"
+    },
+    {
+      "id": 7,
+      "name": null,
+      "file": "styles.css.map",
+      "publicPath": "/styles.css.map"
+    },
+    {
+      "id": 10,
+      "name": null,
+      "file": "styles.css.map",
+      "publicPath": "/styles.css.map"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "styles.css.map",
+      "publicPath": "/styles.css.map"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "styles.css.map",
+      "publicPath": "/styles.css.map"
+    },
+    {
+      "id": 9,
+      "name": null,
+      "file": "styles.css.map",
+      "publicPath": "/styles.css.map"
+    },
+    {
+      "id": 11,
+      "name": null,
+      "file": "styles.css.map",
+      "publicPath": "/styles.css.map"
+    },
+    {
+      "id": 1,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 8,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 7,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 10,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 0,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 2,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 9,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 11,
+      "name": null,
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "0.styles.css",
+      "publicPath": "/0.styles.css"
+    },
+    {
+      "id": 4,
+      "name": null,
+      "file": "0.styles.css",
+      "publicPath": "/0.styles.css"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "0.bundle.js",
+      "publicPath": "/0.bundle.js"
+    },
+    {
+      "id": 4,
+      "name": null,
+      "file": "0.bundle.js",
+      "publicPath": "/0.bundle.js"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "0.styles.css.map",
+      "publicPath": "/0.styles.css.map"
+    },
+    {
+      "id": 4,
+      "name": null,
+      "file": "0.styles.css.map",
+      "publicPath": "/0.styles.css.map"
+    },
+    {
+      "id": 3,
+      "name": null,
+      "file": "0.bundle.js.map",
+      "publicPath": "/0.bundle.js.map"
+    },
+    {
+      "id": 4,
+      "name": null,
+      "file": "0.bundle.js.map",
+      "publicPath": "/0.bundle.js.map"
+    },
+    {
+      "id": 5,
+      "name": null,
+      "file": "1.styles.css",
+      "publicPath": "/1.styles.css"
+    },
+    {
+      "id": 5,
+      "name": null,
+      "file": "1.bundle.js",
+      "publicPath": "/1.bundle.js"
+    },
+    {
+      "id": 5,
+      "name": null,
+      "file": "1.styles.css.map",
+      "publicPath": "/1.styles.css.map"
+    },
+    {
+      "id": 5,
+      "name": null,
+      "file": "1.bundle.js.map",
+      "publicPath": "/1.bundle.js.map"
+    },
+    {
+      "id": 6,
+      "name": null,
+      "file": "2.styles.css",
+      "publicPath": "/2.styles.css"
+    },
+    {
+      "id": 6,
+      "name": null,
+      "file": "2.bundle.js",
+      "publicPath": "/2.bundle.js"
+    },
+    {
+      "id": 6,
+      "name": null,
+      "file": "2.styles.css.map",
+      "publicPath": "/2.styles.css.map"
+    },
+    {
+      "id": 6,
+      "name": null,
+      "file": "2.bundle.js.map",
+      "publicPath": "/2.bundle.js.map"
     }
   ],
   "./modules/es6.string.iterator": [
@@ -27697,6 +27695,32 @@
       "publicPath": "/bundle.js.map"
     }
   ],
+  "./containers/Register": [
+    {
+      "id": "./src/containers/Register.js",
+      "name": "./src/containers/Register.js",
+      "file": "styles.css",
+      "publicPath": "/styles.css"
+    },
+    {
+      "id": "./src/containers/Register.js",
+      "name": "./src/containers/Register.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./src/containers/Register.js",
+      "name": "./src/containers/Register.js",
+      "file": "styles.css.map",
+      "publicPath": "/styles.css.map"
+    },
+    {
+      "id": "./src/containers/Register.js",
+      "name": "./src/containers/Register.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
   "./containers/SinglePost": [
     {
       "id": "./src/containers/SinglePost.js",
@@ -27745,6 +27769,32 @@
     {
       "id": "./src/containers/SingleWork.js",
       "name": "./src/containers/SingleWork.js",
+      "file": "bundle.js.map",
+      "publicPath": "/bundle.js.map"
+    }
+  ],
+  "./login.css": [
+    {
+      "id": "./src/containers/login.css",
+      "name": "./src/containers/login.css",
+      "file": "styles.css",
+      "publicPath": "/styles.css"
+    },
+    {
+      "id": "./src/containers/login.css",
+      "name": "./src/containers/login.css",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    },
+    {
+      "id": "./src/containers/login.css",
+      "name": "./src/containers/login.css",
+      "file": "styles.css.map",
+      "publicPath": "/styles.css.map"
+    },
+    {
+      "id": "./src/containers/login.css",
+      "name": "./src/containers/login.css",
       "file": "bundle.js.map",
       "publicPath": "/bundle.js.map"
     }
@@ -28245,50 +28295,12 @@
     {
       "id": "./src/containers/Login.js",
       "name": "./src/containers/Login.js",
-      "file": "3.styles.css",
-      "publicPath": "/3.styles.css"
-    },
-    {
-      "id": "./src/containers/Login.js",
-      "name": "./src/containers/Login.js",
       "file": "3.bundle.js",
       "publicPath": "/3.bundle.js"
     },
     {
       "id": "./src/containers/Login.js",
       "name": "./src/containers/Login.js",
-      "file": "3.styles.css.map",
-      "publicPath": "/3.styles.css.map"
-    },
-    {
-      "id": "./src/containers/Login.js",
-      "name": "./src/containers/Login.js",
-      "file": "3.bundle.js.map",
-      "publicPath": "/3.bundle.js.map"
-    }
-  ],
-  "./login.css": [
-    {
-      "id": "./src/containers/login.css",
-      "name": "./src/containers/login.css",
-      "file": "3.styles.css",
-      "publicPath": "/3.styles.css"
-    },
-    {
-      "id": "./src/containers/login.css",
-      "name": "./src/containers/login.css",
-      "file": "3.bundle.js",
-      "publicPath": "/3.bundle.js"
-    },
-    {
-      "id": "./src/containers/login.css",
-      "name": "./src/containers/login.css",
-      "file": "3.styles.css.map",
-      "publicPath": "/3.styles.css.map"
-    },
-    {
-      "id": "./src/containers/login.css",
-      "name": "./src/containers/login.css",
       "file": "3.bundle.js.map",
       "publicPath": "/3.bundle.js.map"
     }

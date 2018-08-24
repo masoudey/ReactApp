@@ -39,12 +39,14 @@ export const user = (state=initialState, action) => {
             return {
                 ...state, 
                 registering: false,
+                registered: true,
                 data:  action.response.result
             }
         case userConstants.REGISTER_FAILURE: 
             return {
                 ...state,
-                registering: false, 
+                registering: false,
+                registered: false,
                 data:  action.response
             }
         case "SET_USER_OPTIONS": 

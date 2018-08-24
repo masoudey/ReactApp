@@ -7,8 +7,8 @@ import "./login.css";
 
 const loadData = (props) => {
   console.log(props)
-  const {user} = props;
-  props.registerUser(user)
+  const {regUser} = props;
+  props.registerUser(regUser)
 }
 
 const initialState = {
@@ -60,7 +60,7 @@ class Register extends Component {
     this.setState({ submitted: true });
     const { firstName, lastName, email, username, password, passwordConfirm } = this.state;
     if (username && password) {
-      const user = {
+      const regUser = {
         options: {
           firstName,
           lastName,
@@ -69,23 +69,23 @@ class Register extends Component {
         username,
         password
       }
-      loadData({user, ...this.props} );
+      console.log("user", regUser)
+      loadData({regUser, ...this.props} );
       
     }
   }
 
   render() {
     const { fetching, fetched } = this.props.logedinUser;
-    const { username, password, submitted } = this.state;
+    const { username, password, firstName, lastName, email, passwordConfirm,submitted } = this.state;
       if (fetched) {
-        return <Redirect to='/login'></Redirect>
+        return <Redirect to='/'></Redirect>
       }
 
     return (
       <div>
         <div class="login-wrapper">
-          <div class="logo ir" />
-          <span class="title">Login</span>
+          <span class="title">Register</span>
           <form name="form" onSubmit={this.handleSubmit}>
             <fieldset>
               <div class="inputrow">
@@ -93,10 +93,49 @@ class Register extends Component {
                 <input
                   type="text"
                   name="username"
-                  id="user"
-                  placeholder="Username"
+                  id="username"
+                  placeholder="UserName"
                   onChange={this.handleChange}
                   value={username}
+                  autoFocus
+                  required
+                />
+              </div>
+              <div class="inputrow">
+                <i class="fa icon-user fa-fw" />
+                <input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  placeholder="FirstName"
+                  onChange={this.handleChange}
+                  value={firstName}
+                  autoFocus
+                  required
+                />
+              </div>
+              <div class="inputrow">
+                <i class="fa icon-user fa-fw" />
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  placeholder="LastName"
+                  onChange={this.handleChange}
+                  value={lastName}
+                  autoFocus
+                  required
+                />
+              </div>
+              <div class="inputrow">
+                <i class="fa icon-user fa-fw" />
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="Email"
+                  onChange={this.handleChange}
+                  value={email}
                   autoFocus
                   required
                 />
@@ -123,7 +162,7 @@ class Register extends Component {
                   data-typetoggle="#show"
                   onChange={this.handleChange}
                   onBlur={this.confirmPW.bind(this)}
-                  value={password}
+                  value={passwordConfirm}
                   placeholder="Confirm Password"
                   required
                 />

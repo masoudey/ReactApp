@@ -82,26 +82,28 @@ router
 				res.redirect('/login');
 			}
 		});
-		
-		
 	},generateToken, sendToken)
-	.post('/register', function(req, res) {
+	.post('/register', function(req, res, next) {
+		console.log("register", req.body)
 		var user = {
 			username: req.body.username,
 			password: hash(req.body.password),
-			options: {}
+			options: req.body.options
 		};
 		db.find({username: user.username}, function(err, data) {
 			if(!data.length){
 				db.insert(user, function(err, data) {
-					req.session.userId = data.id;
-					res.redirect('/');
+					req.user = data;
+				req.auth = {
+					id: data.id
+				  };
+					return next();
 				});
 			} else {
-				res.redirect('/login');
+				res.redirect('/register');
 			}
 		});
-	})
+	},generateToken, sendToken)
 	.get('/logout', function(req, res) {
 		req.session.userId = null;
 		req.user = null;

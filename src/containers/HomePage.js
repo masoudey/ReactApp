@@ -68,7 +68,7 @@ class HomePage extends Component {
 
             </div>
             <div class="row">
-            <div class="col col-sm-6 col-md-3">
+            <div class=" col-sm-6 col-md-3">
                 <div class="service serviceBlock web">
                     <div class="view">
                         <div class="service-icon">
@@ -79,7 +79,7 @@ class HomePage extends Component {
                     </div>
                 </div>
             </div>
-            <div class="col col-sm-6 col-md-3">
+            <div class=" col-sm-6 col-md-3">
                 <div class="service serviceBlock mark">
                     <div class="view">
                     <div class="service-icon">
@@ -90,7 +90,7 @@ class HomePage extends Component {
                         </div>
                 </div>
             </div>
-            <div class="col col-sm-6 col-md-3">
+            <div class=" col-sm-6 col-md-3">
                 <div class="service serviceBlock des">
                     <div class="view">
                     <div class="service-icon">
@@ -101,7 +101,7 @@ class HomePage extends Component {
                         </div>
                 </div>
             </div>
-            <div class="col col-sm-6 col-md-3">
+            <div class=" col-sm-6 col-md-3">
                 <div class="service serviceBlock ecom">
                     <div class="view">
                     <div class="service-icon">

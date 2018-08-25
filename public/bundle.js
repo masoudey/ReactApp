@@ -92906,7 +92906,7 @@ var initialState = {
   password: '',
   passwordConfirm: '',
   error: '',
-  passwordMatch: null
+  passwordMatch: true
 };
 
 var Register = function (_Component) {
@@ -92947,7 +92947,8 @@ var Register = function (_Component) {
           password = _state.password,
           passwordConfirm = _state.passwordConfirm;
 
-      var isInvalid = !firstName || !lastName || !email || !username || !password || password !== passwordConfirm || password.length <= 7;
+      var isInvalid = !firstName || !lastName || !email || !username || !password || password !== passwordConfirm;
+      console.log("is invalid", isInvalid);
       return isInvalid;
     }
   }, {
@@ -92957,7 +92958,7 @@ var Register = function (_Component) {
           password = _state2.password,
           passwordConfirm = _state2.passwordConfirm;
 
-      var isMatch = password !== passwordConfirm && password.length <= 7;
+      var isMatch = password !== passwordConfirm;
       this.setState({
         passwordMatch: isMatch
       });
@@ -92994,8 +92995,8 @@ var Register = function (_Component) {
     key: "render",
     value: function render() {
       var _props$logedinUser = this.props.logedinUser,
-          fetching = _props$logedinUser.fetching,
-          fetched = _props$logedinUser.fetched;
+          registering = _props$logedinUser.registering,
+          registered = _props$logedinUser.registered;
       var _state4 = this.state,
           username = _state4.username,
           password = _state4.password,
@@ -93003,9 +93004,9 @@ var Register = function (_Component) {
           lastName = _state4.lastName,
           email = _state4.email,
           passwordConfirm = _state4.passwordConfirm,
-          submitted = _state4.submitted;
+          passwordMatch = _state4.passwordMatch;
 
-      if (fetched) {
+      if (registered) {
         return _react2.default.createElement(_reactRouterDom.Redirect, { to: "/" });
       }
 
@@ -93036,6 +93037,7 @@ var Register = function (_Component) {
                   id: "username",
                   placeholder: "UserName",
                   onChange: this.handleChange,
+                  onBlur: this.validateForm.bind(this),
                   value: username,
                   autoFocus: true,
                   required: true
@@ -93074,7 +93076,7 @@ var Register = function (_Component) {
               _react2.default.createElement(
                 "div",
                 { className: "inputrow" },
-                _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
+                _react2.default.createElement("i", { className: "fa icon-mail4 fa-fw" }),
                 _react2.default.createElement("input", {
                   type: "email",
                   name: "email",
@@ -93122,10 +93124,10 @@ var Register = function (_Component) {
                 { className: "button-center" },
                 _react2.default.createElement(
                   "button",
-                  { className: "btn-log", type: "submit", id: "submit", disabled: this.state.passwordMatch && this.validateForm() },
+                  { className: "btn-log", type: "submit", id: "submit", disabled: passwordMatch || this.validateForm() },
                   "Register"
                 ),
-                fetching && _react2.default.createElement("img", { src: "data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" })
+                registering && _react2.default.createElement("img", { src: "data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" })
               )
             )
           )

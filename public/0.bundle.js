@@ -158,7 +158,7 @@ var HomePage = function (_Component) {
                                     { className: "row" },
                                     _react2.default.createElement(
                                         "div",
-                                        { className: "col col-sm-6 col-md-3" },
+                                        { className: " col-sm-6 col-md-3" },
                                         _react2.default.createElement(
                                             "div",
                                             { className: "service serviceBlock web" },
@@ -185,7 +185,7 @@ var HomePage = function (_Component) {
                                     ),
                                     _react2.default.createElement(
                                         "div",
-                                        { className: "col col-sm-6 col-md-3" },
+                                        { className: " col-sm-6 col-md-3" },
                                         _react2.default.createElement(
                                             "div",
                                             { className: "service serviceBlock mark" },
@@ -212,7 +212,7 @@ var HomePage = function (_Component) {
                                     ),
                                     _react2.default.createElement(
                                         "div",
-                                        { className: "col col-sm-6 col-md-3" },
+                                        { className: " col-sm-6 col-md-3" },
                                         _react2.default.createElement(
                                             "div",
                                             { className: "service serviceBlock des" },
@@ -239,7 +239,7 @@ var HomePage = function (_Component) {
                                     ),
                                     _react2.default.createElement(
                                         "div",
-                                        { className: "col col-sm-6 col-md-3" },
+                                        { className: " col-sm-6 col-md-3" },
                                         _react2.default.createElement(
                                             "div",
                                             { className: "service serviceBlock ecom" },

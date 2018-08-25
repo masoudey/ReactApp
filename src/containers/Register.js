@@ -19,7 +19,7 @@ const initialState = {
   password: '',
   passwordConfirm: '',
   error: '',
-  passwordMatch: null
+  passwordMatch: true
 }
 
 class Register extends Component {
@@ -42,13 +42,14 @@ class Register extends Component {
 
   validateForm() {
     const { firstName, lastName, email, username, password, passwordConfirm } = this.state;
-    const isInvalid = !firstName || !lastName || !email || !username || !password || password !== passwordConfirm || password.length <= 7;
+    const isInvalid = !firstName || !lastName || !email || !username || !password || password !== passwordConfirm;
+    console.log("is invalid", isInvalid)
     return isInvalid;
   }
 
   confirmPW() {
     const { password, passwordConfirm } = this.state
-    const isMatch = password !== passwordConfirm && password.length <= 7;
+    const isMatch = password !== passwordConfirm;
     this.setState({
         passwordMatch: isMatch
     });
@@ -76,9 +77,9 @@ class Register extends Component {
   }
 
   render() {
-    const { fetching, fetched } = this.props.logedinUser;
-    const { username, password, firstName, lastName, email, passwordConfirm,submitted } = this.state;
-      if (fetched) {
+    const { registering, registered } = this.props.logedinUser;
+    const { username, password, firstName, lastName, email, passwordConfirm, passwordMatch } = this.state;
+      if (registered) {
         return <Redirect to='/'></Redirect>
       }
 
@@ -96,6 +97,7 @@ class Register extends Component {
                   id="username"
                   placeholder="UserName"
                   onChange={this.handleChange}
+                  onBlur={this.validateForm.bind(this)}
                   value={username}
                   autoFocus
                   required
@@ -128,7 +130,7 @@ class Register extends Component {
                 />
               </div>
               <div class="inputrow">
-                <i class="fa icon-user fa-fw" />
+                <i class="fa icon-mail4 fa-fw" />
                 <input
                   type="email"
                   name="email"
@@ -170,10 +172,10 @@ class Register extends Component {
 
              
               <div class="button-center">
-                <button class="btn-log" type="submit" id="submit" disabled={this.state.passwordMatch && this.validateForm()} >
+                <button class="btn-log" type="submit" id="submit" disabled={passwordMatch || this.validateForm()} >
                   Register
                 </button>
-                {fetching && (
+                {registering && (
                   <img src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
                 )}
               </div>

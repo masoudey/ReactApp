@@ -25503,7 +25503,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./lib/_stream_transform.js": [
+  "./_stream_transform": [
     {
       "id": "./node_modules/readable-stream/lib/_stream_transform.js",
       "name": "./node_modules/readable-stream/lib/_stream_transform.js",

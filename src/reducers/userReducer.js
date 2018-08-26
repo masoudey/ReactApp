@@ -1,8 +1,6 @@
 import { userConstants } from "../constants";
 
 const initialState = {
-    fetching: false,
-    fetched: false,
     data: null,
     error: null
 }

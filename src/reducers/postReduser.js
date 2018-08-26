@@ -1,7 +1,5 @@
 import { postConstants } from "../constants";
 const initialState = {
-    fetching: false,
-    fetched: false,
     data: [],
     error: null,
 }
@@ -26,10 +24,24 @@ export const posts = (state=initialState, action) => {
                 fetching:false, 
                 error: action.response
             }
-        case postConstants.ADD_POST: 
+        case postConstants.ADD_POST_REQUEST: 
             return {
                 ...state, 
-                data: [...state.posts, action.payload]
+                addingPost: true
+            }
+        case postConstants.ADD_POST_SUCCESS: 
+            return {
+                ...state, 
+                addingPost: false,
+                postAdded: true,
+                data:  action.response.result
+            }
+        case postConstants.ADD_POST_FAILURE: 
+            return {
+                ...state,
+                addingPost: false,
+                postAdded: false, 
+                error: action.response
             }
         case postConstants.UPDATE_POST: {
             const { id, title, desc, content, cotagory, img, date, userId} = action.payload

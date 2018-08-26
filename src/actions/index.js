@@ -85,3 +85,17 @@ export const loadPostById = (id) => (dispatch, getState) => {
     }
     return dispatch(fetchPostById(id));
 }
+
+const sendPost = (post) => ({
+    [CALL_API]: {
+        types: [postConstants.ADD_POST_REQUEST, postConstants.ADD_POST_SUCCESS, postConstants.ADD_POST_FAILURE],
+        endpoint: `/api/post`,
+        schema: Schemas.POST,
+        method: 'post',
+        bodyReq: post,
+    }
+})
+
+export const addPost = (post) => (dispatch, getState) => {
+    return dispatch(sendPost(post));
+}

@@ -92176,7 +92176,7 @@ var authHeader = exports.authHeader = function authHeader() {
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.loadPostById = exports.loadPosts = exports.registerUser = exports.loginUser = exports.logOut = exports.loginSuccess = undefined;
+exports.addPost = exports.loadPostById = exports.loadPosts = exports.registerUser = exports.loginUser = exports.logOut = exports.loginSuccess = undefined;
 
 var _api = __webpack_require__(/*! ../middleware/api */ "./src/middleware/api.js");
 
@@ -92278,6 +92278,22 @@ var loadPostById = exports.loadPostById = function loadPostById(id) {
             return null;
         }
         return dispatch(fetchPostById(id));
+    };
+};
+
+var sendPost = function sendPost(post) {
+    return _defineProperty({}, _constants.CALL_API, {
+        types: [_constants.postConstants.ADD_POST_REQUEST, _constants.postConstants.ADD_POST_SUCCESS, _constants.postConstants.ADD_POST_FAILURE],
+        endpoint: "/api/post",
+        schema: _api.Schemas.POST,
+        method: 'post',
+        bodyReq: post
+    });
+};
+
+var addPost = exports.addPost = function addPost(post) {
+    return function (dispatch, getState) {
+        return dispatch(sendPost(post));
     };
 };
 
@@ -92581,7 +92597,9 @@ var postConstants = exports.postConstants = {
     POST_SUCCESS: 'POST_SUCCESS',
     POST_FAILURE: 'POST_FAILURE',
 
-    ADD_POST: 'ADD_POST',
+    ADD_POST_REQUEST: 'ADD_POST_REQUEST',
+    ADD_POST_SUCCESS: 'ADD_POST_SUCCESS',
+    ADD_POST_FAILURE: 'ADD_POST_FAILURE',
 
     UPDATE_POST: 'UPDATE_POST',
     DELETE_POST: 'DELETE_POST'
@@ -92721,8 +92739,10 @@ var About = exports.About = function About(props) {
 
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+  value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -92730,7 +92750,17 @@ var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRedux = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+var _actions = __webpack_require__(/*! ../actions */ "./src/actions/index.js");
+
+__webpack_require__(/*! ./login.css */ "./src/containers/login.css");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -92738,31 +92768,266 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+var loadData = function loadData(props) {
+  console.log(props);
+  var regUser = props.regUser;
+
+  props.addPost(regUser);
+};
+
+var initialState = {
+  title: '',
+  desc: '',
+  content: '',
+  cotagory: '',
+  img: '',
+  date: '',
+  userId: ''
+};
+
 var AddPost = function (_Component) {
-    _inherits(AddPost, _Component);
+  _inherits(AddPost, _Component);
 
-    function AddPost() {
-        _classCallCheck(this, AddPost);
+  function AddPost(props) {
+    _classCallCheck(this, AddPost);
 
-        return _possibleConstructorReturn(this, (AddPost.__proto__ || Object.getPrototypeOf(AddPost)).apply(this, arguments));
+    // reset login status
+    // this.props.dispatch(logout());
+
+    var _this = _possibleConstructorReturn(this, (AddPost.__proto__ || Object.getPrototypeOf(AddPost)).call(this, props));
+
+    _this.state = _extends({}, initialState);
+
+    _this.handleChange = _this.handleChange.bind(_this);
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    return _this;
+  }
+
+  _createClass(AddPost, [{
+    key: "handleChange",
+    value: function handleChange(e) {
+      var _e$target = e.target,
+          name = _e$target.name,
+          value = _e$target.value;
+
+      this.setState(_defineProperty({}, name, value));
     }
+  }, {
+    key: "validateForm",
+    value: function validateForm() {
+      var _state = this.state,
+          firstName = _state.firstName,
+          lastName = _state.lastName,
+          email = _state.email,
+          username = _state.username,
+          password = _state.password,
+          passwordConfirm = _state.passwordConfirm;
 
-    _createClass(AddPost, [{
-        key: "render",
-        value: function render() {
+      var isInvalid = !firstName || !lastName || !email || !username || !password || password !== passwordConfirm;
+      console.log("is invalid", isInvalid);
+      return isInvalid;
+    }
+  }, {
+    key: "confirmPW",
+    value: function confirmPW() {
+      var _state2 = this.state,
+          password = _state2.password,
+          passwordConfirm = _state2.passwordConfirm;
 
-            return _react2.default.createElement(
+      var isMatch = password !== passwordConfirm;
+      this.setState({
+        passwordMatch: isMatch
+      });
+    }
+  }, {
+    key: "handleSubmit",
+    value: function handleSubmit(e) {
+      e.preventDefault();
+
+      this.setState({ submitted: true });
+      var _state3 = this.state,
+          firstName = _state3.firstName,
+          lastName = _state3.lastName,
+          email = _state3.email,
+          username = _state3.username,
+          password = _state3.password,
+          passwordConfirm = _state3.passwordConfirm;
+
+      if (username && password) {
+        var regUser = {
+          options: {
+            firstName: firstName,
+            lastName: lastName,
+            email: email
+          },
+          username: username,
+          password: password
+        };
+        console.log("user", regUser);
+        loadData(_extends({ regUser: regUser }, this.props));
+      }
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      var _props$logedinUser = this.props.logedinUser,
+          registering = _props$logedinUser.registering,
+          registered = _props$logedinUser.registered;
+      var _state4 = this.state,
+          username = _state4.username,
+          password = _state4.password,
+          firstName = _state4.firstName,
+          lastName = _state4.lastName,
+          email = _state4.email,
+          passwordConfirm = _state4.passwordConfirm,
+          passwordMatch = _state4.passwordMatch;
+
+      if (registered) {
+        return _react2.default.createElement(_reactRouterDom.Redirect, { to: "/" });
+      }
+
+      return _react2.default.createElement(
+        "div",
+        null,
+        _react2.default.createElement(
+          "div",
+          { className: "login-wrapper" },
+          _react2.default.createElement(
+            "span",
+            { className: "title" },
+            "Register"
+          ),
+          _react2.default.createElement(
+            "form",
+            { name: "form", onSubmit: this.handleSubmit },
+            _react2.default.createElement(
+              "fieldset",
+              null,
+              _react2.default.createElement(
                 "div",
-                null,
-                "this is addpost page"
-            );
-        }
-    }]);
+                { className: "inputrow" },
+                _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
+                _react2.default.createElement("input", {
+                  type: "text",
+                  name: "username",
+                  id: "username",
+                  placeholder: "UserName",
+                  onChange: this.handleChange,
+                  onBlur: this.validateForm.bind(this),
+                  value: username,
+                  autoFocus: true,
+                  required: true
+                })
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "inputrow" },
+                _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
+                _react2.default.createElement("input", {
+                  type: "text",
+                  name: "firstName",
+                  id: "firstName",
+                  placeholder: "FirstName",
+                  onChange: this.handleChange,
+                  value: firstName,
+                  autoFocus: true,
+                  required: true
+                })
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "inputrow" },
+                _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
+                _react2.default.createElement("input", {
+                  type: "text",
+                  name: "lastName",
+                  id: "lastName",
+                  placeholder: "LastName",
+                  onChange: this.handleChange,
+                  value: lastName,
+                  autoFocus: true,
+                  required: true
+                })
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "inputrow" },
+                _react2.default.createElement("i", { className: "fa icon-mail4 fa-fw" }),
+                _react2.default.createElement("input", {
+                  type: "email",
+                  name: "email",
+                  id: "email",
+                  placeholder: "Email",
+                  onChange: this.handleChange,
+                  value: email,
+                  autoFocus: true,
+                  required: true
+                })
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "inputrow" },
+                _react2.default.createElement("i", { className: "fa icon-key fa-fw" }),
+                _react2.default.createElement("input", {
+                  type: "password",
+                  name: "password",
+                  id: "password",
+                  "data-typetoggle": "#show",
+                  onChange: this.handleChange,
+                  value: password,
+                  placeholder: "Password",
+                  required: true
+                })
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "inputrow" },
+                _react2.default.createElement("i", { className: "fa icon-key fa-fw" }),
+                _react2.default.createElement("input", {
+                  type: "password",
+                  name: "passwordConfirm",
+                  id: "passwordConfirm",
+                  "data-typetoggle": "#show",
+                  onChange: this.handleChange,
+                  onBlur: this.confirmPW.bind(this),
+                  value: passwordConfirm,
+                  placeholder: "Confirm Password",
+                  required: true
+                })
+              ),
+              _react2.default.createElement(
+                "div",
+                { className: "button-center" },
+                _react2.default.createElement(
+                  "button",
+                  { className: "btn-log", type: "submit", id: "submit", disabled: passwordMatch || this.validateForm() },
+                  "Register"
+                ),
+                registering && _react2.default.createElement("img", { src: "data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" })
+              )
+            )
+          )
+        )
+      );
+    }
+  }]);
 
-    return AddPost;
+  return AddPost;
 }(_react.Component);
 
-exports.default = AddPost;
+var mapStateToProps = function mapStateToProps(state) {
+  var users = state.entities.users,
+      postById = state.reducers.postById;
+
+
+  return {
+    users: users,
+    postById: postById
+  };
+};
+
+var connectedLoginPage = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, { addPost: _actions.addPost })(AddPost));
+exports.default = connectedLoginPage;
 
 /***/ }),
 
@@ -93762,8 +94027,6 @@ var _constants = __webpack_require__(/*! ../constants */ "./src/constants/index.
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
 var initialState = {
-    fetching: false,
-    fetched: false,
     data: [],
     error: null
 };
@@ -93788,9 +94051,21 @@ var posts = exports.posts = function posts() {
                 fetching: false,
                 error: action.response
             });
-        case _constants.postConstants.ADD_POST:
+        case _constants.postConstants.ADD_POST_REQUEST:
             return _extends({}, state, {
-                data: [].concat(_toConsumableArray(state.posts), [action.payload])
+                addingPost: true
+            });
+        case _constants.postConstants.ADD_POST_SUCCESS:
+            return _extends({}, state, {
+                addingPost: false,
+                postAdded: true,
+                data: action.response.result
+            });
+        case _constants.postConstants.ADD_POST_FAILURE:
+            return _extends({}, state, {
+                addingPost: false,
+                postAdded: false,
+                error: action.response
             });
         case _constants.postConstants.UPDATE_POST:
             {
@@ -93846,8 +94121,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 var _constants = __webpack_require__(/*! ../constants */ "./src/constants/index.js");
 
 var initialState = {
-    fetching: false,
-    fetched: false,
     data: null,
     error: null
 };

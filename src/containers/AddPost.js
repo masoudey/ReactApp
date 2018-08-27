@@ -40,46 +40,36 @@ class AddPost extends Component {
   }
 
   validateForm() {
-    const { firstName, lastName, email, username, password, passwordConfirm } = this.state;
-    const isInvalid = !firstName || !lastName || !email || !username || !password || password !== passwordConfirm;
-    console.log("is invalid", isInvalid)
+    const { title, desc, content, cotagory, img } = this.state;
+    const isInvalid = !title || !desc || !content || !cotagory || !img;
     return isInvalid;
   }
 
-  confirmPW() {
-    const { password, passwordConfirm } = this.state
-    const isMatch = password !== passwordConfirm;
-    this.setState({
-        passwordMatch: isMatch
-    });
-}
 
   handleSubmit(e) {
     e.preventDefault();
 
     this.setState({ submitted: true });
-    const { firstName, lastName, email, username, password, passwordConfirm } = this.state;
+    const { title, desc, content, cotagory, img } = this.state;
     if (username && password) {
-      const regUser = {
-        options: {
-          firstName,
-          lastName,
-          email
-        },
-        username,
-        password
+      const post = {
+        title,
+        desc,
+        content,
+        cotagory,
+        img,
       }
-      console.log("user", regUser)
-      loadData({regUser, ...this.props} );
+      console.log("user", post)
+      loadData({post, ...this.props} );
       
     }
   }
 
   render() {
-    const { registering, registered } = this.props.logedinUser;
-    const { username, password, firstName, lastName, email, passwordConfirm, passwordMatch } = this.state;
-      if (registered) {
-        return <Redirect to='/'></Redirect>
+    const { addingPost, postAdded } = this.props.postById;
+    const { title, desc, content, cotagory, img } = this.state;
+      if (postAdded) {
+        return <Redirect to='/post/:id'></Redirect>
       }
 
     return (
@@ -92,12 +82,12 @@ class AddPost extends Component {
                 <i class="fa icon-user fa-fw" />
                 <input
                   type="text"
-                  name="username"
-                  id="username"
-                  placeholder="UserName"
+                  name="title"
+                  id="title"
+                  placeholder="title"
                   onChange={this.handleChange}
                   onBlur={this.validateForm.bind(this)}
-                  value={username}
+                  value={title}
                   autoFocus
                   required
                 />
@@ -106,11 +96,11 @@ class AddPost extends Component {
                 <i class="fa icon-user fa-fw" />
                 <input
                   type="text"
-                  name="firstName"
-                  id="firstName"
-                  placeholder="FirstName"
+                  name="desc"
+                  id="desc"
+                  placeholder="desc"
                   onChange={this.handleChange}
-                  value={firstName}
+                  value={desc}
                   autoFocus
                   required
                 />
@@ -119,11 +109,11 @@ class AddPost extends Component {
                 <i class="fa icon-user fa-fw" />
                 <input
                   type="text"
-                  name="lastName"
-                  id="lastName"
-                  placeholder="LastName"
+                  name="cotagory"
+                  id="cotagory"
+                  placeholder="cotagory"
                   onChange={this.handleChange}
-                  value={lastName}
+                  value={cotagory}
                   autoFocus
                   required
                 />
@@ -131,47 +121,30 @@ class AddPost extends Component {
               <div class="inputrow">
                 <i class="fa icon-mail4 fa-fw" />
                 <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="Email"
+                  type="image"
+                  name="img"
+                  id="img"
+                  placeholder="img"
                   onChange={this.handleChange}
-                  value={email}
+                  value={img}
                   autoFocus
                   required
                 />
               </div>
               <div class="inputrow">
                 <i class="fa icon-key fa-fw" />
-                <input
-                  type="password"
-                  name="password"
-                  id="password"
-                  data-typetoggle="#show"
+                <textarea
+                  name="content"
+                  id="content"
                   onChange={this.handleChange}
-                  value={password}
-                  placeholder="Password"
+                  value={content}
+                  placeholder="content"
                   required
                 />
               </div>
-              <div class="inputrow">
-                <i class="fa icon-key fa-fw" />
-                <input
-                  type="password"
-                  name="passwordConfirm"
-                  id="passwordConfirm"
-                  data-typetoggle="#show"
-                  onChange={this.handleChange}
-                  onBlur={this.confirmPW.bind(this)}
-                  value={passwordConfirm}
-                  placeholder="Confirm Password"
-                  required
-                />
-              </div>
-
-             
+                         
               <div class="button-center">
-                <button class="btn-log" type="submit" id="submit" disabled={passwordMatch || this.validateForm()} >
+                <button class="btn-log" type="submit" id="submit" disabled={this.validateForm()} >
                   Register
                 </button>
                 {registering && (

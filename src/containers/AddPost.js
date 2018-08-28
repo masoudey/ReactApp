@@ -119,7 +119,7 @@ class AddPost extends Component {
                   type="file"
                   name="img"
                   id="img"
-                  accept="image/png, image/jpeg"
+                  accept="image/jpeg"
                   onChange={this.handleChange}
                   value={img}
                   required

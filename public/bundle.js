@@ -92770,7 +92770,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var loadData = function loadData(props) {
   console.log(props);
-  var regUser = props.regUser;
+  var post = props.post;
 
   props.addPost(regUser);
 };
@@ -92816,28 +92816,14 @@ var AddPost = function (_Component) {
     key: "validateForm",
     value: function validateForm() {
       var _state = this.state,
-          firstName = _state.firstName,
-          lastName = _state.lastName,
-          email = _state.email,
-          username = _state.username,
-          password = _state.password,
-          passwordConfirm = _state.passwordConfirm;
+          title = _state.title,
+          desc = _state.desc,
+          content = _state.content,
+          cotagory = _state.cotagory,
+          img = _state.img;
 
-      var isInvalid = !firstName || !lastName || !email || !username || !password || password !== passwordConfirm;
-      console.log("is invalid", isInvalid);
+      var isInvalid = !title || !desc || !content || !cotagory || !img;
       return isInvalid;
-    }
-  }, {
-    key: "confirmPW",
-    value: function confirmPW() {
-      var _state2 = this.state,
-          password = _state2.password,
-          passwordConfirm = _state2.passwordConfirm;
-
-      var isMatch = password !== passwordConfirm;
-      this.setState({
-        passwordMatch: isMatch
-      });
     }
   }, {
     key: "handleSubmit",
@@ -92845,45 +92831,40 @@ var AddPost = function (_Component) {
       e.preventDefault();
 
       this.setState({ submitted: true });
-      var _state3 = this.state,
-          firstName = _state3.firstName,
-          lastName = _state3.lastName,
-          email = _state3.email,
-          username = _state3.username,
-          password = _state3.password,
-          passwordConfirm = _state3.passwordConfirm;
+      var _state2 = this.state,
+          title = _state2.title,
+          desc = _state2.desc,
+          content = _state2.content,
+          cotagory = _state2.cotagory,
+          img = _state2.img;
 
       if (username && password) {
-        var regUser = {
-          options: {
-            firstName: firstName,
-            lastName: lastName,
-            email: email
-          },
-          username: username,
-          password: password
+        var post = {
+          title: title,
+          desc: desc,
+          content: content,
+          cotagory: cotagory,
+          img: img
         };
-        console.log("user", regUser);
-        loadData(_extends({ regUser: regUser }, this.props));
+        console.log("user", post);
+        loadData(_extends({ post: post }, this.props));
       }
     }
   }, {
     key: "render",
     value: function render() {
-      var _props$logedinUser = this.props.logedinUser,
-          registering = _props$logedinUser.registering,
-          registered = _props$logedinUser.registered;
-      var _state4 = this.state,
-          username = _state4.username,
-          password = _state4.password,
-          firstName = _state4.firstName,
-          lastName = _state4.lastName,
-          email = _state4.email,
-          passwordConfirm = _state4.passwordConfirm,
-          passwordMatch = _state4.passwordMatch;
+      var _props$postById = this.props.postById,
+          addingPost = _props$postById.addingPost,
+          postAdded = _props$postById.postAdded;
+      var _state3 = this.state,
+          title = _state3.title,
+          desc = _state3.desc,
+          content = _state3.content,
+          cotagory = _state3.cotagory,
+          img = _state3.img;
 
-      if (registered) {
-        return _react2.default.createElement(_reactRouterDom.Redirect, { to: "/" });
+      if (postAdded) {
+        return _react2.default.createElement(_reactRouterDom.Redirect, { to: "/post/:id" });
       }
 
       return _react2.default.createElement(
@@ -92909,12 +92890,12 @@ var AddPost = function (_Component) {
                 _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
                 _react2.default.createElement("input", {
                   type: "text",
-                  name: "username",
-                  id: "username",
-                  placeholder: "UserName",
+                  name: "title",
+                  id: "title",
+                  placeholder: "title",
                   onChange: this.handleChange,
                   onBlur: this.validateForm.bind(this),
-                  value: username,
+                  value: title,
                   autoFocus: true,
                   required: true
                 })
@@ -92925,12 +92906,11 @@ var AddPost = function (_Component) {
                 _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
                 _react2.default.createElement("input", {
                   type: "text",
-                  name: "firstName",
-                  id: "firstName",
-                  placeholder: "FirstName",
+                  name: "desc",
+                  id: "desc",
+                  placeholder: "desc",
                   onChange: this.handleChange,
-                  value: firstName,
-                  autoFocus: true,
+                  value: desc,
                   required: true
                 })
               ),
@@ -92938,29 +92918,42 @@ var AddPost = function (_Component) {
                 "div",
                 { className: "inputrow" },
                 _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
-                _react2.default.createElement("input", {
-                  type: "text",
-                  name: "lastName",
-                  id: "lastName",
-                  placeholder: "LastName",
-                  onChange: this.handleChange,
-                  value: lastName,
-                  autoFocus: true,
-                  required: true
-                })
+                _react2.default.createElement(
+                  "select",
+                  { name: "cotagory", id: "cotagory", onChange: this.handleChange },
+                  _react2.default.createElement(
+                    "option",
+                    { value: "social" },
+                    "social"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "healthcare" },
+                    "Healthcare"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "lifeStyle" },
+                    "Life Style"
+                  ),
+                  _react2.default.createElement(
+                    "option",
+                    { value: "occupation" },
+                    "Occupation"
+                  )
+                )
               ),
               _react2.default.createElement(
                 "div",
                 { className: "inputrow" },
                 _react2.default.createElement("i", { className: "fa icon-mail4 fa-fw" }),
                 _react2.default.createElement("input", {
-                  type: "email",
-                  name: "email",
-                  id: "email",
-                  placeholder: "Email",
+                  type: "file",
+                  name: "img",
+                  id: "img",
+                  accept: "image/png, image/jpeg",
                   onChange: this.handleChange,
-                  value: email,
-                  autoFocus: true,
+                  value: img,
                   required: true
                 })
               ),
@@ -92968,30 +92961,12 @@ var AddPost = function (_Component) {
                 "div",
                 { className: "inputrow" },
                 _react2.default.createElement("i", { className: "fa icon-key fa-fw" }),
-                _react2.default.createElement("input", {
-                  type: "password",
-                  name: "password",
-                  id: "password",
-                  "data-typetoggle": "#show",
+                _react2.default.createElement("textarea", {
+                  name: "content",
+                  id: "content",
                   onChange: this.handleChange,
-                  value: password,
-                  placeholder: "Password",
-                  required: true
-                })
-              ),
-              _react2.default.createElement(
-                "div",
-                { className: "inputrow" },
-                _react2.default.createElement("i", { className: "fa icon-key fa-fw" }),
-                _react2.default.createElement("input", {
-                  type: "password",
-                  name: "passwordConfirm",
-                  id: "passwordConfirm",
-                  "data-typetoggle": "#show",
-                  onChange: this.handleChange,
-                  onBlur: this.confirmPW.bind(this),
-                  value: passwordConfirm,
-                  placeholder: "Confirm Password",
+                  value: content,
+                  placeholder: "content",
                   required: true
                 })
               ),
@@ -93000,10 +92975,10 @@ var AddPost = function (_Component) {
                 { className: "button-center" },
                 _react2.default.createElement(
                   "button",
-                  { className: "btn-log", type: "submit", id: "submit", disabled: passwordMatch || this.validateForm() },
+                  { className: "btn-log", type: "submit", id: "submit", disabled: this.validateForm() },
                   "Register"
                 ),
-                registering && _react2.default.createElement("img", { src: "data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" })
+                addingPost && _react2.default.createElement("img", { src: "data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" })
               )
             )
           )

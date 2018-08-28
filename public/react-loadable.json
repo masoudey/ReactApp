@@ -7161,7 +7161,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "../../modules/es6.string.iterator": [
+  "../modules/es6.string.iterator": [
     {
       "id": "./node_modules/core-js/library/modules/es6.string.iterator.js",
       "name": "./node_modules/core-js/library/modules/es6.string.iterator.js",
@@ -25503,7 +25503,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./_stream_transform": [
+  "./lib/_stream_transform.js": [
     {
       "id": "./node_modules/readable-stream/lib/_stream_transform.js",
       "name": "./node_modules/readable-stream/lib/_stream_transform.js",
@@ -27515,7 +27515,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "./actions/userActions": [
+  "../actions/userActions": [
     {
       "id": "./src/actions/userActions.js",
       "name": "./src/actions/userActions.js",

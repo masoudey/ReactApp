@@ -112,7 +112,6 @@ class Register extends Component {
                   placeholder="FirstName"
                   onChange={this.handleChange}
                   value={firstName}
-                  autoFocus
                   required
                 />
               </div>
@@ -125,7 +124,6 @@ class Register extends Component {
                   placeholder="LastName"
                   onChange={this.handleChange}
                   value={lastName}
-                  autoFocus
                   required
                 />
               </div>
@@ -138,7 +136,6 @@ class Register extends Component {
                   placeholder="Email"
                   onChange={this.handleChange}
                   value={email}
-                  autoFocus
                   required
                 />
               </div>

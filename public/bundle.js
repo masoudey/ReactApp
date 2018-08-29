@@ -92872,11 +92872,11 @@ var AddPost = function (_Component) {
         null,
         _react2.default.createElement(
           "div",
-          { className: "login-wrapper" },
+          { className: "addpost-wrapper" },
           _react2.default.createElement(
             "span",
             { className: "title" },
-            "Register"
+            "Add Post"
           ),
           _react2.default.createElement(
             "form",
@@ -92887,7 +92887,6 @@ var AddPost = function (_Component) {
               _react2.default.createElement(
                 "div",
                 { className: "inputrow" },
-                _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
                 _react2.default.createElement("input", {
                   type: "text",
                   name: "title",
@@ -92903,7 +92902,6 @@ var AddPost = function (_Component) {
               _react2.default.createElement(
                 "div",
                 { className: "inputrow" },
-                _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
                 _react2.default.createElement("input", {
                   type: "text",
                   name: "desc",
@@ -92917,14 +92915,13 @@ var AddPost = function (_Component) {
               _react2.default.createElement(
                 "div",
                 { className: "inputrow" },
-                _react2.default.createElement("i", { className: "fa icon-user fa-fw" }),
                 _react2.default.createElement(
                   "select",
                   { name: "cotagory", id: "cotagory", onChange: this.handleChange },
                   _react2.default.createElement(
                     "option",
                     { value: "social" },
-                    "social"
+                    "Social"
                   ),
                   _react2.default.createElement(
                     "option",
@@ -92946,12 +92943,11 @@ var AddPost = function (_Component) {
               _react2.default.createElement(
                 "div",
                 { className: "inputrow" },
-                _react2.default.createElement("i", { className: "fa icon-mail4 fa-fw" }),
                 _react2.default.createElement("input", {
                   type: "file",
                   name: "img",
                   id: "img",
-                  accept: "image/png, image/jpeg",
+                  accept: "image/jpeg",
                   onChange: this.handleChange,
                   value: img,
                   required: true
@@ -92960,7 +92956,6 @@ var AddPost = function (_Component) {
               _react2.default.createElement(
                 "div",
                 { className: "inputrow" },
-                _react2.default.createElement("i", { className: "fa icon-key fa-fw" }),
                 _react2.default.createElement("textarea", {
                   name: "content",
                   id: "content",
@@ -92976,7 +92971,7 @@ var AddPost = function (_Component) {
                 _react2.default.createElement(
                   "button",
                   { className: "btn-log", type: "submit", id: "submit", disabled: this.validateForm() },
-                  "Register"
+                  "Add Post"
                 ),
                 addingPost && _react2.default.createElement("img", { src: "data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" })
               )
@@ -93294,7 +93289,6 @@ var Register = function (_Component) {
                   placeholder: "FirstName",
                   onChange: this.handleChange,
                   value: firstName,
-                  autoFocus: true,
                   required: true
                 })
               ),
@@ -93309,7 +93303,6 @@ var Register = function (_Component) {
                   placeholder: "LastName",
                   onChange: this.handleChange,
                   value: lastName,
-                  autoFocus: true,
                   required: true
                 })
               ),
@@ -93324,7 +93317,6 @@ var Register = function (_Component) {
                   placeholder: "Email",
                   onChange: this.handleChange,
                   value: email,
-                  autoFocus: true,
                   required: true
                 })
               ),

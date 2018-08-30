@@ -66,10 +66,10 @@ class AddPost extends Component {
   }
 
   render() {
-    const { addingPost, postAdded } = this.props.postById;
+    const { addingPost, postAdded, data } = this.props.postById;
     const { title, desc, content, cotagory, img } = this.state;
       if (postAdded) {
-        return <Redirect to='/post/:id'></Redirect>
+        return <Redirect to={`/post/:${data}`}></Redirect>
       }
 
     return (

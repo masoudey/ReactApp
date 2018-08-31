@@ -92772,7 +92772,7 @@ var loadData = function loadData(props) {
   console.log(props);
   var post = props.post;
 
-  props.addPost(regUser);
+  props.addPost(post);
 };
 
 var initialState = {
@@ -92838,24 +92838,26 @@ var AddPost = function (_Component) {
           cotagory = _state2.cotagory,
           img = _state2.img;
 
-      if (username && password) {
-        var post = {
-          title: title,
-          desc: desc,
-          content: content,
-          cotagory: cotagory,
-          img: img
-        };
-        console.log("user", post);
-        loadData(_extends({ post: post }, this.props));
-      }
+      var d = Date();
+      var post = {
+        title: title,
+        desc: desc,
+        content: content,
+        cotagory: cotagory,
+        img: img,
+        date: d,
+        userId: this.props.user.id
+      };
+      console.log("user", post);
+      loadData(_extends({ post: post }, this.props));
     }
   }, {
     key: "render",
     value: function render() {
       var _props$postById = this.props.postById,
           addingPost = _props$postById.addingPost,
-          postAdded = _props$postById.postAdded;
+          postAdded = _props$postById.postAdded,
+          data = _props$postById.data;
       var _state3 = this.state,
           title = _state3.title,
           desc = _state3.desc,
@@ -92863,8 +92865,9 @@ var AddPost = function (_Component) {
           cotagory = _state3.cotagory,
           img = _state3.img;
 
+      console.log("props in add post", this.props);
       if (postAdded) {
-        return _react2.default.createElement(_reactRouterDom.Redirect, { to: "/post/:id" });
+        return _react2.default.createElement(_reactRouterDom.Redirect, { to: "/blog/" + data });
       }
 
       return _react2.default.createElement(
@@ -92917,7 +92920,7 @@ var AddPost = function (_Component) {
                 { className: "inputrow" },
                 _react2.default.createElement(
                   "select",
-                  { name: "cotagory", id: "cotagory", onChange: this.handleChange },
+                  { name: "cotagory", id: "cotagory", onChange: this.handleChange, value: cotagory },
                   _react2.default.createElement(
                     "option",
                     { value: "social" },

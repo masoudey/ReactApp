@@ -8,7 +8,7 @@ import "./login.css";
 const loadData = (props) => {
   console.log(props)
   const {post} = props;
-  props.addPost(regUser)
+  props.addPost(post)
 }
 
 const initialState = {
@@ -51,25 +51,27 @@ class AddPost extends Component {
 
     this.setState({ submitted: true });
     const { title, desc, content, cotagory, img } = this.state;
-    if (username && password) {
-      const post = {
+    const d = Date();
+    const post = {
         title,
         desc,
         content,
         cotagory,
         img,
-      }
+        date: d,
+        userId: this.props.user.id
+    }
       console.log("user", post)
       loadData({post, ...this.props} );
-      
-    }
+  
   }
 
   render() {
     const { addingPost, postAdded, data } = this.props.postById;
     const { title, desc, content, cotagory, img } = this.state;
+    console.log("props in add post", this.props);
       if (postAdded) {
-        return <Redirect to={`/post/:${data}`}></Redirect>
+        return <Redirect to={`/blog/${data}`}></Redirect>
       }
 
     return (
@@ -103,7 +105,7 @@ class AddPost extends Component {
                 />
               </div>
               <div class="inputrow">
-                <select name="cotagory" id="cotagory" onChange={this.handleChange}  >
+                <select name="cotagory" id="cotagory" onChange={this.handleChange} value={cotagory} >
                     <option value="social">Social</option>
                     <option value="healthcare">Healthcare</option>
                     <option value="lifeStyle">Life Style</option>

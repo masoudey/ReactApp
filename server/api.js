@@ -35,8 +35,7 @@ router
 		})
 		.post(function(req, res){
 			var post = req.body;
-			// console.log(post);
-			post.userId = req.user.id;
+			console.log(post);
 
 			db.insert(post, function(err, data){
 				res.json(data);

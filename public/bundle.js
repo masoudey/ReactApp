@@ -92770,9 +92770,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 var loadData = function loadData(props) {
   console.log(props);
-  var post = props.post;
+  var fd = props.fd;
 
-  props.addPost(post);
+  props.addPost(fd);
 };
 
 var initialState = {
@@ -92795,6 +92795,13 @@ var AddPost = function (_Component) {
     // this.props.dispatch(logout());
 
     var _this = _possibleConstructorReturn(this, (AddPost.__proto__ || Object.getPrototypeOf(AddPost)).call(this, props));
+
+    _this.fileSelectedHandler = function (e) {
+      console.log(e.target.files[0]);
+      _this.setState({
+        img: e.target.files[0]
+      });
+    };
 
     _this.state = _extends({}, initialState);
 
@@ -92829,8 +92836,6 @@ var AddPost = function (_Component) {
     key: "handleSubmit",
     value: function handleSubmit(e) {
       e.preventDefault();
-
-      this.setState({ submitted: true });
       var _state2 = this.state,
           title = _state2.title,
           desc = _state2.desc,
@@ -92838,18 +92843,19 @@ var AddPost = function (_Component) {
           cotagory = _state2.cotagory,
           img = _state2.img;
 
-      var d = Date();
-      var post = {
-        title: title,
-        desc: desc,
-        content: content,
-        cotagory: cotagory,
-        img: img,
-        date: d,
-        userId: this.props.user.id
-      };
-      console.log("user", post);
-      loadData(_extends({ post: post }, this.props));
+      this.setState({ submitted: true });
+      var d = new Date().toISOString();
+      var fd = new FormData();
+      fd.append('img', img, img.name);
+      fd.append('title', title);
+      fd.append('desc', desc);
+      fd.append('content', content);
+      fd.append('cotagory', cotagory);
+      fd.append('date', d);
+      fd.append('userId', this.props.user.id);
+
+      console.log("post", fd.entries());
+      loadData(_extends({ fd: fd }, this.props));
     }
   }, {
     key: "render",
@@ -92951,8 +92957,8 @@ var AddPost = function (_Component) {
                   name: "img",
                   id: "img",
                   accept: "image/jpeg",
-                  onChange: this.handleChange,
-                  value: img,
+                  onChange: this.fileSelectedHandler,
+
                   required: true
                 })
               ),

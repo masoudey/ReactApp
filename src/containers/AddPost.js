@@ -7,8 +7,8 @@ import "./login.css";
 
 const loadData = (props) => {
   console.log(props)
-  const {post} = props;
-  props.addPost(post)
+  const {fd} = props;
+  props.addPost(fd)
 }
 
 const initialState = {
@@ -45,24 +45,29 @@ class AddPost extends Component {
     return isInvalid;
   }
 
+  fileSelectedHandler = (e) => {
+      console.log(e.target.files[0]);
+        this.setState({
+            img: e.target.files[0]
+        })
+  }
 
   handleSubmit(e) {
     e.preventDefault();
-
-    this.setState({ submitted: true });
     const { title, desc, content, cotagory, img } = this.state;
-    const d = Date();
-    const post = {
-        title,
-        desc,
-        content,
-        cotagory,
-        img,
-        date: d,
-        userId: this.props.user.id
-    }
-      console.log("user", post)
-      loadData({post, ...this.props} );
+    this.setState({ submitted: true });
+    const d = new Date().toISOString();
+    const fd = new FormData();
+    fd.append('img', img, img.name);
+    fd.append('title', title);
+    fd.append('desc', desc);
+    fd.append('content', content);
+    fd.append('cotagory', cotagory);
+    fd.append('date', d);
+    fd.append('userId', this.props.user.id);
+    
+      console.log("post", fd.entries());
+      loadData({fd, ...this.props} );
   
   }
 
@@ -118,8 +123,8 @@ class AddPost extends Component {
                   name="img"
                   id="img"
                   accept="image/jpeg"
-                  onChange={this.handleChange}
-                  value={img}
+                  onChange={this.fileSelectedHandler}
+                  
                   required
                 />
               </div>

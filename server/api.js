@@ -1,11 +1,38 @@
 import express from 'express';
 import Bourne from 'bourne';
 import bodyParser from 'body-parser';
+import multer from 'multer';
 
 const db = new Bourne('data.json');
 const users = new Bourne('users.json');
 const comments = new Bourne('comments.json');
 const router = express.Router();
+const storage = multer.diskStorage({
+	destination: function(req, file, cb) {
+		cb(null, './public/')
+		console.log("file in multer", file);
+	},
+	filename: function(req, file, cb) {
+		cb(null, file.originalname)
+	}
+});
+
+const filterFile = (req, file, cb) => {
+	if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+		cb(null, true)
+		console.log("file filter works")
+	} else {
+		cb(null, false);
+		console.log("error in file filter")
+	}
+}
+const upload = multer({
+	storage: storage,
+	limits: {
+		fileSize: 1024 *1024* 5
+	},
+	fileFilter: filterFile
+});
 
 router
 	.use(bodyParser.json())
@@ -33,8 +60,11 @@ router
 			
 			res.json(formatPosts);
 		})
-		.post(function(req, res){
+		.post(upload.single('img'), function(req, res){
 			var post = req.body;
+			console.log("req.file", req.file)
+			const fileName = req.file.filename;
+			post.img = fileName;
 			console.log(post);
 
 			db.insert(post, function(err, data){

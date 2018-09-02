@@ -124,9 +124,11 @@ class AddPost extends Component {
                   id="img"
                   accept="image/jpeg"
                   onChange={this.fileSelectedHandler}
-                  
+                  style={{display: 'none'}}
                   required
+                  ref={fileInput => this.fileInput = fileInput}
                 />
+                <button class="btn-log" onClick={() => this.fileInput.click()}>Choose a Picture</button>
               </div>
               <div class="inputrow">
                 <textarea

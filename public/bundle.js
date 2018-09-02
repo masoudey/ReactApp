@@ -92860,6 +92860,8 @@ var AddPost = function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       var _props$postById = this.props.postById,
           addingPost = _props$postById.addingPost,
           postAdded = _props$postById.postAdded,
@@ -92958,9 +92960,19 @@ var AddPost = function (_Component) {
                   id: "img",
                   accept: "image/jpeg",
                   onChange: this.fileSelectedHandler,
-
-                  required: true
-                })
+                  style: { display: 'none' },
+                  required: true,
+                  ref: function ref(fileInput) {
+                    return _this2.fileInput = fileInput;
+                  }
+                }),
+                _react2.default.createElement(
+                  "button",
+                  { className: "btn-log", onClick: function onClick() {
+                      return _this2.fileInput.click();
+                    } },
+                  "Choose a Picture"
+                )
               ),
               _react2.default.createElement(
                 "div",
@@ -93796,7 +93808,10 @@ var callApi = function () {
                             method: method,
                             url: endpoint,
                             data: bodyReq,
-                            proxy: { host: '127.0.0.1', port: 4000 }
+                            proxy: { host: '127.0.0.1', port: 4000 },
+                            onUploadProgress: function onUploadProgress(progressEvent) {
+                                console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%');
+                            }
                         }).then(function (response) {
                             if (response.status !== 200) {
                                 return Promise.reject(response);

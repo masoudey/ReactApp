@@ -13,7 +13,10 @@ const callApi = async (endpoint, schema, method, bodyReq) => {
             method: method,
             url: endpoint,
             data: bodyReq,
-            proxy: { host: '127.0.0.1', port: 4000 }
+            proxy: { host: '127.0.0.1', port: 4000 },
+            onUploadProgress: progressEvent => {
+                console.log('Upload Progress: ' + Math.round(progressEvent.loaded / progressEvent.total * 100) + '%')
+            }
         })
         .then(response => {
             if (response.status !== 200) {

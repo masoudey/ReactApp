@@ -21549,7 +21549,7 @@
       "publicPath": "/bundle.js.map"
     }
   ],
-  "lodash/isPlainObject": [
+  "./isPlainObject": [
     {
       "id": "./node_modules/lodash/isPlainObject.js",
       "name": "./node_modules/lodash/isPlainObject.js",

@@ -19,6 +19,7 @@ const initialState = {
     img: '',
     date: '',
     userId: '',
+    imagePreviewUrl: '',
 }
 
 class AddPost extends Component {
@@ -50,6 +51,11 @@ class AddPost extends Component {
         this.setState({
             img: e.target.files[0]
         })
+        let reader = new FileReader();
+            reader.onload = (e) => {
+                this.setState({imagePreviewUrl: e.target.result});
+            };
+            reader.readAsDataURL(e.target.files[0]);
   }
 
   handleSubmit(e) {
@@ -73,7 +79,7 @@ class AddPost extends Component {
 
   render() {
     const { addingPost, postAdded, data } = this.props.postById;
-    const { title, desc, content, cotagory, img } = this.state;
+    const { title, desc, content, cotagory, img, imagePreviewUrl } = this.state;
     console.log("props in add post", this.props);
       if (postAdded) {
         return <Redirect to={`/blog/${data}`}></Redirect>
@@ -129,6 +135,7 @@ class AddPost extends Component {
                   ref={fileInput => this.fileInput = fileInput}
                 />
                 <button class="btn-log" onClick={() => this.fileInput.click()}>Choose a Picture</button>
+                <img class="imagePreview" src={imagePreviewUrl} />
               </div>
               <div class="inputrow">
                 <textarea

@@ -272,7 +272,13 @@ input:focus {
     /*background: #00a3d9;*/
     /*color:white;*/
 /*}*/
-
+.imagePreview{
+    width: 120px;
+    height: 120px;
+    margin: 5px auto;
+    display: block;
+    border-radius: 15px;
+}
 
 
 

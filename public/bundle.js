@@ -92782,7 +92782,8 @@ var initialState = {
   cotagory: '',
   img: '',
   date: '',
-  userId: ''
+  userId: '',
+  imagePreviewUrl: ''
 };
 
 var AddPost = function (_Component) {
@@ -92801,6 +92802,11 @@ var AddPost = function (_Component) {
       _this.setState({
         img: e.target.files[0]
       });
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        _this.setState({ imagePreviewUrl: e.target.result });
+      };
+      reader.readAsDataURL(e.target.files[0]);
     };
 
     _this.state = _extends({}, initialState);
@@ -92871,7 +92877,8 @@ var AddPost = function (_Component) {
           desc = _state3.desc,
           content = _state3.content,
           cotagory = _state3.cotagory,
-          img = _state3.img;
+          img = _state3.img,
+          imagePreviewUrl = _state3.imagePreviewUrl;
 
       console.log("props in add post", this.props);
       if (postAdded) {
@@ -92972,7 +92979,8 @@ var AddPost = function (_Component) {
                       return _this2.fileInput.click();
                     } },
                   "Choose a Picture"
-                )
+                ),
+                _react2.default.createElement("img", { className: "imagePreview", src: imagePreviewUrl })
               ),
               _react2.default.createElement(
                 "div",

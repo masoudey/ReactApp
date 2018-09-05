@@ -2,6 +2,7 @@ import express from 'express';
 import Bourne from 'bourne';
 import bodyParser from 'body-parser';
 import multer from 'multer';
+import gm from "gm";
 
 const db = new Bourne('data.json');
 const users = new Bourne('users.json');
@@ -16,6 +17,7 @@ const storage = multer.diskStorage({
 		cb(null, file.originalname)
 	}
 });
+
 
 const filterFile = (req, file, cb) => {
 	if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
@@ -62,7 +64,14 @@ router
 		})
 		.post(upload.single('img'), function(req, res){
 			var post = req.body;
-			console.log("req.file", req.file)
+			gm(req.file.path)
+			.resize(480,360)
+			.noProfile()
+			.write('./public/',(err) => {
+				if(err) {
+					res.send('error in resizing file')
+				}
+			})
 			const fileName = req.file.filename;
 			post.img = fileName;
 			console.log(post);

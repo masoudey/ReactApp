@@ -79,9 +79,33 @@ var HomePage = function (_Component) {
                         _react2.default.createElement(
                             _reactIdSwiper2.default,
                             params,
-                            _react2.default.createElement("div", { className: "Slide1" }),
-                            _react2.default.createElement("div", { className: "Slide2" }),
-                            _react2.default.createElement("div", { className: "Slide3" }),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "Slide1" },
+                                _react2.default.createElement(
+                                    "h1",
+                                    null,
+                                    "Web Design"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "Slide2" },
+                                _react2.default.createElement(
+                                    "h1",
+                                    null,
+                                    "SEO"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "Slide3" },
+                                _react2.default.createElement(
+                                    "h1",
+                                    null,
+                                    "Responsive Design"
+                                )
+                            ),
                             _react2.default.createElement("div", { className: "Slide4" }),
                             _react2.default.createElement("div", { className: "Slide5" })
                         )

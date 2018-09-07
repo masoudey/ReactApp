@@ -920,7 +920,7 @@ body {
 
 .content > div:not(.title) {
     margin: -80px auto 0;
-    max-width: 1000px;
+    max-width: 1250px;
     /*padding: 0 1.25em;*/
 }
 #works-block.content > div:not(.title){
@@ -1180,9 +1180,9 @@ body {
     transform: translateY(0);
 }
 
-.intro-effect-jam3 .content {
+/* .intro-effect-jam3 .content {
     padding: 0 5em 5em;
-}
+} */
 
 .intro-effect-jam3 .header,
 .intro-effect-jam3 .content {
@@ -1655,7 +1655,7 @@ figure.effect-phoebe p a:hover {
     }
 }
 .blog .grid li {
-    width: 50%;
+    width: 33.333%;
 }
 @media screen and (max-width: 45em) {
 

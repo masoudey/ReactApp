@@ -146,7 +146,13 @@
     font-size: 15px;
 
 }
+.slider h1 {
+    position: absolute;
+    top: 250px;
+    left: 250px;
+    color: #e9e6df;
 
+}
 .Slide1{background-image: url("../imgs/1.jpg")}
 .Slide2{background-image: url("../imgs/2.jpg")}
 .Slide3{background-image: url("../imgs/3.jpg")}

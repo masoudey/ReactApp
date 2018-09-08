@@ -36,8 +36,8 @@ class HomePage extends Component {
                         <div class="Slide1"><h1>Web Design</h1></div>
                         <div class="Slide2"><h1>SEO</h1></div>
                         <div class="Slide3"><h1>Responsive Design</h1></div>
-                        <div class="Slide4"></div>
-                        <div class="Slide5"></div>
+                        <div class="Slide4"><h1>Responsive Design</h1></div>
+                        <div class="Slide5"><h1>Responsive Design</h1></div>
                         </Swiper>
                     </div>
                 </section>

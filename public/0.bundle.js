@@ -106,8 +106,24 @@ var HomePage = function (_Component) {
                                     "Responsive Design"
                                 )
                             ),
-                            _react2.default.createElement("div", { className: "Slide4" }),
-                            _react2.default.createElement("div", { className: "Slide5" })
+                            _react2.default.createElement(
+                                "div",
+                                { className: "Slide4" },
+                                _react2.default.createElement(
+                                    "h1",
+                                    null,
+                                    "Responsive Design"
+                                )
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "Slide5" },
+                                _react2.default.createElement(
+                                    "h1",
+                                    null,
+                                    "Responsive Design"
+                                )
+                            )
                         )
                     )
                 ),

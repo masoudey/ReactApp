@@ -91669,7 +91669,7 @@ var Header = function (_Component) {
         var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this));
 
         _this.state = {
-            collapsed: false,
+            collapsed: true,
             exposed: false
         };
 
@@ -91706,7 +91706,7 @@ var Header = function (_Component) {
 
             var navClass = collapsed ? "show" : '';
             var toggleBtnClass = collapsed ? '' : 'collapsed';
-            var navBtnClass = exposed || !collapsed ? 'nav-exposed' : '';
+            var navBtnClass = exposed ? 'nav-exposed' : '';
             var user = this.props.user;
 
             return _react2.default.createElement(

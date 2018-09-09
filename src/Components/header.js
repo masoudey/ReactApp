@@ -9,15 +9,11 @@ class Header extends Component {
     constructor() {
         super()
         this.state = {
-            collapsed: false,
+            collapsed: true,
             exposed: false,
         }
 
-       
     }
-
-
-
     toggleCollapse() {
         const collapsed = !this.state.collapsed;
         this.setState({collapsed: collapsed,exposed: true})
@@ -39,11 +35,10 @@ class Header extends Component {
         const { collapsed, exposed } = this.state;
         const navClass = collapsed ? "show" : '';
         const toggleBtnClass = collapsed ? '' : 'collapsed';
-        const navBtnClass = exposed || !collapsed ? 'nav-exposed' : '';
+        const navBtnClass = exposed ? 'nav-exposed' : '';
         const user = this.props.user;
         
         return (
-            
             <header>
                 <nav class="navbar dark navbar-expand-md scrolling fixed-top"  >
                     <a class="navbar-brand" href="/">
@@ -52,7 +47,7 @@ class Header extends Component {
                     <button class={`navbar-toggler ${toggleBtnClass}`} onClick={this.toggleCollapse.bind(this)} data-toggle="collapse" data-target="#reactNavbar">
                         <span class="icon-menu text-primary"></span>
                     </button>
-                    <div class={`collapse navbar-collapse  ${navClass}  ${navBtnClass}` } id="reactNavbar">
+                    <div class={ `collapse navbar-collapse  ${navClass}  ${navBtnClass}` } id="reactNavbar">
                         
                         <ul  class="navbar-nav mr-3 ml-auto" >
                                 
